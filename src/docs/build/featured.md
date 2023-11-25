@@ -1,60 +1,60 @@
 ---
-title: Featured Hacks
-lang: en-US
+title: 特色黑客技巧
+lang: zh-CN
 ---
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不打算用于生产环境
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。你将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手解决问题，无需支持。
 
 :::
 
-## Overview
+## 概述
 
-Featured Hacks is a compilation of some of the cool stuff people are building on top of the OP Stack!
+特色黑客技巧是一些人们在 OP Stack 上构建的酷炫项目的汇编！
 
 ## OPCraft
 
-### Author
+### 作者
 
 [Lattice](https://lattice.xyz/)
 
-### Description
+### 描述
 
-OPCraft was an OP Stack chain that ran a modified EVM as the backend for a fully onchain 3D voxel game built with [MUD](https://mud.dev/).
+OPCraft 是一个在 OP Stack 上运行修改版 EVM 作为后端的完全链上 3D 体素游戏，使用了 [MUD](https://mud.dev/) 构建。
 
-### OP Stack Configuration
+### OP Stack 配置
 
-- Data Availability: Ethereum DA (Goerli)
-- Sequencer: Single Sequencer
-- Derivation: Standard Rollup
-- Execution: Modified Rollup EVM
+- 数据可用性：以太坊 DA（Goerli）
+- 顺序执行器：单一执行器
+- 派生：标准 Rollup
+- 执行：修改版 Rollup EVM
 
-### Links
+### 链接
 
-- [Announcing OPCraft: an Autonomous World built on the OP Stack](https://dev.optimism.io/opcraft-autonomous-world/)
-- [OPCraft Explorer](https://opcraft.mud.dev/)
-- [OPCraft on GitHub](https://github.com/latticexyz/opcraft)
+- [宣布 OPCraft：在 OP Stack 上构建的自治世界](https://dev.optimism.io/opcraft-autonomous-world/)
+- [OPCraft 浏览器](https://opcraft.mud.dev/)
+- [OPCraft 在 GitHub 上的项目](https://github.com/latticexyz/opcraft)
 - [MUD](https://mud.dev/)
 
 ## Ticking Optimism
 
-### Author
+### 作者
 
 [@therealbytes](https://twitter.com/therealbytes)
 
-### Description
+### 描述
 
-Ticking Optimism is a proof-of-concept implementation of an OP Stack chain that calls a `tick` function every block. By using the OP Stack, Ticking Optimism avoids the need for off-chain infrastructure to execute a function on a regular basis. Ticking Conway is a system that uses Ticking Optimism to build [Conway’s Game of Life](https://conwaylife.com/) onchain.
+Ticking Optimism 是一个 OP Stack 链的概念验证实现，它在每个区块中调用一个 `tick` 函数。通过使用 OP Stack，Ticking Optimism 避免了需要离链基础设施定期执行函数的需求。Ticking Conway 是一个使用 Ticking Optimism 在链上构建 [康威生命游戏](https://conwaylife.com/) 的系统。
 
-### OP Stack Configuration
+### OP Stack 配置
 
-- Data Availability: Ethereum DA (any)
-- Sequencer: Single Sequencer
-- Derivation: Standard Rollup with custom `tick` function
-- Execution: Rollup EVM
+- 数据可用性：以太坊 DA（任意）
+- 顺序执行器：单一执行器
+- 派生：带有自定义 `tick` 函数的标准 Rollup
+- 执行：Rollup EVM
 
-### Links
+### 链接
 
-- [Ticking Optimism on GitHub](https://github.com/therealbytes/ticking-optimism)
-- [Ticking Conway on GitHub](https://github.com/therealbytes/ticking-conway)
+- [Ticking Optimism 在 GitHub 上的项目](https://github.com/therealbytes/ticking-optimism)
+- [Ticking Conway 在 GitHub 上的项目](https://github.com/therealbytes/ticking-conway)

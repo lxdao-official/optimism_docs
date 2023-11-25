@@ -1,39 +1,39 @@
 ---
-title: Derivation Hacks
-lang: en-US
+title: 衍生技巧
+lang: zh-CN
 ---
 
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不适用于生产环境
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。你将无法获得 OP Stack Hacks 的重要开发者支持，因此请准备好自己动手解决问题。
 
 :::
 
-## Overview
+## 概述
 
-The Derivation layer is responsible for parsing the raw inputs from the Data Availability layer and converting them into [Engine API](https://github.com/ethereum/execution-apis/tree/main/src/engine) payloads to be sent to the Execution layer. The Derivation Layer is generally tightly coupled to the Data Availability layer because it must understand both the APIs for the Data Availability layer module(s) of choice and the format of the raw data published to the chosen module(s).
+衍生层负责解析来自数据可用性层的原始输入，并将其转换为要发送到执行层的[Engine API](https://github.com/ethereum/execution-apis/tree/main/src/engine)负载。衍生层通常与数据可用性层紧密耦合，因为它必须理解所选模块的数据可用性层的API以及发布到所选模块的原始数据的格式。
 
-## Default
+## 默认值
 
-The default Derivation layer module is the Rollup module. This module derives transactions from three sources: Sequencer transactions, user deposits, and L1 blocks. The Rollup module also enforces certain ordering properties that, for example, guarantee that user deposits are always included in the L2 chain within a certain configurable amount of time.
+默认的衍生层模块是Rollup模块。该模块从三个来源派生交易：顺序交易、用户存款和L1块。Rollup模块还强制执行某些排序属性，例如保证用户存款始终在一定可配置的时间内包含在L2链中。
 
-## Security
+## 安全性
 
-Modifying the Derivation layer can have unintended consequences. For example, removing or extending the time window in which user deposits must be included can allow a Sequencer to censor the L2 chain. Because of the flexibility of the Derivation layer, the exact impact of any change is likely to be unique to the specifics of the change. The negative impacts of any modifications should be carefully considered on a case-by-case basis.
+修改衍生层可能会产生意想不到的后果。例如，删除或扩展用户存款必须包含的时间窗口可以使顺序交易员对L2链进行审查。由于衍生层的灵活性，任何更改的确切影响可能因更改的具体情况而异。应该仔细考虑任何修改的负面影响。
 
-## Modding
+## 修改
 
-### EVM Event-Triggered Transactions
+### EVM事件触发的交易
 
-The default Rollup configuration of the OP Stack includes “deposited” transactions that are triggered whenever a specific event is emitted by the `OptimismPortal` contract on L1. Using the same principle, an OP Stack chain can derive transactions from events emitted by *any* contract on an EVM-based DA. Refer to [attributes.go](https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L70) to understand how deposited transactions are derived and how custom transactions can be created.
+OP Stack的默认Rollup配置包括“存款”交易，每当L1上的`OptimismPortal`合约发出特定事件时触发。使用相同的原理，OP Stack链可以从EVM-based DA上的*任何*合约发出的事件派生交易。请参考[attributes.go](https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L70)以了解如何派生存款交易以及如何创建自定义交易。
 
-### EVM Block-Triggered Transactions
+### EVM块触发的交易
 
-Like with events, transactions on an OP Stack chain can be triggered whenever a new block is published on an EVM-based DA. The default Rollup configuration of the OP Stack already includes a block-triggered transaction in the form of [the “L1 info” transaction](https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L103) that relays information like the latest block hash, timestamp, and base fee into L2. The Getting Started guide demonstrates the addition of a new block-triggered transaction in the form of a new transaction that reports the amount of gas burned via the base fee on L1.
+与事件类似，OP Stack链上的交易可以在EVM-based DA上发布新块时触发。OP Stack的默认Rollup配置已经包含了一个块触发的交易，即[“L1 info”交易](https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L103)，它将最新的块哈希、时间戳和基础费用等信息传递到L2。入门指南演示了如何添加一个新的块触发的交易，以报告通过L1上的基础费用燃烧的气体量。
 
-### And much, much more…
+### 还有更多...
 
-The Derivation layer is one of the most flexible layers of the stack. Transactions can be generated from all sorts of raw input data and can be triggered from all sorts of conditions. You can derive transactions from any piece of data that can be found in the Data Availability layer modules!
+衍生层是堆栈中最灵活的层之一。交易可以从各种原始输入数据生成，并且可以从各种条件触发。您可以从数据可用性层模块中找到的任何数据派生交易！
 
-[Tutorial: Adding attributes to the derivation function](./tutorials/add-attr.md).
+[教程：向衍生函数添加属性](./tutorials/add-attr.md)。
