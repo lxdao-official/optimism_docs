@@ -14,7 +14,7 @@ lang: zh-CN
 OP Stack由Optimism Collective管理和维护的许多不同的软件组件组成，这些组件共同构成了Optimism的骨干。
 OP Stack是为以太坊和Optimism生态系统构建的公共物品。
 
-## OP Stack驱动Optimism
+## OP Stack驱动 Optimism
 
 OP Stack是驱动Optimism的软件集合，目前以Optimism Mainnet背后的软件形式存在，最终将以Optimism Superchain及其治理的形式存在。
 
@@ -25,7 +25,7 @@ OP Stack是驱动Optimism的软件集合，目前以Optimism Mainnet背后的软
 尽管OP Stack今天大大简化了创建L2区块链的过程，但必须要注意，这并不完全定义了OP Stack是什么。
 OP Stack是驱动Optimism的所有软件。随着Optimism的发展，OP Stack也会发展。
 
-**可以将OP Stack视为帮助定义Optimism生态系统特定层的软件组件，或填充现有层中模块的角色。**
+**可以将 OP Stack 视为帮助定义 Optimism 生态系统特定层的软件组件，或填充现有层中模块的角色。**
 尽管OP Stack当前的核心是用于运行L2区块链的基础设施，但理论上，OP Stack还可以扩展到底层区块链之上的各个层面，包括块浏览器、消息传递机制、治理系统等工具。
 
 层次结构在堆栈的底部通常更加紧密定义（如数据可用性层），但在堆栈的顶部变得更加宽松定义（如治理层）。
