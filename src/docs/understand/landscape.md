@@ -1,113 +1,110 @@
 ---
-title: The OP Stack Landscape
-lang: en-US
+title: OP Stack 全貌
+lang: zh-CN
 ---
 
 
-**The OP Stack is a common development stack for building L2 blockchain ecosystems, built by the Optimism Collective to power Optimism.**
+**OP Stack 是一个用于构建 L2 区块链生态系统的常见开发堆栈，由 Optimism Collective 构建以支持 Optimism。**
 
-The OP Stack is best thought of as a collection of software components maintained by the Optimism Collective that either help to define new layers of the stack or fit in as modules within the stack.
+OP Stack 最好被视为 Optimism Collective 维护的一组软件组件，这些组件要么帮助定义堆栈的新层次，要么作为堆栈内的模块适应其中。
 
-Because the OP Stack is a work in progress, the landscape of the different layers and modules is still evolving. 
-This page sketches out the different conceptual layers of the stack as they exist today and introduces some of the modules that fit into those layers. 
-This doesn't include all of the modules or layers that may exist in the future, but gives a good overview of the landscape of the OP Stack today.
+由于 OP Stack 是一个正在进行中的工作，不同层次和模块的景观仍在不断演变。本页面概述了堆栈的不同概念层次，介绍了一些适应这些层次的模块。这并不包括未来可能存在的所有模块或层次，但可以很好地概述 OP Stack 当前的景观。
 
-If you’re interested in learning more about the latest *production* release of the OP Stack, the components of the stack that are highly tested and ready for real-world action, check out the page about the [Bedrock Release](../releases/bedrock.md).
+如果您对了解 OP Stack 的最新“生产”版本感兴趣，即经过高度测试并准备好进行实际操作的堆栈组件，请查看关于 [Bedrock Release](../releases/bedrock.md) 的页面。
 
 ::: warning 
 
-Please note that not all of the modules described on this page already exist in a production state — these are explicitly marked as either “**in development**” or “**proposed**”
+请注意，本页面描述的并非所有模块都已经处于生产状态 - 这些模块明确标记为“**正在开发**”或“**提议**”
 
 :::
 
 
-## Existing Landscape
+## 现有景观
 
-![The OP Stack layers](../../assets/docs/understand/landscape.png)
+![OP Stack 层次结构](../../assets/docs/understand/landscape.png)
 
-## Layers
+## 层次结构
 
-### Data Availability
+### 数据可用性
 
-The Data Availability Layer defines where the raw inputs to an OP Stack based chain are published. An OP Stack chain can use one or more Data Availability module to source its input data. Because an OP Stack chain is derived from the Data Availability Layer, the Data Availability module(s) used have a significant impact on the security model of a system. For example, if a certain piece of data can no longer be retrieved from the Data Availability Layer, it may not be possible to sync the chain.
+数据可用性层定义了 OP Stack 基于链的原始输入数据发布的位置。OP Stack 链可以使用一个或多个数据可用性模块来获取其输入数据。因为 OP Stack 链是从数据可用性层派生的，所以所使用的数据可用性模块对系统的安全模型有重要影响。例如，如果某个数据无法从数据可用性层检索，可能无法同步链。
 
-#### Ethereum DA
+#### 以太坊 DA
 
-Ethereum DA is currently the most widely used Data Availability module for the OP Stack. When using the Ethereum DA module, source data can be derived from any piece of information accessible on the Ethereum blockchain. This includes Ethereum calldata, events, and 4844 data blobs.
+以太坊 DA 目前是 OP Stack 最广泛使用的数据可用性模块。使用以太坊 DA 模块时，源数据可以从以太坊区块链上的任何可访问信息派生。这包括以太坊 calldata、事件和 4844 数据块。
 
-- [Specifications](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#batch-submission-wire-format)
-- [Source code](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-batcher)
+- [规范](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#batch-submission-wire-format)
+- [源代码](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-batcher)
 
-### Sequencing
+### 排序
 
-The Sequencing Layer determines how user transactions on an OP Stack chain are collected and published to the Data Availability Layer module(s) in use. In the default Rollup configuration of the OP Stack, Sequencing is typically handled by a single dedicated Sequencer. Rules defined in the Derivation Layer generally restrict the Sequencer’s ability to withhold transactions for more than a specific period of time. In the proposed future, Sequencing will be modular such that chains can easily select and change the mechanism that controls their current Sequencer.
+排序层确定了 OP Stack 链上的用户交易如何被收集并发布到正在使用的数据可用性层模块。在 OP Stack 的默认 Rollup 配置中，排序通常由单个专用的排序器处理。派生层中定义的规则通常限制了排序器在特定时间段内保留交易的能力。在未来的提案中，排序将是模块化的，这样链可以轻松选择和更改控制其当前排序器的机制。
 
-#### Single Sequencer
+#### 单一排序器
 
-The default Sequencer module for the OP Stack is the Single Sequencer module in which a dedicated actor is given the ability to act as the Sequencer. The Single Sequencer module allows a governance mechanism to determine who may act as the Sequencer at any given time.
+OP Stack 的默认排序器模块是单一排序器模块，其中一个专用的参与者被赋予了充当排序器的能力。单一排序器模块允许治理机制决定在任何给定时间谁可以充当排序器。
 
-#### Multiple Sequencer (proposed)
+#### 多个排序器（提议）
 
-A simple modification to the Single Sequencer module is the Multiple Sequencer module in which the Sequencer at any given time is selected from a pre-defined set of possible actors. Individual OP Stack based chains would be able to determine the exact mechanism that defines the set of possible Sequencers and the mechanism that selects a Sequencer from the set.
+对单一排序器模块的简单修改是多个排序器模块，其中排序器在任何给定时间从预定义的一组可能的参与者中选择。基于 OP Stack 的各个链将能够确定定义可能排序器集合的确切机制以及从集合中选择排序器的机制。
 
-### Derivation
+### 派生
 
-The Derivation Layer defines how the raw data in the Data Availability Layer is processed to form the processed inputs that are sent to the Execution Layer via the standard [Ethereum Engine API](https://github.com/ethereum/execution-apis/blob/94164851c1630ff0a9c31d8d7d3d4fb886e196c0/src/engine/README.md). The Derivation Layer may also use the current system state, as defined by the Execution Layer, to inform the parsing of raw input data. The Derivation Layer can be modified to derive Engine API inputs from many different data sources. The Derivation Layer is typically tied closely to the Data Availability Layer because it must understand how to parse any raw input data.
+派生层定义了数据可用性层中的原始数据如何被处理以形成发送到执行层的经过处理的输入，通过标准的 [Ethereum Engine API](https://github.com/ethereum/execution-apis/blob/94164851c1630ff0a9c31d8d7d3d4fb886e196c0/src/engine/README.md)。派生层还可以使用执行层定义的当前系统状态来解析原始输入数据。派生层可以根据许多不同的数据源派生 Engine API 输入。派生层通常与数据可用性层密切相关，因为它必须了解如何解析任何原始输入数据。
 
 #### Rollup
 
-The Rollup module derives Engine API inputs from Ethereum block data, Sequencer transaction batches, Deposited transaction events, and more.
+Rollup 模块从以太坊区块数据、排序器交易批次、存款交易事件等中派生 Engine API 输入。
 
-- [Specifications](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#l2-chain-derivation-pipeline)
-- [Source code](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node)
+- [规范](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#l2-chain-derivation-pipeline)
+- [源代码](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node)
 
-#### Indexer (proposed)
+#### 索引器（提议）
 
-The Indexer module is a proposed Derivation Layer module that would derive Engine API inputs when transactions are sent to, events are emitted by, or storage is modified in specific smart contracts on a Data Availability Layer module like Ethereum DA.
+索引器模块是一个提议的派生层模块，它将在特定智能合约发送交易、发出事件或修改存储时派生 Engine API 输入，这些智能合约位于类似以太坊 DA 的数据可用性层模块上。
 
-### Execution
+### 执行
 
-The Execution Layer defines the structure of state within an OP Stack system and defines the state transition function that mutates this state. State transitions are triggered when inputs are received from the Derivation Layer via the Engine API. The Execution Layer abstraction opens up the door to EVM modifications or different underlying VMs entirely.
+执行层定义了 OP Stack 系统中的状态结构，并定义了改变该状态的状态转换函数。当从派生层通过 Engine API 接收到输入时，将触发状态转换。执行层的抽象打开了对 EVM 修改或完全不同底层 VM 的可能性。
 
 #### EVM
 
-The EVM is an Execution Layer module that uses the same state representation and state transition function as the Ethereum Virtual Machine. The EVM module in the Ethereum Rollup configuration of the OP Stack is a [lightly modified](https://op-geth.optimism.io/) version of the EVM that adds support for L2 transactions initiated on Ethereum and adds an extra L1 Data Fee to each transaction to account for the cost of publishing transactions to Ethereum.
+EVM 是一个执行层模块，它使用与以太坊虚拟机相同的状态表示和状态转换函数。OP Stack 的以太坊 Rollup 配置中的 EVM 模块是一个轻微修改的 EVM 版本，它增加了对在以太坊上发起的 L2 交易的支持，并为每个交易添加了额外的 L1 数据费用，以应对将交易发布到以太坊的成本。
 
-- [Specifications](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/exec-engine.md) (where it differs from [geth](https://geth.ethereum.org/))
-- [Source code](https://github.com/ethereum-optimism/op-geth/tree/09ade3df6d1d3a4f8f308553825348be132bc960)
+- [规范](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/exec-engine.md)（与 [geth](https://geth.ethereum.org/) 的区别）
+- [源代码](https://github.com/ethereum-optimism/op-geth/tree/09ade3df6d1d3a4f8f308553825348be132bc960)
 
-### Settlement Layer
+### 结算层
 
-The Settlement Layer is a mechanism on external blockchains that establish a **view** of the state of an OP Stack chain on those external chains (including other OP Stack chains). For each OP Stack chain, there may be one or more Settlement mechanisms on one or more external chains. Settlement Layer mechanisms are **read-only** and allow parties external to the blockchain to make decisions based on the state of an OP Stack chain.
+结算层是外部区块链上的机制，用于在这些外部链上（包括其他 OP Stack 链）建立对 OP Stack 链状态的“视图”。对于每个 OP Stack 链，可能存在一个或多个结算机制在一个或多个外部链上。结算层机制是“只读”的，允许区块链外的参与方根据 OP Stack 链的状态做出决策。
 
-The term “Settlement Layer” has its origins in the fact that Settlement Layer mechanisms are often used to handle withdrawals of assets out of a blockchain. This sort of withdrawal system first involves proving the state of the target blockchain to some third-party chain and then processing a withdrawal based on that state. However, the Settlement Layer is not strictly (or even predominantly) financial and, at its core, simply allows a third-party chain to become aware of the state of the target chain.
+“结算层”一词源于结算层机制通常用于处理从区块链中提取资产。这种提取系统首先需要向某个第三方链证明目标链的状态，然后根据该状态进行提取。然而，结算层并不严格（或甚至主要）用于金融目的，它在本质上只是允许第三方链了解目标链的状态。
 
-Once a transaction is published and finalized on the corresponding Data Availability layer, the transaction is also finalized on the OP Stack chain. Short of breaking the underlying Data Availability layer, it can no longer be modified or removed. It may not be accepted by the Settlement Layer yet because the Settlement Layer needs to be able to verify transaction *results*, but the transaction itself is already immutable.
+一旦交易在相应的数据可用性层上发布并最终确定，该交易也在 OP Stack 链上最终确定。除非破坏底层数据可用性层，否则无法修改或删除该交易。尽管结算层可能尚未接受该交易，因为结算层需要能够验证交易的“结果”，但交易本身已经是不可变的。
 
+#### 基于证明的容错机制
 
-#### Attestation-based Fault Proof
+基于证明的容错机制使用乐观协议建立对 OP Stack 链的视图。在一般的乐观结算机制中，**提议者**实体可以提出他们认为是当前有效状态的 OP Stack 链的提议。如果这些提议在一定时间内（“挑战期”）没有被否定，那么机制会假设这些提议是正确的。在特定的 Attestation Proof 机制中，如果一些预定义的参与方提供了与提议中状态不同的有效状态的证明，那么提议可以被否定。这对至少一定数量的预定义参与者的诚实性提出了信任假设。
 
-An Attestation-based Fault Proof mechanism uses an optimistic protocol to establish a view of an OP Stack chain. In optimistic settlement mechanisms generally, **Proposer** entities can propose what they believe to be the current valid state of the OP Stack chain. If these proposals are not invalidated within a certain period of time (the “challenge period”), then the proposals are assumed by the mechanism to be correct. In the Attestation Proof mechanism in particular, a proposal can be invalidated if some threshold of pre-defined parties provide attestations to a valid state that is different than the state in the proposal. This places a trust assumption on the honesty of at least a threshold number of the pre-defined participants.
+- [规范](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/withdrawals.md)（称为[提款交易](https://community.optimism.io/docs/developers/bridge/messaging/#)）
+- [源代码](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts)
 
-- [Specifications](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/withdrawals.md) (called [withdrawal transactions](https://community.optimism.io/docs/developers/bridge/messaging/#))
-- [Source code](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts)
+#### 容错乐观结算（提议）
 
-#### Fault Proof Optimistic Settlement (proposed)
+容错乐观结算机制与当前使用的基于证明的容错机制基本相同，但它用一个无需许可的容错证明过程替代了多签名挑战者。一个正确构建的容错证明应该能够在分配的挑战期内使任何不正确的提议无效。这对容错证明构建的正确性提出了信任假设。目前，容错乐观结算机制的开发工作正在进行中。
 
-A Fault Proof Optimistic Settlement mechanism is mostly identical to the Attestation-based Fault Proof mechanism used today but it replaces the MultiSig challenger with a permissionless fault proving process. A correctly constructed fault proof should be able to invalidate any incorrect proposals during the allocated challenge period. This places a trust assumption on the correctness of the fault proof construction. At this time, work on the development of a Fault Proof  mechanism is well underway. 
+#### 有效性证明结算（提议）
 
-#### Validity Proof Settlement (proposed)
+有效性证明结算机制使用数学证明来证明提议视图的正确性。如果没有有效的证明，提议状态将不被接受。这对有效性证明构建的正确性提出了信任假设。
 
-A Validity Proof Settlement mechanism uses a mathematical proof to attest to the correctness of a proposed view. A proposed state will not be accepted without a valid proof. This places a trust assumption on the correctness of the validity proof construction.
+### 治理
 
-### Governance
+治理层是指用于管理系统配置、升级和设计决策的一般工具和流程。这是一个相对抽象的层，可以包含目标 OP Stack 链上和对其他层产生影响的第三方链上的各种机制。
 
-The Governance Layer refers to the general set of tools and processes used to manage system configuration, upgrades, and design decisions. This is a relatively abstract layer that can contain a wide range of mechanisms on a target OP Stack chain and on third-party chains that impact many of the other layers of the OP Stack.
+#### 多签合约
 
-#### MultiSig Contracts
+多签合约是智能合约，当它们从一些预定义的参与者集合中收到阈值签名时执行操作。这通常用于管理基于 OP Stack 的系统组件的升级。目前，这是在 Optimism Mainnet 上管理桥接合约升级的机制。多签合约系统的安全性取决于许多不同因素，包括参与者的数量、阈值和每个参与者的安全程序。
 
-MultiSig Contracts are smart contracts that carry out actions when they receive a threshold of signatures from some pre-defined set of participants. These are often used to manage upgrades of components of an OP Stack based system. Currently, this is the mechanism used to manage upgrades of the bridge contracts on Optimism Mainnet. The security of a MultiSig Contract system depends on many different factors, including the number of participants, the threshold, and the safety procedures of each individual participant.
+#### 治理代币
 
-#### Governance Tokens
-
-Governance Tokens are widely used to decentralize decision making. Although the exact functionality of a Governance Token varies on a case-by-case basis, the most common mechanisms allow token holders to vote on some subset of decisions that a project must make. Voting can either be carried out directly or via delegation.
+治理代币被广泛用于去中心化的决策制定。尽管治理代币的确切功能因情况而异，但最常见的机制允许代币持有者对项目必须做出的一些决策进行投票。投票可以直接进行或通过委托进行。
