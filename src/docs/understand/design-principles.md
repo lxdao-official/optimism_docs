@@ -1,60 +1,58 @@
 ---
-title: Design Principles for USEful Software
-lang: en-US
+title: 为有用软件而设计的原则
+lang: zh-CN
 ---
 
 
-::: tip The OP Stack is USEful software
+::: tip OP Stack是有用软件(Useful Software)
 
-The OP Stack is a set of software components for building L2 blockchain ecosystems, built by the Optimism Collective to power Optimism. 
-Components to be added to the OP Stack should be built according to three key design principles: 
-- **U**tility
-- **S**implicity
-- **E**xtensibility. 
+OP Stack是由Optimism Collective创建的用于构建L2区块链生态系统的一组软件组件，用于支持Optimism。
+添加到OP Stack中的组件应根据三个关键设计原则构建：
+- **U**tility（实用性）
+- **S**implicity（简单性）
+- **E**xtensibility（可扩展性）。
 
-Software that follows these principles is **USE**ful software for the Optimism Collective!
+遵循这些原则设计的软件是Optimism Collective认可的有用软件！
 
 ::: 
 
-## Utility
+## 实用性
 
-For something to be part of the OP Stack, it should help power the Optimism Collective. 
-This condition helps guide the type of software that can be included in the stack. 
-For instance, a powerful open-source block explorer that makes it easier for users to inspect [the Superchain](https://app.optimism.io/superchain/) would be a great addition to the OP Stack.
+要成为OP Stack的一部分，它应该有助于支持Optimism Collective。
+这个条件有助于指导可以包含在堆栈中的软件类型。
+例如，一个功能强大的开源区块浏览器，可以更轻松地检查[Superchain](https://app.optimism.io/superchain/)，将是OP Stack的一个很好的补充。
 
-Although utility is important for inclusion in the OP Stack, you shouldn’t be afraid to experiment. 
-Do something crazy. 
-Build something that’s never been built before, even if it doesn’t have any clear utility. Make a blockchain for Emojis, or whatever. Have fun! 
+尽管实用性对于包含在OP Stack中很重要，但你不应该害怕尝试。
 
-## Simplicity
+做一些疯狂的事情！构建以前从未构建过的东西，即使它没有明显的实用性。制作一个表情符号的区块链，或者其他什么。玩得开心！
 
-Complex code does not scale. 
-Code that makes it into the OP Stack should be simple.
+## 简单性
 
-Simplicity reduces engineering overhead, which in turn means the Collective can spend its time working on new features instead of re-creating existing ones. 
-The OP Stack prefers to use existing battle-tested code and infrastructure where possible. 
-The most visible example of this philosophy in practice is the choice to use Geth as the OP Stack’s default execution engine.
+复杂的代码无法扩展。
+进入OP Stack的代码应该是简单的。
 
-When dealing with critical infrastructure, simplicity is also security and maintainability. 
-Every line of code written is an opportunity to introduce bugs and vulnerabilities. 
-A simple protocol means there's less code to write and, as a result, less surface area for potential mistakes. 
-A clean and minimal codebase is also more accessible to external contributors and auditors. 
-All of this serves to maximize the security and correctness of the OP Stack.
+简单性减少了工程开销，这意味着Collective可以将时间花在开发新功能上，而不是重新创建现有功能。
+OP Stack更喜欢在可能的情况下使用经过实战验证的现有代码和基础设施。
+在处理关键基础设施时，简单性也意味着安全性和可维护性。
+每一行编写的代码都是引入错误和漏洞的机会。
+简单的协议意味着需要编写的代码更少，因此潜在错误的表面积也更小。
+干净和简约的代码库对于外部贡献者和审计人员来说也更易于理解。
+所有这些都有助于最大化OP Stack的安全性和正确性。
 
-## Extensibility
+## 可扩展性
 
-Good OP Stack code is inherently open, collaborative, and extensible. 
-Collaboration allows us to break out of siloed development. 
-Collaboration allows us to spend more time building on top of one another's work and less time rebuilding the same components over and over again. 
-Collaboration is how we win, *together*.
+优秀的OP Stack代码本质上是开放的、协作的和可扩展的。
+协作使我们能够摆脱孤立的开发。
+协作使我们能够花更多时间在彼此的工作基础上构建，而不是一遍又一遍地重建相同的组件。
+协作是我们共同取胜的方式。
 
-Extensible code should be designed with the mindset that others will want to build with and on top of that code. 
-In practice, this means that the code should be open source (under a permissive license), expose clean APIs, and generally be modular such that another developer can relatively easily extend the functionality of the code. 
-Extensibility is a key design principle that unlocks the superpower of collaboration within the Optimism Collective ecosystem.
+可扩展的代码应该以其他人希望使用和构建在该代码之上的心态来设计。
+实际上，这意味着代码应该是开源的（采用宽松的许可证），公开干净的API，并且通常应该是模块化的，以便其他开发人员可以相对容易地扩展代码的功能。
+可扩展性是解锁Optimism Collective生态系统内协作的关键设计原则。
 
-## Contributing to the OP Stack
+## 贡献给OP Stack
 
-The OP Stack is a decentralized software stack that anyone can contribute to. 
-If you're interested in contributing to the OP Stack, check out [the Contributing section of these docs](../contribute.md).
-Of course, software that has impact for the Optimism Collective can receive [Retroactive Public Goods Funding](https://app.optimism.io/retropgf). 
-Build for the OP Stack — get rewarded for writing great open source software. What's not to love?
+OP Stack是一个任何人都可以贡献的去中心化软件堆栈。
+如果您有兴趣为OP Stack做出贡献，请查看[这些文档的贡献部分](../contribute.md)。
+当然，对Optimism Collective有影响的软件可以获得[回溯性公共物品资助](https://app.optimism.io/retropgf)。
+为OP Stack构建-为编写优秀的开源软件而获得奖励。有什么不喜欢的呢？

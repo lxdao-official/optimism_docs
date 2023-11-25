@@ -121,7 +121,7 @@ module.exports = {
           '/',
           [
             '/docs/understand/design-principles.md',
-            'Design Principles'
+            '设计原则'
           ],
           '/docs/understand/landscape.md',
           '/docs/understand/explainer.md'

@@ -1,122 +1,123 @@
 ---
-title: Configuration
-lang: en-US
+title: 配置
+lang: zh-CN
 ---
 
-The OP Stack is a flexible platform with various configuration values that you can tweak to fit your specific needs. If you’re looking to fine-tune your deployment, look no further.
+OP Stack是一个灵活的平台，具有各种配置值，您可以根据自己的特定需求进行调整。如果您想要微调部署，请继续阅读。
 
-::: warning 🚧 Work in Progress
+::: warning 🚧 施工中
 
-OP Stack configuration is an active work in progress and will likely evolve significantly as time goes on. If something isn’t working with your configuration, check back with this page to see if anything has changed.
+OP Stack配置正在积极进行中，并且随着时间的推移可能会有重大变化。如果您的配置有问题，请随时查看此页面以了解是否有任何更改。
 
 :::
 
-## New Blockchain Configuration
+## 新的区块链配置
 
-New OP Stack blockchains are currently configured with a JSON file inside the Optimism repository. The file is `<optimism repository>/packages/contracts-bedrock/deploy-config/<chain name>.json`. For example, [this is the configuration file for the tutorial blockchain](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/deploy-config/getting-started.json). 
+新的OP Stack区块链目前使用Optimism存储库中的JSON文件进行配置。该文件是`<optimism repository>/packages/contracts-bedrock/deploy-config/<chain name>.json`。例如，[这是教程区块链的配置文件](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/deploy-config/getting-started.json)。
 
 
-### Admin accounts
+### 管理员账户
 
-| Key | Type | Description | Default / Recommended value |
+| 键 | 类型 | 描述 | 默认值 / 推荐值 |
 | --- | --- | --- | --- |
-| `finalSystemOwner` | L1 Address | Address that will own all ownable contracts on L1 once the deployment is finished, including the `ProxyAdmin` contract. | It is recommended to have a single admin account to retain a common security model. |
-| `controller` | L1 Address | Address that will own the `SystemDictator` contract and can therefore control the flow of the deployment or upgrade.  | It is recommended to have a single admin account to retain a common security model. |
-| `proxyAdminOwner` | L2 Address | Address that will own the `ProxyAdmin` contract on L2. The L2 `ProxyAdmin` contract owns all of the `Proxy` contracts for every predeployed contract in the range `0x42...0000` to `0x42..2048`. This makes predeployed contracts easily upgradeable. | It is recommended to have a single admin account to retain a common security model. |
+| `finalSystemOwner` | L1地址 | 部署完成后将拥有L1上所有可拥有合约的地址，包括`ProxyAdmin`合约。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
+| `controller` | L1地址 | 将拥有`SystemDictator`合约并因此可以控制部署或升级的地址。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
+| `proxyAdminOwner` | L2地址 | 将拥有L2上的`ProxyAdmin`合约的地址。L2 `ProxyAdmin`合约拥有范围在`0x42...0000`到`0x42..2048`之间的所有预部署合约的`Proxy`合约。这使得预部署合约可以轻松升级。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
 
 
-### Fee recipients
+### 手续费接收者
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `baseFeeVaultRecipient` | L1 or L2 Address | Address that the base fees from all transactions on the L2 can be withdrawn to. | It is recommended to have a single admin account to retain a common security model. |
-| `l1FeeVaultRecipient` | L1 or L2 Address | Address that the L1 data fees from all transactions on the L2 can be withdrawn to. | It is recommended to have a single admin account to retain a common security model. |
-| `sequencerFeeVaultRecipient` | L1 or L2 Address | Address that the tip fees from all transactions on the L2 can be withdrawn to. | It is recommended to have a single admin account to retain a common security model. |
+| `baseFeeVaultRecipient` | L1或L2地址 | L2上所有交易的基础手续费可以提取到的地址。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
+| `l1FeeVaultRecipient` | L1或L2地址 | L2上所有交易的L1数据费用可以提取到的地址。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
+| `sequencerFeeVaultRecipient` | L1或L2地址 | L2上所有交易的小费可以提取到的地址。 | 推荐使用单个管理员账户以保持统一的安全模型。 |
 
-### Minimum Fee Withdrawal Amounts
+### 最小提款金额
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `baseFeeVaultMinimumWithdrawalAmount` | Number in wei | The minimum amount of funds the `BaseFeeVault` contract must have for a fee withdrawal. | 10 ether |
-| `l1FeeVaultMinimumWithdrawalAmount` | Number in wei | The minimum amount of funds the `L1FeeVault` contract must have for a fee withdrawal. | 10 ether |
-| `sequencerFeeVaultWithdrawalAmount` | Number in wei | The minimum amount of funds the `SequencerFeeVault` contract must have for a fee withdrawal. | 10 ether |
+| `baseFeeVaultMinimumWithdrawalAmount` | 以wei为单位的数字 | `BaseFeeVault`合约进行手续费提款所需的最小金额。 | 10 ether |
+| `l1FeeVaultMinimumWithdrawalAmount` | 以wei为单位的数字 | `L1FeeVault`合约进行手续费提款所需的最小金额。 | 10 ether |
+| `sequencerFeeVaultWithdrawalAmount` | 以wei为单位的数字 | `SequencerFeeVault`合约进行手续费提款所需的最小金额。 | 10 ether |
 
-### Withdrawal Network
+### 提款网络
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `baseFeeVaultWithdrawalNetwork` | Number representing network enum | A value of `0` will withdraw funds to the recipient address on L1 and a value of `1` will withdraw funds to the recipient address on L2. |
-| `l1FeeVaultWithdrawalNetwork` | Number representing network enum | A value of `0` will withdraw funds to the recipient address on L1 and a value of `1` will withdraw funds to the recipient address on L2. |
-| `sequencerFeeVaultWithdrawalNetwork` | Number representing network enum | A value of `0` will withdraw funds to the recipient address on L1 and a value of `1` will withdraw funds to the recipient address on L2. |
+| `baseFeeVaultWithdrawalNetwork` | 表示网络枚举的数字 | 值为`0`将资金提取到L1上的接收地址，值为`1`将资金提取到L2上的接收地址。 |
+| `l1FeeVaultWithdrawalNetwork` | 表示网络枚举的数字 | 值为`0`将资金提取到L1上的接收地址，值为`1`将资金提取到L2上的接收地址。 |
+| `sequencerFeeVaultWithdrawalNetwork` | 表示网络枚举的数字 | 值为`0`将资金提取到L1上的接收地址，值为`1`将资金提取到L2上的接收地址。 |
 
-### Misc.
+### 杂项
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `numDeployConfirmations` | Number of blocks | Number of confirmations to wait when deploying smart contracts to L1. | 1 |
-| `l1StartingBlockTag` | Block hash | Block tag for the L1 block where the L2 chain will begin syncing from. Generally recommended to use a finalized block to avoid issues with reorgs.  |  |
-| `l1ChainID` | Number | Chain ID of the L1 chain. | 1 for L1 Ethereum mainnet, <br> 5 for the Goerli test network. <br> [See here for other blockchains](https://chainlist.org/?testnets=true). |
-| `l2ChainID` | Number | Chain ID of the L2 chain. | 42069 |
+| `numDeployConfirmations` | 区块数量 | 在部署智能合约到L1时等待的确认数。 | 1 |
+| `l1StartingBlockTag` | 区块哈希 | L2链开始同步的L1区块标签。通常建议使用已经最终化的区块，以避免重组问题。 |  |
+| `l1ChainID` | 数字 | L1链的链ID。 | 1表示L1以太坊主网，<br> 5表示Goerli测试网络。 <br> [点击此处查看其他区块链](https://chainlist.org/?testnets=true)。 |
+| `l2ChainID` | 数字 | L2链的链ID。 | 42069 |
 
 
-### Blocks
+### 区块
 
-These fields apply to L2 blocks: Their timing, when do they need to be written to L1, and how they get written.
+这些字段适用于L2区块：它们的时间、何时需要写入L1以及如何写入。
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `l2BlockTime` | Number of seconds | Number of seconds between each L2 block. Must be <= L1 block time (12 on mainnet and Goerli) | 2 |
-| `maxSequencerDrift` | Number of seconds | How far the L2 timestamp can differ from the actual L1 timestamp | 600 (10 minutes) |
-| `sequencerWindowSize` | Number of blocks | Maximum number of L1 blocks that a Sequencer can wait to incorporate the information in a specific L1 block. For example, if the window is `10` then the information in L1 block `n` must be incorporated by L1 block `n+10`. | 3600 (12 hours) |
-| `channelTimeout` | Number of blocks | Maximum number of L1 blocks that a transaction channel frame can be considered valid. A transaction channel frame is a chunk of a compressed batch of transactions. After the timeout, the frame is dropped. | 300 (1 hour) |
-| `p2pSequencerAddress` | L1 Address | Address of the key that the Sequencer uses to sign blocks on the p2p network. | Sequencer, an address for which you own the private key |
-| `batchInboxAddress` | L1 Address | Address that Sequencer transaction batches are sent to on L1. | 0xff00…0042069 |
-| `batchSenderAddress` | L1 Address | Address of the account that nodes will filter for when searching for Sequencer transaction batches being sent to the `batchInboxAddress`. Can be updated later via the `SystemConfig` contract on L1. | Batcher, an address for which you own the private key |
+| `l2BlockTime` | 秒数 | 每个L2区块之间的秒数。必须小于等于L1区块时间（主网和Goerli上为12秒）。 | 2 |
+| `maxSequencerDrift` | 秒数 | L2时间戳与实际L1时间戳之间的最大差距。 | 600（10分钟） |
+| `sequencerWindowSize` | 区块数量 | Sequencer可以等待将特定L1区块中的信息合并的最大L1区块数。例如，如果窗口为`10`，则必须在L1区块`n+10`之前将L1区块`n`中的信息合并。 | 3600（12小时） |
+| `channelTimeout` | 区块数量 | 事务通道帧被视为有效的最大L1区块数。事务通道帧是一批压缩的事务的一部分。超过超时时间后，帧将被丢弃。 | 300（1小时） |
+| `p2pSequencerAddress` | L1地址 | Sequencer在p2p网络上用于签署区块的密钥地址。 | Sequencer，您拥有私钥的地址 |
+| `batchInboxAddress` | L1地址 | Sequencer事务批次发送到的L1地址。 | 0xff00…0042069 |
+| `batchSenderAddress` | L1地址 | 节点在搜索发送到`batchInboxAddress`的Sequencer事务批次时要过滤的账户地址。可以通过L1上的`SystemConfig`合约稍后进行更新。 | Batcher，您拥有私钥的地址 |
 
 
-### Proposal fields
+### 提案字段
 
-These fields apply to output root proposals.
+这些字段适用于输出根提案。
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `l2OutputOracleStartingBlockNumber` | Number | Block number of the first OP Stack block. Typically this should be zero, but this may be non-zero for networks that have been upgraded from a legacy system (like Optimism Mainnet). Will be removed with the addition of permissionless proposals. | 0 |
-| `l2OutputOracleStartingTimestamp` | Number | Timestamp of the first OP Stack block. This MUST be the timestamp corresponding to the block defined by the `l1StartingBlockTag`. Will be removed with the addition of permissionless proposals. |  |
-| `l2OutputOracleSubmissionInterval` | Number of blocks | Number of blocks between proposals to the `L2OutputOracle`. Will be removed with the addition of permissionless proposals. | 120 (24 minutes) |
-| `finalizationPeriodSeconds` | Number of seconds | Number of seconds that a proposal must be available to challenge before it is considered finalized by the `OptimismPortal` contract. | We recommend 12 on test networks, seven days on production ones |
-| `l2OutputOracleProposer` | L1 Address | Address that is allowed to submit output proposals to the `L2OutputOracle` contract. Will be removed when we have permissionless proposals. |  |
-| `l2OutputOracleChallenger` | L1 Address | Address that is allowed to challenge output proposals submitted to the `L2OutputOracle`. Will be removed when we have permissionless challenges. | It is recommended to have a single admin account to retain a common security model. |
+| `l2OutputOracleStartingBlockNumber` | 数字 | 第一个OP Stack块的区块号。通常应为零，但对于已从传统系统（如Optimism Mainnet）升级的网络可能为非零值。将在添加无权限提案时删除。 | 0 |
+| `l2OutputOracleStartingTimestamp` | 数字 | 第一个OP Stack块的时间戳。这必须是与`l1StartingBlockTag`定义的块对应的时间戳。将在添加无权限提案时删除。 |  |
+
+| `l2OutputOracleSubmissionInterval` | 区块数 | 提交给`L2OutputOracle`的提案之间的区块数。将在添加无权限提案时删除。 | 120（24分钟） |
+| `finalizationPeriodSeconds` | 秒数 | 提案在被`OptimismPortal`合约认为已最终化之前，必须可供挑战的秒数。 | 我们建议在测试网络上为12秒，在生产网络上为七天 |
+| `l2OutputOracleProposer` | L1地址 | 允许向`L2OutputOracle`合约提交输出提案的地址。在添加无权限提案时将被删除。 |  |
+| `l2OutputOracleChallenger` | L1地址 | 允许挑战提交给`L2OutputOracle`的输出提案的地址。在添加无权限挑战时将被删除。 | 建议使用单个管理员帐户以保持统一的安全模型。 |
 
 
 
-### L1 data fee
+### L1数据费用
 
-These fields apply to the cost of the [L1 data fee](https://community.optimism.io/docs/developers/build/transaction-fees/#the-l1-data-fee) for L2 transactions.
+这些字段适用于[L2交易的L1数据费用](https://community.optimism.io/docs/developers/build/transaction-fees/#the-l1-data-fee)。
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `gasPriceOracleOverhead` | Number | Fixed L1 gas overhead per transaction. Default value will likely be adjusted with more information from the Optimism Goerli deployment. | 2100 |
-| `gasPriceOracleScalar` | Number | Dynamic L1 gas overhead per transaction, given in 6 decimals. Default value of 1000000 implies a dynamic gas overhead of exactly 1x (no overhead). | 1000000 |
+| `gasPriceOracleOverhead` | 数字 | 每笔交易的固定L1燃气开销。默认值可能会根据来自Optimism Goerli部署的更多信息进行调整。 | 2100 |
+| `gasPriceOracleScalar` | 数字 | 每笔交易的动态L1燃气开销，以6位小数表示。默认值为1000000，表示动态燃气开销为1x（无开销）。 | 1000000 |
 
 
 ### EIP 1559 gas algorithm
 
-These fields apply to [the EIP 1559 algorithm](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) used for the [L2 execution costs](https://community.optimism.io/docs/developers/build/transaction-fees/#the-l2-execution-fee) of transactions on the blockchain.
+这些字段适用于在区块链上用于[L2执行成本](https://community.optimism.io/docs/developers/build/transaction-fees/#the-l2-execution-fee)的[EIP 1559算法](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)。
 
-| Key | Type | Description | Default value | Value on L1 Ethereum |
+| 键 | 类型 | 描述 | 默认值 | L1以太坊上的值 |
 | --- | --- | --- | --- | --- |
-| `eip1559Denominator` | Number | Denominator used for the [EIP1559 gas pricing mechanism on L2](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). A larger denominator decreases the amount by which the base fee can change in a single block. | 50 | 8 |
-| `eip1559Elasticity` | Number | Elasticity for the [EIP1559 gas pricing mechanism on L2](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). A larger elasticity increases the maximum allowable gas limit per block. | 10 | 2 |
-| `l2GenesisBlockGasLimit` | String | Initial block gas limit, represented as a hex string. Default is 25m, implying a 2.5m target when combined with a 10x elasticity. | 0x17D7840 |  |
-| `l2GenesisBlockBaseFeePerGas` | String | Initial base fee, used to avoid an unstable EIP1559 calculation out of the gate. Initial value is 1 gwei. | 0x3b9aca00 |  |
+| `eip1559Denominator` | 数字 | 用于[L2上的EIP1559燃气定价机制](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)的分母。较大的分母减少了基础费用在单个区块中的变化量。 | 50 | 8 |
+| `eip1559Elasticity` | 数字 | 用于[L2上的EIP1559燃气定价机制](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)的弹性。较大的弹性增加了每个区块的最大允许燃气限制。 | 10 | 2 |
+| `l2GenesisBlockGasLimit` | 字符串 | 初始区块燃气限制，表示为十六进制字符串。默认值为25m，与10倍弹性结合时，表示2.5m的目标。 | 0x17D7840 |  |
+| `l2GenesisBlockBaseFeePerGas` | 字符串 | 初始基础费用，用于避免初始时不稳定的EIP1559计算。初始值为1 gwei。 | 0x3b9aca00 |  |
 
 
-### Governance token
+### 治理代币
 
-The governance token is a side-effect of use of the OP Stack in the Optimism Mainnet network. It may not be included by default in future releases.
+治理代币是在Optimism Mainnet网络中使用OP Stack的副作用。未来的版本可能不会默认包含它。
 
-| Key | Type | Description | Default value |
+| 键 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| `governanceTokenOwner` | L2 Address | Address that will own the token contract deployed by default to every OP Stack based chain.  |  |
-| `governanceTokenSymbol` | String | Symbol for the token deployed by default to each OP Stack chain. | OP |
-| `governanceTokenName` | String | Name for the token deployed by default to each OP Stack chain. | Optimism |
+| `governanceTokenOwner` | L2地址 | 拥有默认部署到每个OP Stack基于链上的代币合约的地址。  |  |
+| `governanceTokenSymbol` | 字符串 | 默认部署到每个OP Stack链上的代币的符号。 | OP |
+| `governanceTokenName` | 字符串 | 默认部署到每个OP Stack链上的代币的名称。 | Optimism |
