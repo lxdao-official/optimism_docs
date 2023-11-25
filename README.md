@@ -3,8 +3,9 @@
 [![Discord](https://img.shields.io/discord/667044843901681675.svg?color=768AD4&label=discord&logo=https%3A%2F%2Fdiscordapp.com%2Fassets%2F8c9701b98ad4372b58f13fd9f65f966e.svg)](https://discord.gg/optimism)
 [![Twitter Follow](https://img.shields.io/twitter/follow/optimismPBC.svg?label=optimismPBC&style=social)](https://twitter.com/optimismPBC)
 
-The OP Stack is an open, collectively maintained development stack for blockchain ecosystems.
-This repository contains the source code for the [OP Stack Docs](https://stack.optimism.io).
+OP Stack是一个开放的、集体维护的区块链生态系统开发堆栈。该存储库包含[OP Stack中文文档](https://stack.optimism.io)的源代码。
+
+> 本仓库中文文档由LXDAO翻译，目前已翻译部分关键的入门文档，剩余的翻译工作仍在持续推进中。
 
 ## Development
 
