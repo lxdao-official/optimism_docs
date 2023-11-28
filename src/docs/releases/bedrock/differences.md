@@ -29,114 +29,110 @@ lang: zh-CN
 
 :::
 
-### Accessing L1 information
+### 访问L1信息
 
-If you need the equivalent information from the latest L1 block, you can get it from [the `L1Block` contract](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L2/L1Block.sol).
-This contract is a predeploy at address [`0x4200000000000000000000000000000000000015`](https://goerli-optimism.etherscan.io/address/0x4200000000000000000000000000000000000015).
-You can use [the getter functions](https://docs.soliditylang.org/en/v0.8.12/contracts.html#getter-functions) to get these parameters:
+如果您需要从最新的L1区块获取等效信息，可以从[L1Block合约](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L2/L1Block.sol)中获取。
+该合约是一个预部署合约，地址为[`0x4200000000000000000000000000000000000015`](https://goerli-optimism.etherscan.io/address/0x4200000000000000000000000000000000000015)。
+您可以使用[getter函数](https://docs.soliditylang.org/en/v0.8.12/contracts.html#getter-functions)获取这些参数：
 
-- `number`: The latest L1 block number known to L2
-- `timestamp`: The timestamp of the latest L1 block
-- `basefee`: The base fee of the latest L1 block
-- `hash`: The hash of the latest L1 block
-- `sequenceNumber`: The number of the L2 block within the epoch (the epoch changes when there is a new L1 block)
+- `number`：L2已知的最新L1区块号
+- `timestamp`：最新L1区块的时间戳
+- `basefee`：最新L1区块的基础费用
+- `hash`：最新L1区块的哈希值
+- `sequenceNumber`：L2区块在时期内的编号（当有新的L1区块时，时期会更改）
 
-### Address Aliasing
+### 地址别名
 
 <details>
 
-Because of the behavior of the `CREATE` opcode, it is possible for a user to create a contract on L1 and on L2 that share the same address but have different bytecode.
-This can break trust assumptions, because one contract may be trusted and another be untrusted (see below).
-To prevent this problem the behavior of the `ORIGIN` and `CALLER` opcodes (`tx.origin` and `msg.sender`) differs slightly between L1 and L2.
+由于`CREATE`操作码的行为，用户可以在L1和L2上创建具有相同地址但具有不同字节码的合约。
+这可能会破坏信任假设，因为一个合约可能被信任，而另一个合约可能不被信任（见下文）。
+为了防止这个问题，在L1和L2之间，`ORIGIN`和`CALLER`操作码（`tx.origin`和`msg.sender`）的行为略有不同。
 
-The value of `tx.origin` is determined as follows:
+`tx.origin`的值如下确定：
 
-
-| Call source                        | `tx.origin`                                |
+| 调用来源                           | `tx.origin`                                |
 | ---------------------------------- | ------------------------------------------ | 
-| L2 user (Externally Owned Account) | The user's address (same as in Ethereum)   |
-| L1 user (Externally Owned Account) | The user's address (same as in Ethereum)   |
-| L1 contract (using `CanonicalTransactionChain.enqueue`) | `L1_contract_address + 0x1111000000000000000000000000000000001111` |
+| L2用户（外部拥有的账户）           | 用户的地址（与以太坊相同）                 |
+| L1用户（外部拥有的账户）           | 用户的地址（与以太坊相同）                 |
+| L1合约（使用`CanonicalTransactionChain.enqueue`） | `L1_contract_address + 0x1111000000000000000000000000000000001111` |
+
+在顶层（即第一个被调用的合约）的`msg.sender`的值始终等于`tx.origin`。
+因此，如果`tx.origin`的值受到上述规则的影响，顶层的`msg.sender`值也会受到影响。
+
+请注意，通常情况下，[`tx.origin`不应用于授权](https://docs.soliditylang.org/en/latest/security-considerations.html#tx-origin)。
+然而，这与地址别名是一个独立的问题，因为地址别名也会影响`msg.sender`。
 
 
-The value of `msg.sender` at the top-level (the very first contract being called) is always equal to `tx.origin`.
-Therefore, if the value of `tx.origin` is affected by the rules defined above, the top-level value of `msg.sender` will also be impacted.
+#### 为什么地址别名是一个问题？
 
-Note that in general, [`tx.origin` should *not* be used for authorization](https://docs.soliditylang.org/en/latest/security-considerations.html#tx-origin). 
-However, that is a separate issue from address aliasing because address aliasing also affects `msg.sender`.
+两个相同的源地址（L1合约和L2合约）的问题在于我们基于地址来扩展信任。
+我们可能希望信任其中一个合约，但不信任另一个合约。
 
+1. Helena Hacker分叉[Uniswap](https://uniswap.org/)创建了自己的交易所（在L2上），名为Hackswap。
 
+   **注意：**实际上Uniswap中有多个合约，所以这个解释有点简化。
+   [如果您想要更多详细信息，请参阅此处](https://ethereum.org/en/developers/tutorials/uniswap-v2-annotated-code/)。
 
-#### Why is address aliasing an issue?
+2. Helena Hacker为Hackswap提供了流动性，看起来可以进行有利可图的套利机会。
+   例如，她可以使您可以花费1个[DAI](https://www.coindesk.com/price/dai/)购买1.1个[USDT](https://www.coindesk.com/price/tether/)。
+   这两种代币都应该价值正好1美元。
 
+3. Nimrod Naive知道如果某事看起来太好了，那可能就是假的。
+   然而，他检查了Hackswap合约的字节码，并验证它与Uniswap完全相同。
+   他决定这意味着该合约可以被信任，行为与Uniswap完全相同。
 
-The problem with two identical source addresses (the L1 contract and the L2 contract) is that we extend trust based on the address.
-It is possible that we will want to trust one of the contracts, but not the other.
+4. Nimrod为Hackswap合约批准了1000个DAI的津贴。
+   Nimrod期望调用Hackswap的交换函数，并收到近1100个USDT。
 
-1. Helena Hacker forks [Uniswap](https://uniswap.org/) to create her own exchange (on L2), called Hackswap.
-
-   **Note:** There are actually multiple contracts in Uniswap, so this explanation is a bit simplified.
-   [See here if you want additional details](https://ethereum.org/en/developers/tutorials/uniswap-v2-annotated-code/).
-
-1. Helena Hacker provides Hackswap with liquidity that appears to allow for profitable arbitrage opportunities.
-   For example, she can make it so that you can spend 1 [DAI](https://www.coindesk.com/price/dai/)to buy 1.1 [USDT](https://www.coindesk.com/price/tether/).
-   Both of those coins are supposed to be worth exactly $1. 
-
-1. Nimrod Naive knows that if something looks too good to be true it probably is.
-   However, he checks the Hackswap contract's bytecode and verifies it is 100% identical to Uniswap.
-   He decides this means the contract can be trusted to behave exactly as Uniswap does.
-
-1. Nimrod approves an allowance of 1000 DAI for the Hackswap contract.
-   Nimrod expects to call the swap function on Hackswap and receive back nearly 1100 USDT.
-
-
-1. Before Nimrod's swap transaction is sent to the blockchain, Helena Hacker sends a transaction from an L1 contract with the same address as Hackswap.
-   This transaction transfers 1000 DAI from Nimrod's address to Helena Hacker's address.
-   If this transaction were to come from the same address as Hackswap on L2, it would be able to transfer the 1000 DAI because of the allowance Nimrod *had* to give Hackswap in the previous step to swap tokens.
+5. 在Nimrod的交换交易发送到区块链之前，Helena Hacker从与Hackswap在L2上相同地址的L1合约发送了一笔交易。
+   该交易将1000个DAI从Nimrod的地址转移到Helena Hacker的地址。
+   如果这笔交易来自与之前步骤中Nimrod必须给Hackswap授权的相同地址，它将能够转移这1000个DAI。
    
-   Nimrod, despite his naivete, is protected because Optimism modified the transaction's `tx.origin` (which is also the initial `msg.sender`).
-   That transaction comes from a *different* address, one that does not have the allowance.
+   尽管Nimrod很天真，但他受到了Optimism修改的交易的保护，其中的`tx.origin`（也是初始的`msg.sender`）被修改了。
+   该交易来自一个*不同的*地址，该地址没有这个津贴。
 
-**Note:** It is simple to create two different contracts on the same address in different chains. 
-But it is nearly impossible to create two that are different by a specified amount, so Helena Hacker can't do that.
+**注意：**在不同的链上创建两个不同的合约很简单。
+但是几乎不可能创建两个相差指定数量的不同合约，所以Helena Hacker无法做到这一点。
 
 </details>
 
 
-## Blocks
+## 区块
 
-There are several differences in the way blocks are produced between L1 Ethereum and Optimism Bedrock.
-
-
-| Parameter           | L1 Ethereum | Optimism Bedrock |
-| - | - | - |
-| Time between blocks | 12 seconds(1)  | 2 seconds |
-| Block target size   | 15,000,000 gas | to be determined |
-| Block maximum size  | 30,000,000 gas | to be determined | 
-
-(1) This is the ideal. 
-    If any blocks are missed it could be an integer multiple such as 24 seconds, 36 seconds, etc.
-
-**Note:** The L1 Ethereum parameter values are taken from [ethereum.org](https://ethereum.org/en/developers/docs/blocks/#block-time). The Optimism Bedrock values are taken from [the Optimism specs](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/guaranteed-gas-market.md#limiting-guaranteed-gas).
+在L1以太坊和Optimism Bedrock之间，区块的生成方式有几个不同之处。
 
 
+| 参数                | L1以太坊     | Optimism Bedrock |
+| ------------------- | ------------ | ---------------- |
+| 区块之间的时间间隔  | 12秒(1)      | 2秒              |
+| 区块目标大小        | 15,000,000 gas | 待确定           |
+| 区块最大大小        | 30,000,000 gas | 待确定           | 
 
-## Network specifications
+(1) 这是理想情况。
+    如果有任何区块被错过，可能是12秒的整数倍，如24秒、36秒等。
 
-### JSON-RPC differences
-
-OP Stack codebase uses the same [JSON-RPC API](https://eth.wiki/json-rpc/API) as Ethereum.
-Some additional OP Stack specific methods have been introduced.
-See the full list of [custom JSON-RPC methods](https://community.optimism.io/docs/developers/build/json-rpc/) for more information.
-
-
-### Pre-EIP-155 support
-
-[Pre-EIP-155](https://eips.ethereum.org/EIPS/eip-155) transactions do not have a chain ID, which means a transaction on one Ethereum blockchain can be replayed on others.
-This is a security risk, so pre-EIP-155 transactions are not supported on OP Stack by default.
+**注意：**L1以太坊的参数值取自[ethereum.org](https://ethereum.org/en/developers/docs/blocks/#block-time)。
+Optimism Bedrock的参数值取自[Optimism规范](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/guaranteed-gas-market.md#limiting-guaranteed-gas)。
 
 
-## Transaction costs
 
-[By default, transaction costs on OP Stack chains](https://community.optimism.io/docs/developers/build/transaction-fees/) include an [L2 execution fee](https://community.optimism.io/docs/developers/build/transaction-fees#the-l2-execution-fee) and an [L1 data fee](https://community.optimism.io/docs/developers/build/transaction-fees#the-l1-data-fee). 
+## 网络规范
+
+### JSON-RPC差异
+
+OP Stack代码库使用与以太坊相同的[JSON-RPC API](https://eth.wiki/json-rpc/API)。
+还引入了一些OP Stack特定的方法。
+有关更多信息，请参阅[自定义JSON-RPC方法的完整列表](https://community.optimism.io/docs/developers/build/json-rpc/)。
+
+
+### Pre-EIP-155支持
+
+[Pre-EIP-155](https://eips.ethereum.org/EIPS/eip-155)交易没有链ID，这意味着在一个以太坊区块链上的交易可以在其他区块链上重放。
+这是一个安全风险，因此默认情况下OP Stack不支持Pre-EIP-155交易。
+
+
+## 交易成本
+
+[默认情况下，OP Stack链上的交易成本](https://community.optimism.io/docs/developers/build/transaction-fees/)包括[L2执行费用](https://community.optimism.io/docs/developers/build/transaction-fees#the-l2-execution-fee)和[L1数据费用](https://community.optimism.io/docs/developers/build/transaction-fees#the-l1-data-fee)。
 

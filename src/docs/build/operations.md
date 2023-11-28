@@ -1,91 +1,79 @@
 ---
-title: Rollup Operations
-lang: en-US
+title: Rollup操作
+lang: zh-CN
 ---
 
-## Stopping your Rollup
+## 停止Rollup
 
-An orderly shutdown is done in the reverse order to the order in which components were started:
+有序关闭的顺序与组件启动的顺序相反：
 
-1. To stop the batcher, use this command:
+1. 停止batcher，请使用以下命令：
 
-   ```sh
-   curl -d '{"id":0,"jsonrpc":"2.0","method":"admin_stopBatcher","params":[]}' \
-       -H "Content-Type: application/json" http://localhost:8548 | jq
-   ```
+    ```sh
+    curl -d '{"id":0,"jsonrpc":"2.0","method":"admin_stopBatcher","params":[]}' \
+         -H "Content-Type: application/json" http://localhost:8548 | jq
+    ```
 
-   This way the batcher knows to save any data it has cached to L1.
-   Wait until you see `Batch Submitter stopped` in batcher's output before you stop the process.
+    这样，batcher会知道将其缓存的任何数据保存到L1。在停止进程之前，请等待在batcher的输出中看到`Batch Submitter stopped`。
 
-1. Stop `op-node`.
-   This component is stateless, so you can just stop the process.
+2. 停止op-node。
+    该组件是无状态的，所以可以直接停止进程。
 
-1. Stop `op-geth`.
-   Make sure you use **CTRL-C** to avoid database corruption.
+3. 停止op-geth。
+    请确保使用**CTRL-C**来避免数据库损坏。
 
 
-## Starting your Rollup
 
-To restart the blockchain, use the same order of components you did when you initialized it.
+## 启动Rollup
+
+要重新启动区块链，请按照初始化时的组件顺序进行操作。
 
 1. `op-geth`
-1. `op-node`
-1. `op-batcher`
+2. `op-node`
+3. `op-batcher`
 
-   If `op-batcher` is still running and you just stopped it using RPC, you can start it with this command:
+   如果`op-batcher`仍在运行，并且您刚刚使用RPC停止了它，您可以使用以下命令启动它：
 
    ```sh
    curl -d '{"id":0,"jsonrpc":"2.0","method":"admin_startBatcher","params":[]}' \
        -H "Content-Type: application/json" http://localhost:8548 | jq   
    ```
 
-::: tip Synchronization takes time
+::: tip 同步需要时间
 
-`op-batcher` might have warning messages similar to:
+`op-batcher`可能会出现类似以下的警告消息：
 
-```
-WARN [03-21|14:13:55.248] Error calculating L2 block range         err="failed to get sync status: Post \"http://localhost:8547\": context deadline exceeded"
-WARN [03-21|14:13:57.328] Error calculating L2 block range         err="failed to get sync status: Post \"http://localhost:8547\": context deadline exceeded"
-```
+## 添加节点
 
-This means that `op-node` is not yet synchronized up to the present time.
-Just wait until it is.
+要向Rollup添加节点，您需要初始化`op-node`和`op-geth`，与您为第一个节点所做的操作类似。
+不应该添加`op-batcher`，只应该有一个。
 
-:::
+1. 配置操作系统和先决条件，与您为第一个节点所做的操作相同。
+2. 构建Optimism monorepo和`op-geth`，与您为第一个节点所做的操作相同。
+3. 从第一个节点复制以下文件：
 
-
-## Adding nodes
-
-To add nodes to the rollup, you need to initialize `op-node` and `op-geth`, similar to what you did for the first node.
-You should *not* add an `op-batcher`, there should be only one.
-
-1. Configure the OS and prerequisites as you did for the first node.
-1. Build the Optimism monorepo and `op-geth` as you did for the first node.
-1. Copy from the first node these files:
-    
     ```bash
     ~/op-geth/genesis.json
     ~/optimism/op-node/rollup.json
     ```
-    
-1. Create a new `jwt.txt` file as a shared secret:
-    
+
+4. 创建一个新的`jwt.txt`文件作为共享密钥：
+
     ```bash
     cd ~/op-geth
     openssl rand -hex 32 > jwt.txt
     cp jwt.txt ~/optimism/op-node
     ```
-    
-1. Initialize the new op-geth:
-    
+
+5. 初始化新的op-geth：
+
     ```bash
     cd ~/op-geth
     ./build/bin/geth init --datadir=./datadir ./genesis.json
     ```
 
+6. 要启用L2节点直接同步，而不是等待事务写入L1，请打开[点对点同步](./getting-started/#op-node)。
+   如果您已经有点对点同步，请将新节点添加到`--p2p.static`列表中以进行同步。
 
-1. To enable L2 nodes to synchronize directly, rather than wait until the transactions are written to L1, turn on [peer to peer synchronization](./getting-started/#op-node).
-   If you already have peer to peer synchronization, add the new node to the `--p2p.static` list so it can synchronize.
-
-1. Start `op-geth` (using the same command line you used on the initial node)
-1. Start `op-node` (using the same command line you used on the initial node but with sequencer mode disabled by removing `--sequencer.enabled` and `--sequencer.l1-confs` flags)
+7. 启动`op-geth`（使用与初始节点相同的命令行）
+8. 启动`op-node`（使用与初始节点相同的命令行，但删除`--sequencer.enabled`和`--sequencer.l1-confs`标志以禁用序列器模式）

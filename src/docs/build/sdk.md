@@ -1,26 +1,26 @@
 ---
-title: Using the OP Stack Client SDK
-lang: en-US
+title: 使用 OP Stack Client SDK
+lang: zh-CN
 ---
 
 
-## Natively supported chains
+## 原生支持的链
 
-[The OP Stack Client SDK](https://sdk.optimism.io/) natively supports multiple OP Chains: OP, Base, etc.
-To see whether a specific OP Chain is supported directly, [see the documentation](https://sdk.optimism.io/enums/l2chainid).
+[OP Stack Client SDK](https://sdk.optimism.io/) 原生支持多个 OP 链：OP、Base 等。
+要查看特定的 OP 链是否直接支持，请参阅[文档](https://sdk.optimism.io/enums/l2chainid)。
 
-## Not natively supported chains
+## 非原生支持的链
 
-If you are using a chain that is *not* natively supported, for example an OP Stack chain [you just created](./getting-started.md), you can continue to use [the OP Stack Client SDK](https://sdk.optimism.io/). 
-You just need to provide some contract addresses to the `CrossDomainMessenger` because they aren't preconfigured.
+如果您正在使用一个*非*原生支持的链，例如您刚刚创建的 OP Stack 链[（参见此处）](./getting-started.md)，您仍然可以使用[OP Stack Client SDK](https://sdk.optimism.io/)。
+您只需要向 `CrossDomainMessenger` 提供一些合约地址，因为它们没有预配置。
 
-### Getting contract addresses
+### 获取合约地址
 
-#### L1 contract addresses
+#### L1 合约地址
 
-If you followed the directions in [Getting Started](./getting-started.md), the contract addresses are in `.../optimism/packages/contracts-bedrock/deployments/getting-started`, which you created when you deployed the L1 contracts.
+如果您按照[入门指南](./getting-started.md)中的说明操作，合约地址位于 `.../optimism/packages/contracts-bedrock/deployments/getting-started`，这是您部署 L1 合约时创建的。
 
-| Contract name when creating `CrossDomainMessenger` | File with address |
+| 创建 `CrossDomainMessenger` 时的合约名称 | 包含地址的文件 |
 | - | - |
 | `AddressManager`         | `Lib_AddressManager.json`
 | `L1CrossDomainMessenger` | `Proxy__OVM_L1CrossDomainMessenger.json`
@@ -29,38 +29,38 @@ If you followed the directions in [Getting Started](./getting-started.md), the c
 | `L2OutputOracle`         | `L2OutputOracleProxy.json`
 
 
-#### Unneeded contract addresses
+#### 不需要的合约地址
 
-Some contracts are required by the SDK as a sanity check, but are not actually used.
-For these contracts you can just specify the zero address:
+SDK 需要某些合约作为健全性检查，但实际上并不使用这些合约。
+对于这些合约，您只需指定零地址：
 
 - `StateCommitmentChain`
 - `CanonicalTransactionChain`
 - `BondManager`
 
-In JavaScript you can create the zero address using the expression `"0x".padEnd(42, "0")`.
+在 JavaScript 中，您可以使用表达式 `"0x".padEnd(42, "0")` 创建零地址。
 
-### The CrossChainMessenger object
+### CrossChainMessenger 对象
 
-These directions assume you are inside the [Hardhat console](https://hardhat.org/hardhat-runner/docs/guides/hardhat-console).
-They further assume that your project already includes the Optimism SDK [`@eth-optimism/sdk`](https://www.npmjs.com/package/@eth-optimism/sdk).
+这些步骤假设您在[Hardhat 控制台](https://hardhat.org/hardhat-runner/docs/guides/hardhat-console)中。
+它们进一步假设您的项目已经包含了 Optimism SDK [`@eth-optimism/sdk`](https://www.npmjs.com/package/@eth-optimism/sdk)。
 
-1. Import the SDK
+1. 导入 SDK
 
    ```js
    optimismSDK = require("@eth-optimism/sdk")
    ```
 
-1. Set the configuration parameters.
+1. 设置配置参数。
 
-   | Variable name | Value |
+   | 变量名 | 值 |
    | - | - |
-   | `l1Url` | URL to an RPC provider for L1, for example `https://eth-goerli.g.alchemy.com/v2/<api key>`
-   | `l2Url` | URL to your OP Stack. If running on the same computer, it is `http://localhost:8545`
-   | `privKey` | The private key for an account that has some ETH on the L1
+   | `l1Url` | L1 的 RPC 提供程序的 URL，例如 `https://eth-goerli.g.alchemy.com/v2/<api key>` |
+   | `l2Url` | 您的 OP Stack 的 URL。如果在同一台计算机上运行，则为 `http://localhost:8545` |
+   | `privKey` | 在 L1 上有一些 ETH 的帐户的私钥 |
 
 
-1. Create the [providers](https://docs.ethers.org/v5/api/providers/) and [signers](https://docs.ethers.org/v5/api/signer/).
+1. 创建[提供程序](https://docs.ethers.org/v5/api/providers/)和[签名者](https://docs.ethers.org/v5/api/signer/)。
 
    ```js
    l1Provider = new ethers.providers.JsonRpcProvider(l1Url)
@@ -69,7 +69,7 @@ They further assume that your project already includes the Optimism SDK [`@eth-o
    l2Signer = new ethers.Wallet(privKey).connect(l2Provider)
    ```
 
-1. Create the L1 contracts structure.
+1. 创建 L1 合约结构。
 
    ```js
    zeroAddr = "0x".padEnd(42, "0")
@@ -77,7 +77,7 @@ They further assume that your project already includes the Optimism SDK [`@eth-o
       StateCommitmentChain: zeroAddr,
       CanonicalTransactionChain: zeroAddr,
       BondManager: zeroAddr,
-      // These contracts have the addresses you found out earlier.
+      // 这些合约具有您之前找到的地址。
       AddressManager: "0x....",   // Lib_AddressManager.json
       L1CrossDomainMessenger: "0x....",   // Proxy__OVM_L1CrossDomainMessenger.json  
       L1StandardBridge: "0x....",   // Proxy__OVM_L1StandardBridge.json
@@ -86,7 +86,7 @@ They further assume that your project already includes the Optimism SDK [`@eth-o
    }                       
    ```
 
-1. Create the data structure for the standard bridge.
+1. 创建标准桥接的数据结构。
 
    ```js
     bridges = { 
@@ -104,7 +104,7 @@ They further assume that your project already includes the Optimism SDK [`@eth-o
    ```
 
 
-1. Create the [`CrossChainMessenger`](https://sdk.optimism.io/classes/crosschainmessenger) object.
+1. 创建[`CrossChainMessenger`](https://sdk.optimism.io/classes/crosschainmessenger) 对象。
 
    ```js
    crossChainMessenger = new optimismSDK.CrossChainMessenger({
@@ -120,11 +120,11 @@ They further assume that your project already includes the Optimism SDK [`@eth-o
    })
    ```
 
-### Verify SDK functionality
+### 验证 SDK 功能
 
-To verify the SDK's functionality, transfer some ETH from L1 to L2.
+为了验证 SDK 的功能，将一些 ETH 从 L1 转移到 L2。
 
-1. Get the current balances.
+1. 获取当前余额。
 
    ```js
    balances0 = [
@@ -133,14 +133,14 @@ To verify the SDK's functionality, transfer some ETH from L1 to L2.
    ]
    ```
 
-1. Transfer 1 gwei.
+1. 转移 1 gwei。
 
    ```js
    tx = await crossChainMessenger.depositETH(1e9)
    rcpt = await tx.wait()
    ```
 
-1. Get the balances after the transfer.
+1. 获取转移后的余额。
 
    ```js
    balances1 = [
@@ -149,13 +149,13 @@ To verify the SDK's functionality, transfer some ETH from L1 to L2.
    ]
    ```
 
-1. See that the L1 balance changed (probably by a lot more than 1 gwei because of the cost of the transaction).
+1. 查看 L1 余额是否发生变化（可能远远超过 1 gwei，因为交易的成本）。
 
    ```js
    (balances0[0]-balances1[0])/1e9
    ```
 
-1. See that the L2 balance changed (it might take a few minutes).  
+1. 查看 L2 余额是否发生变化（可能需要几分钟）。
 
    ```js
    ((await l2Provider.getBalance(l1Signer.address))-balances0[1])/1e9
