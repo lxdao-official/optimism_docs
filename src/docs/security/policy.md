@@ -1,57 +1,53 @@
 ---
-title: Security Policy, Vulnerability Reporting, and Bug Bounties
-lang: en-US
+title: 安全策略、漏洞报告和赏金计划
+lang: zh-CN
 ---
 
 
-## Reporting in the decentralized context
+## 在去中心化环境中进行报告
 
-It's important to remember that the OP Stack is a decentralized software development stack built by the Optimism Collective. Different components of the OP Stack may be maintained by different teams that have different reporting processes. **This page describes general best practices for reporting bugs and provides specific reporting guidelines for the OP Stack code contained within the [ethereum-optimism](https://github.com/ethereum-optimism) GitHub organization**.
+请记住，OP Stack 是由 Optimism Collective 构建的去中心化软件开发堆栈。OP Stack 的不同组件可能由不同的团队维护，这些团队可能有不同的报告流程。**本页面描述了报告漏洞的一般最佳实践，并提供了针对 [ethereum-optimism](https://github.com/ethereum-optimism) GitHub 组织中的 OP Stack 代码的具体报告准则**。
 
-## Reporting bugs and vulnerabilities
+## 报告漏洞和漏洞
 
-::: danger 🚫 How NOT to disclose a vulnerability 
+::: danger 🚫 不要公开披露漏洞
 
- Do *not* disclose vulnerabilities publicly or by executing them against a production network. If you do, will you not only be putting users at risk, but you will forfeit your right to a reward. Always follow the appropriate reporting pathways as described below.
+请不要公开披露漏洞，也不要在生产网络上执行漏洞。如果这样做，不仅会使用户面临风险，还将失去获得奖励的权利。请始终按照下面描述的适当报告途径进行操作。
 
-- Do *not* disclose the vulnerability publicly, for example by filing a public ticket.
-- Do *not* test the vulnerability on a publicly available network, either the testnet or the mainnet.
+- 请不要公开披露漏洞，例如提交公开工单。
+- 请不要在公开可用的网络上测试漏洞，无论是测试网还是主网。
 
 :::
 
-### OP Stack bounty programs
+### OP Stack 赏金计划
 
-The security of OP Stack smart contracts and blockchain infrastructure is paramount. Below are the various OP Stack-related bug bounty programs, as well as how to reach out if your bug is not covered by an existing bounty.
+OP Stack 智能合约和区块链基础设施的安全至关重要。以下是各种 OP Stack 相关的赏金计划，以及如果您的漏洞不在现有赏金计划范围内，如何联系我们。
 
-#### Optimism Mainnet bounty program
+#### Optimism Mainnet 赏金计划
 
-Optimism Mainnet is covered by a comprehensive [bug bounty program on Immunefi](https://immunefi.com/bounty/optimism/), which has already resulted in one of the [largest bounty payouts ever](https://medium.com/ethereum-optimism/disclosure-fixing-a-critical-bug-in-optimisms-geth-fork-a836ebdf7c94). In the listing you can find all the information relating to assets in scope, reporting, and the payout process. Because Optimism Mainnet is currently the primary user of the OP Stack, bugs in OP Stack software can generally be reported via the Optimism Mainnet bounty program.
+Optimism Mainnet 在 Immunefi 上有一个全面的[赏金计划](https://immunefi.com/bounty/optimism/)，这已经导致了[有史以来最大的赏金支付之一](https://medium.com/ethereum-optimism/disclosure-fixing-a-critical-bug-in-optimisms-geth-fork-a836ebdf7c94)。在列表中，您可以找到与范围、报告和支付流程相关的所有信息。由于 Optimism Mainnet 目前是 OP Stack 的主要用户，通常可以通过 Optimism Mainnet 赏金计划报告 OP Stack 软件中的漏洞。
 
-#### Unscoped bugs
+#### 未涵盖的漏洞
 
-If you think you have found a significant bug or vulnerabilities in OP Stack smart contracts, infrastructure, etc., even if that component is not covered by an existing bug bounty, please report it via the [Optimism Mainnet Immunefi program](https://immunefi.com/bounty/optimism/). The impact of any and all reported issues will be considered and the program has previously rewarded security researchers for bugs not within its stated scope.
+如果您认为在 OP Stack 智能合约、基础设施等方面发现了重大漏洞或漏洞，即使该组件不在现有的赏金计划范围内，请通过 [Optimism Mainnet Immunefi 赏金计划](https://immunefi.com/bounty/optimism/)进行报告。我们将考虑所有报告问题的影响，并且该计划以前已经奖励安全研究人员发现的不在其规定范围内的漏洞。
 
-### Other vulnerabilities
+### 其他漏洞
 
-For vulnerabilities in any websites, email servers, or other non-critical infrastructure within the OP Stack, please email [OP Labs](https://www.oplabs.co/) at [security@oplabs.co](mailto:security@oplabs.co) and include detailed instructions for confirming and reproducing the vulnerability.
+对于 OP Stack 中任何网站、电子邮件服务器或其他非关键基础设施的漏洞，请发送电子邮件至 [OP Labs](https://www.oplabs.co/)，并提供详细的确认和重现漏洞的说明。
 
-## Vulnerability disclosure
+## 漏洞披露
 
-Each OP Stack component maintainer may determine its own process for vulnerability disclosure. However, the following describes a recommended process for disclosure that is currently in use by [OP Labs](https://www.oplabs.co/).
+每个 OP Stack 组件的维护者可能会确定自己的漏洞披露流程。然而，以下是 [OP Labs](https://www.oplabs.co/) 目前使用的推荐披露流程：
 
-In the event that an OP Stack component maintainer learns of a critical security vulnerability, the maintainer reserves the right to silently fix it without immediately publicly disclosing the existence of nature of the vulnerability.
+1. 静默修复漏洞，并将修复内容包含在发布 X 中。
 
-In such a scenario, the disclosure process used by [OP Labs](https://www.oplabs.co/) is as follows:
+1. 经过 4-8 周后，披露发布 X 包含了一个安全修复。
 
-1. Silently fix the vulnerability and include the fix in release X.
+1. 在额外的 4-8 周后，发布漏洞的详细信息，同时给予报告者的认可（在报告者的明确许可下）。
 
-1. After 4-8 weeks, disclose that release X contained a security fix.
+除此策略外，维护者还保留以下权利：
 
-1. After an additional 4-8 weeks, publish details of the vulnerability, along with credit to the reporter (with express permission from the reporter).
+- 跳过此策略，并在更短的时间内发布详细信息。
+- 在公开公告之前，直接通知一部分下游用户。
 
-Alongside this policy, maintainers also reserve the right to:
-
-- Bypass this policy and publish details on a shorter timeline.
-- Directly notify a subset of downstream users prior to making a public announcement.
-
-This policy is based the [Geth](https://geth.ethereum.org/) team’s [silent patch policy](https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities#why-silent-patches).
+此策略基于 [Geth](https://geth.ethereum.org/) 团队的[静默修补策略](https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities#why-silent-patches)。

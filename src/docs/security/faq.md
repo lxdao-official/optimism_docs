@@ -1,42 +1,42 @@
 ---
-title: Security FAQs
-lang: en-US
+title: 常见安全问题
+lang: zh-CN
 ---
 
-::: warning 🚧 Work in Progress
+::: warning 🚧 施工中
 
-The OP Stack is a work in progress. Constantly pushing to improve the overall security and decentralization of the OP Stack is a top priority. 
+OP Stack正在施工中。不断推动OP Stack的整体安全性和去中心化是我们的首要任务。
 
 :::
 
-## Security in the decentralized context
+## 去中心化环境下的安全性
 
-The OP Stack is a decentralized development stack that powers Optimism. Components of the OP Stack may be maintained by various different teams within the Optimism Collective. It is generally easier to talk about the security model of specific chains built on the OP Stack rather than the security model of the stack itself. **The OP Stack security baseline is to create safe defaults while still giving developers the flexibility to make modifications and extend the stack.**
+OP Stack是一种去中心化的开发堆栈，为Optimism提供支持。OP Stack的组件可能由Optimism Collective内的不同团队维护。通常更容易讨论基于OP Stack构建的特定链的安全模型，而不是堆栈本身的安全模型。**OP Stack的安全基线是创建安全的默认设置，同时给开发人员提供修改和扩展堆栈的灵活性。**
 
-## FAQ
+## 常见问题
 
-### Is every OP Stack chain safe?
+### 每个OP Stack链都安全吗？
 
-The security model of an OP Stack based blockchain depends on the modules used for its components. Because of the flexibility provided by OP Stack, it is always possible to set up an insecure blockchain using OP Stack components. **The goal of the OP Stack is to provide safe defaults.**
+基于OP Stack的区块链的安全模型取决于其组件使用的模块。由于OP Stack提供的灵活性，始终有可能使用OP Stack组件设置一个不安全的区块链。**OP Stack的目标是提供安全的默认设置。**
 
-Please also keep in mind that just like any other system, **the OP Stack may contain unknown bugs** that could lead to the loss of some or all of the assets held within an OP Stack based system. [Many components of the OP Stack codebase have been audited](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/technical-documents/security-reviews) but **audits are not a stamp of approval** and **a completed audit does not mean that the audited codebase is free of bugs.** It’s important to understand that using the OP Stack inherently exposes you to the risk of bugs within the OP Stack codebase.
+还请记住，就像任何其他系统一样，**OP Stack可能包含未知的错误**，这可能导致OP Stack基于系统中的某些或全部资产的损失。[OP Stack代码库的许多组件已经经过审计](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/technical-documents/security-reviews)，但审计并不意味着批准，完成审计也不意味着经过审计的代码库没有错误。重要的是要理解，使用OP Stack本质上会使您面临OP Stack代码库中的错误风险。
 
-### Is the OP Stack safe to modify?
+### 修改OP Stack是否安全？
 
-As with anything, modify the OP Stack at your own risk. There is no guarantee that modifications to the stack will be safe. If you aren’t entirely sure about what you’re doing, stick with the safer defaults that the OP Stack provides. At the moment, the OP Stack is not particularly amenable to modifications and **you should not expect any technical support for modifications that fall outside of the standard Rollup configuration of the stack**.
+与任何事物一样，修改OP Stack需自担风险。无法保证对堆栈的修改是安全的。如果您对自己的操作不太确定，请坚持使用OP Stack提供的更安全的默认设置。目前，OP Stack对于超出堆栈标准Rollup配置的修改不太适应，**不应期望对这些修改提供任何技术支持**。
 
-### Can I use fault proofs?
+### 我可以使用故障证明吗？
 
-**Not yet.** The OP Stack does not currently have a fault proof system. **Note that fault proofs do not meaningfully improve the security of a system if that system can be upgraded within the 7 day challenge window (”fast upgrade keys”)**. A system with fast upgrade keys is fully dependent on the upgrade keys for security. 
+**目前还不行。** OP Stack目前没有故障证明系统。**请注意，如果系统可以在7天的挑战窗口内升级（“快速升级密钥”），故障证明对系统的安全性没有实质性改进**。具有快速升级密钥的系统完全依赖于升级密钥来保证安全。
 
-Fault proofs are a key milestone and top priority for the OP Stack. In the meantime, the OP Stack can be shipped with several other excellent security options for systems that want to improve security before fault proofs are available in production.
+故障证明是OP Stack的一个重要里程碑和首要任务。与此同时，在故障证明在生产环境中可用之前，OP Stack可以提供其他几种出色的安全选项，以改进系统的安全性。
 
-### How can I help make the OP Stack more secure?
+### 如何帮助提高OP Stack的安全性？
 
-One of the easiest ways to help secure the OP Stack is to look for bugs and vulnerabilities. [Optimism Mainnet, a user of the OP Stack, has one of the biggest bug bounties (ever)](https://immunefi.com/bounty/optimism/). You can earn up to $2,000,042 by finding critical bugs in the Optimism Mainnet codebase (and by extension the OP Stack).
+帮助确保OP Stack安全的最简单方法之一是寻找错误和漏洞。[Optimism Mainnet作为OP Stack的用户，拥有最大的漏洞赏金](https://immunefi.com/bounty/optimism/)。通过在Optimism Mainnet代码库（以及OP Stack）中发现关键漏洞，您可以获得高达200万美元的奖金。
 
-Don’t forget that the OP Stack is a decentralized development stack. Anyone can start to contribute to the OP Stack by building software that follows [the stack’s design principles](../understand/design-principles.md). You can always help make the OP Stack more secure by building components, like alternative client or proof implementations, that users of the OP Stack can take advantage of.
+不要忘记，OP Stack是一个去中心化的开发堆栈。任何人都可以通过构建遵循[堆栈设计原则](../understand/design-principles.md)的软件来开始为OP Stack做出贡献。您始终可以通过构建组件（如替代客户端或证明实现）来帮助提高OP Stack的安全性，以供OP Stack的用户使用。
 
-### Where do I report bugs?
+### 如何报告错误？
 
-[View the Security Policy for details about reporting vulnerabilities and available bug bounty programs](./policy.md)
+[查看安全策略以了解有关报告漏洞和可用漏洞赏金计划的详细信息](./policy.md)

@@ -1,31 +1,31 @@
 ---
-title: Differences between Bedrock and L1 Ethereum
-lang: en-US
+title: Bedrock与L1以太坊之间的差异
+lang: zh-CN
 ---
 
-It's important to note that there are various minor discrepancies between the behavior of Optimism and Ethereum.
-You should be aware of these discrepancies when building apps on top of Optimism or the OP Stack codebase.
+需要注意的是，在Optimism和以太坊之间存在一些细微差异。
+在构建基于Optimism或OP Stack代码库的应用程序时，您应该了解这些差异。
 
-## Opcode Differences
+## 操作码差异
 
 
-| Opcode  | Solidity equivalent | Behavior |
+| 操作码  | Solidity等效操作 | 行为 |
 | - | - | - |
-| `COINBASE`	| `block.coinbase`   | Undefined |
-| `DIFFICULTY` | `block.difficulty` | Random value. As this value is set by the sequencer, it is not as reliably random as the L1 equivalent. |
-| `NUMBER`     | `block.number`     | L2 block number
-| `TIMESTAMP`  | `block.timestamp`  | Timestamp of the L2 block
-| `ORIGIN`     | `tx.origin`        | If the transaction is an L1 ⇒ L2 transaction, then `tx.origin` is set to the [aliased address](#address-aliasing) of the address that triggered the L1 ⇒ L2 transaction. Otherwise, this opcode behaves normally. |
-| `CALLER`     | `msg.sender`      | If the transaction is an L1 ⇒ L2 transaction, and this is the initial call (rather than an internal transaction from one contract to another), the same [address aliasing](#address-aliasing) behavior applies.
+| `COINBASE`	| `block.coinbase`   | 未定义 |
+| `DIFFICULTY` | `block.difficulty` | 随机值。由于该值由序列器设置，因此其随机性不如L1等效操作码可靠。 |
+| `NUMBER`     | `block.number`     | L2块编号 |
+| `TIMESTAMP`  | `block.timestamp`  | L2块的时间戳 |
+| `ORIGIN`     | `tx.origin`        | 如果交易是L1⇒L2交易，则`tx.origin`设置为触发L1⇒L2交易的地址的[别名地址](#address-aliasing)。否则，此操作码的行为与正常情况下相同。 |
+| `CALLER`     | `msg.sender`      | 如果交易是L1⇒L2交易，并且这是初始调用（而不是一个合约之间的内部交易），则同样适用[地址别名](#address-aliasing)行为。
 
 ::: tip `tx.origin == msg.sender`
 
-On L1 Ethereum `tx.origin` is equal to `msg.sender` only when the smart contract was called directly from an externally owned account (EOA).
-However, on Optimism `tx.origin` is the origin *on Optimism*.
-It could be an EOA.
-However, in the case of messages from L1, it is possible for a message from a smart contract on L1 to appear on L2 with `tx.origin == msg.origin`.
-This is unlikely to make a significant difference, because an L1 smart contract cannot directly manipulate the L2 state.
-However, there could be edge cases we did not think about where this matters.
+在L1以太坊上，只有当智能合约直接从外部拥有的账户（EOA）调用时，`tx.origin`等于`msg.sender`。
+然而，在Optimism上，`tx.origin`是在Optimism上的原始地址。
+它可以是一个EOA。
+然而，在来自L1的消息的情况下，一个来自L1上的智能合约的消息可能在L2上出现，其中`tx.origin == msg.origin`。
+这不太可能产生重大影响，因为L1智能合约不能直接操作L2状态。
+然而，可能存在我们没有考虑到的边界情况，这可能会有所影响。
 
 :::
 

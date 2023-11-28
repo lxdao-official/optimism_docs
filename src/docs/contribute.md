@@ -1,33 +1,33 @@
 ---
-title: Contribute to the OP Stack
-lang: en-US
+title: 贡献指南
+lang: zh-CN
 ---
 
-The OP Stack is a collaborative, decentralized development stack that only gets more powerful as more people contribute. Code for the OP Stack should follow the stack’s [design principles](./understand/design-principles.md), which means it should be entirely open source and accessible for people to hack on, contribute to, and extend. The Optimism Collective wins when it works together. ♥️✨
+OP Stack 是一个协作的、去中心化的开发堆栈，随着更多人的贡献，它变得越来越强大。OP Stack 的代码应遵循堆栈的[设计原则](./understand/design-principles.md)，这意味着它应该是完全开源的，人们可以对其进行研究、贡献和扩展。当我们共同努力时，Optimism Collective 获胜。♥️✨
 
-Whether you’re a budding protocol developer, dapp developer, bounty hunter, documentation editor, content creator, or anything in between, the OP Stack always has something for you to contribute to. Every contribution makes a difference — no contribution is too small.
+无论您是初出茅庐的协议开发者、dapp 开发者、赏金猎人、文档编辑者、内容创作者还是其他任何角色，OP Stack 都有适合您贡献的项目。每一个贡献都是有意义的，没有贡献太小。
 
-If you’re looking to find a way to contribute, check out one of the following contributor pathways below. Come make your first contribution today!
+如果您想找到一种贡献的方式，请查看下面的贡献者路径之一。今天就来做出您的第一次贡献吧！
 
-## Component contributions
+## 组件贡献
 
-The OP Stack is a decentralized development stack. Anyone can contribute components that can be considered part of the OP Stack as long as as those components fit [the stack’s design principles and goals](./understand/design-principles.md). To start contributing components to the stack, check out some of [these useful ideas](https://github.com/ethereum-optimism/optimism-project-ideas) and get to building! And don’t forget that projects can also receive funding from the Collective via RetroPGF.
+OP Stack 是一个去中心化的开发堆栈。只要这些组件符合[堆栈的设计原则和目标](./understand/design-principles.md)，任何人都可以贡献被视为 OP Stack 的组件。要开始为堆栈贡献组件，请查看一些[有用的想法](https://github.com/ethereum-optimism/optimism-project-ideas)，并开始构建！不要忘记，项目还可以通过 RetroPGF 从 Collective 获得资金支持。
 
-If you’d like to contribute to existing OP Stack code, rather than creating new components, check out [the current release of the OP Stack](./releases/README.md#current-release). Any contributions to existing OP Stack components are highly appreciated. If you’re looking for a good way to make your first contribution, check out the [Good First Issues](https://github.com/ethereum-optimism/optimism/contribute) on the Optimism Monorepo.
+如果您想为现有的 OP Stack 代码做出贡献，而不是创建新的组件，请查看[OP Stack 的当前版本](./releases/README.md#current-release)。对现有的 OP Stack 组件的任何贡献都将非常感激。如果您想找到一个好的方式来进行第一次贡献，请查看 Optimism Monorepo 上的[Good First Issues](https://github.com/ethereum-optimism/optimism/contribute)。
 
-## Bounty hunting
+## 赏金猎人
 
-The OP Stack needs YOU (yes you!) to help review the codebase for bugs and vulnerabilities. If you’re interested in bounty hunting, check out our Security Policy, Vulnerability Reporting, and Bug Bounties page.
+OP Stack 需要您（是的，就是您！）来帮助审查代码库中的错误和漏洞。如果您对赏金猎人感兴趣，请查看我们的安全策略、漏洞报告和赏金猎人页面。
 
-## Documentation help
+## 文档帮助
 
-Spot a typo in these docs? See something that could be a little clearer? Head over to the Optimism Monorepo where the OP Stack docs are hosted and make a pull request. No contribution is too small!
+在这些文档中发现了拼写错误？看到了一些可能需要更清晰的地方？请前往 Optimism Monorepo，那里托管了 OP Stack 的文档，并提交拉取请求。没有贡献太小！
 
-## Community contributions
+## 社区贡献
 
-If you’re looking for other ways to get involved, here are a few options:
+如果您想参与其他方式的贡献，以下是几个选项：
 
-- Grab an idea from the [project ideas list](https://github.com/ethereum-optimism/optimism-project-ideas) to and building
-- Suggest a new idea for the [project ideas list](https://github.com/ethereum-optimism/optimism-project-ideas)
-- Improve the [Optimism Community Hub](https://community.optimism.io/) [documentation](https://github.com/ethereum-optimism/community-hub) or [tutorials](https://github.com/ethereum-optimism/optimism-tutorial)
-- Become an Optimism Ambassador, Support Nerd, and more in the [Optimism Discord](https://discord.gg/optimism)
+- 从[项目想法列表](https://github.com/ethereum-optimism/optimism-project-ideas)中选择一个想法并开始构建
+- 为[项目想法列表](https://github.com/ethereum-optimism/optimism-project-ideas)提出一个新的想法
+- 改进[Optimism Community Hub](https://community.optimism.io/)的[文档](https://github.com/ethereum-optimism/community-hub)或[教程](https://github.com/ethereum-optimism/optimism-tutorial)
+- 在[Optimism Discord](https://discord.gg/optimism)成为 Optimism Ambassador、Support Nerd 等等

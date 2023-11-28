@@ -1,23 +1,23 @@
 ---
-title: Forced withdrawal from an OP Stack blockchain
-lang: en-US
+title: 从 OP Stack 区块链中强制提取资产
+lang: zh-CN
 ---
 
 
-## What is this?
+## 这是什么？
 
-Any assets you own on an OP Stack blockchain are backed by equivalent assets on the underlying L1, locked in a bridge. 
-In this article you learn how to withdraw these assets directly from L1.
+你在 OP Stack 区块链上拥有的任何资产都是由底层 L1 上的等值资产支持的，锁定在一个桥梁中。
+在本文中，您将学习如何直接从 L1 提取这些资产。
 
-Note that the steps here do require access to an L2 endpoint.
-However, that L2 endpoint can be a read-only replica.
+请注意，这里的步骤需要访问 L2 端点。
+但是，该 L2 端点可以是只读副本。
 
 
-## Setup 
+## 设置
 
-The code to go along with this article is available in [our tutorials repository](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/op-stack/forced-withdrawal).
+与本文一起使用的代码可在[我们的教程存储库](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/op-stack/forced-withdrawal)中找到。
 
-1. Clone the repository, move to the correct directory, and install the required dependencies.
+1. 克隆存储库，进入正确的目录并安装所需的依赖项。
 
    ```sh
    git clone https://github.com/ethereum-optimism/optimism-tutorial.git
@@ -25,42 +25,42 @@ The code to go along with this article is available in [our tutorials repository
    npm install
    ```
 
-1. Copy the environment setup variables.
+1. 复制环境设置变量。
 
    ```sh
    cp .env.example .env
    ```
 
-1. Edit `.env` to set these variables:
+1. 编辑 `.env` 文件以设置这些变量：
 
-   | Variable             | Meaning |
+   | 变量                 | 含义 |
    | -------------------- | ------- |
-   | L1URL                | URL to L1 (Goerli if you followed the directions on this site)
-   | L2URL                | URL to the L2 from which you are withdrawing
-   | PRIV_KEY             | Private key for an account that has ETH on L2. It also needs ETH on L1 to submit transactions
-   | OPTIMISM_PORTAL_ADDR | Address of the `OptimismPortalProxy` on L1.
+   | L1URL                | L1 的 URL（如果您按照本网站上的说明进行操作，则为 Goerli）
+   | L2URL                | 正在提取资产的 L2 的 URL
+   | PRIV_KEY             | 拥有 L2 上 ETH 的账户的私钥。它还需要在 L1 上拥有 ETH 以提交交易
+   | OPTIMISM_PORTAL_ADDR | L1 上 `OptimismPortalProxy` 的地址。
 
 
-## Withdrawal
+## 提款
 
-### ETH withdrawals
+### ETH 提款
 
-The easiest way to withdraw ETH is to send it to the bridge, or the cross domain messenger, on L2.
+将 ETH 提款到 L2 最简单的方法是将其发送到桥接器或跨域信使。
 
-1. Enter the Hardhat console.
+1. 进入 Hardhat 控制台。
 
    ```sh
    npx hardhat console --network l1
    ```
 
-1. Specify the amount of ETH you want to transfer.
-   This code transfers one hundred'th of an ETH.
+2. 指定要转移的 ETH 数量。
+   以下代码将转移 0.01 个 ETH。
 
    ```js
    transferAmt = BigInt(0.01 * 1e18)
    ``` 
 
-1. Create a contract object for the [`OptimismPortal`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol) contract.
+3. 为 [`OptimismPortal`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol) 合约创建一个合约对象。
 
    ```js
    optimismContracts = require("@eth-optimism/contracts-bedrock")
@@ -68,7 +68,7 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    optimismPortal = new ethers.Contract(process.env.OPTIMISM_PORTAL_ADDR, optimismPortalData.abi, await ethers.getSigner())
    ```
 
-1. Send the transaction.
+4. 发送交易。
 
    ```js
    txn = await optimismPortal.depositTransaction(
@@ -79,9 +79,8 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    rcpt = await txn.wait()
    ```
 
-
-1. To [prove](https://sdk.optimism.io/classes/crosschainmessenger#proveMessage-2) and [finalize](https://sdk.optimism.io/classes/crosschainmessenger#finalizeMessage-2) the message we need the hash. 
-   Optimism's [core-utils package](https://www.npmjs.com/package/@eth-optimism/core-utils) has the necessary function.
+5. 要[证明](https://sdk.optimism.io/classes/crosschainmessenger#proveMessage-2)和[完成](https://sdk.optimism.io/classes/crosschainmessenger#finalizeMessage-2)消息，我们需要哈希值。
+   Optimism 的[core-utils 包](https://www.npmjs.com/package/@eth-optimism/core-utils)中有必要的函数。
 
    ```js
    optimismCoreUtils = require("@eth-optimism/core-utils")
@@ -100,8 +99,8 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    withdrawalHash = withdrawalData.hash()
    ```
 
-1. Create the object for the L1 contracts, [as explained in the documentation](../build/sdk.md).
-   You will create an object similar to this one:
+6. 根据[文档](../build/sdk.md)创建 L1 合约对象。
+   创建一个类似下面的对象：
 
    ```js
    L1Contracts = {
@@ -116,7 +115,7 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    }
    ```
 
-1. Create the data structure for the standard bridge.
+7. 创建标准桥接器的数据结构。
 
    ```js
     bridges = { 
@@ -133,9 +132,8 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    }
    ```
 
-
-1. Create [a cross domain messenger](https://sdk.optimism.io/classes/crosschainmessenger).
-   This step, and subsequent ETH withdrawal steps, are explained in [this tutorial](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/cross-dom-bridge-eth).
+8. 创建[跨域信使](https://sdk.optimism.io/classes/crosschainmessenger)。
+   这一步以及后续的 ETH 提款步骤在[此教程](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/cross-dom-bridge-eth)中有详细说明。
 
    ```js
    optimismSDK = require("@eth-optimism/sdk")
@@ -154,43 +152,42 @@ The easiest way to withdraw ETH is to send it to the bridge, or the cross domain
    })   
    ```
 
-1. Wait for the message status for the withdrawal to become `READY_TO_PROVE`.
-   By default, the state root is written every four minutes, so you're likely to need to wait.
+9. 等待提款消息的状态变为 `READY_TO_PROVE`。
+   默认情况下，状态根每四分钟写入一次，所以你可能需要等待。
 
    ```js
    await crossChainMessenger.waitForMessageStatus(withdrawalHash, 
        optimismSDK.MessageStatus.READY_TO_PROVE)
    ```
-      
-1. Submit the withdrawal proof.
 
-   ```js
-   await crossChainMessenger.proveMessage(withdrawalHash)
-   ```
+10. 提交提款证明。
 
-1. Wait for the message status for the withdrawal to become `READY_FOR_RELAY`.
-   This waits the challenge period (7 days in production, but a lot less on test networks).
+    ```js
+    await crossChainMessenger.proveMessage(withdrawalHash)
+    ```
 
-   ```js
-   await crossChainMessenger.waitForMessageStatus(withdrawalHash, 
-      optimismSDK.MessageStatus.READY_FOR_RELAY)
-   ```   
+11. 等待提款消息的状态变为 `READY_FOR_RELAY`。
+    这等待挑战期（在生产环境中为 7 天，在测试网络中较短）。
 
+    ```js
+    await crossChainMessenger.waitForMessageStatus(withdrawalHash, 
+       optimismSDK.MessageStatus.READY_FOR_RELAY)
+    ```
 
-1. Finalize the withdrawal.
-   See that your balance changes by the withdrawal amount.
+12. 完成提款。
+    查看你的余额是否减少了提款金额。
 
-   ```js
-   myAddr = (await ethers.getSigner()).address
-   balance0 = await ethers.provider.getBalance(myAddr)
-   finalTxn = await crossChainMessenger.finalizeMessage(withdrawalHash)
-   finalRcpt = await finalTxn.wait()
-   balance1 = await ethers.provider.getBalance(myAddr)
-   withdrawnAmt = BigInt(balance1)-BigInt(balance0)
-   ```
+    ```js
+    myAddr = (await ethers.getSigner()).address
+    balance0 = await ethers.provider.getBalance(myAddr)
+    finalTxn = await crossChainMessenger.finalizeMessage(withdrawalHash)
+    finalRcpt = await finalTxn.wait()
+    balance1 = await ethers.provider.getBalance(myAddr)
+    withdrawnAmt = BigInt(balance1)-BigInt(balance0)
+    ```
 
 ::: tip transferAmt > withdrawnAmt
 
-Your L1 balance doesn't increase by the entire `transferAmt` because of the cost of `crossChainMessenger.finalizeMessage`, which submits a transaction.
+由于 `crossChainMessenger.finalizeMessage` 的成本（提交交易），你的 L1 余额不会增加整个 `transferAmt`。
 
 :::
