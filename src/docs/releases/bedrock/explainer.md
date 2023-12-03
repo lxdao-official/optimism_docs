@@ -8,107 +8,107 @@ meta:
 
 ![Bedrock](https://dev.optimism.io/content/images/size/w2000/2022/12/bedrock-BLUE.jpg)
 
-::: tip Staying up to date
+::: tip 保持更新
 
-[Stay up to date on the Superchain and the OP Stack by subscribing to the Optimism newsletter](https://optimism.us6.list-manage.com/subscribe/post?u=9727fa8bec4011400e57cafcb&id=ca91042234&f_id=002a19e3f0).
+[通过订阅Optimism通讯了解Superchain和OP Stack的最新动态](https://optimism.us6.list-manage.com/subscribe/post?u=9727fa8bec4011400e57cafcb&id=ca91042234&f_id=002a19e3f0)。
 
 :::
 
-Bedrock is the name of the first ever official release of the OP Stack codebase, which is a set of free and open-source modular components that work together to power Optimism.
+Bedrock是OP Stack代码库的首个正式发布版本，它是一组自由开源的模块化组件，共同驱动着Optimism。
 
-- To understand what is in the Bedrock release, keep reading.
-- To develop on Optimism Mainnet, which will upgrade its infrastructure to the Bedrock release, read the docs.
-- To contribute to the OP Stack, see the contribution guidelines on the ethereum-optimism monorepo.
+- 要了解Bedrock发布版本中的内容，请继续阅读。
+- 要在Optimism Mainnet上进行开发（该网络将升级为Bedrock版本），请阅读文档。
+- 要为OP Stack做出贡献，请参阅ethereum-optimism monorepo上的贡献指南。
 
-## Summary of Improvements
+## 改进摘要
 
-Bedrock improves on its predecessor by reducing transaction fees using optimized batch [compression](#optimized-data-compression) and Ethereum as a data availability layer; shortening delays of including L1 transactions in rollups by handling L1 re-orgs more gracefully; enabling modular proof systems through code re-use; and improving node performance by removing technical debt.
+Bedrock通过使用优化的批量[压缩](#optimized-data-compression)和以太坊作为数据可用性层来降低交易费用，缩短将L1交易包含在Rollup中的延迟，通过代码重用实现模块化的证明系统，并通过消除技术债务来提高节点性能，改进了其前身。
 
-### Lower fees
+### 降低手续费
 
-In addition, Bedrock implements an optimized data [compression](#optimized-data-compression) strategy to minimize data costs. We are currently benchmarking the impact of this change, but we expect it to reduce fees significantly.
+此外，Bedrock实现了一种优化的数据[压缩](#optimized-data-compression)策略，以最小化数据成本。我们目前正在对此更改的影响进行基准测试，但我们预计它将显著降低手续费。
 
-Bedrock also removes all gas costs associated with EVM execution when submitting data to L1. This reduces fees by an additional 10% over the previous version of the protocol.
+Bedrock还在将数据提交到L1时消除了与EVM执行相关的所有燃气成本。这使得手续费比协议的先前版本再降低10%。
 
-### Shorter deposit times
+### 缩短存款时间
 
-Bedrock introduces support for L1 re-orgs in the node software, which significantly reduces the amount of time users need to wait for deposits. Earlier versions of the protocol could take up to 10 minutes to confirm deposits. With Bedrock, we expect deposits to confirm within 3 minutes.
+Bedrock在节点软件中引入了对L1重组的支持，这显著减少了用户等待存款的时间。协议的早期版本可能需要长达10分钟才能确认存款。使用Bedrock，我们预计存款将在3分钟内确认。
 
-### Improved proof modularity
+### 改进的证明模块化
 
-Bedrock abstracts the proof system from the OP Stack so that a rollup may use either a fault proof or validity proof (e.g., a zk-SNARK) to prove correct execution of inputs on the rollup. This abstraction enables systems like [Cannon](https://github.com/ethereum-optimism/cannon) to be used to prove faults in the system.
+Bedrock将证明系统从OP Stack中抽象出来，以便Rollup可以使用故障证明或有效性证明（例如zk-SNARK）来证明在Rollup上对输入的正确执行。这种抽象使得像[Cannon](https://github.com/ethereum-optimism/cannon)这样的系统可以用于证明系统中的故障。
 
-### Improved node performance
+### 改进的节点性能
 
-The node software performance has been significantly improved by enabling execution of several transactions in a single rollup "block" as opposed to the prior "one transaction per block" model in the previous version. This allows the cost of merkle trie updates to be amortized across multiple transactions. At current transaction volume, this reduces state growth by approximately 15GB/year.
+通过允许在单个Rollup“块”中执行多个交易，节点软件的性能得到了显着改进，而不是先前版本中的“每个块一个交易”的模型。这样可以将默克尔树更新的成本分摊到多个交易中。在当前的交易量下，这将使状态增长每年减少约15GB。
 
-Node performance is further improved by removing technical debt from the previous version of the protocol. This includes removing the need for a separate "data transport layer" node to index L1, and updating the node software to efficiently query for transaction data from L1.
+通过消除先前版本协议中的技术债务，进一步提高了节点性能。这包括消除了需要一个单独的“数据传输层”节点来索引L1的需求，并更新了节点软件以有效地从L1查询交易数据。
 
-### Improved Ethereum equivalence
+### 改进的以太坊等效性
 
-Bedrock was designed from the ground up to be as close to Ethereum as possible. Multiple deviations from Ethereum in the previous version of the protocol have been removed, including:
+Bedrock从一开始就被设计得尽可能接近以太坊。已经消除了先前版本协议中与以太坊的多个偏差，包括：
 
-1. The one-transaction-per-block model.
-2. Custom opcodes to get L1 block information.
-3. Separate L1/L2 fee fields in the JSON-RPC API.
-4. A custom ERC20 representation of ETH balances.
+1. 每个块一个交易的模型。
+2. 获取L1块信息的自定义操作码。
+3. JSON-RPC API中单独的L1/L2费用字段。
+4. ETH余额的自定义ERC20表示。
 
-Bedrock also adds support for EIP-1559, chain re-orgs, and other Ethereum features present on L1.
+Bedrock还增加了对EIP-1559、链重组和其他在L1上存在的以太坊功能的支持。
 
-## Design Principles
+## 设计原则
 
-Bedrock was built to be modular & upgradeable, to reuse existing code from Ethereum, and to be as close to 100% Ethereum-equivalent as possible.
+Bedrock的设计目标是模块化和可升级，重用以太坊的现有代码，并尽可能与以太坊保持100%的等效性。
 
-### Modularity
+### 模块化
 
-Bedrock makes it easy to swap out different components in the OP Stack codebase and add new capabilities by using well-defined interfaces and versioning schemes. This allows for a flexible architecture that can adapt to future developments in the Ethereum ecosystem.
+Bedrock通过使用明确定义的接口和版本控制方案，使得在OP Stack代码库中交换不同组件和添加新功能变得容易。这样可以实现灵活的架构，以适应以太坊生态系统未来的发展。
 
-Examples:
-- Separation of [rollup node](#rollup-node) and execution client
-- Modular fault proof design
+示例：
+- [Rollup节点](#rollup-node)和执行客户端的分离
+- 模块化的故障证明设计
 
-### Code re-use
+### 代码重用
 
-Bedrock uses existing Ethereum architecture and infrastructure as much as possible. This approach enables the OP Stack to inherit security and "lindy" benefits from the battle-tested codebases used in production on Ethereum Mainnet. You'll find examples of this throughout the design including:
+Bedrock尽可能使用现有的以太坊架构和基础设施。这种方法使得OP Stack能够继承在以太坊主网上使用的经过实战验证的代码库的安全性和"lindy"效益。在设计中可以找到这方面的示例，包括：
 
-Examples:
-- [Minimally modified execution clients](https://op-geth.optimism.io/)
-- EVM contracts instead of precompiled client code
+示例：
+- [最小修改的执行客户端](https://op-geth.optimism.io/)
+- 使用EVM合约而不是预编译客户端代码
 
-### Ethereum equivalence
+### 与以太坊等效性
 
-Bedrock is designed to have maximum compatibility with the existing Ethereum developer experience. A few exceptions exist due to fundamental differences between an L1 and a rollup: an altered fee model, faster block time (2s vs 12s), and a special transaction type for including L1 [deposit](#deposits) transactions.
+Bedrock的设计目标是与现有的以太坊开发者体验最大程度兼容。由于L1和Rollup之间存在基本差异（如改变的费用模型、更快的区块时间（2秒对比12秒）以及用于包含L1 [存款](#deposits)交易的特殊交易类型），因此存在一些例外情况。
 
-Examples:
-- Fault proof designed to prove faults of minimally modified Ethereum [execution client](#execution-client)
-- Code re-use of Ethereum [execution client](#execution-client) for use by nodes in the L2 network and sequencers
+示例：
+- 故障证明设计用于证明最小修改的以太坊[执行客户端](#execution-client)的故障
+- 使用以太坊[执行客户端](#execution-client)的代码重用，供L2网络中的节点和序列器使用
 
-## Protocol
+## 协议
 
-Rollups are derived from a data availability source (generally an L1 blockchain like Ethereum). In their most common configuration, rollup protocols derive a  **"canonical L2 chain"** from two primary sources of information:
+Rollup是从数据可用性源（通常是像以太坊这样的L1区块链）派生出来的。在最常见的配置中，Rollup协议从两个主要信息源派生出一个**“规范的L2链”**：
 
-1. Transaction data posted by Sequencers to the L1 and;
-2. [Deposit](#deposits) transactions posted by accounts and contracts to a bridge contract on L1.
+1. 由序列器发布到L1的交易数据；
+2. 由账户和合约发布到L1上的[存款](#deposits)交易。
 
-The following are the fundamental components of the protocol:
+以下是协议的基本组成部分：
 
-* Deposits are _writes_ to the canonical L2 chain by directly interacting with smart contracts on the L1.
-* Withdrawals are _writes_ to the canonical L2 chain that implicitly trigger interactions with contracts and accounts on the L1.
-* Batches are _writes_ of data corresponding to batches on the rollup.
-* Block derivation is how _reads_ of data on the L1 are interpreted to understand the canonical L2 chain.
-* Proof systems define _finality_ of posted output roots on the L1 such that they may be _executed_ upon (e.g., to execute withdrawals).
+* [存款](#deposits)是通过直接与L1上的智能合约进行交互，将数据写入规范的L2链。
+* [提款](#deposits)是将数据写入规范的L2链，隐式触发与L1上的合约和账户进行交互。
+* 批次是对应于Rollup上批次的数据写入。
+* 区块派生是解释L1上的数据读取，以理解规范的L2链。
+* 证明系统定义了在L1上发布的输出根的**确定性**，以便可以对其进行**执行**（例如执行提款）。
 
-### Deposits
+### 存款
 
-A **deposit** is a transaction on L1 that is to be included in the rollup. [Deposits](#deposits) are _guaranteed_ by definition to be included in the [canonical L2 chain](#protocol) as a means of preventing censorship or control of the L2.
+**存款**是在L1上的交易，将被包含在Rollup中。根据定义，[存款](#deposits)是**保证**被包含在[规范的L2链](#protocol)中，以防止对L2的审查或控制。
 
-#### Arbitrary message passing from L1
+#### 从L1进行任意消息传递
 
-A **deposited transaction** is the transaction on the rollup that is made as a part of a [deposit](#deposits). With Bedrock, [deposits](#deposits) are fully generalized Ethereum transactions. For example, an account or contract on Ethereum can “deposit” a contract creation.
+**存款交易**是作为[存款](#deposits)的一部分在Rollup上进行的交易。在Bedrock中，[存款](#deposits)是完全通用的以太坊交易。例如，以太坊上的账户或合约可以“存款”一个合约创建。
 
-Bedrock defines a **deposit contract** that is available on the L1: it is a smart contract that L1 accounts and contracts can interact with to write to the L2. [Deposited transactions](#arbitrary-message-passing-from-l1) on the L2 are derived from the values in the event(s) emitted by this [deposit](#deposits) contract, which include expected parameters such as from, to, and data.
+Bedrock定义了一个在L1上可用的**存款合约**：这是一个智能合约，L1上的账户和合约可以与之交互，将数据写入L2。在L2上，[存款交易](#arbitrary-message-passing-from-l1)是根据该[存款](#deposits)合约发出的事件中的值派生的，其中包括预期的参数，如from、to和data。
 
-For full details, see the [deposit contract](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/deposits.md#deposit-contract) section of the protocol specifications.
+有关详细信息，请参阅协议规范中的[存款合约](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/deposits.md#deposit-contract)部分。
 
 #### Purchasing guaranteed L2 gas on L1
 
@@ -117,178 +117,172 @@ Bedrock also specifies a gas burn mechanism and a fee market for [deposits](#dep
 The gas provided to [deposited transactions](#arbitrary-message-passing-from-l1) is sometimes called "guaranteed gas." Guaranteed gas is unique in that it is paid for by burning gas on L1 and is therefore not refundable. The total amount of L1 gas that must be burned per unit of guaranteed L2 gas requested depends on the price of L2 gas reported by a EIP-1559 style fee mechanism. Furthermore, users receive a dynamic gas stipend based on the amount of L1 gas spent to compute updates to the fee mechanism.
 
 For a deeper explanation, read the [deposits section](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/deposits.md#deposits) of the protocol specifications.
+### 提现
 
-### Withdrawals
+**提现**是在L2上发起并通过在L1上执行的交易来完成的跨域交易。值得注意的是，提现可以由L2账户调用L1合约，或者将ETH从L2账户转移到L1账户。
 
-**Withdrawals** are cross-domain transactions that are initiated on L2 and finalized by a transaction executed on L1. Notably, withdrawals may be used by an L2 account to call an L1 contract, or to transfer ETH from an L2 account to an L1 account.
+提现是通过调用**Message Passer**预部署合约在L2上发起的，该合约将消息的重要属性记录在其存储中。提现是通过调用[OptimismPortal](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md#the-optimism-portal-contract)合约在L1上完成的，该合约证明了该提现消息的包含。因此，提现与[存款](#deposits)不同。提现交易不依赖于[块派生](#block-derivation)，而是必须使用L1上的智能合约进行最终化。
 
-Withdrawals are initiated on L2 via a call to the **Message Passer** predeploy contract, which records the important properties of the message in its storage. Withdrawals are finalized on L1 via a call to the [OptimismPortal](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md#the-optimism-portal-contract) contract, which proves the inclusion of this withdrawal message. In this way, withdrawals are different from [deposits](#deposits). Instead of relying on [block derivation](#block-derivation), withdrawal transactions must use smart contracts on L1 for finalization.
+#### 两步提现
 
-#### Two-step withdrawals
+提现证明验证漏洞是过去几年中许多最大桥梁黑客攻击的根本原因。Bedrock版本引入了提现过程的额外步骤，旨在为这些类型的漏洞提供额外的防御层。在两步提现过程中，必须在提现之前提交与提现相对应的Merkle证明，而这个过程需要7天的时间才能完成。这个新的安全机制给了监控工具整整7天的时间来发现和检测无效的提现证明。如果[提现](#withdrawals)证明被发现无效，可以在资金丢失之前部署合约修复。这大大降低了桥梁被攻击的风险。
 
-Withdrawal proof validation bugs have been the root cause of many of the biggest bridge hacks of the last few years. The Bedrock release introduces an additional step in the withdrawals’ process of prior versions meant to provide an extra layer of defense against these types of bugs. In the two-step withdrawal process, a Merkle proof corresponding to the withdrawal must be submitted 7 days before the withdrawal can be finalized..  This new safety mechanism gives monitoring tools a full  7 days to find and detect invalid withdrawal proofs. If the [withdrawal](#withdrawals) proof is found to be invalid, a contract fix can be deployed before funds are lost. This dramatically reduces the risk of a bridge compromise.
+有关详细信息，请参阅协议规范的[提现](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md)部分。
 
-For full details, see the [withdrawals](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md) section of the protocol specification.
+### 批次
 
-### Batches
+在Bedrock中，定义了L1和L2之间进行消息传递的一种线路格式（即L2从L1派生块和L2向L1写入交易）。这种线路格式旨在最大限度地减少向L1写入的成本和软件复杂性。
 
-In Bedrock, a wire format is defined for messaging between the L1 and L2 (i.e., for L2 deriving blocks from L1 and for L2 to write transactions to the L1). This wire format is designed to minimize costs and software complexity for writing to the L1.
+#### 优化的数据压缩
 
-#### Optimized data compression
+为了优化数据压缩，将L2交易的列表称为**序列器批次**，并将其组织成称为**通道**的对象组的形式，每个通道都有一个最大大小，该大小在[可配置参数](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#channel-format)中定义，初始设置为约9.5MB。这些[通道](#optimized-data-compression)预计将使用压缩函数进行压缩，并提交到L1。
 
-To optimize data compression, lists of L2 transactions called **sequencer batches** are organized into groups of objects called **channels**, each of which has a maximum size that is defined in a [configurable parameter](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#channel-format) that will initially be set to ~9.5Mb. These [channels](#optimized-data-compression) are expected to be compressed using a compression function and submitted to the L1.
+#### 并行批次提交
 
-#### Parallelized batch submission
+为了并行化从序列器发送[压缩](#optimized-data-compression)的[通道](#optimized-data-compression)数据到L1的消息，将[通道](#optimized-data-compression)进一步分解为称为**通道帧**的块，这些块是可以适应单个L1交易中的[压缩](#optimized-data-compression)的[通道](#optimized-data-compression)数据的块。由于[通道帧](#parallelized-batch-submission)是相互独立的且顺序已知，序列器发送到L1的以太坊交易可以并行发送，从而最大限度地减少序列器软件的复杂性，并允许填充L1上的所有可用数据空间。
 
-To parallelize messages from the sequencers that are submitting [compressed](#optimized-data-compression) [channel](#optimized-data-compression) data to the L1, [channels](#optimized-data-compression) are further broken down into **channel frames**, which are chunks of [compressed](#optimized-data-compression) [channel](#optimized-data-compression) data that can fit inside of a single L1 transaction. Given [channel frames](#parallelized-batch-submission) are mutually independent and the ordering is known, the Ethereum transactions sent by the sequencer to the L1 can be sent in parallel which minimizes sequencer software complexity and allows for filling up all available space for data on the L1.
+#### 最小化以太坊燃气的使用
 
-#### Minimized usage of Ethereum gas
+Bedrock从将[L1系统](#block-derivation)使用的所有执行燃气从提交[通道](#optimized-data-compression)数据到L1的交易中移除。之前在L1上发生的所有验证逻辑都被移入到[块派生](#block-derivation)逻辑中。相反，[批次交易](#minimized-usage-of-ethereum-gas)被发送到以太坊上的单个EOA，称为**批次收件箱地址**。
 
-Bedrock removes all execution gas used by the L1 system from submitting [channel](#optimized-data-compression) data to the L1 in transactions called **batcher transactions**. All validation logic that was previously happening on smart contracts on the L1 is moved into the [block derivation](#block-derivation) logic.  Instead, [batcher transactions](#minimized-usage-of-ethereum-gas) are sent to a single EOA on Ethereum referred to as the **batch inbox address**.
+批次仍然需要进行有效性检查（即它们必须正确编码），因此批次中的单个交易（例如签名必须有效）也需要进行有效性检查。无效的[批次](#optimized-data-compression)和在否则有效的批次中的无效的单个交易被视为被丢弃和与系统无关。
 
-Batches are still subject to validity checks (i.e. they have to be encoded correctly), and so are individual transactions within the batch (e.g. signatures have to be valid). Invalid [batches](#optimized-data-compression) and invalid individual transactions within an otherwise valid batch are considered to be discarded and irrelevant to the system.
+> 注意：以太坊将很快升级以包括[EIP-4844](https://eip4844.com/)，该协议引入了一个用于写入数据的单独费用市场，并增加了以太坊协议愿意存储的数据量的上限。这个变化预计进一步降低将数据发布到L1的成本。
 
-> Note: Ethereum will soon upgrade to include [EIP-4844](https://eip4844.com/), which introduces a separate fee market for writing data and an increased cap of the amount of data the Ethereum protocol is willing to store. This change is expected to further decrease the costs associated with posting data to an L1.
+有关更详细的解释，请阅读[线路格式规范](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#overview)。
+### 块派生
 
-For a deeper explanation, read [the wire format specifications](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#overview).
+在Bedrock中，协议旨在确保L1上的[存款](#deposits)的时间与[块派生](#block-derivation)的[规范L2链](#protocol)相一致。这是通过序列器写入L1的数据、[存款](#deposits)和L1块属性的纯函数来实现的。为了实现这一点，协议定义了保证存款包含、处理L1和L2时间戳以及在流水线中处理排序窗口的策略，以确保正确的排序。
 
-### Block Derivation
+#### 存款的保证包含
 
-In Bedrock, the protocol is designed to guarantee that the timing of [deposits](#deposits) on the L1 is respected with regards to the [block derivation](#block-derivation) of the [canonical L2 chain](#protocol). Doing so is a _pure function_ of data written to the L1 by sequencers, [deposits](#deposits), and L1 block attributes. To accomplish this, the protocol defines strategies for guaranteeing inclusion of deposits, handling L1 and L2 timestamps, and processing sequencing windows in a pipeline to ensure correct ordering.
+[block derivation](#block-derivation) 协议的目标是定义每隔“L2块时间”秒必须有一个L2块，并且L2块的时间戳与L1的时间戳保持同步（即确保[存款](#deposits)按照逻辑时间顺序包含在内）。
 
-#### Guaranteed inclusion of deposits
+在Bedrock中，引入了**序列化时期**的概念：它是从一系列L1块派生的一系列L2块。每个[时期](#guaranteed-inclusion-of-deposits)由一个**时期号**标识，该号码等于序列化窗口中第一个L1块的块号。时期的大小可以有所不同，但受到一些约束。
 
-A goal of the [block derivation](#block-derivation) protocol is to define it such that there must be an L2 block every "L2 block time" number of seconds, and that the timestamp of L2 blocks stays in sync with the timestamps of L1 (i.e., to ensure [deposits](#deposits) are included in a logical temporal order).
+批次派生流水线将与[时期号](#guaranteed-inclusion-of-deposits)相关联的L1块的时间戳视为确定L2上交易顺序的锚点。协议保证[时期](#guaranteed-inclusion-of-deposits)的第一个L2块永远不会落后于与[时期](#guaranteed-inclusion-of-deposits)匹配的L1块的时间戳。[时期](#guaranteed-inclusion-of-deposits)的第一个块必须包含L1上的存款，以确保存款将被处理。
 
-In Bedrock, the concept of a **sequencing epoch** is introduced: it is a range of L2 blocks derived from a range of L1 blocks. Each [epoch](#guaranteed-inclusion-of-deposits) is identified by an **epoch number**, which is equal to the block number of the first L1 block in the sequencing window. Epochs can vary in size, subject to some constraints.
+请注意，Bedrock版本中L2的目标配置块时间为2秒。
 
-The batch derivation pipeline treats the timestamps of the L1 blocks associated with [epoch number](#guaranteed-inclusion-of-deposits) as the anchor point for determining the order of transactions on the L2. The protocol guarantees that the first L2 block of an [epoch](#guaranteed-inclusion-of-deposits) never falls behind the timestamp of the L1 block matching the [epoch](#guaranteed-inclusion-of-deposits). The first blocks of an epoch _must_ contain deposits on L1 in order to guarantee that deposits will be processed.
+#### 处理L1和L2的时间戳
 
-Note that the target configuration for the block time on L2 in the Bedrock release is 2 seconds.
+Bedrock试图解决在L2上与[存款交易](#arbitrary-message-passing-from-l1)中的L1时间戳相一致的问题。它通过允许在[时期](#guaranteed-inclusion-of-deposits)之间的短时间窗口内自由地应用L2交易的时间戳来实现这一点。
 
-#### Handling L1 and L2 timestamps
+一个**序列化窗口**是一系列L1块，可以从中派生一个[时期](#guaranteed-inclusion-of-deposits)。一个[序列化窗口](#handling-l1-and-l2-timestamps)的第一个L1块的编号为`N`，其中包含了[时期](#guaranteed-inclusion-of-deposits) `N` 的[批次交易](#minimized-usage-of-ethereum-gas)。
 
-Bedrock attempts to address the problem of reconciling the timestamps on L2 with timestamps on L1 present in [deposited transactions](#arbitrary-message-passing-from-l1). It does this by allowing a short window of time for sequencing to liberally apply timestamps on L2 transactions between [epochs](#guaranteed-inclusion-of-deposits).
+[序列化窗口](#handling-l1-and-l2-timestamps)包含块`[N, N + SWS)`，其中`SWS`是**序列化窗口大小**：一个固定的Rollup级别配置参数。该参数必须至少为2。增加它可以为序列器提供更多机会来根据[存款](#deposits)对L2交易进行排序，而降低它则会引入更严格的时间窗口，以便序列器提交批次交易。这是在创建MEV机会和增加软件复杂性之间的权衡。
 
-A **sequencing window** is a sequence of L1 blocks from which an [epoch](#guaranteed-inclusion-of-deposits) can be derived. A [sequencing window](#handling-l1-and-l2-timestamps) whose first L1 block has the number `N` contains [batcher transactions](#minimized-usage-of-ethereum-gas) for [epoch](#guaranteed-inclusion-of-deposits) `N`.
+一个名为**最大序列器漂移**的协议常量控制了块在其时期内可以具有的最大时间戳。有了这个漂移，序列器可以在连接到L1时出现临时问题时保持活动状态。每个L2块的时间戳都在以下范围内：
 
-The [sequencing window](#handling-l1-and-l2-timestamps) contains blocks `[N, N + SWS)` where `SWS` is the **sequencer window size**: a fixed rollup-level configuration parameter. This parameter must be at least 2. Increasing it provides more opportunity for sequencers to order L2 transactions with respect to [deposits](#deposits), and lowering it introduces stricter windows of time for sequencers to submit batcher transactions. It is a tradeoff between creating MEV opportunity and increasing software complexity.
+#### 块派生流水线
 
-A protocol constant called **max sequencer drift** governs the maximum timestamp a block can have within its epoch. Having this drift allows the sequencer to maintain liveness in case of temporary problems connecting to L1. Each L2 block’s timestamp fits within the following range:
+可以通过从L2创世状态开始，将L2链的起始设置为第一个时期，然后按顺序处理所有序列化窗口来处理[规范L2链](#protocol)。根据以下简化的流水线确定[批次交易](#minimized-usage-of-ethereum-gas)和[存款](#deposits)的正确顺序：
 
-```
-l1_timestamp <= l2_block.timestamp <= max(l1_timestamp + max_sequencer_drift, l1_timestamp + l2_block_time)
-```
-
-#### Block derivation pipeline
-
-The [canonical L2 chain](#protocol) can be processed from scratch by starting with the L2 genesis state, setting the L2 chain inception as the first epoch, and then processing all sequencing windows in order to determine the correct ordering of [sequencer batches](#optimized-data-compression) and [deposits](#deposits) according to the following simplified pipeline:
-
-| **Stage** | **Notes** |
+| **阶段** | **说明** |
 | --- | --- |
-| Read from L1 | Epochs are defined by L1 blocks. Contained within an L2 block is data pertaining to [batcher transactions](#minimized-usage-of-ethereum-gas) or [deposits](#deposits) which must be included in the [canonical L2 chain](#protocol) |
-| Buffer and decode into [channels](#optimized-data-compression) | The data from L1 blocks contains unordered [channel frames](#parallelized-batch-submission), which must all be collected before reconstructing them into channels. |
-| Decompress [channels](#optimized-data-compression) into [batches](#optimized-data-compression) | Since [channels](#optimized-data-compression) are [compressed](#optimized-data-compression) to minimize data fee costs on the L1, they must be decompressed. |
-| Queue [batches](#optimized-data-compression) into sequential order | With the latest information from L1, [batches](#optimized-data-compression) can be validated and processed sequentially. There are some nuances to what the correct ordering is in relation to [epochs](#guaranteed-inclusion-of-deposits) and timestamps from L2, see the full specification [here](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#batch-queue). |
-| Interpret as L2 blocks | At this point, the correct ordering of [batches](#optimized-data-compression) can be determined.<br><br>Following this, the [execution client](#execution-client) can interpret them into L2 blocks. For implementation details pertaining to [execution clients](#execution-client), see the [engine queue](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#engine-queue) section of the protocol specifications. |
+| 从L1读取 | 时期由L1块定义。L2块中包含有关[批次交易](#minimized-usage-of-ethereum-gas)或[存款](#deposits)的数据，这些数据必须包含在[规范L2链](#protocol)中。 |
+| 缓冲区和解码为[通道](#optimized-data-compression) | 来自L1块的数据包含无序的[通道帧](#parallelized-batch-submission)，在将它们重构为通道之前，必须收集所有的通道帧。 |
+| 将[通道](#optimized-data-compression)解压缩为[批次](#optimized-data-compression) | 由于[通道](#optimized-data-compression)在L1上进行了[压缩](#optimized-data-compression)以最小化数据费用，因此它们必须进行解压缩。 |
+| 将[批次](#optimized-data-compression)排队为顺序 | 根据来自L1的最新信息，可以验证和顺序处理[批次](#optimized-data-compression)。关于正确顺序与[L2时期](#guaranteed-inclusion-of-deposits)和L2时间戳的关系的一些细微差别，请参阅完整规范[此处](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#batch-queue)。 |
+| 解释为L2块 | 此时，可以确定[批次](#optimized-data-compression)的正确顺序。<br><br>随后，[执行客户端](#execution-client)可以将它们解释为L2块。有关与[执行客户端](#execution-client)相关的实现细节，请参阅协议规范的[引擎队列](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#engine-queue)部分。 |
 
-### Fault Proofs
+### 故障证明
 
-After a sequencer processes one or more L2 blocks, the outputs computed from executing transactions in those blocks will need to be written with L1 for trustless execution of L2-to-L1 messaging, such as [withdrawals](#withdrawals).
+在序列器处理一个或多个L2块之后，执行这些块中的交易所计算出的输出需要与L1一起写入，以实现L2到L1的可信执行，例如[提款](#withdrawals)。
 
-In Bedrock, outputs are hashed in a tree-structured form which minimizes the cost of proving any piece of data captured by the outputs. Proposers periodically submit **output roots** that are Merkle roots of the entire [canonical L2 chain](#protocol) to the L1.
+在Bedrock中，输出以树形结构的形式进行哈希处理，以最小化证明输出中任何数据的成本。提议者定期提交整个[规范L2链](#protocol)的Merkle根，称为**输出根**，到L1上。
 
-Future upgrades of the OP Stack codebase should include a specification for a variation of a fault proof with bonding included to create incentives for proposers to propose correct output roots.
+OP Stack代码库的未来升级应包括一种带有绑定的故障证明变体的规范，以激励提议者提出正确的输出根。
 
-For full details, read the [L2 Output Root Proposals section](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/proposals.md#l2-output-root-proposals-specification) of the protocol specifications.
+有关详细信息，请阅读协议规范中的[L2输出根提议部分](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/proposals.md#l2-output-root-proposals-specification)。
 
-## Implementation
+## 实现
 
-With Bedrock, the OP Stack codebase leans heavily into the technical separation of concerns specified by Ethereum by mirroring the separation between the Ethereum execution layer and consensus layer. Bedrock introduces separation of execution client and rollup node in this same way.
+在Bedrock中，OP Stack代码库严格遵循以太坊规范中指定的技术分离原则，通过模拟以太坊执行层和共识层之间的分离来实现。Bedrock以同样的方式引入了执行客户端和Rollup节点的分离。
 
-### Execution Client
+### 执行客户端
 
-An **execution client** is the system that sequencers and other kinds of node operators run to determine the state of the [canonical L2 chain](#protocol). It also performs other functions such as processing inbound transactions and communicating them peer-to-peer, and handling the state of the system to process queries against it.
+**执行客户端**是顺序器和其他类型的节点运营者用来确定[规范L2链](#protocol)状态的系统。它还执行其他功能，如处理传入的交易并进行点对点通信，以及处理系统状态以进行查询。
 
-With Bedrock, the OP Stack is designed to reuse [Ethereum’s own execution client specifications](https://github.com/ethereum/execution-specs) and its many implementations. In this release, Bedrock has demonstrated an extremely limited modification of go-ethereum, the most popular Ethereum client written in Go, to a [diff of less than 2000 lines of code](https://op-geth.optimism.io/).
+在Bedrock中，OP Stack旨在重用[Ethereum自己的执行客户端规范](https://github.com/ethereum/execution-specs)及其众多实现。在此版本中，Bedrock对go-ethereum进行了极少量的修改，这是使用Go编写的最流行的以太坊客户端，[代码差异不到2000行](https://op-geth.optimism.io/)。
 
-There are two fundamental reasons for having any diff at all: handling deposited transactions, and charging transaction fees.
+存在任何差异的根本原因有两个：处理存款交易和收取交易费用。
 
-#### Handling deposited transactions
+#### 处理存款交易
 
-To represent [deposited transactions](#arbitrary-message-passing-from-l1) in the rollup, there is an additional transaction type introduced. The [execution client](#execution-client) implements this [new transaction type](https://github.com/ethereum-optimism/optimism/blob/7f5b9ea7bf6dce12dbf709c27c25ee1681df7f7e/specs/deposits.md#the-deposited-transaction-type) according to the [EIP-2718 typed transactions](https://eips.ethereum.org/EIPS/eip-2718) standard.
+为了在Rollup中表示[存款交易](#arbitrary-message-passing-from-l1)，引入了一种额外的交易类型。[执行客户端](#execution-client)根据[EIP-2718类型化交易](https://eips.ethereum.org/EIPS/eip-2718)标准实现了这种[新的交易类型](https://github.com/ethereum-optimism/optimism/blob/7f5b9ea7bf6dce12dbf709c27c25ee1681df7f7e/specs/deposits.md#the-deposited-transaction-type)。
 
-#### Charging transaction fees
+#### 收取交易费用
 
-Rollups also fundamentally have two kinds of fees associated with transactions:
+Rollup中的交易基本上有两种与之相关的费用：
 
-**Sequencer fees**
+**序列器费用**
 
-The cost of operating a sequencer is computed using the same gas table as Ethereum and with the same [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) algorithm. These fees go to the protocol for operating sequencers and fluctuate based on the congestion of the network.
+运营序列器的成本使用与以太坊相同的gas表和[EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)算法计算。这些费用归协议所有，根据网络的拥堵程度而波动。
 
-**Data availability fees**
+**数据可用性费用**
 
-Data availability costs are associated with writing [batcher transactions](#minimized-usage-of-ethereum-gas) to the L1. These fees are intended to cover the cost that sequencers need to pay to submit [batcher transactions](#minimized-usage-of-ethereum-gas) to the L1.
+数据可用性费用与将[批次交易](#minimized-usage-of-ethereum-gas)写入L1相关。这些费用旨在覆盖序列器需要支付的将[批次交易](#minimized-usage-of-ethereum-gas)提交到L1的成本。
 
-In Bedrock, the data availability portion of the fee is determined based on information in a system contract on the rollup called a [GasPriceOracle](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/predeploys.md#gaspriceoracle). This contract is updated during [block derivation](#block-derivation) from the gas pricing information retrieved from the L1 block attributes that get inserted at the beginning of every [epoch](#guaranteed-inclusion-of-deposits).
+在Bedrock中，数据可用性费用的部分是根据Rollup上的系统合约中的信息确定的，该合约称为[GasPriceOracle](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/predeploys.md#gaspriceoracle)。该合约在[块派生](#block-derivation)期间从L1块属性中检索的燃气定价信息进行更新，这些信息在每个[时期](#guaranteed-inclusion-of-deposits)开始时插入。
 
-Bedrock specifies that both of these fees are added up into a single `gasPrice` field when using the JSON-RPC.
+Bedrock规定，当使用JSON-RPC时，这两种费用将累加到一个名为`gasPrice`的字段中。
 
 ### Rollup Node
 
 Unlike Ethereum, Bedrock does not have proof-of-stake consensus. Instead, the consensus of the [canonical L2 chain](#protocol) is defined by [block derivation](#block-derivation). An [execution client](#execution-client) of the OP Stack communicates to a new component that implements [block derivation](#block-derivation) called a **rollup node**. This node communicates to the [execution client](#execution-client) using the exact same [Engine API](https://github.com/ethereum/execution-apis/tree/main/src/engine) that Ethereum uses.
 
-The [rollup node](#rollup-node) is a stateless component responsible for deriving the state of the system by reading data and [deposits](#deposits) on the L1. In Bedrock, a [rollup node](#rollup-node) can either be used to sequence incoming transactions from users or other [rollup nodes](#rollup-node) or to verify confirmed transactions posted on the L1 by singularly relying on the L1.
+[Rollup节点](#rollup-node)是一个无状态的组件，负责通过读取L1上的数据和[存款](#deposits)来推导系统的状态。在Bedrock中，[Rollup节点](#rollup-node)可以用于对来自用户或其他[Rollup节点](#rollup-node)的传入交易进行排序，也可以通过仅依赖L1来验证在L1上发布的已确认交易。
 
-The multiple uses of a rollup node are outlined below.
+下面概述了Rollup节点的多种用途。
 
-#### Verifying the canonical L2 chain
+#### 验证规范的L2链
 
-The simplest mode of running a [rollup node](#rollup-node) is to only follow the [canonical L2 chain](#protocol). In this mode, the [rollup node](#rollup-node) has no peers and is strictly used to read data from the L1 and to interpret it according to [block derivation](#block-derivation) protocol rules.
+运行[Rollup节点](#rollup-node)的最简单模式是仅跟随[规范的L2链](#protocol)。在此模式下，[Rollup节点](#rollup-node)没有对等节点，且严格用于从L1读取数据并根据[块派生](#block-derivation)协议规则进行解释。
 
-One purpose of this kind of node is to verify that any output roots shared by other nodes or posted on the L1 are correct according to protocol definition. Additionally, proposers intending to submit output roots to the L1 themselves can generate the output roots they need using the [optimism_outputAtBlock](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/rollup-node.md#l2-output-rpc-method) of the node which returns a 32-byte hash corresponding to the L2 output root.
+此类节点的一个目的是验证其他节点共享的任何输出根或在L1上发布的输出根是否符合协议定义。此外，打算自己将输出根提交到L1的提议者可以使用节点的[optimism_outputAtBlock](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/rollup-node.md#l2-output-rpc-method)生成所需的输出根，该方法返回对应于L2输出根的32字节哈希值。
 
-For this purpose, nodes should only need to follow the finalized head. The term ["finalized"](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#finality) refers to the Ethereum proof-of-stake consensus (i.e. canonical and practically irreversible) — the finalized L2 head is the head of the [canonical L2 chain](#protocol) that is derived only from finalized L1 blocks.
+为此，节点只需跟随已最终确定的头部。术语“最终确定”指的是以太坊的权益证明共识（即规范且几乎不可逆转）-最终确定的L2头部是仅从已最终确定的L1块派生的[规范的L2链](#protocol)的头部。
 
-#### Participating in the L2 network
+#### 参与L2网络
 
-The most common way to use a [rollup node](#rollup-node) is to participate in a network of other [rollup nodes](#rollup-node) tracking the progression and state of an L2. In this mode, a [rollup node](#rollup-node) is both reading the data and [deposits](#deposits) it observes from the L1 and interpreting it as blocks and accepting inbound transactions from users and peers in a network of other [rollup nodes](#rollup-node).
+使用[Rollup节点](#rollup-node)的最常见方式是参与其他[Rollup节点](#rollup-node)的网络，跟踪L2的进展和状态。在此模式下，[Rollup节点](#rollup-node)既从L1读取数据和[存款](#deposits)，将其解释为块，并接受来自用户和其他[Rollup节点](#rollup-node)的传入交易。
 
-Nodes participating in the network may make use of the safe and unsafe heads of the L2 they're syncing.
+参与网络的节点可以使用L2的安全头部和不安全头部。
 
-- The **safe L2 head** represents the rollup that can be constructed where every block up to and including the head can be fully derived from the reference L1 chain, before L1 has necessarily finalized (i.e., a re-org may occur on L1 still).
-- The **unsafe L2 head** includes [unsafe blocks](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-l2-block) that have not yet been derived from L1. These blocks either come from operating the [rollup node](#rollup-node) as a sequencer or from [unsafe sync](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-sync) with the sequencer. This is also known as the "latest" head. The safe L2 head is always chosen over the unsafe L2 head in cases of disagreements. When disagreements occur, the unsafe portion of the chain will reorg.
+- **安全的L2头部**表示可以构建的Rollup，其中包括从参考L1链派生的每个块，而L1尚未最终确定（即L1仍可能发生重组）。
+- **不安全的L2头部**包括尚未从L1派生的[不安全块](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-l2-block)。这些块可以来自将[Rollup节点](#rollup-node)作为序列器运行，或者来自与序列器的[不安全同步](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-sync)。这也被称为“最新”头部。在发生冲突时，将始终选择安全L2头部。当发生冲突时，链的不安全部分将重新组织。
 
-For most purposes, nodes in the L2 network will refer to the unsafe L2 head for end-user applications.
+对于大多数情况，L2网络中的节点将参考不安全的L2头部用于面向最终用户的应用程序。
 
-#### Sequencing transactions
+#### 交易排序
 
-The third way to use a [rollup node](#rollup-node) is to sequence transactions. In this mode, a [rollup node](#rollup-node) will _create_ new blocks on top of the unsafe L2 head. Currently, there is only one sequencer per OP Stack network.
+使用[Rollup节点](#rollup-node)的第三种方式是进行交易排序。在此模式下，[Rollup节点](#rollup-node)将在不安全的L2头部之上创建新的区块。目前，每个OP Stack网络只有一个序列器。
 
-The sequencer is also responsible for posting batches to L1 for other nodes in the network to sync from.
+序列器还负责将批次发布到L1，以供网络中的其他节点进行同步。
 
-### Batcher
+### 批处理器
 
-The role of a sequencer is to produce [batches](#batches). To do this, a sequencer can run [rollup nodes](#rollup-node) and have separate processes which perform [batching](#batches) by reading from a trusted [rollup node](#rollup-node) they run. This warrants an additional component of the OP Stack called a [batcher](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#batcher) that reads transaction data from a [rollup node](#rollup-node) and interprets it into [batcher transactions](#minimized-usage-of-ethereum-gas) to be written to the L1. The batcher component is responsible for reading the unsafe L2 head of a [rollup node](#rollup-node) run by a sequencer, creating batcher transactions, and writing them to the L1.
+序列器的角色是生成[批次](#batches)。为此，序列器可以运行[Rollup节点](#rollup-node)，并具有单独的进程，通过从其运行的可信[Rollup节点](#rollup-node)读取数据来执行[批处理](#batches)。这需要OP Stack的另一个组件，称为[批处理器](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#batcher)，它从[Rollup节点](#rollup-node)读取事务数据，并将其解释为要写入L1的[批处理器事务](#minimized-usage-of-ethereum-gas)。批处理器组件负责读取由序列器运行的[Rollup节点](#rollup-node)的不安全L2头部，创建批处理器事务，并将其写入L1。
 
-### Standard Bridge Contracts
+### 标准桥接合约
 
-Bedrock also includes a pair of bridge contracts used for the most common kinds of [deposits](#deposits) called the [standard bridges](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges). These contracts wrap the [deposit](#deposits) and [withdrawal](#withdrawals) contracts to provide simple interfaces for [depositing](#deposits) and [withdrawing](#withdrawals) ETH and ERC-20 tokens.
+Bedrock还包括一对用于最常见类型的[存款](#deposits)的桥接合约，称为[标准桥接](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges)。这些合约包装了[存款](#deposits)和[提款](#withdrawals)合约，以提供简单的接口用于[存款](#deposits)和[提款](#withdrawals)ETH和ERC-20代币。
 
-These bridges are designed to involve a native token on one side of the bridge, and a wrapped token on the other side that can manage minting and burning. Bridging a native token involves locking the native token in a contract and then minting an equivalent amount of mintable token on the other side of the bridge.
+这些桥接合约旨在涉及桥接的一侧是本地代币，而另一侧是可以管理铸造和销毁的包装代币。桥接本地代币涉及将本地代币锁定在合约中，然后在桥接的另一侧铸造相等数量的可铸造代币。
 
-For full details, see the [standard bridge](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges) section of the protocol specifications.
+有关详细信息，请参阅协议规范的[标准桥接](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges)部分。
 
 ### Cannon
 
-Although fault proof construction and verification is implemented in the [Cannon](https://github.com/ethereum-optimism/cannon) project, the fault proof game specification and integration of an output root challenger into the rollup node are part of later specification milestones.
+尽管[Cannon](https://github.com/ethereum-optimism/cannon)项目中实现了故障证明的构建和验证，但故障证明游戏规范和将输出根挑战者集成到Rollup节点中是后续规范里程碑的一部分。
 
-## Further Reading
+## 进一步阅读
 
-### Protocol Specification
+### 协议规范
 
-The protocol specification defines the technical details of the OP Stack codebase. It is the most up-to-date source of truth for the inner workings of the protocol. The protocol specification is located in the ethereum-optimism [monorepo](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md).
+协议规范定义了OP Stack代码库的技术细节。它是协议内部工作原理的最新真实来源。协议规范位于ethereum-optimism的[monorepo](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md)中。
 
-### Bedrock Differences
+### Bedrock的差异
 
-For a deep dive into the differences between Bedrock and previous versions of the protocol, see the [How is Bedrock Different?](https://community.optimism.io/docs/developers/bedrock/differences/) page.
+要深入了解Bedrock与协议之前版本之间的差异，请参阅[Bedrock有何不同？](https://community.optimism.io/docs/developers/bedrock/differences/)页面。

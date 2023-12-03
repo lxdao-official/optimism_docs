@@ -1,18 +1,18 @@
 ---
-title: Explorer and Indexer
-lang: en-US
+title: 区块浏览器和索引器
+lang: zh-CN
 ---
 
-The next step is to be able to see what is actually happening in your blockchain.
-One easy way to do this is to use [Blockscout](https://www.blockscout.com/).
+下一步是能够查看您的区块链中实际发生的情况。
+一个简单的方法是使用 [Blockscout](https://www.blockscout.com/)。
 
-## Prerequisites
+## 先决条件
 
-### Archive mode
+### 存档模式
 
-Blockscout expects to interact with an Ethereum execution client in [archive mode](https://www.alchemy.com/overviews/archive-nodes#archive-nodes).
-If your `op-geth` is running in full mode, you can create a separate archive node.
-To do so, follow the [directions to add a node](./getting-started.md#adding-nodes), but in the command you use to start `op-geth` replace:
+Blockscout 期望与以[存档模式](https://www.alchemy.com/overviews/archive-nodes#archive-nodes)运行的以太坊执行客户端进行交互。
+如果您的 `op-geth` 是以完整模式运行的，您可以创建一个单独的存档节点。
+要这样做，请按照[添加节点的说明](./getting-started.md#adding-nodes)进行操作，但在启动 `op-geth` 的命令中替换为：
 
 ```sh
 	--gcmode=full \
@@ -26,13 +26,13 @@ with
 
 ### Docker
 
-The easiest way to run Blockscout is to use Docker.
-Download and install [Docker engine](https://docs.docker.com/engine/install/#server).
+运行Blockscout最简单的方法是使用Docker。
+下载并安装[Docker引擎](https://docs.docker.com/engine/install/#server)。
 
 
-## Installation and configuration
+## 安装和配置
 
-1. Clone the Blockscout repository.
+1. 克隆 Blockscout 仓库。
 
    ```sh
    cd ~
@@ -40,31 +40,30 @@ Download and install [Docker engine](https://docs.docker.com/engine/install/#ser
    cd blockscout/docker-compose
    ```
 
-1. Depending on the version of Docker you have, there may be an issue with the environment path.
-   Run this command to fix it:
-
+1. 根据您所使用的Docker版本，可能会出现环境路径的问题。
+   运行以下命令来修复它：
    ```sh
    ln -s `pwd`/envs ..
    ```
 
-1. If `op-geth` in archive mode runs on a different computer or a port that isn't 8545, edit `docker-compose-no-build-geth.yml` to set `ETHEREUM_JSONRPC_HTTP_URL` to the correct URL.
+1. 如果以存档模式运行的 `op-geth` 在不同的计算机上或端口不是8545，请编辑 `docker-compose-no-build-geth.yml` 文件，将 `ETHEREUM_JSONRPC_HTTP_URL` 设置为正确的URL。
 
-1. Start Blockscout
+2. 启动 Blockscout
 
    ```sh
    docker compose -f docker-compose-no-build-geth.yml up
    ```
 
-## Usage
+## 使用方法
 
-After the docker containers start, browse to http:// < *computer running Blockscout* > :4000 to view the user interface. 
+在docker容器启动后，浏览到 http://< *运行Blockscout的计算机* >:4000 查看用户界面。
 
-You can also use the [API](https://docs.blockscout.com/for-users/api)
+您还可以使用[API](https://docs.blockscout.com/for-users/api)
 
 ### GraphQL
 
-Blockscout's API includes [GraphQL](https://graphql.org/) support under `/graphiql`. 
-For example, this query looks at addresses.
+Blockscout的API支持在`/graphiql`下使用[GraphQL](https://graphql.org/)。
+例如，这个查询查看地址。
 
 ```
 query {
@@ -73,12 +72,12 @@ query {
    "0xC2dfA7205088179A8644b9fDCecD6d9bED854Cfe"])
 ```
 
-GraphQL queries start with a top level entity (or entities).
-In this case, our [top level query](https://docs.blockscout.com/for-users/api/graphql#queries) is for multiple addresses.
+GraphQL查询从顶层实体（或实体）开始。
+在这种情况下，我们的[顶层查询](https://docs.blockscout.com/for-users/api/graphql#queries)是针对多个地址的查询。
 
-Note that you can only query on fields that are indexed.
-For example, here we query on the addresses.
-However, we couldn't query on `contractCode` or `fetchedCoinBalance`.
+请注意，您只能查询已建立索引的字段。
+例如，在这里我们查询了地址。
+然而，我们无法查询`contractCode`或`fetchedCoinBalance`。
 
 ```
  {
@@ -87,14 +86,14 @@ However, we couldn't query on `contractCode` or `fetchedCoinBalance`.
     fetchedCoinBalance
 ```
 
-The fields above are fetched from the address table.
+上述字段是从地址表中获取的。
 
 ```
     transactions(first:5) {
 ```
 
-We can also fetch the transactions that include the address (either as source or destination).
-The API does not let us fetch an unlimited number of transactions, so here we ask for the first 5.
+我们还可以获取包含该地址的交易（无论是作为源地址还是目标地址）。
+由于API不允许我们获取无限数量的交易，因此在这里我们只请求了前5个。
 
 
 ```
@@ -102,8 +101,8 @@ The API does not let us fetch an unlimited number of transactions, so here we as
         node {
 ```
 
-Because this is a [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)), the entities that connect two types, for example addresses and transactions, are called `edges`.
-At the other end of each edge there is a transaction, which is a separate `node`.
+因为这是一个[图](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics))，连接两种类型（例如地址和交易）的实体被称为`边缘`。
+在每个边缘的另一端，有一个单独的`节点`，代表一个交易。
 
 ```
           hash
@@ -113,7 +112,7 @@ At the other end of each edge there is a transaction, which is a separate `node`
         }
 ```
 
-These are the fields we read for each transaction. 
+这些是我们读取每个交易的字段。
 
 ```
       }
@@ -122,4 +121,4 @@ These are the fields we read for each transaction.
 }
 ```
 
-Finally, close all the brackets. 
+最后，关闭所有的括号。

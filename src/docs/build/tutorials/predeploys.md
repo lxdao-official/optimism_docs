@@ -1,29 +1,29 @@
 ---
-title: Modifying Predeployed Contracts
-lang: en-US
+title: 修改预部署合约
+lang: zh-CN
 ---
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些可以使用 OP Stack 进行的操作，目前并不适用于生产环境
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好亲自动手并在没有支持的情况下工作。
 
 :::
 
 
-OP Stack blockchains have a number of [predeployed contracts](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/src/constants.ts) that provide important functionality. 
-Most of those contracts are proxies that can be upgraded using the `proxyAdminOwner` which was configured when the network was initially deployed.
+OP Stack 区块链有许多[预部署合约](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/src/constants.ts)，提供重要的功能。
+其中大部分合约都是代理合约，可以使用在网络初始部署时配置的 `proxyAdminOwner` 进行升级。
 
-The predeploys are controlled from a predeploy called [`ProxyAdmin`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol), whose address is `0x4200000000000000000000000000000000000018`. 
-The function to call is [`upgrade(address,address)`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol#L205-L229).
-The first parameter is the proxy to upgrade, and the second is the address of a new implementation.
+预部署合约由名为 [`ProxyAdmin`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol) 的合约控制，其地址为 `0x4200000000000000000000000000000000000018`。
+要调用的函数是 [`upgrade(address,address)`](https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol#L205-L229)。
+第一个参数是要升级的代理合约，第二个参数是新实现的地址。
 
-For example, the legacy `L1BlockNumber` contract is at `0x420...013`. 
-To disable this function, we'll set the implementation to `0x00...00`.
-We do this using the [Foundry](https://book.getfoundry.sh/) command `cast`.
+例如，旧版的 `L1BlockNumber` 合约位于 `0x420...013`。
+为了禁用此功能，我们将实现设置为 `0x00...00`。
+我们使用 [Foundry](https://book.getfoundry.sh/) 命令 `cast` 来完成此操作。
 
-1. We'll need several constants.
+1. 我们需要几个常量。
 
-    - Set these addresses as variables in your terminal.
+   - 在您的终端中将这些地址设置为变量。
 
         ```sh
         L1BLOCKNUM=0x4200000000000000000000000000000000000013
@@ -31,43 +31,43 @@ We do this using the [Foundry](https://book.getfoundry.sh/) command `cast`.
         ZERO_ADDR=0x0000000000000000000000000000000000000000
         ```
 
-    - Set `PRIVKEY` to the private key of your ADMIN account.
+   - 将 `PRIVKEY` 设置为您的 ADMIN 账户的私钥。
 
-    - Set `ETH_RPC_URL`. If you're on the computer that runs the blockchain, use this command.
+   - 设置 `ETH_RPC_URL`。如果您在运行区块链的计算机上，请使用以下命令。
 
         ```sh
         export ETH_RPC_URL=http://localhost:8545
         ```
 
-1. Verify `L1BlockNumber` works correctly.
-   See that when you call the contract you get a block number, and twelve seconds later you get the next one (block time on L1 is twelve seconds).
+1. 验证 `L1BlockNumber` 正常工作。
+   查看调用合约时是否返回一个区块号，十二秒后是否返回下一个区块号（L1上的区块时间为十二秒）。
 
    ```sh
    cast call $L1BLOCKNUM 'number()' | cast --to-dec
    sleep 12 && cast call $L1BLOCKNUM 'number()' | cast --to-dec
    ```
 
-1. Get the current implementation for the contract.
+1. 获取合约的当前实现。
 
    ```sh
    L1BLOCKNUM_IMPLEMENTATION=`cast call $L1BLOCKNUM "implementation()" | sed 's/000000000000000000000000//'`
    echo $L1BLOCKNUM_IMPLEMENTATION 
    ```
 
-1. Change the implementation to the zero address   
+1. 将实现更改为零地址   
 
    ```sh
    cast send --private-key $PRIVKEY $PROXY_ADMIN "upgrade(address,address)" $L1BLOCKNUM $ZERO_ADDR
    ```
 
-1. See that the implementation is address zero, and that calling it fails.
+1. 查看实现地址是否为零，并且调用失败。
 
    ```sh
    cast call $L1BLOCKNUM 'implementation()'
    cast call $L1BLOCKNUM 'number()'
    ```
 
-1. Fix the predeploy by returning it to the previous implementation, and verify it works. 
+1. 将预部署合约修复为先前的实现，并验证其是否正常工作。
 
 
    ```sh

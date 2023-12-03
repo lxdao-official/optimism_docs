@@ -1,28 +1,28 @@
 ---
-title: Adding Attributes to the Derivation Function
-lang: en-US
+title: 向派生函数添加属性
+lang: zh-CN
 ---
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些明确不适用于生产环境的 OP Stack 技巧
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。
 
 :::
 
 
-## Overview
+## 概述
 
-In this guide, we’ll modify the Bedrock Rollup. Although there are many ways to modify the OP Stack, we’re going to spend this tutorial modifying the Derivation function. Specifically, we’re going to update the Derivation function to track the amount of ETH being burned on L1! Who’s gonna tell [ultrasound.money](http://ultrasound.money) that they should replace their backend with an OP Stack chain?
+在本指南中，我们将修改 Bedrock Rollup。虽然有很多修改 OP Stack 的方法，但在本教程中，我们将专注于修改派生函数。具体而言，我们将更新派生函数以跟踪在 L1 上燃烧的 ETH 的数量！谁会告诉 [ultrasound.money](http://ultrasound.money) 他们应该用 OP Stack 链替换后端呢？
 
-## Getting the idea
+## 获取灵感
 
-Let’s quickly recap what we’re about to do. The `op-node` is responsible for generating the Engine API payloads that trigger `op-geth` to produce blocks and transactions. The `op-node` already generates a “system transaction” for every L1 block that relays information about the current L1 state to the L2 chain. We’re going to modify the `op-node` to add a new system transaction that reports the total burn amount (the base fee multiplied by the gas used) in each block.
+让我们快速回顾一下我们即将做的事情。`op-node` 负责生成引擎 API 负载，以触发 `op-geth` 生成区块和交易。`op-node` 已经为每个 L1 块生成了一个“系统交易”，用于向 L2 链传递有关当前 L1 状态的信息。我们将修改 `op-node`，添加一个新的系统交易，报告每个块中的总燃烧金额（基础费用乘以使用的 gas）。
 
-Although it might sound like a lot, the whole process only involves deploying a single smart contract, adding one new file to `op-node`, and modifying one existing file inside `op-node`. It’ll be painless. Let’s go!
+虽然听起来可能很复杂，但整个过程只涉及部署一个智能合约，向 `op-node` 添加一个新文件，并修改 `op-node` 中的一个现有文件。这将是无痛的。让我们开始吧！
 
-## Deploy the burn contract
+## 部署燃烧合约
 
-We’re going to use a smart contract on our Rollup to store the reports that the `op-node` makes about the L1 burn. Here’s the code for our smart contract:
+我们将在 Rollup 上使用一个智能合约来存储 `op-node` 对 L1 燃烧的报告。以下是我们智能合约的代码：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -72,25 +72,24 @@ contract L1Burn {
 }
 ```
 
-Deploy this smart contract to your L2 (using any tool you find convenient). Make a note of the address that the contract is deployed to because you’ll need it in a minute. Simple!
+将这个智能合约部署到您的 L2（使用任何您方便的工具）。记下合约部署的地址，因为您一会儿会用到它。简单！
 
-## Add the burn transaction
+## 添加燃烧交易
 
-Now we need to add logic to the `op-node` to automatically submit a burn report whenever an L1 block is produced. Since this transaction is very similar to the system transaction that reports other L1 block info (found in [l1_block_info.go](https://github.com/ethereum-optimism/optimism/blob/c9cd1215b76111888e25ee27a49a0bc0c4eeb0f8/op-node/rollup/derive/l1_block_info.go)), we’ll use that transaction as a jumping-off point. 
-
-1. Navigate to the `op-node` package:
+现在我们需要在 `op-node` 中添加逻辑，以便在生成 L1 块时自动提交燃烧报告。由于这个交易与报告其他 L1 块信息的系统交易非常相似（在 [l1_block_info.go](https://github.com/ethereum-optimism/optimism/blob/c9cd1215b76111888e25ee27a49a0bc0c4eeb0f8/op-node/rollup/derive/l1_block_info.go) 中找到），我们将使用该交易作为起点。
+1. 导航到 `op-node` 包：
 
     ```bash
     cd ~/optimism/op-node
     ```
 
-1. Inside of the folder `rollup/derive`, create a new file called `l1_burn_info.go`:
+1. 在 `rollup/derive` 文件夹中创建一个名为 `l1_burn_info.go` 的新文件：
 
     ```bash
     touch rollup/derive/l1_burn_info.go
     ```
 
-1. Paste the following into `l1_burn_info.go`, and make sure to replace `YOUR_BURN_CONTRACT_HERE` with the address of the `L1Burn` contract you just deployed.
+1. 将以下内容粘贴到 `l1_burn_info.go` 文件中，并确保将 `YOUR_BURN_CONTRACT_HERE` 替换为您刚刚部署的 `L1Burn` 合约的地址。
 
     ```go
     package derive
@@ -198,13 +197,14 @@ Now we need to add logic to the `op-node` to automatically submit a burn report 
     }
     ```
 
-    Feel free to take a look at this file if you’re interested. It’s relatively simple, mainly just defining a new transaction type and describing how the transaction should be encoded.
 
-## Insert the burn transactions
+    如果你感兴趣，可以随意查看这个文件。它相对简单，主要是定义了一个新的交易类型，并描述了如何对该交易进行编码。
 
-Finally, we’ll need to update `~/optimism/op-node/rollup/derive/attributes.go` to insert the new burn transaction into every block. You’ll need to make the following changes:
+## 插入燃烧交易
 
-1. Find these lines:
+最后，我们需要更新 `~/optimism/op-node/rollup/derive/attributes.go` 文件，将新的燃烧交易插入到每个区块中。您需要进行以下更改：
+
+1. 找到以下代码行：
     
     ```go
     l1InfoTx, err := L1InfoDepositBytes(seqNumber, l1Info, sysConfig)
@@ -213,7 +213,7 @@ Finally, we’ll need to update `~/optimism/op-node/rollup/derive/attributes.go`
     }
     ```
     
-1. After those lines, add this code fragment:
+1. 在这些代码行之后，添加以下代码片段：
     
     ```go
     l1BurnTx, err := L1BurnDepositBytes(seqNumber, l1Info, sysConfig)
@@ -222,7 +222,7 @@ Finally, we’ll need to update `~/optimism/op-node/rollup/derive/attributes.go`
     }
     ```
     
-1. Immediately following, change these lines:
+1. 紧接着，更改以下行：
     
     ```go
     txs := make([]hexutil.Bytes, 0, 1+len(depositTxs))
@@ -238,32 +238,32 @@ Finally, we’ll need to update `~/optimism/op-node/rollup/derive/attributes.go`
     ```
     
 
-All we’re doing here is creating a new burn transaction after every `l1InfoTx` and inserting it into every block.
+我们在这里做的只是在每个 `l1InfoTx` 之后创建一个新的燃烧交易，并将其插入到每个区块中。
 
-## Rebuild your op-node
+## 重新构建您的 op-node
 
-Before we can see this change take effect, you’ll need to rebuild your `op-node`:
+在我们能够看到这个变化生效之前，您需要重新构建您的 `op-node`：
 
 ```bash
 cd ~/optimism/op-node
 make op-node
 ```
 
-Now start your `op-node` if it isn’t running or restart your `op-node` if it’s already running. You should see the change immediately — new blocks will contain two system transactions instead of just one!
+现在启动您的 `op-node`，如果它没有运行，请重新启动您的 `op-node`，如果它已经在运行中。您应该立即看到变化 - 新的区块将包含两个系统交易而不仅仅是一个！
 
-## Checking the result
+## 检查结果
 
-Query the `total` function of your contract, you should also start to see the total slowly increasing. Play around with the `tally` function to grab the amount of gas burned since a given L2 block. You could use this to implement a version of [ultrasound.money](http://ultrasound.money) that keeps track of things with an OP Stack as a backend. We did it reddit!
+查询您的合约的 `total` 函数，您应该看到总数慢慢增加。尝试使用 `tally` 函数获取自某个 L2 区块以来燃烧的 gas 数量。您可以使用这个功能来实现一个以 OP Stack 作为后端的 [ultrasound.money](http://ultrasound.money) 版本。我们做到了，Reddit！
 
-One way to get the total is to run these commands:
+获取总数的一种方法是运行以下命令：
 
 ```bash
 export ETH_RPC_URL=http://localhost:8545
 cast call <YOUR_BURN_CONTRACT_HERE> "total()" | cast --from-wei
 ```
 
-## Conclusion
+## 结论
 
-With just a few tiny changes to the `op-node`, you were just able to implement a change to the OP Stack that allows you to keep track of the L1 ETH burn on L2. With a live Cannon fault proof system, you should not only be able to track the L1 burn on L2, you should be able to *prove* the burn to contracts back on L1. You could build a trustless prediction market on the amount of ETH burned. That’s crazy!
+通过对 `op-node` 进行一些微小的更改，您刚刚实现了对 OP Stack 的改变，使您能够跟踪 L1 ETH 在 L2 上的燃烧情况。通过一个实时的 Cannon 容错系统，您不仅能够在 L2 上跟踪 L1 的燃烧情况，还能够向 L1 上的合约 *证明* 这种燃烧。您可以在燃烧的 ETH 数量上建立一个无需信任的预测市场。这太疯狂了！
 
-The OP Stack is an extremely powerful platform that allows you to perform a large amount of computation trustlessly. It’s a superpower for smart contracts. Tracking the L1 burn is just one of the many, many wild things you can do with the OP Stack. If you’re looking for inspiration or you want to see what others are building on the OP Stack, check out our OP Stack Hacks page. Maybe you’ll find a project you want to work on, or maybe you’ll get the inspiration you need to build the next killer smart contract.
+OP Stack 是一个非常强大的平台，可以让您以无需信任的方式执行大量计算。对于智能合约来说，这是一个超能力。跟踪 L1 的燃烧只是您可以在 OP Stack 上做的许多疯狂事情中的一种。如果您正在寻找灵感，或者想看看其他人在 OP Stack 上构建了什么，可以查看我们的 OP Stack Hacks 页面。也许您会找到一个您想要参与的项目，或者您会获得建立下一个杀手级智能合约所需的灵感。

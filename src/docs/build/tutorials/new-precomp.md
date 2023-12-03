@@ -1,25 +1,25 @@
 ---
-title: Adding a Precompile
-lang: en-US
+title: 添加一个预编译合约
+lang: zh-CN
 ---
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些明确不适用于生产环境的 OP Stack 的用法
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。
 
 :::
 
-One possible use of OP Stack is to run an EVM with a new precompile for operations to speed up calculations that are not currently supported. In this case we’ll make a simple precompile that returns a constant value if it’s called with four or less bytes, or an error if it is called with more than that.
+OP Stack 的一个可能用途是为运行 EVM 提供一个新的预编译合约，以加速当前不支持的计算。在这种情况下，我们将创建一个简单的预编译合约，如果使用四个或更少的字节调用它，则返回一个常量值；如果使用超过四个字节调用它，则返回一个错误。
 
-To create a new precompile, the file to modify is [`op-geth/core/vm/contracts.go`](https://github.com/ethereum-optimism/op-geth/blob/optimism-history/core/vm/contracts.go).
+要创建一个新的预编译合约，请修改文件 [`op-geth/core/vm/contracts.go`](https://github.com/ethereum-optimism/op-geth/blob/optimism-history/core/vm/contracts.go)。
 
-1. Add to `PrecompiledContractsBerlin` on line 82 (or a later fork, if the list of precompiles changes again) a structure named after your new precompile, with an address that is unlikely to ever clash with a standard precompile (0x100, for example):
+1. 在第82行（或以后的分叉，如果预编译合约列表再次更改）的 `PrecompiledContractsBerlin` 中添加一个以您的新预编译合约命名的结构体，并使用一个不太可能与标准预编译合约冲突的地址（例如0x100）：
 
     ```go
     common.BytesToAddress([]byte{1,0}): &retConstant{},
     ```
 
-1. Add the lines for the precompile. 
+1. 添加预编译合约的代码行。
 
     ```go
     type retConstant struct{}
@@ -46,26 +46,24 @@ To create a new precompile, the file to modify is [`op-geth/core/vm/contracts.go
     }
     ```
 
-1. Stop `op-geth` and recompile:
+1. 停止 `op-geth` 并重新编译：
 
     ```bash
     cd ~/op-geth
     make geth
     ```
 
-1. Restart `op-geth`.
+1. 重新启动 `op-geth`。
 
-1. Run these command to see the result of calling the precompile successfully, and the result of an error:
+1. 运行以下命令以查看成功调用预编译合约的结果以及错误的结果：
 
     ```bash
     cast call 0x0000000000000000000000000000000000000100 "whatever()"
     cast call 0x0000000000000000000000000000000000000100 "whatever(string)" "fail"
     ```
+## 它是如何工作的？
 
-## How does it work?
-
-This is the precompile interface definition:
-
+这是预编译接口的定义：
 ```go
 type PrecompiledContract interface {
 	RequiredGas(input []byte) uint64  // RequiredPrice calculates the contract gas use
@@ -73,12 +71,12 @@ type PrecompiledContract interface {
 }
 ```
 
-It means that for every precompile we need two functions:
+这意味着对于每个预编译合约，我们需要两个函数：
 
-- `RequiredGas` which returns the gas cost for the call. This function takes an array of bytes as input, and returns a single value, the gas cost.
-- `Run` which runs the actual precompile. This function also takes an array of bytes, but it returns two values: the call’s output (a byte array) and an error.
+- `RequiredGas` 函数返回调用的燃料成本。该函数接受一个字节数组作为输入，并返回一个值，即燃料成本。
+- `Run` 函数运行实际的预编译合约。该函数也接受一个字节数组作为输入，但它返回两个值：调用的输出（一个字节数组）和一个错误。
 
-For every fork that changes the precompiles we have a [`map`](https://www.w3schools.com/go/go_maps.php) from addresses to the `PrecompiledContract` definitions:
+对于每个更改预编译合约的分叉，我们都有一个从地址到 `PrecompiledContract` 定义的 [`map`](https://www.w3schools.com/go/go_maps.php)：
 
 ```go
 // PrecompiledContractsBerlin contains the default set of pre-compiled Ethereum
@@ -93,17 +91,17 @@ var PrecompiledContractsBerlin = map[common.Address]PrecompiledContract{
 }
 ```
 
-The key of the map is an address. We create those from bytes using `common.BytesToAddress([]byte{<bytes to convert to address go here>})`.  In this case we have two bytes, `0x01` and `0x00`. Together we get the address `0x0…0100`.
+该映射的键是一个地址。我们使用`common.BytesToAddress([]byte{<要转换为地址的字节>})`将字节转换为地址。在这种情况下，我们有两个字节，`0x01`和`0x00`。将它们组合在一起，我们得到地址`0x0…0100`。
 
-The syntax for a precompiled contract interface is `&<variable name>{}`.
+预编译合约接口的语法是`&<变量名>{}`。
 
-The next step is to define the precompiled contract itself.
+下一步是定义预编译合约本身。
 
 ```go
 type retConstant struct{}
 ```
 
-First we create a structure for the precompile. 
+首先，我们为预编译创建一个结构体。
 
 ```go
 func (c *retConstant) RequiredGas(input []byte) uint64 {
@@ -111,7 +109,7 @@ func (c *retConstant) RequiredGas(input []byte) uint64 {
 }
 ```
 
-Then we define a function as part of that structure. Here we just require a constant amount of gas, but of course the calculation can be a lot more sophisticated.
+然后，我们定义了一个作为结构体一部分的函数。在这里，我们只需要一个固定数量的燃料，但是当然计算可以更加复杂。
 
 ```go
 var (
@@ -120,13 +118,13 @@ var (
 
 ```
 
-Next we define a variable for the error. 
+接下来，我们为错误定义了一个变量。
 
 ```go
 func (c *retConstant) Run(input []byte) ([]byte, error) {
 ```
 
-This is the function that actually executes the precompile.
+这是实际执行预编译的函数。
 
 ```go
 
@@ -136,9 +134,9 @@ This is the function that actually executes the precompile.
     }
 ```
 
-Return an error if warranted. The reason this precompile allows up to four bytes of input is that any standard call (for example, using `cast`) is going to have at least four bytes for the function signature. 
+如果需要的话，返回一个错误。这个预编译允许最多四个字节的输入，原因是任何标准调用（例如使用`cast`）都会有至少四个字节的函数签名。
 
-`return a, b` is the way we return two values from a function in Go. The normal output is `nil`, nothing, because we return an error.
+`return a, b` 是在Go中返回函数的两个值的方式。正常的输出是`nil`，什么都没有，因为我们返回了一个错误。
 
 ```go
     output := make([]byte, 6)
@@ -149,8 +147,8 @@ Return an error if warranted. The reason this precompile allows up to four bytes
 }
 ```
 
-Finally, we create the output buffer, fill it, and then return it.
+最后，我们创建输出缓冲区，填充它，然后返回它。
 
-## Conclusion
+## 结论
 
-An OP Stack chain with additional precompiles can be useful, for example, to further reduce the computational effort required for cryptographic operations by moving them from interpreted EVM code to compiled Go code.
+具有额外预编译合约的OP Stack链可以很有用，例如，通过将加密操作从解释的EVM代码移动到编译的Go代码，进一步减少计算工作量。
