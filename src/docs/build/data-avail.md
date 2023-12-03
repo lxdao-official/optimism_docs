@@ -1,49 +1,49 @@
 ---
-title: Data Availability Hacks
-lang: en-US
+title: 数据可用性技巧
+lang: zh-CN
 ---
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不打算用于生产环境
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks 不适合新手。你将无法获得 OP Stack Hacks 的重要开发者支持，准备好自己动手解决问题并在没有支持的情况下工作。
 
 :::
 
 
-## Overview
+## 概述
 
-The Data Availability Layer is responsible for the *ordering* and *storage* of the raw input data that forms the backbone of an OP Stack based chain (transactions, state roots, calls from other blockchains, etc.). You can conceptually think of this as an array of inputs — the ordering of this array should remain stable and the contents of this array should remain available. Unstable ordering of inputs will lead to reorgs of the OP Stack chain, while unavailable inputs will cause the OP Stack chain to halt entirely.
+数据可用性层负责对构成 OP Stack 基于链的原始输入数据进行*排序*和*存储*（交易、状态根、来自其他区块链的调用等）。你可以将其概念化为一个输入数组 - 这个数组的排序应保持稳定，数组的内容应保持可用。输入的不稳定排序将导致 OP Stack 链的重组，而不可用的输入将导致 OP Stack 链完全停止。
 
-## Default
+## 默认设置
 
-The default Data Availability Layer module for an OP Stack chain is the Ethereum DA module. When using the Ethereum DA module, all raw input data is expected to be found on Ethereum. Any data that is accessible on Ethereum can be queried when using this module, including calldata, events, and other block data.
+OP Stack 链的默认数据可用性层模块是以太坊 DA 模块。使用以太坊 DA 模块时，所有原始输入数据都应在以太坊上找到。使用此模块时，可以查询在以太坊上可访问的任何数据，包括调用数据、事件和其他区块数据。
 
-## Security
+## 安全性
 
-OP Stack based chains are functions of the raw input data found on the Data Availability Layer module(s) used. If a required piece of data is not available, nodes will not be able to properly sync the chain. This also means that these nodes will not be able to dispute any invalid state proposals made to a Settlement Layer module. An OP Stack based chain cannot be safer than the Data Availability module.
+基于 OP Stack 的链是基于所使用的数据可用性层模块上找到的原始输入数据的函数。如果所需的某个数据不可用，节点将无法正确同步链。这也意味着这些节点将无法对提交给结算层模块的任何无效状态提案进行争议。基于 OP Stack 的链的安全性不能超过数据可用性模块。
 
-You should be careful to understand the security properties of any Data Availability module(s) that you use. The standard Ethereum DA module generally provides the best security guarantees at the cost of higher transaction fees. Alternative DA modules may be appropriate depending on your particular use-case and risk tolerance.
+你应该仔细了解所使用的任何数据可用性模块的安全性属性。标准的以太坊 DA 模块通常提供了最佳的安全性保证，但交易费用较高。根据你的特定用例和风险承受能力，可能适合使用其他 DA 模块。
 
-## Modding
+## 修改
 
-### Alternative EVM DA
+### 替代的 EVM DA
 
-A simple modification is to use an EVM-based blockchain other than Ethereum as the Data Availability Layer. Doing so simply requires using an L1 RPC other than Ethereum.
+一个简单的修改是使用除以太坊以外的基于 EVM 的区块链作为数据可用性层。这只需要使用除以太坊以外的 L1 RPC。
 
-### EVM-Ordered Alternative DA
+### EVM-Ordered 替代 DA
 
-A more involved modification to the Data Availability Layer is an "EVM-Ordered" Alternative DA module. This involves using an EVM-based chain to maintain the *ordering* of transaction data while using a different data storage system to host the underlying data. Generally, ordering is maintained by publishing hashes of the data to the EVM-based chain while publishing the preimages to those hashes to the alternative data source.
+对数据可用性层的更复杂的修改是“EVM-Ordered”替代 DA 模块。这涉及使用基于 EVM 的链来维护交易数据的*排序*，同时使用不同的数据存储系统来托管底层数据。通常，通过将数据的哈希发布到基于 EVM 的链上，同时将这些哈希的原像发布到替代数据源，来维护排序。
 
-An EVM-Ordered Alternative DA module significantly reduces costs by only publishing hashes and not full input data to the EVM chain. Using an EVM chain for ordering also reduces the number of changes that must be made to the standard Rollup configuration to achieve this result.
+EVM-Ordered 替代 DA 模块通过仅发布哈希而不是完整的输入数据到 EVM 链来显著降低成本。使用 EVM 链进行排序还减少了必须对标准 Rollup 配置进行的更改数量，以实现此结果。
 
-An example of an EVM-Ordered Alternative DA module can be found within [this modification to the OP Stack](https://github.com/celestiaorg/optimism/pull/3) that uses the Celestia blockchain as a third-party data availability provider.
+可以在[这个对 OP Stack 的修改](https://github.com/celestiaorg/optimism/pull/3)中找到 EVM-Ordered 替代 DA 模块的示例，该修改使用 Celestia 区块链作为第三方数据可用性提供者。
 
-### Non-EVM DA
+### 非 EVM DA
 
-A non-EVM DA module uses a chain not based on the EVM to manage both the ordering and storage of raw input data. Such a modification would require relatively significant modifications to the [derivation portion](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive) of the `op-node`. No such fully-independent DA modules have been developed yet — be the first!
+非 EVM DA 模块使用不基于 EVM 的链来管理原始输入数据的排序和存储。这样的修改需要对 `op-node` 的[派生部分](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive)进行相当大的修改。目前还没有开发出这样的完全独立的 DA 模块 - 你可以成为第一个！
 
-### Multiple DA
+### 多个 DA
 
-It is possible to use multiple Data Availability Layer modules at the same time. For instance, one could source data from two EVM-based chains simultaneously in order to form a bridge between the two chains. When using multiple Data Availability Layer modules, it is imperative to establish a global ordering between the two chains. One option for establishing this ordering is to use the timestamps of blocks from each chain.
+可以同时使用多个数据可用性层模块。例如，可以同时从两个基于 EVM 的链中获取数据，以在两个链之间建立桥梁。在使用多个数据可用性层模块时，建立两个链之间的全局排序至关重要。建立此排序的一种选择是使用每个链的区块时间戳。
 
-Like a non-EVM DA module, a system with multiple Data Availability modules would need to make significant modifications to the [derivation portion](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive) of the `op-node`. No such projects have been constructed yet.
+与非 EVM DA 模块一样，具有多个数据可用性模块的系统需要对 `op-node` 的[派生部分](https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive)进行重大修改。目前还没有这样的项目。

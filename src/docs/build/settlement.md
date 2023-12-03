@@ -1,38 +1,38 @@
 ---
-title: Settlement Hacks
-lang: en-US
+title: 结算层技巧
+lang: zh-CN
 ---
 
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack技巧是指您可以在OP Stack上做的一些事情，目前并不打算用于生产环境
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack技巧并不适合新手。您将无法获得针对OP Stack技巧的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。
 
 :::
 
 
-# Overview
+# 概述
 
-The Settlement Layer includes modules that are used by third-party chains to establish a *view* of the state of your OP Stack chain. This view can then be used by applications on those chains to make decisions based on the state of your OP Stack chain. Third-party chains can be any other blockchain, including other OP Stack chains. One common Settlement Layer mechanism is a withdrawal system that allows users to send assets from your OP Stack chain to the third-party chain. Modifications to this layer typically involve introducing new modules or tweaking the security model of existing modules.
+结算层包括由第三方链使用的模块，用于建立对您的OP Stack链状态的*视图*。这个视图可以被那些链上的应用程序用来根据您的OP Stack链的状态做出决策。第三方链可以是任何其他区块链，包括其他OP Stack链。一个常见的结算层机制是提供一个允许用户将资产从您的OP Stack链发送到第三方链的提现系统。对该层的修改通常涉及引入新的模块或调整现有模块的安全模型。
 
-## Default
+## 默认
 
-The default Settlement Layer module is currently the Attestation Proof Optimistic Settlement module. This module allows a third-party chain to become aware of the state of an OP Stack chain through an Optimistic protocol where challenges can be executed alongside a threshold of attestations from a pre-defined set of addresses over a state that differs from the proposed state. With a Cannon fault proof shipped to production, this default module can be replaced with a module that allows anyone to challenge proposals by playing the Cannon dispute game.
+默认的结算层模块目前是Attestation Proof Optimistic Settlement模块。该模块通过一种乐观的协议，允许第三方链了解OP Stack链的状态，其中挑战可以与来自预定义地址集的证明一起执行，这些证明与提议状态不同。通过将Cannon故障证明投入生产，可以将此默认模块替换为允许任何人通过进行Cannon争议游戏来挑战提议的模块。
 
-## Security
+## 安全性
 
-Modifications to the Settlement Layer can strongly impact the security of common mechanisms like user withdrawals. A decreased withdrawal delay can, for instance, open the door to gas spam attacks that make challenges exceedingly expensive. It is generally not recommended to modify the Settlement Layer unless you know what you’re doing.
+对结算层的修改可能会严重影响常见机制（如用户提现）的安全性。例如，缩短提现延迟可能会打开垃圾邮件攻击的大门，使挑战变得极其昂贵。通常不建议修改结算层，除非您知道自己在做什么。
 
-## Modding
+## 修改
 
-### Tweaked parameters
+### 调整参数
 
-One simple modification to the Settlement Layer is to tweak the parameters of the default Optimistic asset withdrawal mechanism. For example, the withdrawal period can be reduced if a smaller withdrawal period would be sufficient to secure your system.
+对结算层的一个简单修改是调整默认的乐观资产提现机制的参数。例如，如果较小的提现期限足以保护您的系统，可以缩短提现期限。
 
-### Custom proofs
+### 自定义证明
 
-Settlement Layer modules use a proof system to verify the correctness of the state of your OP Stack chain as proposed on the third-party chain. In general, these proofs are either Optimistic proofs that require a withdrawal delay or Validity proofs that use a mathematical proof system to assert the validity of the proposal. The current Attestation Proof Optimistic Settlement module could be replaced with a fault proof system.
+结算层模块使用证明系统来验证在第三方链上提议的OP Stack链状态的正确性。一般来说，这些证明要么是需要提现延迟的乐观证明，要么是使用数学证明系统来断言提议的有效性的有效性证明。当前的Attestation Proof Optimistic Settlement模块可以被一个故障证明系统替换。
 
-### Multiple modules
+### 多个模块
 
-There is no requirement that a system only have one Settlement Layer module. It is possible to use one or more Settlement Layer modules on one or more third-party chains. A system that aims to bridge assets between two chains will likely need to use one Data Availability Layer module and one Settlement Layer module per chain.
+系统并不要求只有一个结算层模块。可以在一个或多个第三方链上使用一个或多个结算层模块。一个旨在在两个链之间桥接资产的系统可能需要在每个链上使用一个数据可用性层模块和一个结算层模块。

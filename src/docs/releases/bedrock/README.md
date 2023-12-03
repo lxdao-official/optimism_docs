@@ -1,28 +1,28 @@
 ---
-title: OP Stack codebase V1 - Bedrock
-lang: en-US
+title: OP Stack代码库V1 - Bedrock
+lang: zh-CN
 ---
 
-## Overview
+## 概述
 
-The first release of the OP Stack codebase is called **Bedrock**.
-The Bedrock release primarily consists of the core software required to run L2 blockchains and was originally designed to power an upgrade to the Optimism Mainnet network.
+OP Stack代码库的第一个版本称为**Bedrock**。
+Bedrock版本主要包含运行L2区块链所需的核心软件，最初设计用于升级Optimism Mainnet网络。
 
-## Resources
+## 资源
 
-### Rollup Protocol
+### Rollup协议
 
-Learn about the basics of the Rollup protocol used by Bedrock on the [Rollup Protocol](https://community.optimism.io/docs/protocol/2-rollup-protocol/) page.
+在[Rollup协议](https://community.optimism.io/docs/protocol/2-rollup-protocol/)页面上了解Bedrock使用的Rollup协议的基础知识。
 
-### Bedrock Explainer
+### Bedrock解释器
 
-Learn all about the Bedrock release of the OP Stack by reading the [Bedrock Explainer](./explainer.md).
+通过阅读[Bedrock解释器](./explainer.md)来了解OP Stack的Bedrock版本的所有内容。
 
-### Specifications
+### 规范
 
-Dive deep into the specifications for the Bedrock release in the [specs folder of the Optimism Monorepo](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md).
+在Optimism Monorepo的[specs文件夹](https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md)中深入了解Bedrock版本的规范。
 
-## Components
+## 组件
 
 - [`op-node`](https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/op-node)
 - [`op-geth`](https://github.com/ethereum-optimism/op-geth)

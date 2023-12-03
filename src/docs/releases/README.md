@@ -1,19 +1,18 @@
 ---
-title: Release History
-lang: en-US
+title: 发布历史
+lang: zh-CN
 ---
 
-The OP Stack codebase is a decentralized development stack maintained by the Optimism Collective and built to power Optimism. 
-The OP Stack is constantly evolving as new layers and modules are developed. The OP Stack codebase is also not a product (in the traditional sense) but rather a collection of software components that power the Optimism ecosystem.
+OP Stack代码库是由Optimism Collective维护的去中心化开发堆栈，用于支持Optimism。OP Stack不断发展，随着新的层和模块的开发。OP Stack代码库不是一个产品（传统意义上的），而是一组用于支持Optimism生态系统的软件组件的集合。
 
-**A “Release” of the OP Stack codebase is a particular set of software components that are production-ready and which fit the stack’s design principles and goals.**
+OP Stack代码库的“发布”是一组特定的软件组件，这些组件已经准备好用于生产，并符合堆栈的设计原则和目标。
 
-Only the software components included within the Current Release of the OP Stack codebase are considered in the scope of the OP Stack. Any usage of the OP Stack outside of the official, intended capabilities of the Current Release are considered [OP Stack Hacks](../build/hacks.md) — unofficial modifications that are useful for experimentation but could have unforeseen results, such as security vulnerabilities, and are likely to cause your chain to no longer be interoperable with [the Optimism Superchain](https://app.optimism.io/superchain/). **Developer support for OP Stack Hacks is limited — when in doubt, stick to the capabilities of the Current Release!**
+只有在OP Stack代码库的当前发布中包含的软件组件才被视为OP Stack的范围内。在当前发布的官方预期功能之外使用OP Stack被视为[OP Stack Hacks](../build/hacks.md) - 非官方的修改，用于实验，但可能会导致意想不到的结果，如安全漏洞，并且可能导致您的链与[Optimism Superchain](https://app.optimism.io/superchain/)不再互操作。对于OP Stack Hacks的开发者支持有限 - 如果有疑问，请坚持使用当前发布的功能！
 
-## Current Release
+## 当前发布
 
-[OP Stack codebase V1: Bedrock](./bedrock/)
+[OP Stack代码库V1：Bedrock](./bedrock/)
 
-## Past Releases
+## 过去的发布
 
-N/A
+无

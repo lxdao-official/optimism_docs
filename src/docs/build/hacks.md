@@ -1,14 +1,14 @@
 ---
-title: Introduction to OP Stack Hacks
-lang: en-US
+title: 简介
+lang: zh-CN
 ---
 
-Welcome to OP Stack Hacks, the **highly experimental** region of the OP Stack docs. OP Stack Hacks are an unofficial guide for messing around with the OP Stack. Here you’ll find information about ways that the OP Stack can be modified in interesting ways.
+欢迎来到OP Stack Hacks，这是OP Stack文档的**高度实验性**区域。OP Stack Hacks是一个非官方指南，用于对OP Stack进行有趣的修改。
 
-OP Stack Hacks create blockchains that aren’t exactly OP Stack, and may be insecure. Hacked OP Stack chains can break key invariants that are required to interoperate with [the Optimism Superchain](../understand/explainer.md). **Developers of chains that wish to interoperate with [the Optimism Superchain](../understand/explainer.md) should *not* include any hacks**. When in doubt, stick with the official components within [the current release of the OP Stack](../releases/README.md#current-release).
+OP Stack Hacks创建的区块链并不完全是OP Stack，并且可能存在安全性问题。希望与[Optimism超级链](../understand/explainer.md)进行互操作的链的开发者**不应包含任何Hack**。如果有疑问，请使用[当前版本的OP Stack](../releases/README.md#current-release)中的官方组件。
 
-::: warning 🚧 OP Stack Hacks are explicitly things that you can do with the OP Stack that are *not* currently intended for production use
+::: warning 🚧 OP Stack Hacks是一些目前不适用于生产环境的实验性功能
 
-OP Stack Hacks are not for the faint of heart. You will not be able to receive significant developer support for OP Stack Hacks — be prepared to get your hands dirty and to work without support.
+OP Stack Hacks并非适合所有人。您将无法获得针对OP Stack Hacks的重要开发者支持，因此请做好准备，自己动手解决问题。
 
 :::
