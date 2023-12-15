@@ -1,0 +1,3174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+  <id>https://stack.optimism.io/</id>
+  <title>OP Stack Docs</title>
+  <subtitle>The OP Stack Docs</subtitle>
+  <updated>2023-12-15T07:39:01.466Z</updated>
+  <generator>@mr-hope/vuepress-plugin-feed</generator>
+  <link rel="self" href="https://stack.optimism.io/atom.xml"/>
+  <link rel="alternate" href="https://stack.optimism.io/"/>
+  <entry>
+    <title type="html">OP Stack Docs</title>
+    <id>https://stack.optimism.io/docs/</id>
+    <link href="https://stack.optimism.io/docs/"/>
+    <updated>2023-11-25T02:45:15.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="..">Click here</a></p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">Welcome to the OP Stack</title>
+    <id>https://stack.optimism.io/</id>
+    <link href="https://stack.optimism.io/"/>
+    <updated>2023-11-25T09:17:08.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>OP Stack是一个标准化的、共享的、开源的开发栈，它为Optimism提供动力，由Optimism Collective维护。</strong></p>
+<div><p>持续跟踪最新状态</p>
+<p><a href="https://optimism.us6.list-manage.com/subscribe/post?u=9727fa8bec4011400e57cafcb&amp;id=ca91042234&amp;f_id=002a19e3f0" target="_blank" rel="noopener noreferrer">通过订阅Optimism新闻通讯，保持对Superchain和OP Stack的最新了解。</a>.</p>
+</div>
+<p>OP Stack由Optimism Collective管理和维护的许多不同的软件组件组成，这些组件共同构成了Optimism的骨干。
+OP Stack是为以太坊和Optimism生态系统构建的公共物品。</p>
+<h2 id="op-stack驱动optimism"> OP Stack驱动Optimism</h2>
+<p>OP Stack是驱动Optimism的软件集合，目前以Optimism Mainnet背后的软件形式存在，最终将以Optimism Superchain及其治理的形式存在。</p>
+<p>随着Superchain概念的出现，Optimism能够轻松支持，在提议的Superchain生态系统内，安全创建可互操作的新链的能力变得越来越重要。
+因此，OP Stack主要关注创建共享的、高质量的、完全开源的用于创建新的L2区块链的系统。
+通过协调共享标准，Optimism Collective可以避免重复在孤立的环境中重新构建相同的软件。</p>
+<p>尽管OP Stack今天大大简化了创建L2区块链的过程，但必须要注意，这并不完全定义了OP Stack是什么。
+OP Stack是驱动Optimism的所有软件。随着Optimism的发展，OP Stack也会发展。</p>
+<p><strong>可以将OP Stack视为帮助定义Optimism生态系统特定层的软件组件，或填充现有层中模块的角色。</strong>
+尽管OP Stack当前的核心是用于运行L2区块链的基础设施，但理论上，OP Stack还可以扩展到底层区块链之上的各个层面，包括块浏览器、消息传递机制、治理系统等工具。</p>
+<p>层次结构在堆栈的底部通常更加紧密定义（如数据可用性层），但在堆栈的顶部变得更加宽松定义（如治理层）。</p>
+<h2 id="op-stack的现状"> OP Stack的现状</h2>
+<p>Optimism Bedrock是当前版本的OP Stack。
+Bedrock版本提供了启动生产级别的Optimistic Rollup区块链的工具。
+目前，OP Stack的不同层的API与该Rollup配置紧密耦合。</p>
+<p>如果您想了解OP Stack的当前状态，请查看<a href="/docs/releases/bedrock/">描述Bedrock版本的页面</a>。</p>
+<p>今天的OP Stack是为支持Optimism Superchain而构建的，Optimism Superchain是一组共享安全性、通信层和共同开发堆栈（OP Stack本身）的L2网络。
+OP Stack的Bedrock版本使得轻松启动与Superchain兼容的L2变得容易。
+如果您想启动一个准备加入Superchain的L2，请查看我们基于OP Stack的Bedrock版本运行链的指南。</p>
+<p>可以修改OP Stack的组件来构建新颖的L2系统。
+如果您对OP Stack感兴趣并想进行实验，请查看本站的OP Stack Hacks部分。
+请注意，从Bedrock版本开始，OP Stack预期并不支持这些修改，您将在代码库上进行“极客开发”。
+因此，<strong>目前您应该对OP Stack Hacks的开发者支持（如果有的话）保持有限的预期</strong>。
+OP Stack Hacks可能会使您的链与Optimism Superchain不兼容。</p>
+<p>玩得开心，但风险自担，<strong>如果您想加入Superchain，请坚持使用Bedrock版本！</strong></p>
+<h2 id="op-stack的规划"> OP Stack的规划</h2>
+<p>OP Stack是一个不断发展的概念。
+随着Optimism的发展，OP Stack也会发展。
+如今，OP Stack的Bedrock版本简化了部署新的L2 Rollups的过程。
+随着对堆栈的工作继续进行，插入和配置不同模块将变得更加容易。
+随着Superchain的形成，OP Stack可以与之一起发展，包括允许不同链无缝互操作的消息传递基础设施。
+最终，OP Stack将成为Optimism所需的东西。</p>
+<h2 id="深入了解op-stack"> 深入了解OP Stack</h2>
+<p>准备深入了解OP Stack的世界了吗？</p>
+<ul>
+<li>如果您对OP Stack的当前版本感兴趣，请查看Bedrock版本页面。</li>
+<li>如果您想更深入地了解OP Stack，请从<a href="/docs/understand/design-principles.html">设计原则</a>和<a href="/docs/understand/landscape.html">景观概述</a>开始。</li>
+<li>如果您想加入Superchain，请使用我们的<a href="/docs/build/getting-started.html">入门指南</a>启动您的第一个准备加入Superchain的L2，或直接深入OP Stack代码库以获取更多信息。</li>
+</ul>
+<p>OP Stack是以太坊的下一个前沿。您已经在这里，还在等什么呢？</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">使用 OP Stack 进行构建</title>
+    <id>https://stack.optimism.io/docs/build/</id>
+    <link href="https://stack.optimism.io/docs/build/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<p>OP Stack 是支持 Optimism 的去中心化开发堆栈。当前版本的 OP Stack（名为“Bedrock”）旨在促进与提议的 <a href="https://app.optimism.io/superchain/" target="_blank" rel="noopener noreferrer">Optimism Superchain</a> 可互操作的 L2 区块链的创建。Superchain 是一组共享安全模型、通信协议和共同开发堆栈（OP Stack 本身）的 Rollup 网络。<strong>使用 OP Stack 进行构建的最佳方式是按照我们的指南 <a href="./getting-started.html">运行 Bedrock Rollup</a> 来启动自己的基于 Bedrock 的 Rollup</strong>。Bedrock Rollup 与 Superchain 兼容。</p>
+<p>您还可以通过对其各个组件进行修改来尝试 OP Stack。截至 Bedrock 版本，OP Stack 并未明确设计用于处理任何重大修改。通过修改 OP Stack 的组件，您可能不再与 Superchain 兼容。请注意，对 OP Stack 进行修改的开发者支持有限。玩得开心，但自行承担修改堆栈的风险！</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">数据可用性技巧</title>
+    <id>https://stack.optimism.io/docs/build/data-avail/</id>
+    <link href="https://stack.optimism.io/docs/build/data-avail/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不打算用于生产环境</p>
+<p>OP Stack Hacks 不适合新手。你将无法获得 OP Stack Hacks 的重要开发者支持，准备好自己动手解决问题并在没有支持的情况下工作。</p>
+</div>
+<h2 id="概述"> 概述</h2>
+<p>数据可用性层负责对构成 OP Stack 基于链的原始输入数据进行<em>排序</em>和<em>存储</em>（交易、状态根、来自其他区块链的调用等）。你可以将其概念化为一个输入数组 - 这个数组的排序应保持稳定，数组的内容应保持可用。输入的不稳定排序将导致 OP Stack 链的重组，而不可用的输入将导致 OP Stack 链完全停止。</p>
+<h2 id="默认设置"> 默认设置</h2>
+<p>OP Stack 链的默认数据可用性层模块是以太坊 DA 模块。使用以太坊 DA 模块时，所有原始输入数据都应在以太坊上找到。使用此模块时，可以查询在以太坊上可访问的任何数据，包括调用数据、事件和其他区块数据。</p>
+<h2 id="安全性"> 安全性</h2>
+<p>基于 OP Stack 的链是基于所使用的数据可用性层模块上找到的原始输入数据的函数。如果所需的某个数据不可用，节点将无法正确同步链。这也意味着这些节点将无法对提交给结算层模块的任何无效状态提案进行争议。基于 OP Stack 的链的安全性不能超过数据可用性模块。</p>
+<p>你应该仔细了解所使用的任何数据可用性模块的安全性属性。标准的以太坊 DA 模块通常提供了最佳的安全性保证，但交易费用较高。根据你的特定用例和风险承受能力，可能适合使用其他 DA 模块。</p>
+<h2 id="修改"> 修改</h2>
+<h3 id="替代的-evm-da"> 替代的 EVM DA</h3>
+<p>一个简单的修改是使用除以太坊以外的基于 EVM 的区块链作为数据可用性层。这只需要使用除以太坊以外的 L1 RPC。</p>
+<h3 id="evm-ordered-替代-da"> EVM-Ordered 替代 DA</h3>
+<p>对数据可用性层的更复杂的修改是“EVM-Ordered”替代 DA 模块。这涉及使用基于 EVM 的链来维护交易数据的<em>排序</em>，同时使用不同的数据存储系统来托管底层数据。通常，通过将数据的哈希发布到基于 EVM 的链上，同时将这些哈希的原像发布到替代数据源，来维护排序。</p>
+<p>EVM-Ordered 替代 DA 模块通过仅发布哈希而不是完整的输入数据到 EVM 链来显著降低成本。使用 EVM 链进行排序还减少了必须对标准 Rollup 配置进行的更改数量，以实现此结果。</p>
+<p>可以在<a href="https://github.com/celestiaorg/optimism/pull/3" target="_blank" rel="noopener noreferrer">这个对 OP Stack 的修改</a>中找到 EVM-Ordered 替代 DA 模块的示例，该修改使用 Celestia 区块链作为第三方数据可用性提供者。</p>
+<h3 id="非-evm-da"> 非 EVM DA</h3>
+<p>非 EVM DA 模块使用不基于 EVM 的链来管理原始输入数据的排序和存储。这样的修改需要对 <code>op-node</code> 的<a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive" target="_blank" rel="noopener noreferrer">派生部分</a>进行相当大的修改。目前还没有开发出这样的完全独立的 DA 模块 - 你可以成为第一个！</p>
+<h3 id="多个-da"> 多个 DA</h3>
+<p>可以同时使用多个数据可用性层模块。例如，可以同时从两个基于 EVM 的链中获取数据，以在两个链之间建立桥梁。在使用多个数据可用性层模块时，建立两个链之间的全局排序至关重要。建立此排序的一种选择是使用每个链的区块时间戳。</p>
+<p>与非 EVM DA 模块一样，具有多个数据可用性模块的系统需要对 <code>op-node</code> 的<a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node/rollup/derive" target="_blank" rel="noopener noreferrer">派生部分</a>进行重大修改。目前还没有这样的项目。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">执行技巧</title>
+    <id>https://stack.optimism.io/docs/build/execution/</id>
+    <link href="https://stack.optimism.io/docs/build/execution/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不打算用于生产环境</p>
+<p>OP Stack Hacks 不适合新手。你将无法获得针对 OP Stack Hacks 的重要开发者支持，准备好自己动手解决问题并在没有支持的情况下工作。</p>
+</div>
+<h2 id="概述"> 概述</h2>
+<p>执行层负责定义状态的格式和 L2 上的状态转换函数。当通过 <a href="https://github.com/ethereum/execution-apis/tree/main/src/engine" target="_blank" rel="noopener noreferrer">Engine API</a> 接收到有效载荷时，它将触发状态转换函数。尽管默认的执行层模块是 EVM，但你可以用任何替代的虚拟机替换 EVM，只要它位于 Engine API 的后面。</p>
+<h2 id="默认"> 默认</h2>
+<p>默认的执行层模块是 Rollup EVM 模块。Rollup EVM 模块使用了一个经过轻微修改的 EVM，增加了对 L1 上由智能合约触发的交易的支持，并为每个交易引入了 L1 数据费用，以补偿将用户交易发布到 L1 的成本。你可以在<a href="https://op-geth.optimism.io/" target="_blank" rel="noopener noreferrer">此页面</a>上找到标准 EVM 和 Rollup EVM 之间的全部差异。</p>
+<h2 id="安全性"> 安全性</h2>
+<p>与对派生层的修改一样，对执行层的修改可能会产生意想不到的后果。例如，对 EVM 的修改可能会破坏现有的工具链，或者可能会为拒绝服务攻击打开大门。请仔细考虑每个修改对案例的影响。</p>
+<h2 id="修改"> 修改</h2>
+<h3 id="evm-调整"> EVM 调整</h3>
+<p>默认的执行层模块是 EVM。可以以许多不同的方式修改 EVM，例如添加新的预编译合约或将预部署的智能合约插入到创世状态中。预编译合约可以帮助降低常见智能合约操作的成本，从而进一步降低特定用例的执行成本。这些修改应直接应用于<a href="https://github.com/ethereum-optimism/op-geth" target="_blank" rel="noopener noreferrer">执行客户端</a>。</p>
+<p>还可以创建替代的执行客户端实现，以改善链的安全性能。请注意，如果修改了 EVM，则必须将相同的修改应用于您希望支持的每个执行客户端。</p>
+<h3 id="替代虚拟机"> 替代虚拟机</h3>
+<p>OP Stack 允许您用<em>任何</em>状态转换函数替换 EVM，只要该转换可以通过 Engine API 触发。例如，已经使用它来实现了一个运行 GameBoy 模拟器而不是 EVM 的 OP Stack 链。</p>
+<p><a href="./tutorials/new-precomp.html">教程：添加预编译合约</a>。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">衍生技巧</title>
+    <id>https://stack.optimism.io/docs/build/derivation/</id>
+    <link href="https://stack.optimism.io/docs/build/derivation/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不适用于生产环境</p>
+<p>OP Stack Hacks 不适合新手。你将无法获得 OP Stack Hacks 的重要开发者支持，因此请准备好自己动手解决问题。</p>
+</div>
+<h2 id="概述"> 概述</h2>
+<p>衍生层负责解析来自数据可用性层的原始输入，并将其转换为要发送到执行层的<a href="https://github.com/ethereum/execution-apis/tree/main/src/engine" target="_blank" rel="noopener noreferrer">Engine API</a>负载。衍生层通常与数据可用性层紧密耦合，因为它必须理解所选模块的数据可用性层的API以及发布到所选模块的原始数据的格式。</p>
+<h2 id="默认值"> 默认值</h2>
+<p>默认的衍生层模块是Rollup模块。该模块从三个来源派生交易：顺序交易、用户存款和L1块。Rollup模块还强制执行某些排序属性，例如保证用户存款始终在一定可配置的时间内包含在L2链中。</p>
+<h2 id="安全性"> 安全性</h2>
+<p>修改衍生层可能会产生意想不到的后果。例如，删除或扩展用户存款必须包含的时间窗口可以使顺序交易员对L2链进行审查。由于衍生层的灵活性，任何更改的确切影响可能因更改的具体情况而异。应该仔细考虑任何修改的负面影响。</p>
+<h2 id="修改"> 修改</h2>
+<h3 id="evm事件触发的交易"> EVM事件触发的交易</h3>
+<p>OP Stack的默认Rollup配置包括“存款”交易，每当L1上的<code>OptimismPortal</code>合约发出特定事件时触发。使用相同的原理，OP Stack链可以从EVM-based DA上的<em>任何</em>合约发出的事件派生交易。请参考<a href="https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L70" target="_blank" rel="noopener noreferrer">attributes.go</a>以了解如何派生存款交易以及如何创建自定义交易。</p>
+<h3 id="evm块触发的交易"> EVM块触发的交易</h3>
+<p>与事件类似，OP Stack链上的交易可以在EVM-based DA上发布新块时触发。OP Stack的默认Rollup配置已经包含了一个块触发的交易，即<a href="https://github.com/ethereum-optimism/optimism/blob/e468b66efedc5f47f4e04dc1acc803d4db2ce383/op-node/rollup/derive/attributes.go#L103" target="_blank" rel="noopener noreferrer">“L1 info”交易</a>，它将最新的块哈希、时间戳和基础费用等信息传递到L2。入门指南演示了如何添加一个新的块触发的交易，以报告通过L1上的基础费用燃烧的气体量。</p>
+<h3 id="还有更多"> 还有更多...</h3>
+<p>衍生层是堆栈中最灵活的层之一。交易可以从各种原始输入数据生成，并且可以从各种条件触发。您可以从数据可用性层模块中找到的任何数据派生交易！</p>
+<p><a href="./tutorials/add-attr.html">教程：向衍生函数添加属性</a>。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">配置</title>
+    <id>https://stack.optimism.io/docs/build/conf/</id>
+    <link href="https://stack.optimism.io/docs/build/conf/"/>
+    <updated>2023-11-25T12:50:28.000Z</updated>
+    <content type="html"><![CDATA[<p>OP Stack是一个灵活的平台，具有各种配置值，您可以根据自己的特定需求进行调整。如果您想要微调部署，请继续阅读。</p>
+<div><p>🚧 施工中</p>
+<p>OP Stack配置正在积极进行中，并且随着时间的推移可能会有重大变化。如果您的配置有问题，请随时查看此页面以了解是否有任何更改。</p>
+</div>
+<h2 id="新的区块链配置"> 新的区块链配置</h2>
+<p>新的OP Stack区块链目前使用Optimism存储库中的JSON文件进行配置。该文件是<code>&lt;optimism repository&gt;/packages/contracts-bedrock/deploy-config/&lt;chain name&gt;.json</code>。例如，<a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/deploy-config/getting-started.json" target="_blank" rel="noopener noreferrer">这是教程区块链的配置文件</a>。</p>
+<h3 id="管理员账户"> 管理员账户</h3>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值 / 推荐值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>finalSystemOwner</code></td>
+<td>L1地址</td>
+<td>部署完成后将拥有L1上所有可拥有合约的地址，包括<code>ProxyAdmin</code>合约。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+<tr>
+<td><code>controller</code></td>
+<td>L1地址</td>
+<td>将拥有<code>SystemDictator</code>合约并因此可以控制部署或升级的地址。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+<tr>
+<td><code>proxyAdminOwner</code></td>
+<td>L2地址</td>
+<td>将拥有L2上的<code>ProxyAdmin</code>合约的地址。L2 <code>ProxyAdmin</code>合约拥有范围在<code>0x42...0000</code>到<code>0x42..2048</code>之间的所有预部署合约的<code>Proxy</code>合约。这使得预部署合约可以轻松升级。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="手续费接收者"> 手续费接收者</h3>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseFeeVaultRecipient</code></td>
+<td>L1或L2地址</td>
+<td>L2上所有交易的基础手续费可以提取到的地址。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+<tr>
+<td><code>l1FeeVaultRecipient</code></td>
+<td>L1或L2地址</td>
+<td>L2上所有交易的L1数据费用可以提取到的地址。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+<tr>
+<td><code>sequencerFeeVaultRecipient</code></td>
+<td>L1或L2地址</td>
+<td>L2上所有交易的小费可以提取到的地址。</td>
+<td>推荐使用单个管理员账户以保持统一的安全模型。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="最小提款金额"> 最小提款金额</h3>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseFeeVaultMinimumWithdrawalAmount</code></td>
+<td>以wei为单位的数字</td>
+<td><code>BaseFeeVault</code>合约进行手续费提款所需的最小金额。</td>
+<td>10 ether</td>
+</tr>
+<tr>
+<td><code>l1FeeVaultMinimumWithdrawalAmount</code></td>
+<td>以wei为单位的数字</td>
+<td><code>L1FeeVault</code>合约进行手续费提款所需的最小金额。</td>
+<td>10 ether</td>
+</tr>
+<tr>
+<td><code>sequencerFeeVaultWithdrawalAmount</code></td>
+<td>以wei为单位的数字</td>
+<td><code>SequencerFeeVault</code>合约进行手续费提款所需的最小金额。</td>
+<td>10 ether</td>
+</tr>
+</tbody>
+</table>
+<h3 id="提款网络"> 提款网络</h3>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseFeeVaultWithdrawalNetwork</code></td>
+<td>表示网络枚举的数字</td>
+<td>值为<code>0</code>将资金提取到L1上的接收地址，值为<code>1</code>将资金提取到L2上的接收地址。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>l1FeeVaultWithdrawalNetwork</code></td>
+<td>表示网络枚举的数字</td>
+<td>值为<code>0</code>将资金提取到L1上的接收地址，值为<code>1</code>将资金提取到L2上的接收地址。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequencerFeeVaultWithdrawalNetwork</code></td>
+<td>表示网络枚举的数字</td>
+<td>值为<code>0</code>将资金提取到L1上的接收地址，值为<code>1</code>将资金提取到L2上的接收地址。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="杂项"> 杂项</h3>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>numDeployConfirmations</code></td>
+<td>区块数量</td>
+<td>在部署智能合约到L1时等待的确认数。</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>l1StartingBlockTag</code></td>
+<td>区块哈希</td>
+<td>L2链开始同步的L1区块标签。通常建议使用已经最终化的区块，以避免重组问题。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>l1ChainID</code></td>
+<td>数字</td>
+<td>L1链的链ID。</td>
+<td>1表示L1以太坊主网，<br> 5表示Goerli测试网络。 <br> <a href="https://chainlist.org/?testnets=true" target="_blank" rel="noopener noreferrer">点击此处查看其他区块链</a>。</td>
+</tr>
+<tr>
+<td><code>l2ChainID</code></td>
+<td>数字</td>
+<td>L2链的链ID。</td>
+<td>42069</td>
+</tr>
+</tbody>
+</table>
+<h3 id="区块"> 区块</h3>
+<p>这些字段适用于L2区块：它们的时间、何时需要写入L1以及如何写入。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l2BlockTime</code></td>
+<td>秒数</td>
+<td>每个L2区块之间的秒数。必须小于等于L1区块时间（主网和Goerli上为12秒）。</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>maxSequencerDrift</code></td>
+<td>秒数</td>
+<td>L2时间戳与实际L1时间戳之间的最大差距。</td>
+<td>600（10分钟）</td>
+</tr>
+<tr>
+<td><code>sequencerWindowSize</code></td>
+<td>区块数量</td>
+<td>Sequencer可以等待将特定L1区块中的信息合并的最大L1区块数。例如，如果窗口为<code>10</code>，则必须在L1区块<code>n+10</code>之前将L1区块<code>n</code>中的信息合并。</td>
+<td>3600（12小时）</td>
+</tr>
+<tr>
+<td><code>channelTimeout</code></td>
+<td>区块数量</td>
+<td>事务通道帧被视为有效的最大L1区块数。事务通道帧是一批压缩的事务的一部分。超过超时时间后，帧将被丢弃。</td>
+<td>300（1小时）</td>
+</tr>
+<tr>
+<td><code>p2pSequencerAddress</code></td>
+<td>L1地址</td>
+<td>Sequencer在p2p网络上用于签署区块的密钥地址。</td>
+<td>Sequencer，您拥有私钥的地址</td>
+</tr>
+<tr>
+<td><code>batchInboxAddress</code></td>
+<td>L1地址</td>
+<td>Sequencer事务批次发送到的L1地址。</td>
+<td>0xff00…0042069</td>
+</tr>
+<tr>
+<td><code>batchSenderAddress</code></td>
+<td>L1地址</td>
+<td>节点在搜索发送到<code>batchInboxAddress</code>的Sequencer事务批次时要过滤的账户地址。可以通过L1上的<code>SystemConfig</code>合约稍后进行更新。</td>
+<td>Batcher，您拥有私钥的地址</td>
+</tr>
+</tbody>
+</table>
+<h3 id="提案字段"> 提案字段</h3>
+<p>这些字段适用于输出根提案。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l2OutputOracleStartingBlockNumber</code></td>
+<td>数字</td>
+<td>第一个OP Stack块的区块号。通常应为零，但对于已从传统系统（如Optimism Mainnet）升级的网络可能为非零值。将在添加无权限提案时删除。</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>l2OutputOracleStartingTimestamp</code></td>
+<td>数字</td>
+<td>第一个OP Stack块的时间戳。这必须是与<code>l1StartingBlockTag</code>定义的块对应的时间戳。将在添加无权限提案时删除。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| <code>l2OutputOracleSubmissionInterval</code> | 区块数 | 提交给<code>L2OutputOracle</code>的提案之间的区块数。将在添加无权限提案时删除。 | 120（24分钟） |
+| <code>finalizationPeriodSeconds</code> | 秒数 | 提案在被<code>OptimismPortal</code>合约认为已最终化之前，必须可供挑战的秒数。 | 我们建议在测试网络上为12秒，在生产网络上为七天 |
+| <code>l2OutputOracleProposer</code> | L1地址 | 允许向<code>L2OutputOracle</code>合约提交输出提案的地址。在添加无权限提案时将被删除。 |  |
+| <code>l2OutputOracleChallenger</code> | L1地址 | 允许挑战提交给<code>L2OutputOracle</code>的输出提案的地址。在添加无权限挑战时将被删除。 | 建议使用单个管理员帐户以保持统一的安全模型。 |</p>
+<h3 id="l1数据费用"> L1数据费用</h3>
+<p>这些字段适用于<a href="https://community.optimism.io/docs/developers/build/transaction-fees/#the-l1-data-fee" target="_blank" rel="noopener noreferrer">L2交易的L1数据费用</a>。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gasPriceOracleOverhead</code></td>
+<td>数字</td>
+<td>每笔交易的固定L1燃气开销。默认值可能会根据来自Optimism Goerli部署的更多信息进行调整。</td>
+<td>2100</td>
+</tr>
+<tr>
+<td><code>gasPriceOracleScalar</code></td>
+<td>数字</td>
+<td>每笔交易的动态L1燃气开销，以6位小数表示。默认值为1000000，表示动态燃气开销为1x（无开销）。</td>
+<td>1000000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eip-1559-gas-algorithm"> EIP 1559 gas algorithm</h3>
+<p>这些字段适用于在区块链上用于<a href="https://community.optimism.io/docs/developers/build/transaction-fees/#the-l2-execution-fee" target="_blank" rel="noopener noreferrer">L2执行成本</a>的<a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md" target="_blank" rel="noopener noreferrer">EIP 1559算法</a>。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>L1以太坊上的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eip1559Denominator</code></td>
+<td>数字</td>
+<td>用于<a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md" target="_blank" rel="noopener noreferrer">L2上的EIP1559燃气定价机制</a>的分母。较大的分母减少了基础费用在单个区块中的变化量。</td>
+<td>50</td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>eip1559Elasticity</code></td>
+<td>数字</td>
+<td>用于<a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md" target="_blank" rel="noopener noreferrer">L2上的EIP1559燃气定价机制</a>的弹性。较大的弹性增加了每个区块的最大允许燃气限制。</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>l2GenesisBlockGasLimit</code></td>
+<td>字符串</td>
+<td>初始区块燃气限制，表示为十六进制字符串。默认值为25m，与10倍弹性结合时，表示2.5m的目标。</td>
+<td>0x17D7840</td>
+<td></td>
+</tr>
+<tr>
+<td><code>l2GenesisBlockBaseFeePerGas</code></td>
+<td>字符串</td>
+<td>初始基础费用，用于避免初始时不稳定的EIP1559计算。初始值为1 gwei。</td>
+<td>0x3b9aca00</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="治理代币"> 治理代币</h3>
+<p>治理代币是在Optimism Mainnet网络中使用OP Stack的副作用。未来的版本可能不会默认包含它。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>governanceTokenOwner</code></td>
+<td>L2地址</td>
+<td>拥有默认部署到每个OP Stack基于链上的代币合约的地址。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>governanceTokenSymbol</code></td>
+<td>字符串</td>
+<td>默认部署到每个OP Stack链上的代币的符号。</td>
+<td>OP</td>
+</tr>
+<tr>
+<td><code>governanceTokenName</code></td>
+<td>字符串</td>
+<td>默认部署到每个OP Stack链上的代币的名称。</td>
+<td>Optimism</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">区块浏览器和索引器</title>
+    <id>https://stack.optimism.io/docs/build/explorer/</id>
+    <link href="https://stack.optimism.io/docs/build/explorer/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<p>下一步是能够查看您的区块链中实际发生的情况。
+一个简单的方法是使用 <a href="https://www.blockscout.com/" target="_blank" rel="noopener noreferrer">Blockscout</a>。</p>
+<h2 id="先决条件"> 先决条件</h2>
+<h3 id="存档模式"> 存档模式</h3>
+<p>Blockscout 期望与以<a href="https://www.alchemy.com/overviews/archive-nodes#archive-nodes" target="_blank" rel="noopener noreferrer">存档模式</a>运行的以太坊执行客户端进行交互。
+如果您的 <code>op-geth</code> 是以完整模式运行的，您可以创建一个单独的存档节点。
+要这样做，请按照<a href="./getting-started.html#adding-nodes">添加节点的说明</a>进行操作，但在启动 <code>op-geth</code> 的命令中替换为：</p>
+<div><pre><code>	--gcmode<span>=</span>full <span>\</span>
+</code></pre>
+<div><span>1</span><br></div></div><p>with</p>
+<div><pre><code>	--gcmode<span>=</span>archive <span>\</span>
+</code></pre>
+<div><span>1</span><br></div></div><h3 id="docker"> Docker</h3>
+<p>运行Blockscout最简单的方法是使用Docker。
+下载并安装<a href="https://docs.docker.com/engine/install/#server" target="_blank" rel="noopener noreferrer">Docker引擎</a>。</p>
+<h2 id="安装和配置"> 安装和配置</h2>
+<ol>
+<li>
+<p>克隆 Blockscout 仓库。</p>
+<div><pre><code><span>cd</span> ~
+<span>git</span> clone https://github.com/blockscout/blockscout.git
+<span>cd</span> blockscout/docker-compose
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+<li>
+<p>根据您所使用的Docker版本，可能会出现环境路径的问题。
+运行以下命令来修复它：</p>
+<div><pre><code><span>ln</span> -s <span><span>`</span><span>pwd</span><span>`</span></span>/envs <span>..</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>如果以存档模式运行的 <code>op-geth</code> 在不同的计算机上或端口不是8545，请编辑 <code>docker-compose-no-build-geth.yml</code> 文件，将 <code>ETHEREUM_JSONRPC_HTTP_URL</code> 设置为正确的URL。</p>
+</li>
+<li>
+<p>启动 Blockscout</p>
+<div><pre><code>docker compose -f docker-compose-no-build-geth.yml up
+</code></pre>
+<div><span>1</span><br></div></div></li>
+</ol>
+<h2 id="使用方法"> 使用方法</h2>
+<p>在docker容器启动后，浏览到 http://&lt; <em>运行Blockscout的计算机</em> &gt;:4000 查看用户界面。</p>
+<p>您还可以使用<a href="https://docs.blockscout.com/for-users/api" target="_blank" rel="noopener noreferrer">API</a></p>
+<h3 id="graphql"> GraphQL</h3>
+<p>Blockscout的API支持在<code>/graphiql</code>下使用<a href="https://graphql.org/" target="_blank" rel="noopener noreferrer">GraphQL</a>。
+例如，这个查询查看地址。</p>
+<div><pre><code>query {
+  addresses(hashes:[
+   &quot;0xcB69A90Aa5311e0e9141a66212489bAfb48b9340&quot;, 
+   &quot;0xC2dfA7205088179A8644b9fDCecD6d9bED854Cfe&quot;])
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>GraphQL查询从顶层实体（或实体）开始。
+在这种情况下，我们的<a href="https://docs.blockscout.com/for-users/api/graphql#queries" target="_blank" rel="noopener noreferrer">顶层查询</a>是针对多个地址的查询。</p>
+<p>请注意，您只能查询已建立索引的字段。
+例如，在这里我们查询了地址。
+然而，我们无法查询<code>contractCode</code>或<code>fetchedCoinBalance</code>。</p>
+<div><pre><code> {
+    hash
+    contractCode
+    fetchedCoinBalance
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>上述字段是从地址表中获取的。</p>
+<div><pre><code>    transactions(first:5) {
+</code></pre>
+<div><span>1</span><br></div></div><p>我们还可以获取包含该地址的交易（无论是作为源地址还是目标地址）。
+由于API不允许我们获取无限数量的交易，因此在这里我们只请求了前5个。</p>
+<div><pre><code>      edges {
+        node {
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><p>因为这是一个<a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" target="_blank" rel="noopener noreferrer">图</a>，连接两种类型（例如地址和交易）的实体被称为<code>边缘</code>。
+在每个边缘的另一端，有一个单独的<code>节点</code>，代表一个交易。</p>
+<div><pre><code>          hash
+          fromAddressHash
+          toAddressHash
+          input
+        }
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><p>这些是我们读取每个交易的字段。</p>
+<div><pre><code>      }
+    }
+  }
+}
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>最后，关闭所有的括号。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">特色黑客技巧</title>
+    <id>https://stack.optimism.io/docs/build/featured/</id>
+    <link href="https://stack.optimism.io/docs/build/featured/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些你可以在 OP Stack 上做的事情，但目前并不打算用于生产环境</p>
+<p>OP Stack Hacks 不适合新手。你将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手解决问题，无需支持。</p>
+</div>
+<h2 id="概述"> 概述</h2>
+<p>特色黑客技巧是一些人们在 OP Stack 上构建的酷炫项目的汇编！</p>
+<h2 id="opcraft"> OPCraft</h2>
+<h3 id="作者"> 作者</h3>
+<p><a href="https://lattice.xyz/" target="_blank" rel="noopener noreferrer">Lattice</a></p>
+<h3 id="描述"> 描述</h3>
+<p>OPCraft 是一个在 OP Stack 上运行修改版 EVM 作为后端的完全链上 3D 体素游戏，使用了 <a href="https://mud.dev/" target="_blank" rel="noopener noreferrer">MUD</a> 构建。</p>
+<h3 id="op-stack-配置"> OP Stack 配置</h3>
+<ul>
+<li>数据可用性：以太坊 DA（Goerli）</li>
+<li>顺序执行器：单一执行器</li>
+<li>派生：标准 Rollup</li>
+<li>执行：修改版 Rollup EVM</li>
+</ul>
+<h3 id="链接"> 链接</h3>
+<ul>
+<li><a href="https://dev.optimism.io/opcraft-autonomous-world/" target="_blank" rel="noopener noreferrer">宣布 OPCraft：在 OP Stack 上构建的自治世界</a></li>
+<li><a href="https://opcraft.mud.dev/" target="_blank" rel="noopener noreferrer">OPCraft 浏览器</a></li>
+<li><a href="https://github.com/latticexyz/opcraft" target="_blank" rel="noopener noreferrer">OPCraft 在 GitHub 上的项目</a></li>
+<li><a href="https://mud.dev/" target="_blank" rel="noopener noreferrer">MUD</a></li>
+</ul>
+<h2 id="ticking-optimism"> Ticking Optimism</h2>
+<h3 id="作者-2"> 作者</h3>
+<p><a href="https://twitter.com/therealbytes" target="_blank" rel="noopener noreferrer">@therealbytes</a></p>
+<h3 id="描述-2"> 描述</h3>
+<p>Ticking Optimism 是一个 OP Stack 链的概念验证实现，它在每个区块中调用一个 <code>tick</code> 函数。通过使用 OP Stack，Ticking Optimism 避免了需要离链基础设施定期执行函数的需求。Ticking Conway 是一个使用 Ticking Optimism 在链上构建 <a href="https://conwaylife.com/" target="_blank" rel="noopener noreferrer">康威生命游戏</a> 的系统。</p>
+<h3 id="op-stack-配置-2"> OP Stack 配置</h3>
+<ul>
+<li>数据可用性：以太坊 DA（任意）</li>
+<li>顺序执行器：单一执行器</li>
+<li>派生：带有自定义 <code>tick</code> 函数的标准 Rollup</li>
+<li>执行：Rollup EVM</li>
+</ul>
+<h3 id="链接-2"> 链接</h3>
+<ul>
+<li><a href="https://github.com/therealbytes/ticking-optimism" target="_blank" rel="noopener noreferrer">Ticking Optimism 在 GitHub 上的项目</a></li>
+<li><a href="https://github.com/therealbytes/ticking-conway" target="_blank" rel="noopener noreferrer">Ticking Conway 在 GitHub 上的项目</a></li>
+</ul>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">快速开始</title>
+    <id>https://stack.optimism.io/docs/build/getting-started/</id>
+    <link href="https://stack.optimism.io/docs/build/getting-started/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<div><p>Tips</p>
+<p>请<strong>准备大约一小时的时间</strong>来正确运行所有内容，并<strong>仔细阅读指南</strong>。
+您不想错过任何重要的步骤，可能会在后续过程中引起问题。</p>
+</div>
+<p>本教程<strong>专为开发人员设计</strong>，旨在通过启动一个OP Stack测试网络链来了解OP Stack的所有组件，并教授完整的部署过程。
+您将拥有自己的OP Stack测试网络。</p>
+<p>您可以使用此测试网络进行实验和测试，或者选择修改链以适应自己的需求。
+<strong>OP Stack是完全基于MIT许可的自由和开源软件</strong>。
+您无需获得任何人的许可即可自由修改或部署堆栈的任何配置。</p>
+<div><p>Tips</p>
+<p>对OP Stack的修改可能会导致链无法从<a href="/op-stack/explainer">Optimism Superchain</a>的某些方面受益。
+请务必查看<a href="/op-stack/explainer">Superchain Explainer</a>以了解更多信息。</p>
+</div>
+<h2 id="我们将要部署的内容"> 我们将要部署的内容</h2>
+<p>在部署OP Stack链时，您将设置四个不同的组件。
+在开始部署链之前，了解每个组件的功能非常有用。</p>
+<h3 id="智能合约"> 智能合约</h3>
+<p>OP Stack使您能够部署自己的Rollup链，该链使用Layer 1区块链来托管和排序交易数据。
+OP Stack链使用L1区块链上的多个智能合约来管理Rollup的各个方面。
+每个OP Stack链在创建时部署自己的一组L1智能合约。
+我们将使用<a href="https://github.com/ethereum-optimism/optimism" target="_blank" rel="noopener noreferrer">Optimism Monorepo</a>中的<a href="https://github.com/ethereum-optimism/optimism/tree/develop/packages/contracts-bedrock" target="_blank" rel="noopener noreferrer"><code>contracts-bedrock</code>包</a>中的L1智能合约。</p>
+<h3 id="sequencer节点"> Sequencer节点</h3>
+<p>OP Stack链使用Sequencer节点从用户那里收集交易并将其发布到L1区块链。
+原始（未修改的）OP Stack链依赖于至少一个这样的Sequencer节点，因此我们需要运行一个。
+如果需要，您还可以运行其他非Sequencer节点（本教程不包括在内）。</p>
+<h4 id="共识客户端"> 共识客户端</h4>
+<p>OP Stack节点，就像以太坊节点一样，具有共识客户端。
+共识客户端负责确定属于您的区块链的区块和交易的列表和顺序。
+OP Stack共识客户端有多个实现，包括由OP Labs维护的<code>op-node</code>和由a16z维护的<a href="https://github.com/a16z/magi" target="_blank" rel="noopener noreferrer"><code>magi</code></a>。
+在本教程中，我们将使用<a href="https://github.com/ethereum-optimism/optimism" target="_blank" rel="noopener noreferrer">Optimism Monorepo</a>中的<a href="https://github.com/ethereum-optimism/optimism/tree/develop/op-node" target="_blank" rel="noopener noreferrer"><code>op-node</code>实现</a>。</p>
+<h4 id="执行客户端"> 执行客户端</h4>
+<p>OP Stack节点，就像以太坊节点一样，还具有执行客户端。
+执行客户端负责执行交易并存储/更新区块链的状态。
+OP Stack执行客户端有多个实现，包括由OP Labs维护的<code>op-geth</code>，由Test in Prod维护的<a href="https://github.com/testinprod-io/op-erigon" target="_blank" rel="noopener noreferrer"><code>op-erigon</code></a>和即将推出的<code>op-nethermind</code>。
+在本教程中，我们将使用<a href="https://github.com/ethereum-optimism/op-geth" target="_blank" rel="noopener noreferrer"><code>op-geth</code>实现</a>，该实现位于<a href="https://github.com/ethereum-optimism/op-geth" target="_blank" rel="noopener noreferrer"><code>op-geth</code>存储库</a>中。</p>
+<h3 id="批处理器"> 批处理器</h3>
+<p>批处理器是从Sequencer到L1区块链发布交易的实体。
+批处理器与Sequencer连续运行，并定期批量发布交易。
+我们将使用<a href="https://github.com/ethereum-optimism/optimism" target="_blank" rel="noopener noreferrer">Optimism Monorepo</a>中的<a href="https://github.com/ethereum-optimism/optimism/tree/develop/op-batcher" target="_blank" rel="noopener noreferrer"><code>op-batcher</code>实现</a>作为批处理器组件。</p>
+<h3 id="提议者"> 提议者</h3>
+<p>提议者是负责将交易<em>结果</em>（以L2状态根的形式）发布到L1区块链的实体。
+这允许L1上的智能合约读取L2的状态，这对于跨链通信和用户提款是必要的。
+未来可能会删除提议者，但目前它是OP Stack的必要组件。
+我们将使用<a href="https://github.com/ethereum-optimism/optimism" target="_blank" rel="noopener noreferrer">Optimism Monorepo</a>中的<a href="https://github.com/ethereum-optimism/optimism/tree/develop/op-proposer" target="_blank" rel="noopener noreferrer"><code>op-proposer</code>实现</a>作为提议者组件。</p>
+<h2 id="软件依赖"> 软件依赖</h2>
+<table>
+<thead>
+<tr>
+<th>依赖项</th>
+<th>版本</th>
+<th>版本检查命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">git</a></td>
+<td><code>^2</code></td>
+<td><code>git --version</code></td>
+</tr>
+<tr>
+<td><a href="https://go.dev/" target="_blank" rel="noopener noreferrer">go</a></td>
+<td><code>^1.21</code></td>
+<td><code>go version</code></td>
+</tr>
+<tr>
+<td><a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">node</a></td>
+<td><code>^20</code></td>
+<td><code>node --version</code></td>
+</tr>
+<tr>
+<td><a href="https://pnpm.io/installation" target="_blank" rel="noopener noreferrer">pnpm</a></td>
+<td><code>^8</code></td>
+<td><code>pnpm --version</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/foundry-rs/foundry#installation" target="_blank" rel="noopener noreferrer">foundry</a></td>
+<td><code>^0.2.0</code></td>
+<td><code>forge --version</code></td>
+</tr>
+<tr>
+<td><a href="https://linux.die.net/man/1/make" target="_blank" rel="noopener noreferrer">make</a></td>
+<td><code>^4</code></td>
+<td><code>make --version</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jqlang/jq" target="_blank" rel="noopener noreferrer">jq</a></td>
+<td><code>^1.6</code></td>
+<td><code>jq --version</code></td>
+</tr>
+<tr>
+<td><a href="https://direnv.net" target="_blank" rel="noopener noreferrer">direnv</a></td>
+<td><code>^2</code></td>
+<td><code>direnv --version</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="特定依赖项说明"> 特定依赖项说明</h3>
+<h4 id="node"> <code>node</code></h4>
+<p>我们建议使用最新的LTS版本的Node.js（目前为v20）。
+<a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener noreferrer"><code>nvm</code></a>是一个有用的工具，可以帮助您在计算机上管理多个Node.js版本。
+在旧版本的Node.js上可能会遇到意外错误。</p>
+<h4 id="direnv"> <code>direnv</code></h4>
+<p>本教程的部分内容使用<a href="https://direnv.net" target="_blank" rel="noopener noreferrer"><code>direnv</code></a>来从<code>.envrc</code>文件中加载环境变量到您的shell中。
+这意味着您无需每次使用环境变量时都手动导出它们。
+<code>direnv</code>只能访问您明确允许其查看的文件。</p>
+<p>在<a href="https://direnv.net/docs/installation.html" target="_blank" rel="noopener noreferrer">安装<code>direnv</code></a>之后，您需要<strong>确保<a href="https://direnv.net/docs/hook.html" target="_blank" rel="noopener noreferrer"><code>direnv</code>已连接到您的shell</a></strong>。
+Make sure you've followed <a href="https://direnv.net/docs/hook.html" target="_blank" rel="noopener noreferrer">the guide on the <code>direnv</code> website</a>, then <strong>close your terminal and reopen it</strong> so that the changes take effect (or <code>source</code> your config file if you know how to do that).</p>
+<div><p>Note</p>
+<p>确保您已正确将<code>direnv</code>连接到您的shell，通过修改您的shell配置文件（如<code>~/.bashrc</code>或<code>~/.zshrc</code>）。
+如果您没有编辑配置文件，那么您可能没有正确配置<code>direnv</code>（并且后续可能无法正常工作）。</p>
+</div>
+<h2 id="获取sepolia节点访问权限"> 获取Sepolia节点访问权限</h2>
+<p>我们将部署一个使用Layer 1区块链来托管和排序交易数据的OP Stack Rollup链。
+OP Stack Rollup旨在使用EVM等效的区块链，如以太坊、OP Mainnet或标准以太坊测试网络作为它们的L1链。</p>
+<p><strong>本指南使用Sepolia测试网络作为L1链</strong>。
+我们建议您也使用Sepolia。
+您也可以使用其他兼容EVM的区块链，但可能会遇到意外错误。
+如果您想使用其他网络，请仔细检查每个命令，并将任何Sepolia特定的值替换为您网络的值。</p>
+<p>由于我们将部署OP Stack链到Sepolia，您需要访问Sepolia节点。
+您可以使用类似<a href="https://www.alchemy.com/" target="_blank" rel="noopener noreferrer">Alchemy</a>的节点提供商（更简单），或者运行自己的Sepolia节点（更困难）。</p>
+<h2 id="构建源代码"> 构建源代码</h2>
+<p>我们将直接从源代码启动OP Stack链，而不是使用像<a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a>这样的容器系统。
+尽管这增加了一些额外的步骤，但这意味着如果您想修改堆栈的行为，您将更容易做到。
+如果您想了解我们将使用的各个组件的摘要，请再次查看上面的部分。</p>
+<div><p>Note</p>
+<p>为了简单起见，本教程将使用主目录<code>~/</code>作为工作目录。
+您可以使用任何目录，但使用主目录将使您能够复制/粘贴本指南中的命令。
+如果选择使用其他目录，请确保在本教程的所有命令中使用正确的目录。</p>
+</div>
+<h3 id="构建optimism-monorepo"> 构建Optimism Monorepo</h3>
+<h4 id="_1-克隆optimism-monorepo"> 1. 克隆Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> ~
+<span>git</span> clone https://github.com/ethereum-optimism/optimism.git
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><h4 id="_2-进入optimism-monorepo"> 2. 进入Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> optimism
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-检查依赖项"> 3. 检查依赖项</h4>
+<div><p>Note</p>
+<p>不要跳过这一步！在继续之前，请确保您已安装所有所需的依赖项。</p>
+</div>
+<p>运行以下脚本，并仔细检查您是否已安装了所有所需的版本。
+如果您没有安装正确的版本，可能会遇到意外错误。</p>
+<div><pre><code>./packages/contracts-bedrock/scripts/getting-started/versions.sh
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_4-安装依赖"> 4. 安装依赖</h4>
+<div><pre><code><span>pnpm</span> <span>install</span>
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_5-在-optimism-monorepo-中构建各个包。"> 5. 在 Optimism Monorepo 中构建各个包。</h4>
+<div><pre><code><span>make</span> op-node op-batcher op-proposer
+<span>pnpm</span> build
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><h3 id="构建-op-geth"> 构建 <code>op-geth</code></h3>
+<h4 id="_1-克隆-op-geth"> 1. 克隆 op-geth</h4>
+<div><pre><code><span>cd</span> ~
+<span>git</span> clone https://github.com/ethereum-optimism/op-geth.git
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><h4 id="_2-进入-op-geth-目录"> 2. 进入 op-geth 目录</h4>
+<div><pre><code><span>cd</span> op-geth
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-构建-op-geth"> 3. 构建 op-geth</h4>
+<div><pre><code><span>make</span> geth
+</code></pre>
+<div><span>1</span><br></div></div><h2 id="填写环境变量"> 填写环境变量</h2>
+<p>在我们开始部署链之前，您需要填写一些环境变量。</p>
+<h4 id="_1-进入-optimism-monorepo"> 1. 进入 Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> ~/optimism
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-复制示例环境变量文件"> 2. 复制示例环境变量文件</h4>
+<div><pre><code><span>cp</span> .envrc.example .envrc
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-填写环境变量文件"> 3. 填写环境变量文件</h4>
+<p>打开环境变量文件并填写以下变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>L1_RPC_URL</code></td>
+<td>L1节点的URL（在本例中为Sepolia节点）。</td>
+</tr>
+<tr>
+<td><code>L1_RPC_KIND</code></td>
+<td>连接的L1 RPC的类型，用于获取最佳的交易收据。有效选项：<code>alchemy</code>、<code>quicknode</code>、<code>infura</code>、<code>parity</code>、<code>nethermind</code>、<code>debug_geth</code>、<code>erigon</code>、<code>basic</code>、<code>any</code>。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生成账户"> 生成账户</h2>
+<p>在设置链时，您将需要四个账户及其私钥：</p>
+<ul>
+<li><code>Admin</code>账户具有升级合约的能力。</li>
+<li><code>Batcher</code>账户将Sequencer事务数据发布到L1。</li>
+<li><code>Proposer</code>账户将L2事务结果（状态根）发布到L1。</li>
+<li><code>Sequencer</code>账户在p2p网络上签署区块。</li>
+</ul>
+<h4 id="_1-进入optimism-monorepo"> 1. 进入Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> ~/optimism
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-生成新的账户"> 2. 生成新的账户</h4>
+<div><p>Warning</p>
+<p>对于生产环境的部署，您不应该使用 <code>wallets.sh</code> 工具。
+如果您要将基于 OP Stack 的链部署到生产环境中，您应该使用硬件安全模块和硬件钱包的组合。</p>
+</div>
+<div><pre><code>./packages/contracts-bedrock/scripts/getting-started/wallets.sh
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-检查输出"> 3. 检查输出</h4>
+<p>确保您看到类似以下内容的输出：</p>
+<div><pre><code>Copy the following into your .envrc file:
+ 
+# Admin account
+export GS_ADMIN_ADDRESS=0x9625B9aF7C42b4Ab7f2C437dbc4ee749d52E19FC
+export GS_ADMIN_PRIVATE_KEY=0xbb93a75f64c57c6f464fd259ea37c2d4694110df57b2e293db8226a502b30a34
+ 
+# Batcher account
+export GS_BATCHER_ADDRESS=0xa1AEF4C07AB21E39c37F05466b872094edcf9cB1
+export GS_BATCHER_PRIVATE_KEY=0xe4d9cd91a3e53853b7ea0dad275efdb5173666720b1100866fb2d89757ca9c5a
+ 
+# Proposer account
+export GS_PROPOSER_ADDRESS=0x40E805e252D0Ee3D587b68736544dEfB419F351b
+export GS_PROPOSER_PRIVATE_KEY=0x2d1f265683ebe37d960c67df03a378f79a7859038c6d634a61e40776d561f8a2
+ 
+# Sequencer account
+export GS_SEQUENCER_ADDRESS=0xC06566E8Ec6cF81B4B26376880dB620d83d50Dfb
+export GS_SEQUENCER_PRIVATE_KEY=0x2a0290473f3838dbd083a5e17783e3cc33c905539c0121f9c76614dda8a38dca
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br></div></div><h4 id="_4-保存账户"> 4. 保存账户</h4>
+<p>将上一步的输出复制并按照指示粘贴到您的 <code>.envrc</code> 文件中。</p>
+<h4 id="_5-给账户充值"> 5. 给账户充值</h4>
+<p><strong>您需要向 <code>Admin</code>、<code>Proposer</code> 和 <code>Batcher</code> 账户发送 ETH。</strong>
+所需的 ETH 金额取决于使用的 L1 网络。
+<strong>您无需向 <code>Sequencer</code> 账户发送任何 ETH，因为它不发送交易。</strong></p>
+<p>我们建议在使用 Sepolia 时，按照以下金额给账户充值：</p>
+<ul>
+<li><code>Admin</code> — 0.2 ETH</li>
+<li><code>Proposer</code> — 0.2 ETH</li>
+<li><code>Batcher</code> — 0.1 ETH</li>
+</ul>
+<h2 id="加载环境变量"> 加载环境变量</h2>
+<p>现在我们已经填写了环境变量文件，我们需要将这些变量加载到我们的终端中。</p>
+<h4 id="_1-进入-optimism-monorepo-2"> 1. 进入 Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> ~/optimism
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-使用-direnv-加载这些变量。"> 2. 使用 direnv 加载这些变量。</h4>
+<div><p>Note</p>
+<p>我们将使用 <code>direnv</code> 来将环境变量从 <code>.envrc</code> 文件加载到我们的终端中。
+请确保您已经<a href="https://direnv.net/docs/installation.html" target="_blank" rel="noopener noreferrer">安装了 <code>direnv</code></a>，并且已经正确地中。</p>
+</div>
+<p>接下来，您需要使用以下命令允许 <code>direnv</code> 读取此文件并将变量加载到您的终端中。</p>
+<div><pre><code>direnv allow
+</code></pre>
+<div><span>1</span><br></div></div><div><p>Note</p>
+<p>警告：每当您的 <code>.envrc</code> 文件发生更改时，<code>direnv</code> 将自动卸载自身。
+<strong>您必须每次更改 <code>.envrc</code> 文件后重新运行以下命令。</strong></p>
+</div>
+<h4 id="_3-确认变量已加载"> 3. 确认变量已加载</h4>
+<p>运行 <code>direnv allow</code> 后，您应该看到类似以下内容的输出（实际输出会根据您设置的变量而有所不同，如果不完全相同也不用担心）：</p>
+<div><pre><code>direnv: loading ~/optimism/.envrc                                                            
+direnv: <span>export</span> +DEPLOYMENT_CONTEXT +ETHERSCAN_API_KEY +GS_ADMIN_ADDRESS +GS_ADMIN_PRIVATE_KEY +GS_BATCHER_ADDRESS +GS_BATCHER_PRIVATE_KEY +GS_PROPOSER_ADDRESS +GS_PROPOSER_PRIVATE_KEY +GS_SEQUENCER_ADDRESS +GS_SEQUENCER_PRIVATE_KEY +IMPL_SALT +L1_RPC_KIND +L1_RPC_URL +PRIVATE_KEY +TENDERLY_PROJECT +TENDERLY_USERNAME
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><p><strong>如果您没有看到这个输出，那么您可能没有。</strong>
+请确保您已经正确配置了<code>direnv</code>并再次运行<code>direnv allow</code>，以便看到所需的输出。</p>
+<h2 id="配置您的网络"> 配置您的网络</h2>
+<p>一旦您构建了这两个存储库，您将需要返回到 Optimism Monorepo 来设置链的配置文件。
+目前，链的配置文件位于 <a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock" target="_blank" rel="noopener noreferrer"><code>contracts-bedrock</code></a> 包中，以 JSON 文件的形式存在。</p>
+<h4 id="_1-进入-optimism-monorepo-3"> 1. 进入 Optimism Monorepo</h4>
+<div><pre><code><span>cd</span> ~/optimism
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-进入-contracts-bedrock-包"> 2. 进入 contracts-bedrock 包</h4>
+<div><pre><code><span>cd</span> packages/contracts-bedrock
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-生成配置文件"> 3. 生成配置文件</h4>
+<p>运行以下脚本，在 <code>deploy-config</code> 目录下生成 <code>getting-started.json</code> 配置文件。</p>
+<div><pre><code>./scripts/getting-started/config.sh
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_4-查看配置文件-可选"> 4. 查看配置文件（可选）</h4>
+<p>如果您愿意，您可以通过在您喜欢的文本编辑器中打开 <code>deploy-config/getting-started.json</code> 来查看刚刚生成的配置文件。
+我们建议您暂时保持此文件不变，以避免遇到任何意外错误。</p>
+<h2 id="部署-l1-合约"> 部署 L1 合约</h2>
+<p>一旦您配置了网络，就可以部署链的功能所必需的 L1 合约。</p>
+<h4 id="_1-部署-l1-合约"> 1. 部署 L1 合约</h4>
+<div><pre><code>forge script scripts/Deploy.s.sol:Deploy --private-key <span>$GS_ADMIN_PRIVATE_KEY</span> --broadcast --rpc-url <span>$L1_RPC_URL</span>
+</code></pre>
+<div><span>1</span><br></div></div><div><p>Note</p>
+<p>如果您看到一个包含 <code>EvmError: Revert</code> 和 <code>Script failed</code> 的不明确的错误，那么您可能需要更改 <code>IMPL_SALT</code> 环境变量。
+这个变量确定了通过 <a href="https://eips.ethereum.org/EIPS/eip-1014" target="_blank" rel="noopener noreferrer">CREATE2</a> 部署的各种智能合约的地址。
+如果使用相同的 <code>IMPL_SALT</code> 部署相同的合约两次，第二次部署将失败。
+<strong>您可以通过在 Optimism Monorepo 的任何位置运行 <code>direnv allow</code> 来生成一个新的 <code>IMPL_SALT</code>。</strong></p>
+</div>
+<h4 id="_2-生成合约构件"> 2. 生成合约构件</h4>
+<div><pre><code>forge script scripts/Deploy.s.sol:Deploy --sig <span>'sync()'</span> --rpc-url <span>$L1_RPC_URL</span>
+</code></pre>
+<div><span>1</span><br></div></div><h2 id="生成-l2-配置文件"> 生成 L2 配置文件</h2>
+<p>现在我们已经设置了 L1 智能合约，我们可以自动生成用于共识客户端和执行客户端的几个配置文件。</p>
+<p>我们需要生成三个重要的文件：</p>
+<ol>
+<li><code>genesis.json</code> 包含执行客户端的创世状态链。</li>
+<li><code>rollup.json</code> 包含共识客户端的配置信息。</li>
+<li><code>jwt.txt</code> 是一个 <a href="https://jwt.io/introduction" target="_blank" rel="noopener noreferrer">JSON Web Token</a>，用于确保只有共识客户端和执行客户端之间可以进行通信。
+您可以使用以下命令生成 JWT：</li>
+</ol>
+<h4 id="_1-进入-op-node-包"> 1. 进入 op-node 包</h4>
+<div><pre><code><span>cd</span> ~/optimism/op-node
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-创建创世文件"> 2. 创建创世文件</h4>
+<p>现在我们将在 <code>op-node</code> 文件夹中生成 <code>genesis.json</code> 和 <code>rollup.json</code> 文件：</p>
+<div><pre><code>go run cmd/main.go genesis l2 <span>\</span>
+    --deploy-config <span>..</span>/packages/contracts-bedrock/deploy-config/getting-started.json <span>\</span>
+    --deployment-dir <span>..</span>/packages/contracts-bedrock/deployments/getting-started/ <span>\</span>
+    --outfile.l2 genesis.json <span>\</span>
+    --outfile.rollup rollup.json <span>\</span>
+    --l1-rpc <span>$L1_RPC_URL</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><h4 id="_3-创建身份验证密钥"> 3. 创建身份验证密钥</h4>
+<p>接下来，您将创建一个 <a href="https://jwt.io/introduction" target="_blank" rel="noopener noreferrer">JSON Web Token</a>，用于对共识客户端和执行客户端进行身份验证。
+该令牌用于确保只有共识客户端和执行客户端之间可以进行通信。
+您可以使用以下命令生成 JWT：</p>
+<div><pre><code>openssl rand -hex <span>32</span> <span>></span> jwt.txt
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_4-将创世文件复制到-op-geth-目录中"> 4. 将创世文件复制到 op-geth 目录中</h4>
+<p>最后，我们需要将 <code>genesis.json</code> 文件和 <code>jwt.txt</code> 文件复制到 <code>op-geth</code> 目录中，以便我们可以用它来初始化和运行 <code>op-geth</code>：</p>
+<div><pre><code><span>cp</span> genesis.json ~/op-geth
+<span>cp</span> jwt.txt ~/op-geth
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><h2 id="初始化-op-geth"> 初始化 <code>op-geth</code></h2>
+<p>我们即将准备好运行我们的链！
+现在我们只需要运行几个命令来初始化 <code>op-geth</code>。
+我们将运行一个 Sequencer 节点，所以我们需要导入之前生成的 <code>Sequencer</code> 私钥。
+这个私钥将用于我们的 Sequencer 签署新的区块。</p>
+<h4 id="_1-进入-op-geth-目录"> 1. 进入 op-geth 目录</h4>
+<div><pre><code><span>cd</span> ~/op-geth
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-创建一个数据目录文件夹"> 2. 创建一个数据目录文件夹</h4>
+<div><pre><code><span>mkdir</span> datadir
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-初始化-op-geth"> 3. 初始化 <code>op-geth</code></h4>
+<div><pre><code>build/bin/geth init --datadir<span>=</span>datadir genesis.json
+</code></pre>
+<div><span>1</span><br></div></div><h2 id="启动-op-geth"> 启动 <code>op-geth</code></h2>
+<p>现在我们将启动 <code>op-geth</code>，我们的执行客户端。
+请注意，在下一步启动共识客户端之前，您不会看到任何交易。</p>
+<h4 id="_1-打开一个新的终端"> 1. 打开一个新的终端</h4>
+<p>我们需要一个终端窗口来运行 <code>op-geth</code>。</p>
+<h4 id="_2-切换到-op-geth-目录"> 2. 切换到 op-geth 目录</h4>
+<div><pre><code><span>cd</span> ~/op-geth
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-运行-op-geth"> 3. 运行 op-geth</h4>
+<div><p>Tips</p>
+<p>在这里我们使用 <code>--gcmode=archive</code> 来运行 <code>op-geth</code>，因为这个节点将充当我们的 Sequencer。
+在归档模式下运行 Sequencer 是有用的，因为 <code>op-proposer</code> 需要访问完整的状态。
+如果您想节省磁盘空间，可以随意在其他（非 Sequencer）节点上运行全模式。</p>
+</div>
+<div><pre><code>./build/bin/geth <span>\</span>
+    --datadir ./datadir <span>\</span>
+    --http <span>\</span>
+    --http.corsdomain<span>=</span><span>"*"</span> <span>\</span>
+    --http.vhosts<span>=</span><span>"*"</span> <span>\</span>
+    --http.addr<span>=</span><span>0.0</span>.0.0 <span>\</span>
+    --http.api<span>=</span>web3,debug,eth,txpool,net,engine <span>\</span>
+    --ws <span>\</span>
+    --ws.addr<span>=</span><span>0.0</span>.0.0 <span>\</span>
+    --ws.port<span>=</span><span>8546</span> <span>\</span>
+    --ws.origins<span>=</span><span>"*"</span> <span>\</span>
+    --ws.api<span>=</span>debug,eth,txpool,net,engine <span>\</span>
+    --syncmode<span>=</span>full <span>\</span>
+    --gcmode<span>=</span>archive <span>\</span>
+    --nodiscover <span>\</span>
+    --maxpeers<span>=</span><span>0</span> <span>\</span>
+    --networkid<span>=</span><span>42069</span> <span>\</span>
+    --authrpc.vhosts<span>=</span><span>"*"</span> <span>\</span>
+    --authrpc.addr<span>=</span><span>0.0</span>.0.0 <span>\</span>
+    --authrpc.port<span>=</span><span>8551</span> <span>\</span>
+    --authrpc.jwtsecret<span>=</span>./jwt.txt <span>\</span>
+    --rollup.disabletxpoolgossip<span>=</span>true
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br></div></div><h2 id="启动-op-node"> 启动 <code>op-node</code></h2>
+<p>一旦我们成功运行了 <code>op-geth</code>，我们需要运行 <code>op-node</code>。
+与以太坊类似，OP Stack 有一个共识客户端（<code>op-node</code>）和一个执行客户端（<code>op-geth</code>）。
+共识客户端通过 Engine API &quot;驱动&quot; 执行客户端。</p>
+<h4 id="_1-打开一个新的终端-2"> 1. 打开一个新的终端</h4>
+<p>我们需要一个终端窗口来运行 <code>op-node</code>。</p>
+<h4 id="_2-切换到-op-node-目录"> 2. 切换到 op-node 目录</h4>
+<div><pre><code><span>cd</span> ~/optimism/op-node
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-运行-op-node"> 3. 运行 op-node</h4>
+<div><pre><code>./bin/op-node <span>\</span>
+	--l2<span>=</span>http://localhost:8551 <span>\</span>
+	--l2.jwt-secret<span>=</span>./jwt.txt <span>\</span>
+	--sequencer.enabled <span>\</span>
+	--sequencer.l1-confs<span>=</span><span>5</span> <span>\</span>
+	--verifier.l1-confs<span>=</span><span>4</span> <span>\</span>
+	--rollup.config<span>=</span>./rollup.json <span>\</span>
+	--rpc.addr<span>=</span><span>0.0</span>.0.0 <span>\</span>
+	--rpc.port<span>=</span><span>8547</span> <span>\</span>
+	--p2p.disable <span>\</span>
+	--rpc.enable-admin <span>\</span>
+	--p2p.sequencer.key<span>=</span><span>$GS_SEQUENCER_PRIVATE_KEY</span> <span>\</span>
+	--l1<span>=</span><span>$L1_RPC_URL</span> <span>\</span>
+	--l1.rpckind<span>=</span><span>$L1_RPC_KIND</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><p>运行此命令后，您将开始看到 <code>op-node</code> 开始从 L1 链同步 L2 块。
+一旦 <code>op-node</code> 追上了 L1 链的最新块，它将开始将块发送给 <code>op-geth</code> 进行执行。
+此时，您将开始在 <code>op-geth</code> 中看到创建的块。</p>
+<div><p>Tips</p>
+<p><strong>默认情况下，您的 <code>op-node</code> 将尝试使用点对点网络加速同步过程。</strong>
+如果您使用的是其他人也在使用的链 ID，例如本教程的默认链 ID（42069），您的 <code>op-node</code> 将接收到其他序列器签名的块。
+这些请求将失败并浪费时间和网络资源。
+<strong>为了避免这种情况，我们在开始时禁用了点对点同步（<code>--p2p.disable</code>）。</strong></p>
+<p>一旦您拥有多个节点，您可能希望启用点对点同步。
+您可以在 <code>op-node</code> 命令中添加以下选项以与特定节点启用点对点同步：</p>
+<div><pre><code>	--p2p.static=&lt;nodes&gt; \
+	--p2p.listen.ip=0.0.0.0 \
+	--p2p.listen.tcp=9003 \
+	--p2p.listen.udp=9003 \
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>您还可以选择删除 <code>--p2p.static</code> 选项，但是您可能会看到来自使用相同链ID的其他链的请求失败。</p>
+</div>
+<h2 id="启动-op-batcher"> 启动 <code>op-batcher</code></h2>
+<p><code>op-batcher</code> 从序列器获取交易，并将这些交易发布到 L1。
+一旦这些序列器交易被包含在一个最终的 L1 块中，它们就正式成为规范链的一部分。
+<code>op-batcher</code> 是至关重要的！</p>
+<p>最好给 <code>Batcher</code> 账户至少 1 个 Sepolia ETH，以确保它可以继续运行而不会因为燃料不足而停止。
+请密切关注 <code>Batcher</code> 账户的余额，因为如果有大量交易需要发布，它可能会快速消耗 ETH。</p>
+<h4 id="_1-打开一个新的终端-3"> 1. 打开一个新的终端</h4>
+<p>我们需要一个终端窗口来运行 <code>op-batcher</code>。</p>
+<h4 id="_2-切换到-op-batcher-目录"> 2. 切换到 op-batcher 目录</h4>
+<div><pre><code><span>cd</span> ~/optimism/op-batcher
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-运行-op-batcher"> 3. 运行 op-batcher</h4>
+<div><pre><code>./bin/op-batcher <span>\</span>
+    --l2-eth-rpc<span>=</span>http://localhost:8545 <span>\</span>
+    --rollup-rpc<span>=</span>http://localhost:8547 <span>\</span>
+    --poll-interval<span>=</span>1s <span>\</span>
+    --sub-safety-margin<span>=</span><span>6</span> <span>\</span>
+    --num-confirmations<span>=</span><span>1</span> <span>\</span>
+    --safe-abort-nonce-too-low-count<span>=</span><span>3</span> <span>\</span>
+    --resubmission-timeout<span>=</span>30s <span>\</span>
+    --rpc.addr<span>=</span><span>0.0</span>.0.0 <span>\</span>
+    --rpc.port<span>=</span><span>8548</span> <span>\</span>
+    --rpc.enable-admin <span>\</span>
+    --max-channel-duration<span>=</span><span>1</span> <span>\</span>
+    --l1-eth-rpc<span>=</span><span>$L1_RPC_URL</span> <span>\</span>
+    --private-key<span>=</span><span>$GS_BATCHER_PRIVATE_KEY</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><div><p>Tips</p>
+<p><code>--max-channel-duration=n</code> 设置告诉批处理器将所有数据写入 L1 每 <code>n</code> 个 L1 块。
+当值较低时，交易频繁写入 L1，其他节点可以快速从 L1 同步。
+当值较高时，交易较少频繁写入 L1，批处理器消耗的 ETH 较少。
+如果您想降低成本，可以将此值设置为 0 禁用它，或者将其增加到较高的值。</p>
+</div>
+<h2 id="启动-op-proposer"> 启动 <code>op-proposer</code></h2>
+<p>现在启动 <code>op-proposer</code>，它将提议新的状态根。</p>
+<h4 id="_1-打开一个新的终端-4"> 1. 打开一个新的终端</h4>
+<p>我们需要一个终端窗口来运行 <code>op-proposer</code>。</p>
+<h4 id="_2-切换到-op-proposer-目录"> 2. 切换到 op-proposer 目录</h4>
+<div><pre><code><span>cd</span> ~/optimism/op-proposer
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-运行-op-proposer"> 3. 运行 op-proposer</h4>
+<div><pre><code>./bin/op-proposer <span>\</span>
+    --poll-interval<span>=</span>12s <span>\</span>
+    --rpc.port<span>=</span><span>8560</span> <span>\</span>
+    --rollup-rpc<span>=</span>http://localhost:8547 <span>\</span>
+    --l2oo-address<span>=</span><span><span>$(</span><span>cat</span> <span>..</span>/packages/contracts-bedrock/deployments/getting-started/L2OutputOracleProxy.json <span>|</span> jq -r .address<span>)</span></span> <span>\</span>
+    --private-key<span>=</span><span>$GS_PROPOSER_PRIVATE_KEY</span> <span>\</span>
+    --l1-eth-rpc<span>=</span><span>$L1_RPC_URL</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br></div></div><h2 id="连接您的钱包到您的链"> 连接您的钱包到您的链</h2>
+<p>您现在拥有一个完全功能的 OP Stack Rollup，其中 Sequencer 节点正在运行在 <code>http://localhost:8545</code>。
+您可以像连接其他任何 EVM 链一样将您的钱包连接到这个链上。
+如果您需要一个简单的方法来连接到您的链，只需<a href="https://chainid.link?network=opstack-getting-started" target="_blank" rel="noopener noreferrer">点击这里</a>。</p>
+<h2 id="在您的链上获取-eth"> 在您的链上获取 ETH</h2>
+<p>一旦您连接了您的钱包，您可能会注意到您的链上没有任何 ETH 来支付燃料费。
+将 Sepolia ETH 存入您的链的最简单方法是直接将资金发送到 <code>L1StandardBridge</code> 合约。</p>
+<h4 id="_1-导航到-contracts-bedrock-目录"> 1. 导航到 contracts-bedrock 目录</h4>
+<div><pre><code><span>cd</span> ~/optimism/packages/contracts-bedrock
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_2-获取-l1standardbridgeproxy-合约的地址"> 2. 获取 L1StandardBridgeProxy 合约的地址</h4>
+<div><pre><code><span>cat</span> deployments/getting-started/L1StandardBridgeProxy.json <span>|</span> jq -r .address
+</code></pre>
+<div><span>1</span><br></div></div><h4 id="_3-将一些-sepolia-eth-发送到-l1standardbridgeproxy-合约"> 3. 将一些 Sepolia ETH 发送到 L1StandardBridgeProxy 合约</h4>
+<p>获取 L1 桥接代理合约地址，并使用您希望在 Rollup 上拥有 ETH 的钱包，向该地址发送一小笔 Sepolia ETH（0.1 或更少即可）。
+这将触发一笔存款，将在 L2 中铸造 ETH 到您的钱包中。
+这可能需要最多 5 分钟，才能在 L2 上的钱包中看到这些 ETH。</p>
+<h2 id="观察您的-rollup-运行"> 观察您的 Rollup 运行</h2>
+<p>您可以像与任何其他 EVM 链交互一样与您的 Rollup 进行交互。
+发送一些交易，部署一些合约，看看会发生什么！</p>
+<h2 id="下一步"> 下一步</h2>
+<ul>
+<li>您可以像使用任何其他测试区块链一样使用此 Rollup。</li>
+<li>您可以<a href="hacks/overview">以各种方式修改区块链</a>。</li>
+<li>如果遇到任何问题，请访问<a href="chain-troubleshooting">链操作员故障排除指南</a>寻求帮助。</li>
+</ul>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">OP Stack Hacks简介</title>
+    <id>https://stack.optimism.io/docs/build/hacks/</id>
+    <link href="https://stack.optimism.io/docs/build/hacks/"/>
+    <updated>2023-11-28T14:10:32.000Z</updated>
+    <content type="html"><![CDATA[<p>欢迎来到OP Stack Hacks，这是OP Stack文档的<strong>高度实验性</strong>区域。OP Stack Hacks是一个非官方指南，用于对OP Stack进行有趣的修改。</p>
+<p>OP Stack Hacks创建的区块链并不完全是OP Stack，并且可能存在安全性问题。希望与<a href="./../understand/explainer.html">Optimism超级链</a>进行互操作的链的开发者<strong>不应包含任何Hack</strong>。如果有疑问，请使用<a href="./../releases/#current-release">当前版本的OP Stack</a>中的官方组件。</p>
+<div><p>🚧 OP Stack Hacks是一些目前不适用于生产环境的实验性功能</p>
+<p>OP Stack Hacks并非适合所有人。您将无法获得针对OP Stack Hacks的重要开发者支持，因此请做好准备，自己动手解决问题。</p>
+</div>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">使用 OP Stack Client SDK</title>
+    <id>https://stack.optimism.io/docs/build/sdk/</id>
+    <link href="https://stack.optimism.io/docs/build/sdk/"/>
+    <updated>2023-11-28T14:10:32.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="原生支持的链"> 原生支持的链</h2>
+<p><a href="https://sdk.optimism.io/" target="_blank" rel="noopener noreferrer">OP Stack Client SDK</a> 原生支持多个 OP 链：OP、Base 等。
+要查看特定的 OP 链是否直接支持，请参阅<a href="https://sdk.optimism.io/enums/l2chainid" target="_blank" rel="noopener noreferrer">文档</a>。</p>
+<h2 id="非原生支持的链"> 非原生支持的链</h2>
+<p>如果您正在使用一个<em>非</em>原生支持的链，例如您刚刚创建的 OP Stack 链<a href="./getting-started.html">（参见此处）</a>，您仍然可以使用<a href="https://sdk.optimism.io/" target="_blank" rel="noopener noreferrer">OP Stack Client SDK</a>。
+您只需要向 <code>CrossDomainMessenger</code> 提供一些合约地址，因为它们没有预配置。</p>
+<h3 id="获取合约地址"> 获取合约地址</h3>
+<h4 id="l1-合约地址"> L1 合约地址</h4>
+<p>如果您按照<a href="./getting-started.html">入门指南</a>中的说明操作，合约地址位于 <code>.../optimism/packages/contracts-bedrock/deployments/getting-started</code>，这是您部署 L1 合约时创建的。</p>
+<table>
+<thead>
+<tr>
+<th>创建 <code>CrossDomainMessenger</code> 时的合约名称</th>
+<th>包含地址的文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddressManager</code></td>
+<td><code>Lib_AddressManager.json</code></td>
+</tr>
+<tr>
+<td><code>L1CrossDomainMessenger</code></td>
+<td><code>Proxy__OVM_L1CrossDomainMessenger.json</code></td>
+</tr>
+<tr>
+<td><code>L1StandardBridge</code></td>
+<td><code>Proxy__OVM_L1StandardBridge.json</code></td>
+</tr>
+<tr>
+<td><code>OptimismPortal</code></td>
+<td><code>OptimismPortalProxy.json</code></td>
+</tr>
+<tr>
+<td><code>L2OutputOracle</code></td>
+<td><code>L2OutputOracleProxy.json</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="不需要的合约地址"> 不需要的合约地址</h4>
+<p>SDK 需要某些合约作为健全性检查，但实际上并不使用这些合约。
+对于这些合约，您只需指定零地址：</p>
+<ul>
+<li><code>StateCommitmentChain</code></li>
+<li><code>CanonicalTransactionChain</code></li>
+<li><code>BondManager</code></li>
+</ul>
+<p>在 JavaScript 中，您可以使用表达式 <code>&quot;0x&quot;.padEnd(42, &quot;0&quot;)</code> 创建零地址。</p>
+<h3 id="crosschainmessenger-对象"> CrossChainMessenger 对象</h3>
+<p>这些步骤假设您在<a href="https://hardhat.org/hardhat-runner/docs/guides/hardhat-console" target="_blank" rel="noopener noreferrer">Hardhat 控制台</a>中。
+它们进一步假设您的项目已经包含了 Optimism SDK <a href="https://www.npmjs.com/package/@eth-optimism/sdk" target="_blank" rel="noopener noreferrer"><code>@eth-optimism/sdk</code></a>。</p>
+<ol>
+<li>
+<p>导入 SDK</p>
+<div><pre><code>optimismSDK <span>=</span> <span>require</span><span>(</span><span>"@eth-optimism/sdk"</span><span>)</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>设置配置参数。</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l1Url</code></td>
+<td>L1 的 RPC 提供程序的 URL，例如 <code>https://eth-goerli.g.alchemy.com/v2/&lt;api key&gt;</code></td>
+</tr>
+<tr>
+<td><code>l2Url</code></td>
+<td>您的 OP Stack 的 URL。如果在同一台计算机上运行，则为 <code>http://localhost:8545</code></td>
+</tr>
+<tr>
+<td><code>privKey</code></td>
+<td>在 L1 上有一些 ETH 的帐户的私钥</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>创建<a href="https://docs.ethers.org/v5/api/providers/" target="_blank" rel="noopener noreferrer">提供程序</a>和<a href="https://docs.ethers.org/v5/api/signer/" target="_blank" rel="noopener noreferrer">签名者</a>。</p>
+<div><pre><code>l1Provider <span>=</span> <span>new</span> <span>ethers<span>.</span>providers<span>.</span>JsonRpcProvider</span><span>(</span>l1Url<span>)</span>
+l2Provider <span>=</span> <span>new</span> <span>ethers<span>.</span>providers<span>.</span>JsonRpcProvider</span><span>(</span>l2Url<span>)</span>
+l1Signer <span>=</span> <span>new</span> <span>ethers<span>.</span>Wallet</span><span>(</span>privKey<span>)</span><span>.</span><span>connect</span><span>(</span>l1Provider<span>)</span>
+l2Signer <span>=</span> <span>new</span> <span>ethers<span>.</span>Wallet</span><span>(</span>privKey<span>)</span><span>.</span><span>connect</span><span>(</span>l2Provider<span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></li>
+<li>
+<p>创建 L1 合约结构。</p>
+<div><pre><code>zeroAddr <span>=</span> <span>"0x"</span><span>.</span><span>padEnd</span><span>(</span><span>42</span><span>,</span> <span>"0"</span><span>)</span>
+l1Contracts <span>=</span> <span>{</span>
+   StateCommitmentChain<span>:</span> zeroAddr<span>,</span>
+   CanonicalTransactionChain<span>:</span> zeroAddr<span>,</span>
+   BondManager<span>:</span> zeroAddr<span>,</span>
+   <span>// 这些合约具有您之前找到的地址。</span>
+   AddressManager<span>:</span> <span>"0x...."</span><span>,</span>   <span>// Lib_AddressManager.json</span>
+   L1CrossDomainMessenger<span>:</span> <span>"0x...."</span><span>,</span>   <span>// Proxy__OVM_L1CrossDomainMessenger.json  </span>
+   L1StandardBridge<span>:</span> <span>"0x...."</span><span>,</span>   <span>// Proxy__OVM_L1StandardBridge.json</span>
+   OptimismPortal<span>:</span> <span>"0x...."</span><span>,</span>   <span>// OptimismPortalProxy.json</span>
+   L2OutputOracle<span>:</span> <span>"0x...."</span><span>,</span>   <span>// L2OutputOracleProxy.json</span>
+<span>}</span>                       
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br></div></div></li>
+<li>
+<p>创建标准桥接的数据结构。</p>
+<div><pre><code> bridges <span>=</span> <span>{</span> 
+   Standard<span>:</span> <span>{</span> 
+      l1Bridge<span>:</span> l1Contracts<span>.</span>L1StandardBridge<span>,</span> 
+      l2Bridge<span>:</span> <span>"0x4200000000000000000000000000000000000010"</span><span>,</span> 
+      Adapter<span>:</span> optimismSDK<span>.</span>StandardBridgeAdapter
+   <span>}</span><span>,</span>
+   <span>ETH</span><span>:</span> <span>{</span>
+      l1Bridge<span>:</span> l1Contracts<span>.</span>L1StandardBridge<span>,</span> 
+      l2Bridge<span>:</span> <span>"0x4200000000000000000000000000000000000010"</span><span>,</span> 
+      Adapter<span>:</span> optimismSDK<span>.</span>ETHBridgeAdapter
+   <span>}</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br></div></div></li>
+<li>
+<p>创建<a href="https://sdk.optimism.io/classes/crosschainmessenger" target="_blank" rel="noopener noreferrer"><code>CrossChainMessenger</code></a> 对象。</p>
+<div><pre><code>crossChainMessenger <span>=</span> <span>new</span> <span>optimismSDK<span>.</span>CrossChainMessenger</span><span>(</span><span>{</span>
+   bedrock<span>:</span> <span>true</span><span>,</span>
+   contracts<span>:</span> <span>{</span>
+      l1<span>:</span> l1Contracts
+   <span>}</span><span>,</span>
+   bridges<span>:</span> bridges<span>,</span>
+   l1ChainId<span>:</span> <span>await</span> l1Signer<span>.</span><span>getChainId</span><span>(</span><span>)</span><span>,</span>
+   l2ChainId<span>:</span> <span>await</span> l2Signer<span>.</span><span>getChainId</span><span>(</span><span>)</span><span>,</span>
+   l1SignerOrProvider<span>:</span> l1Signer<span>,</span>
+   l2SignerOrProvider<span>:</span> l2Signer<span>,</span>    
+<span>}</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div></li>
+</ol>
+<h3 id="验证-sdk-功能"> 验证 SDK 功能</h3>
+<p>为了验证 SDK 的功能，将一些 ETH 从 L1 转移到 L2。</p>
+<ol>
+<li>
+<p>获取当前余额。</p>
+<div><pre><code>balances0 <span>=</span> <span>[</span>
+   <span>await</span> l1Provider<span>.</span><span>getBalance</span><span>(</span>l1Signer<span>.</span>address<span>)</span><span>,</span>
+   <span>await</span> l2Provider<span>.</span><span>getBalance</span><span>(</span>l1Signer<span>.</span>address<span>)</span>
+<span>]</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></li>
+<li>
+<p>转移 1 gwei。</p>
+<div><pre><code>tx <span>=</span> <span>await</span> crossChainMessenger<span>.</span><span>depositETH</span><span>(</span><span>1e9</span><span>)</span>
+rcpt <span>=</span> <span>await</span> tx<span>.</span><span>wait</span><span>(</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>获取转移后的余额。</p>
+<div><pre><code>balances1 <span>=</span> <span>[</span>
+   <span>await</span> l1Provider<span>.</span><span>getBalance</span><span>(</span>l1Signer<span>.</span>address<span>)</span><span>,</span>
+   <span>await</span> l2Provider<span>.</span><span>getBalance</span><span>(</span>l1Signer<span>.</span>address<span>)</span>
+<span>]</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></li>
+<li>
+<p>查看 L1 余额是否发生变化（可能远远超过 1 gwei，因为交易的成本）。</p>
+<div><pre><code><span>(</span>balances0<span>[</span><span>0</span><span>]</span><span>-</span>balances1<span>[</span><span>0</span><span>]</span><span>)</span><span>/</span><span>1e9</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>查看 L2 余额是否发生变化（可能需要几分钟）。</p>
+<div><pre><code><span>(</span><span>(</span><span>await</span> l2Provider<span>.</span><span>getBalance</span><span>(</span>l1Signer<span>.</span>address<span>)</span><span>)</span><span>-</span>balances0<span>[</span><span>1</span><span>]</span><span>)</span><span>/</span><span>1e9</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+</ol>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">结算层技巧</title>
+    <id>https://stack.optimism.io/docs/build/settlement/</id>
+    <link href="https://stack.optimism.io/docs/build/settlement/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack技巧是指您可以在OP Stack上做的一些事情，目前并不打算用于生产环境</p>
+<p>OP Stack技巧并不适合新手。您将无法获得针对OP Stack技巧的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。</p>
+</div>
+<h1 id="概述"> 概述</h1>
+<p>结算层包括由第三方链使用的模块，用于建立对您的OP Stack链状态的<em>视图</em>。这个视图可以被那些链上的应用程序用来根据您的OP Stack链的状态做出决策。第三方链可以是任何其他区块链，包括其他OP Stack链。一个常见的结算层机制是提供一个允许用户将资产从您的OP Stack链发送到第三方链的提现系统。对该层的修改通常涉及引入新的模块或调整现有模块的安全模型。</p>
+<h2 id="默认"> 默认</h2>
+<p>默认的结算层模块目前是Attestation Proof Optimistic Settlement模块。该模块通过一种乐观的协议，允许第三方链了解OP Stack链的状态，其中挑战可以与来自预定义地址集的证明一起执行，这些证明与提议状态不同。通过将Cannon故障证明投入生产，可以将此默认模块替换为允许任何人通过进行Cannon争议游戏来挑战提议的模块。</p>
+<h2 id="安全性"> 安全性</h2>
+<p>对结算层的修改可能会严重影响常见机制（如用户提现）的安全性。例如，缩短提现延迟可能会打开垃圾邮件攻击的大门，使挑战变得极其昂贵。通常不建议修改结算层，除非您知道自己在做什么。</p>
+<h2 id="修改"> 修改</h2>
+<h3 id="调整参数"> 调整参数</h3>
+<p>对结算层的一个简单修改是调整默认的乐观资产提现机制的参数。例如，如果较小的提现期限足以保护您的系统，可以缩短提现期限。</p>
+<h3 id="自定义证明"> 自定义证明</h3>
+<p>结算层模块使用证明系统来验证在第三方链上提议的OP Stack链状态的正确性。一般来说，这些证明要么是需要提现延迟的乐观证明，要么是使用数学证明系统来断言提议的有效性的有效性证明。当前的Attestation Proof Optimistic Settlement模块可以被一个故障证明系统替换。</p>
+<h3 id="多个模块"> 多个模块</h3>
+<p>系统并不要求只有一个结算层模块。可以在一个或多个第三方链上使用一个或多个结算层模块。一个旨在在两个链之间桥接资产的系统可能需要在每个链上使用一个数据可用性层模块和一个结算层模块。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">Rollup操作</title>
+    <id>https://stack.optimism.io/docs/build/operations/</id>
+    <link href="https://stack.optimism.io/docs/build/operations/"/>
+    <updated>2023-11-28T14:10:32.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="停止rollup"> 停止Rollup</h2>
+<p>有序关闭的顺序与组件启动的顺序相反：</p>
+<ol>
+<li>
+<p>停止batcher，请使用以下命令：</p>
+<div><pre><code><span>curl</span> -d <span>'{"id":0,"jsonrpc":"2.0","method":"admin_stopBatcher","params":[]}'</span> <span>\</span>
+     -H <span>"Content-Type: application/json"</span> http://localhost:8548 <span>|</span> jq
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><p>这样，batcher会知道将其缓存的任何数据保存到L1。在停止进程之前，请等待在batcher的输出中看到<code>Batch Submitter stopped</code>。</p>
+</li>
+<li>
+<p>停止op-node。
+该组件是无状态的，所以可以直接停止进程。</p>
+</li>
+<li>
+<p>停止op-geth。
+请确保使用<strong>CTRL-C</strong>来避免数据库损坏。</p>
+</li>
+</ol>
+<h2 id="启动rollup"> 启动Rollup</h2>
+<p>要重新启动区块链，请按照初始化时的组件顺序进行操作。</p>
+<ol>
+<li>
+<p><code>op-geth</code></p>
+</li>
+<li>
+<p><code>op-node</code></p>
+</li>
+<li>
+<p><code>op-batcher</code></p>
+<p>如果<code>op-batcher</code>仍在运行，并且您刚刚使用RPC停止了它，您可以使用以下命令启动它：</p>
+<div><pre><code><span>curl</span> -d <span>'{"id":0,"jsonrpc":"2.0","method":"admin_startBatcher","params":[]}'</span> <span>\</span>
+    -H <span>"Content-Type: application/json"</span> http://localhost:8548 <span>|</span> jq   
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+</ol>
+<div><p>同步需要时间</p>
+<p><code>op-batcher</code>可能会出现类似以下的警告消息：</p>
+<h2 id="添加节点"> 添加节点</h2>
+<p>要向Rollup添加节点，您需要初始化<code>op-node</code>和<code>op-geth</code>，与您为第一个节点所做的操作类似。
+不应该添加<code>op-batcher</code>，只应该有一个。</p>
+<ol>
+<li>
+<p>配置操作系统和先决条件，与您为第一个节点所做的操作相同。</p>
+</li>
+<li>
+<p>构建Optimism monorepo和<code>op-geth</code>，与您为第一个节点所做的操作相同。</p>
+</li>
+<li>
+<p>从第一个节点复制以下文件：</p>
+<div><pre><code>~/op-geth/genesis.json
+~/optimism/op-node/rollup.json
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>创建一个新的<code>jwt.txt</code>文件作为共享密钥：</p>
+<div><pre><code><span>cd</span> ~/op-geth
+openssl rand -hex <span>32</span> <span>></span> jwt.txt
+<span>cp</span> jwt.txt ~/optimism/op-node
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+<li>
+<p>初始化新的op-geth：</p>
+<div><pre><code><span>cd</span> ~/op-geth
+./build/bin/geth init --datadir<span>=</span>./datadir ./genesis.json
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>要启用L2节点直接同步，而不是等待事务写入L1，请打开<a href="./getting-started/#op-node">点对点同步</a>。
+如果您已经有点对点同步，请将新节点添加到<code>--p2p.static</code>列表中以进行同步。</p>
+</li>
+<li>
+<p>启动<code>op-geth</code>（使用与初始节点相同的命令行）</p>
+</li>
+<li>
+<p>启动<code>op-node</code>（使用与初始节点相同的命令行，但删除<code>--sequencer.enabled</code>和<code>--sequencer.l1-confs</code>标志以禁用序列器模式）</p>
+</li>
+</ol>
+</div>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">向派生函数添加属性</title>
+    <id>https://stack.optimism.io/docs/build/tutorials/add-attr/</id>
+    <link href="https://stack.optimism.io/docs/build/tutorials/add-attr/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些明确不适用于生产环境的 OP Stack 技巧</p>
+<p>OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。</p>
+</div>
+<h2 id="概述"> 概述</h2>
+<p>在本指南中，我们将修改 Bedrock Rollup。虽然有很多修改 OP Stack 的方法，但在本教程中，我们将专注于修改派生函数。具体而言，我们将更新派生函数以跟踪在 L1 上燃烧的 ETH 的数量！谁会告诉 <a href="http://ultrasound.money" target="_blank" rel="noopener noreferrer">ultrasound.money</a> 他们应该用 OP Stack 链替换后端呢？</p>
+<h2 id="获取灵感"> 获取灵感</h2>
+<p>让我们快速回顾一下我们即将做的事情。<code>op-node</code> 负责生成引擎 API 负载，以触发 <code>op-geth</code> 生成区块和交易。<code>op-node</code> 已经为每个 L1 块生成了一个“系统交易”，用于向 L2 链传递有关当前 L1 状态的信息。我们将修改 <code>op-node</code>，添加一个新的系统交易，报告每个块中的总燃烧金额（基础费用乘以使用的 gas）。</p>
+<p>虽然听起来可能很复杂，但整个过程只涉及部署一个智能合约，向 <code>op-node</code> 添加一个新文件，并修改 <code>op-node</code> 中的一个现有文件。这将是无痛的。让我们开始吧！</p>
+<h2 id="部署燃烧合约"> 部署燃烧合约</h2>
+<p>我们将在 Rollup 上使用一个智能合约来存储 <code>op-node</code> 对 L1 燃烧的报告。以下是我们智能合约的代码：</p>
+<div><pre><code><span>// SPDX-License-Identifier: MIT</span>
+<span>pragma</span> <span>solidity</span> <span>^</span><span>0.8.0</span><span>;</span>
+
+<span>/**
+ * @title L1Burn
+ * @notice L1Burn keeps track of the total amount of ETH burned on L1.
+ */</span>
+<span>contract</span> <span>L1Burn</span> <span>{</span>
+    <span>/**
+     * @notice Total amount of ETH burned on L1.
+     */</span>
+    <span>uint256</span> <span>public</span> total<span>;</span>
+
+    <span>/**
+     * @notice Mapping of blocks numbers to total burn.
+     */</span>
+    <span>mapping</span> <span>(</span><span>uint64</span> <span>=></span> <span>uint256</span><span>)</span> <span>public</span> reports<span>;</span>
+
+    <span>/**
+     * @notice Allows the system address to submit a report.
+     *
+     * @param _blocknum L1 block number the report corresponds to.
+     * @param _burn     Amount of ETH burned in the block.
+     */</span>
+    <span>function</span> <span>report</span><span>(</span><span>uint64</span> _blocknum<span>,</span> <span>uint64</span> _burn<span>)</span> <span>external</span> <span>{</span>
+        <span>require</span><span>(</span>
+            msg<span>.</span>sender <span>==</span> <span>0xDeaDDEaDDeAdDeAdDEAdDEaddeAddEAdDEAd0001</span><span>,</span>
+            <span>"L1Burn: reports can only be made from system address"</span>
+        <span>)</span><span>;</span>
+
+        total <span>+=</span> _burn<span>;</span>
+        reports<span>[</span>_blocknum<span>]</span> <span>=</span> total<span>;</span>
+    <span>}</span>
+
+    <span>/**
+     * @notice Tallies up the total burn since a given block number.
+     *
+     * @param _blocknum L1 block number to tally from.
+     *
+     * @return Total amount of ETH burned since the given block number;
+     */</span>
+    <span>function</span> <span>tally</span><span>(</span><span>uint64</span> _blocknum<span>)</span> <span>external</span> <span>view</span> <span>returns</span> <span>(</span><span>uint256</span><span>)</span> <span>{</span>
+        <span>return</span> total <span>-</span> reports<span>[</span>_blocknum<span>]</span><span>;</span>
+    <span>}</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br></div></div><p>将这个智能合约部署到您的 L2（使用任何您方便的工具）。记下合约部署的地址，因为您一会儿会用到它。简单！</p>
+<h2 id="添加燃烧交易"> 添加燃烧交易</h2>
+<p>现在我们需要在 <code>op-node</code> 中添加逻辑，以便在生成 L1 块时自动提交燃烧报告。由于这个交易与报告其他 L1 块信息的系统交易非常相似（在 <a href="https://github.com/ethereum-optimism/optimism/blob/c9cd1215b76111888e25ee27a49a0bc0c4eeb0f8/op-node/rollup/derive/l1_block_info.go" target="_blank" rel="noopener noreferrer">l1_block_info.go</a> 中找到），我们将使用该交易作为起点。</p>
+<ol>
+<li>
+<p>导航到 <code>op-node</code> 包：</p>
+<div><pre><code><span>cd</span> ~/optimism/op-node
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>在 <code>rollup/derive</code> 文件夹中创建一个名为 <code>l1_burn_info.go</code> 的新文件：</p>
+<div><pre><code><span>touch</span> rollup/derive/l1_burn_info.go
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>将以下内容粘贴到 <code>l1_burn_info.go</code> 文件中，并确保将 <code>YOUR_BURN_CONTRACT_HERE</code> 替换为您刚刚部署的 <code>L1Burn</code> 合约的地址。</p>
+<div><pre><code><span>package</span> derive
+
+<span>import</span> <span>(</span>
+    <span>"bytes"</span>
+    <span>"encoding/binary"</span>
+    <span>"fmt"</span>
+    <span>"math/big"</span>
+
+    <span>"github.com/ethereum/go-ethereum/common"</span>
+    <span>"github.com/ethereum/go-ethereum/core/types"</span>
+    <span>"github.com/ethereum/go-ethereum/crypto"</span>
+
+    <span>"github.com/ethereum-optimism/optimism/op-node/eth"</span>
+<span>)</span>
+
+<span>const</span> <span>(</span>
+    L1BurnFuncSignature <span>=</span> <span>"report(uint64,uint64)"</span>
+    L1BurnArguments     <span>=</span> <span>2</span>
+    L1BurnLen           <span>=</span> <span>4</span> <span>+</span> <span>32</span><span>*</span>L1BurnArguments
+<span>)</span>
+
+<span>var</span> <span>(</span>
+    L1BurnFuncBytes4 <span>=</span> crypto<span>.</span><span>Keccak256</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>(</span>L1BurnFuncSignature<span>)</span><span>)</span><span>[</span><span>:</span><span>4</span><span>]</span>
+    L1BurnAddress    <span>=</span> common<span>.</span><span>HexToAddress</span><span>(</span><span>"YOUR_BURN_CONTRACT_HERE"</span><span>)</span>
+<span>)</span>
+
+<span>type</span> L1BurnInfo <span>struct</span> <span>{</span>
+    Number <span>uint64</span>
+    Burn   <span>uint64</span>
+<span>}</span>
+
+<span>func</span> <span>(</span>info <span>*</span>L1BurnInfo<span>)</span> <span>MarshalBinary</span><span>(</span><span>)</span> <span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>error</span><span>)</span> <span>{</span>
+    data <span>:=</span> <span>make</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> L1BurnLen<span>)</span>
+    offset <span>:=</span> <span>0</span>
+    <span>copy</span><span>(</span>data<span>[</span>offset<span>:</span><span>4</span><span>]</span><span>,</span> L1BurnFuncBytes4<span>)</span>
+    offset <span>+=</span> <span>4</span>
+    binary<span>.</span>BigEndian<span>.</span><span>PutUint64</span><span>(</span>data<span>[</span>offset<span>+</span><span>24</span><span>:</span>offset<span>+</span><span>32</span><span>]</span><span>,</span> info<span>.</span>Number<span>)</span>
+    offset <span>+=</span> <span>32</span>
+    binary<span>.</span>BigEndian<span>.</span><span>PutUint64</span><span>(</span>data<span>[</span>offset<span>+</span><span>24</span><span>:</span>offset<span>+</span><span>32</span><span>]</span><span>,</span> info<span>.</span>Burn<span>)</span>
+    <span>return</span> data<span>,</span> <span>nil</span>
+<span>}</span>
+
+<span>func</span> <span>(</span>info <span>*</span>L1BurnInfo<span>)</span> <span>UnmarshalBinary</span><span>(</span>data <span>[</span><span>]</span><span>byte</span><span>)</span> <span>error</span> <span>{</span>
+    <span>if</span> <span>len</span><span>(</span>data<span>)</span> <span>!=</span> L1InfoLen <span>{</span>
+        <span>return</span> fmt<span>.</span><span>Errorf</span><span>(</span><span>"data is unexpected length: %d"</span><span>,</span> <span>len</span><span>(</span>data<span>)</span><span>)</span>
+    <span>}</span>
+    <span>var</span> padding <span>[</span><span>24</span><span>]</span><span>byte</span>
+    offset <span>:=</span> <span>4</span>
+    info<span>.</span>Number <span>=</span> binary<span>.</span>BigEndian<span>.</span><span>Uint64</span><span>(</span>data<span>[</span>offset<span>+</span><span>24</span> <span>:</span> offset<span>+</span><span>32</span><span>]</span><span>)</span>
+    <span>if</span> <span>!</span>bytes<span>.</span><span>Equal</span><span>(</span>data<span>[</span>offset<span>:</span>offset<span>+</span><span>24</span><span>]</span><span>,</span> padding<span>[</span><span>:</span><span>]</span><span>)</span> <span>{</span>
+        <span>return</span> fmt<span>.</span><span>Errorf</span><span>(</span><span>"l1 burn tx number exceeds uint64 bounds: %x"</span><span>,</span> data<span>[</span>offset<span>:</span>offset<span>+</span><span>32</span><span>]</span><span>)</span>
+    <span>}</span>
+    offset <span>+=</span> <span>32</span>
+    info<span>.</span>Burn <span>=</span> binary<span>.</span>BigEndian<span>.</span><span>Uint64</span><span>(</span>data<span>[</span>offset<span>+</span><span>24</span> <span>:</span> offset<span>+</span><span>32</span><span>]</span><span>)</span>
+    <span>if</span> <span>!</span>bytes<span>.</span><span>Equal</span><span>(</span>data<span>[</span>offset<span>:</span>offset<span>+</span><span>24</span><span>]</span><span>,</span> padding<span>[</span><span>:</span><span>]</span><span>)</span> <span>{</span>
+        <span>return</span> fmt<span>.</span><span>Errorf</span><span>(</span><span>"l1 burn tx burn exceeds uint64 bounds: %x"</span><span>,</span> data<span>[</span>offset<span>:</span>offset<span>+</span><span>32</span><span>]</span><span>)</span>
+    <span>}</span>
+    <span>return</span> <span>nil</span>
+<span>}</span>
+
+<span>func</span> <span>L1BurnDepositTxData</span><span>(</span>data <span>[</span><span>]</span><span>byte</span><span>)</span> <span>(</span>L1BurnInfo<span>,</span> <span>error</span><span>)</span> <span>{</span>
+    <span>var</span> info L1BurnInfo
+    err <span>:=</span> info<span>.</span><span>UnmarshalBinary</span><span>(</span>data<span>)</span>
+    <span>return</span> info<span>,</span> err
+<span>}</span>
+
+<span>func</span> <span>L1BurnDeposit</span><span>(</span>seqNumber <span>uint64</span><span>,</span> block eth<span>.</span>BlockInfo<span>,</span> sysCfg eth<span>.</span>SystemConfig<span>)</span> <span>(</span><span>*</span>types<span>.</span>DepositTx<span>,</span> <span>error</span><span>)</span> <span>{</span>
+    infoDat <span>:=</span> L1BurnInfo<span>{</span>
+        Number<span>:</span> block<span>.</span><span>NumberU64</span><span>(</span><span>)</span><span>,</span>
+        Burn<span>:</span>   block<span>.</span><span>BaseFee</span><span>(</span><span>)</span><span>.</span><span>Uint64</span><span>(</span><span>)</span> <span>*</span> block<span>.</span><span>GasUsed</span><span>(</span><span>)</span><span>,</span>
+    <span>}</span>
+    data<span>,</span> err <span>:=</span> infoDat<span>.</span><span>MarshalBinary</span><span>(</span><span>)</span>
+    <span>if</span> err <span>!=</span> <span>nil</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> err
+    <span>}</span>
+    source <span>:=</span> L1InfoDepositSource<span>{</span>
+        L1BlockHash<span>:</span> block<span>.</span><span>Hash</span><span>(</span><span>)</span><span>,</span>
+        SeqNumber<span>:</span>   seqNumber<span>,</span>
+    <span>}</span>
+    <span>return</span> <span>&amp;</span>types<span>.</span>DepositTx<span>{</span>
+        SourceHash<span>:</span>          source<span>.</span><span>SourceHash</span><span>(</span><span>)</span><span>,</span>
+        From<span>:</span>                L1InfoDepositerAddress<span>,</span>
+        To<span>:</span>                  <span>&amp;</span>L1BurnAddress<span>,</span>
+        Mint<span>:</span>                <span>nil</span><span>,</span>
+        Value<span>:</span>               big<span>.</span><span>NewInt</span><span>(</span><span>0</span><span>)</span><span>,</span>
+        Gas<span>:</span>                 <span>150</span>_000_000<span>,</span>
+        IsSystemTransaction<span>:</span> <span>true</span><span>,</span>
+        Data<span>:</span>                data<span>,</span>
+    <span>}</span><span>,</span> <span>nil</span>
+<span>}</span>
+
+<span>func</span> <span>L1BurnDepositBytes</span><span>(</span>seqNumber <span>uint64</span><span>,</span> l1Info eth<span>.</span>BlockInfo<span>,</span> sysCfg eth<span>.</span>SystemConfig<span>)</span> <span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>error</span><span>)</span> <span>{</span>
+    dep<span>,</span> err <span>:=</span> <span>L1BurnDeposit</span><span>(</span>seqNumber<span>,</span> l1Info<span>,</span> sysCfg<span>)</span>
+    <span>if</span> err <span>!=</span> <span>nil</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> fmt<span>.</span><span>Errorf</span><span>(</span><span>"failed to create L1 burn tx: %w"</span><span>,</span> err<span>)</span>
+    <span>}</span>
+    l1Tx <span>:=</span> types<span>.</span><span>NewTx</span><span>(</span>dep<span>)</span>
+    opaqueL1Tx<span>,</span> err <span>:=</span> l1Tx<span>.</span><span>MarshalBinary</span><span>(</span><span>)</span>
+    <span>if</span> err <span>!=</span> <span>nil</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> fmt<span>.</span><span>Errorf</span><span>(</span><span>"failed to encode L1 burn tx: %w"</span><span>,</span> err<span>)</span>
+    <span>}</span>
+    <span>return</span> opaqueL1Tx<span>,</span> <span>nil</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br><span>87</span><br><span>88</span><br><span>89</span><br><span>90</span><br><span>91</span><br><span>92</span><br><span>93</span><br><span>94</span><br><span>95</span><br><span>96</span><br><span>97</span><br><span>98</span><br><span>99</span><br><span>100</span><br><span>101</span><br><span>102</span><br><span>103</span><br></div></div><p>如果你感兴趣，可以随意查看这个文件。它相对简单，主要是定义了一个新的交易类型，并描述了如何对该交易进行编码。</p>
+</li>
+</ol>
+<h2 id="插入燃烧交易"> 插入燃烧交易</h2>
+<p>最后，我们需要更新 <code>~/optimism/op-node/rollup/derive/attributes.go</code> 文件，将新的燃烧交易插入到每个区块中。您需要进行以下更改：</p>
+<ol>
+<li>
+<p>找到以下代码行：</p>
+<div><pre><code>l1InfoTx<span>,</span> err <span>:=</span> <span>L1InfoDepositBytes</span><span>(</span>seqNumber<span>,</span> l1Info<span>,</span> sysConfig<span>)</span>
+<span>if</span> err <span>!=</span> <span>nil</span> <span>{</span>
+      <span>return</span> <span>nil</span><span>,</span> <span>NewCriticalError</span><span>(</span>fmt<span>.</span><span>Errorf</span><span>(</span><span>"failed to create l1InfoTx: %w"</span><span>,</span> err<span>)</span><span>)</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></li>
+<li>
+<p>在这些代码行之后，添加以下代码片段：</p>
+<div><pre><code>l1BurnTx<span>,</span> err <span>:=</span> <span>L1BurnDepositBytes</span><span>(</span>seqNumber<span>,</span> l1Info<span>,</span> sysConfig<span>)</span>
+<span>if</span> err <span>!=</span> <span>nil</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> <span>NewCriticalError</span><span>(</span>fmt<span>.</span><span>Errorf</span><span>(</span><span>"failed to create l1InfoTx: %w"</span><span>,</span> err<span>)</span><span>)</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></li>
+<li>
+<p>紧接着，更改以下行：</p>
+<div><pre><code>txs <span>:=</span> <span>make</span><span>(</span><span>[</span><span>]</span>hexutil<span>.</span>Bytes<span>,</span> <span>0</span><span>,</span> <span>1</span><span>+</span><span>len</span><span>(</span>depositTxs<span>)</span><span>)</span>
+txs <span>=</span> <span>append</span><span>(</span>txs<span>,</span> l1InfoTx<span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><p>to</p>
+<div><pre><code>txs <span>:=</span> <span>make</span><span>(</span><span>[</span><span>]</span>hexutil<span>.</span>Bytes<span>,</span> <span>0</span><span>,</span> <span>2</span><span>+</span><span>len</span><span>(</span>depositTxs<span>)</span><span>)</span>
+txs <span>=</span> <span>append</span><span>(</span>txs<span>,</span> l1InfoTx<span>)</span>
+txs <span>=</span> <span>append</span><span>(</span>txs<span>,</span> l1BurnTx<span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+</ol>
+<p>我们在这里做的只是在每个 <code>l1InfoTx</code> 之后创建一个新的燃烧交易，并将其插入到每个区块中。</p>
+<h2 id="重新构建您的-op-node"> 重新构建您的 op-node</h2>
+<p>在我们能够看到这个变化生效之前，您需要重新构建您的 <code>op-node</code>：</p>
+<div><pre><code><span>cd</span> ~/optimism/op-node
+<span>make</span> op-node
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><p>现在启动您的 <code>op-node</code>，如果它没有运行，请重新启动您的 <code>op-node</code>，如果它已经在运行中。您应该立即看到变化 - 新的区块将包含两个系统交易而不仅仅是一个！</p>
+<h2 id="检查结果"> 检查结果</h2>
+<p>查询您的合约的 <code>total</code> 函数，您应该看到总数慢慢增加。尝试使用 <code>tally</code> 函数获取自某个 L2 区块以来燃烧的 gas 数量。您可以使用这个功能来实现一个以 OP Stack 作为后端的 <a href="http://ultrasound.money" target="_blank" rel="noopener noreferrer">ultrasound.money</a> 版本。我们做到了，Reddit！</p>
+<p>获取总数的一种方法是运行以下命令：</p>
+<div><pre><code><span>export</span> <span>ETH_RPC_URL</span><span>=</span>http://localhost:8545
+cast call <span>&lt;</span>YOUR_BURN_CONTRACT_HERE<span>></span> <span>"total()"</span> <span>|</span> cast --from-wei
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div><h2 id="结论"> 结论</h2>
+<p>通过对 <code>op-node</code> 进行一些微小的更改，您刚刚实现了对 OP Stack 的改变，使您能够跟踪 L1 ETH 在 L2 上的燃烧情况。通过一个实时的 Cannon 容错系统，您不仅能够在 L2 上跟踪 L1 的燃烧情况，还能够向 L1 上的合约 <em>证明</em> 这种燃烧。您可以在燃烧的 ETH 数量上建立一个无需信任的预测市场。这太疯狂了！</p>
+<p>OP Stack 是一个非常强大的平台，可以让您以无需信任的方式执行大量计算。对于智能合约来说，这是一个超能力。跟踪 L1 的燃烧只是您可以在 OP Stack 上做的许多疯狂事情中的一种。如果您正在寻找灵感，或者想看看其他人在 OP Stack 上构建了什么，可以查看我们的 OP Stack Hacks 页面。也许您会找到一个您想要参与的项目，或者您会获得建立下一个杀手级智能合约所需的灵感。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">添加一个预编译合约</title>
+    <id>https://stack.optimism.io/docs/build/tutorials/new-precomp/</id>
+    <link href="https://stack.optimism.io/docs/build/tutorials/new-precomp/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些明确不适用于生产环境的 OP Stack 的用法</p>
+<p>OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好自己动手并在没有支持的情况下工作。</p>
+</div>
+<p>OP Stack 的一个可能用途是为运行 EVM 提供一个新的预编译合约，以加速当前不支持的计算。在这种情况下，我们将创建一个简单的预编译合约，如果使用四个或更少的字节调用它，则返回一个常量值；如果使用超过四个字节调用它，则返回一个错误。</p>
+<p>要创建一个新的预编译合约，请修改文件 <a href="https://github.com/ethereum-optimism/op-geth/blob/optimism-history/core/vm/contracts.go" target="_blank" rel="noopener noreferrer"><code>op-geth/core/vm/contracts.go</code></a>。</p>
+<ol>
+<li>
+<p>在第82行（或以后的分叉，如果预编译合约列表再次更改）的 <code>PrecompiledContractsBerlin</code> 中添加一个以您的新预编译合约命名的结构体，并使用一个不太可能与标准预编译合约冲突的地址（例如0x100）：</p>
+<div><pre><code>common<span>.</span><span>BytesToAddress</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>{</span><span>1</span><span>,</span><span>0</span><span>}</span><span>)</span><span>:</span> <span>&amp;</span>retConstant<span>{</span><span>}</span><span>,</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>添加预编译合约的代码行。</p>
+<div><pre><code><span>type</span> retConstant <span>struct</span><span>{</span><span>}</span>
+
+<span>func</span> <span>(</span>c <span>*</span>retConstant<span>)</span> <span>RequiredGas</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>uint64</span> <span>{</span>
+    <span>return</span> <span>uint64</span><span>(</span><span>1024</span><span>)</span>
+<span>}</span>
+
+<span>var</span> <span>(</span>
+    errConstInvalidInputLength <span>=</span> errors<span>.</span><span>New</span><span>(</span><span>"invalid input length"</span><span>)</span>
+<span>)</span>
+
+<span>func</span> <span>(</span>c <span>*</span>retConstant<span>)</span> <span>Run</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>error</span><span>)</span> <span>{</span>
+    <span>// Only allow input up to four bytes (function signature)</span>
+    <span>if</span> <span>len</span><span>(</span>input<span>)</span> <span>></span> <span>4</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> errConstInvalidInputLength
+    <span>}</span>
+
+    output <span>:=</span> <span>make</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>6</span><span>)</span>
+    <span>for</span> i <span>:=</span> <span>0</span><span>;</span> i <span>&lt;</span> <span>6</span><span>;</span> i<span>++</span> <span>{</span>
+        output<span>[</span>i<span>]</span> <span>=</span> <span>byte</span><span>(</span><span>64</span><span>+</span>i<span>)</span>
+    <span>}</span>
+    <span>return</span> output<span>,</span> <span>nil</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br></div></div></li>
+<li>
+<p>停止 <code>op-geth</code> 并重新编译：</p>
+<div><pre><code><span>cd</span> ~/op-geth
+<span>make</span> geth
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>重新启动 <code>op-geth</code>。</p>
+</li>
+<li>
+<p>运行以下命令以查看成功调用预编译合约的结果以及错误的结果：</p>
+<div><pre><code>cast call 0x0000000000000000000000000000000000000100 <span>"whatever()"</span>
+cast call 0x0000000000000000000000000000000000000100 <span>"whatever(string)"</span> <span>"fail"</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+</ol>
+<h2 id="它是如何工作的"> 它是如何工作的？</h2>
+<p>这是预编译接口的定义：</p>
+<div><pre><code><span>type</span> PrecompiledContract <span>interface</span> <span>{</span>
+	<span>RequiredGas</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>uint64</span>  <span>// RequiredPrice calculates the contract gas use</span>
+	<span>Run</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>error</span><span>)</span> <span>// Run runs the precompiled contract</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>这意味着对于每个预编译合约，我们需要两个函数：</p>
+<ul>
+<li><code>RequiredGas</code> 函数返回调用的燃料成本。该函数接受一个字节数组作为输入，并返回一个值，即燃料成本。</li>
+<li><code>Run</code> 函数运行实际的预编译合约。该函数也接受一个字节数组作为输入，但它返回两个值：调用的输出（一个字节数组）和一个错误。</li>
+</ul>
+<p>对于每个更改预编译合约的分叉，我们都有一个从地址到 <code>PrecompiledContract</code> 定义的 <a href="https://www.w3schools.com/go/go_maps.php" target="_blank" rel="noopener noreferrer"><code>map</code></a>：</p>
+<div><pre><code><span>// PrecompiledContractsBerlin contains the default set of pre-compiled Ethereum</span>
+<span>// contracts used in the Berlin release.</span>
+<span>var</span> PrecompiledContractsBerlin <span>=</span> <span>map</span><span>[</span>common<span>.</span>Address<span>]</span>PrecompiledContract<span>{</span>
+  common<span>.</span><span>BytesToAddress</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>{</span><span>1</span><span>}</span><span>)</span><span>:</span> <span>&amp;</span>ecrecover<span>{</span><span>}</span><span>,</span>
+  <span>.</span>
+  <span>.</span>
+  <span>.</span>
+  common<span>.</span><span>BytesToAddress</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>{</span><span>9</span><span>}</span><span>)</span><span>:</span> <span>&amp;</span>blake2F<span>{</span><span>}</span><span>,</span>
+  common<span>.</span><span>BytesToAddress</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>{</span><span>1</span><span>,</span><span>0</span><span>}</span><span>)</span><span>:</span> <span>&amp;</span>retConstant<span>{</span><span>}</span><span>,</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br></div></div><p>该映射的键是一个地址。我们使用<code>common.BytesToAddress([]byte{&lt;要转换为地址的字节&gt;})</code>将字节转换为地址。在这种情况下，我们有两个字节，<code>0x01</code>和<code>0x00</code>。将它们组合在一起，我们得到地址<code>0x0…0100</code>。</p>
+<p>预编译合约接口的语法是<code>&amp;&lt;变量名&gt;{}</code>。</p>
+<p>下一步是定义预编译合约本身。</p>
+<div><pre><code><span>type</span> retConstant <span>struct</span><span>{</span><span>}</span>
+</code></pre>
+<div><span>1</span><br></div></div><p>首先，我们为预编译创建一个结构体。</p>
+<div><pre><code><span>func</span> <span>(</span>c <span>*</span>retConstant<span>)</span> <span>RequiredGas</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>uint64</span> <span>{</span>
+    <span>return</span> <span>uint64</span><span>(</span><span>1024</span><span>)</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div><p>然后，我们定义了一个作为结构体一部分的函数。在这里，我们只需要一个固定数量的燃料，但是当然计算可以更加复杂。</p>
+<div><pre><code><span>var</span> <span>(</span>
+    errConstInvalidInputLength <span>=</span> errors<span>.</span><span>New</span><span>(</span><span>"invalid input length"</span><span>)</span>
+<span>)</span>
+
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>接下来，我们为错误定义了一个变量。</p>
+<div><pre><code><span>func</span> <span>(</span>c <span>*</span>retConstant<span>)</span> <span>Run</span><span>(</span>input <span>[</span><span>]</span><span>byte</span><span>)</span> <span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>error</span><span>)</span> <span>{</span>
+</code></pre>
+<div><span>1</span><br></div></div><p>这是实际执行预编译的函数。</p>
+<div><pre><code>
+    <span>// Only allow input up to four bytes (function signature)</span>
+    <span>if</span> <span>len</span><span>(</span>input<span>)</span> <span>></span> <span>4</span> <span>{</span>
+        <span>return</span> <span>nil</span><span>,</span> errConstInvalidInputLength
+    <span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><p>如果需要的话，返回一个错误。这个预编译允许最多四个字节的输入，原因是任何标准调用（例如使用<code>cast</code>）都会有至少四个字节的函数签名。</p>
+<p><code>return a, b</code> 是在Go中返回函数的两个值的方式。正常的输出是<code>nil</code>，什么都没有，因为我们返回了一个错误。</p>
+<div><pre><code>    output <span>:=</span> <span>make</span><span>(</span><span>[</span><span>]</span><span>byte</span><span>,</span> <span>6</span><span>)</span>
+    <span>for</span> i <span>:=</span> <span>0</span><span>;</span> i <span>&lt;</span> <span>6</span><span>;</span> i<span>++</span> <span>{</span>
+        output<span>[</span>i<span>]</span> <span>=</span> <span>byte</span><span>(</span><span>64</span><span>+</span>i<span>)</span>
+    <span>}</span>
+    <span>return</span> output<span>,</span> <span>nil</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><p>最后，我们创建输出缓冲区，填充它，然后返回它。</p>
+<h2 id="结论"> 结论</h2>
+<p>具有额外预编译合约的OP Stack链可以很有用，例如，通过将加密操作从解释的EVM代码移动到编译的Go代码，进一步减少计算工作量。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">贡献指南</title>
+    <id>https://stack.optimism.io/docs/contribute/</id>
+    <link href="https://stack.optimism.io/docs/contribute/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<p>OP Stack 是一个协作的、去中心化的开发堆栈，随着更多人的贡献，它变得越来越强大。OP Stack 的代码应遵循堆栈的<a href="./understand/design-principles.html">设计原则</a>，这意味着它应该是完全开源的，人们可以对其进行研究、贡献和扩展。当我们共同努力时，Optimism Collective 获胜。♥️✨</p>
+<p>无论您是初出茅庐的协议开发者、dapp 开发者、赏金猎人、文档编辑者、内容创作者还是其他任何角色，OP Stack 都有适合您贡献的项目。每一个贡献都是有意义的，没有贡献太小。</p>
+<p>如果您想找到一种贡献的方式，请查看下面的贡献者路径之一。今天就来做出您的第一次贡献吧！</p>
+<h2 id="组件贡献"> 组件贡献</h2>
+<p>OP Stack 是一个去中心化的开发堆栈。只要这些组件符合<a href="./understand/design-principles.html">堆栈的设计原则和目标</a>，任何人都可以贡献被视为 OP Stack 的组件。要开始为堆栈贡献组件，请查看一些<a href="https://github.com/ethereum-optimism/optimism-project-ideas" target="_blank" rel="noopener noreferrer">有用的想法</a>，并开始构建！不要忘记，项目还可以通过 RetroPGF 从 Collective 获得资金支持。</p>
+<p>如果您想为现有的 OP Stack 代码做出贡献，而不是创建新的组件，请查看<a href="./releases/#current-release">OP Stack 的当前版本</a>。对现有的 OP Stack 组件的任何贡献都将非常感激。如果您想找到一个好的方式来进行第一次贡献，请查看 Optimism Monorepo 上的<a href="https://github.com/ethereum-optimism/optimism/contribute" target="_blank" rel="noopener noreferrer">Good First Issues</a>。</p>
+<h2 id="赏金猎人"> 赏金猎人</h2>
+<p>OP Stack 需要您（是的，就是您！）来帮助审查代码库中的错误和漏洞。如果您对赏金猎人感兴趣，请查看我们的安全策略、漏洞报告和赏金猎人页面。</p>
+<h2 id="文档帮助"> 文档帮助</h2>
+<p>在这些文档中发现了拼写错误？看到了一些可能需要更清晰的地方？请前往 Optimism Monorepo，那里托管了 OP Stack 的文档，并提交拉取请求。没有贡献太小！</p>
+<h2 id="社区贡献"> 社区贡献</h2>
+<p>如果您想参与其他方式的贡献，以下是几个选项：</p>
+<ul>
+<li>从<a href="https://github.com/ethereum-optimism/optimism-project-ideas" target="_blank" rel="noopener noreferrer">项目想法列表</a>中选择一个想法并开始构建</li>
+<li>为<a href="https://github.com/ethereum-optimism/optimism-project-ideas" target="_blank" rel="noopener noreferrer">项目想法列表</a>提出一个新的想法</li>
+<li>改进<a href="https://community.optimism.io/" target="_blank" rel="noopener noreferrer">Optimism Community Hub</a>的<a href="https://github.com/ethereum-optimism/community-hub" target="_blank" rel="noopener noreferrer">文档</a>或<a href="https://github.com/ethereum-optimism/optimism-tutorial" target="_blank" rel="noopener noreferrer">教程</a></li>
+<li>在<a href="https://discord.gg/optimism" target="_blank" rel="noopener noreferrer">Optimism Discord</a>成为 Optimism Ambassador、Support Nerd 等等</li>
+</ul>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">发布历史</title>
+    <id>https://stack.optimism.io/docs/releases/</id>
+    <link href="https://stack.optimism.io/docs/releases/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<p>OP Stack代码库是由Optimism Collective维护的去中心化开发堆栈，用于支持Optimism。OP Stack不断发展，随着新的层和模块的开发。OP Stack代码库不是一个产品（传统意义上的），而是一组用于支持Optimism生态系统的软件组件的集合。</p>
+<p>OP Stack代码库的“发布”是一组特定的软件组件，这些组件已经准备好用于生产，并符合堆栈的设计原则和目标。</p>
+<p>只有在OP Stack代码库的当前发布中包含的软件组件才被视为OP Stack的范围内。在当前发布的官方预期功能之外使用OP Stack被视为<a href="./../build/hacks.html">OP Stack Hacks</a> - 非官方的修改，用于实验，但可能会导致意想不到的结果，如安全漏洞，并且可能导致您的链与<a href="https://app.optimism.io/superchain/" target="_blank" rel="noopener noreferrer">Optimism Superchain</a>不再互操作。对于OP Stack Hacks的开发者支持有限 - 如果有疑问，请坚持使用当前发布的功能！</p>
+<h2 id="当前发布"> 当前发布</h2>
+<p><a href="./bedrock/">OP Stack代码库V1：Bedrock</a></p>
+<h2 id="过去的发布"> 过去的发布</h2>
+<p>无</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">修改预部署合约</title>
+    <id>https://stack.optimism.io/docs/build/tutorials/predeploys/</id>
+    <link href="https://stack.optimism.io/docs/build/tutorials/predeploys/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 OP Stack Hacks 是一些可以使用 OP Stack 进行的操作，目前并不适用于生产环境</p>
+<p>OP Stack Hacks 不适合新手。您将无法获得针对 OP Stack Hacks 的重要开发者支持 - 请准备好亲自动手并在没有支持的情况下工作。</p>
+</div>
+<p>OP Stack 区块链有许多<a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/src/constants.ts" target="_blank" rel="noopener noreferrer">预部署合约</a>，提供重要的功能。
+其中大部分合约都是代理合约，可以使用在网络初始部署时配置的 <code>proxyAdminOwner</code> 进行升级。</p>
+<p>预部署合约由名为 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol" target="_blank" rel="noopener noreferrer"><code>ProxyAdmin</code></a> 的合约控制，其地址为 <code>0x4200000000000000000000000000000000000018</code>。
+要调用的函数是 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol#L205-L229" target="_blank" rel="noopener noreferrer"><code>upgrade(address,address)</code></a>。
+第一个参数是要升级的代理合约，第二个参数是新实现的地址。</p>
+<p>例如，旧版的 <code>L1BlockNumber</code> 合约位于 <code>0x420...013</code>。
+为了禁用此功能，我们将实现设置为 <code>0x00...00</code>。
+我们使用 <a href="https://book.getfoundry.sh/" target="_blank" rel="noopener noreferrer">Foundry</a> 命令 <code>cast</code> 来完成此操作。</p>
+<ol>
+<li>
+<p>我们需要几个常量。</p>
+<ul>
+<li>
+<p>在您的终端中将这些地址设置为变量。</p>
+<div><pre><code><span>L1BLOCKNUM</span><span>=</span>0x4200000000000000000000000000000000000013
+<span>PROXY_ADMIN</span><span>=</span>0x4200000000000000000000000000000000000018
+<span>ZERO_ADDR</span><span>=</span>0x0000000000000000000000000000000000000000
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+<li>
+<p>将 <code>PRIVKEY</code> 设置为您的 ADMIN 账户的私钥。</p>
+</li>
+<li>
+<p>设置 <code>ETH_RPC_URL</code>。如果您在运行区块链的计算机上，请使用以下命令。</p>
+<div><pre><code><span>export</span> <span>ETH_RPC_URL</span><span>=</span>http://localhost:8545
+</code></pre>
+<div><span>1</span><br></div></div></li>
+</ul>
+</li>
+<li>
+<p>验证 <code>L1BlockNumber</code> 正常工作。
+查看调用合约时是否返回一个区块号，十二秒后是否返回下一个区块号（L1上的区块时间为十二秒）。</p>
+<div><pre><code>cast call <span>$L1BLOCKNUM</span> <span>'number()'</span> <span>|</span> cast --to-dec
+<span>sleep</span> <span>12</span> <span>&amp;&amp;</span> cast call <span>$L1BLOCKNUM</span> <span>'number()'</span> <span>|</span> cast --to-dec
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>获取合约的当前实现。</p>
+<div><pre><code><span>L1BLOCKNUM_IMPLEMENTATION</span><span>=</span><span><span>`</span>cast call $L1BLOCKNUM <span>"implementation()"</span> <span>|</span> <span>sed</span> <span>'s/000000000000000000000000//'</span><span>`</span></span>
+<span>echo</span> <span>$L1BLOCKNUM_IMPLEMENTATION</span> 
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>将实现更改为零地址</p>
+<div><pre><code>cast send --private-key <span>$PRIVKEY</span> <span>$PROXY_ADMIN</span> <span>"upgrade(address,address)"</span> <span>$L1BLOCKNUM</span> <span>$ZERO_ADDR</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>查看实现地址是否为零，并且调用失败。</p>
+<div><pre><code>cast call <span>$L1BLOCKNUM</span> <span>'implementation()'</span>
+cast call <span>$L1BLOCKNUM</span> <span>'number()'</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>将预部署合约修复为先前的实现，并验证其是否正常工作。</p>
+<div><pre><code>cast send --private-key <span>$PRIVKEY</span> <span>$PROXY_ADMIN</span> <span>"upgrade(address,address)"</span> <span>$L1BLOCKNUM</span> <span>$L1BLOCKNUM_IMPLEMENTATION</span>
+cast call <span>$L1BLOCKNUM</span> <span>'number()'</span> <span>|</span> cast --to-dec
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+</ol>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">OP Stack代码库V1 - Bedrock</title>
+    <id>https://stack.optimism.io/docs/releases/bedrock/</id>
+    <link href="https://stack.optimism.io/docs/releases/bedrock/"/>
+    <updated>2023-11-25T12:56:39.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述"> 概述</h2>
+<p>OP Stack代码库的第一个版本称为<strong>Bedrock</strong>。
+Bedrock版本主要包含运行L2区块链所需的核心软件，最初设计用于升级Optimism Mainnet网络。</p>
+<h2 id="资源"> 资源</h2>
+<h3 id="rollup协议"> Rollup协议</h3>
+<p>在<a href="https://community.optimism.io/docs/protocol/2-rollup-protocol/" target="_blank" rel="noopener noreferrer">Rollup协议</a>页面上了解Bedrock使用的Rollup协议的基础知识。</p>
+<h3 id="bedrock解释器"> Bedrock解释器</h3>
+<p>通过阅读<a href="./explainer.html">Bedrock解释器</a>来了解OP Stack的Bedrock版本的所有内容。</p>
+<h3 id="规范"> 规范</h3>
+<p>在Optimism Monorepo的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md" target="_blank" rel="noopener noreferrer">specs文件夹</a>中深入了解Bedrock版本的规范。</p>
+<h2 id="组件"> 组件</h2>
+<ul>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/op-node" target="_blank" rel="noopener noreferrer"><code>op-node</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/op-geth" target="_blank" rel="noopener noreferrer"><code>op-geth</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/op-batcher" target="_blank" rel="noopener noreferrer"><code>op-batcher</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/op-proposer" target="_blank" rel="noopener noreferrer"><code>op-proposer</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/packages/contracts-bedrock" target="_blank" rel="noopener noreferrer"><code>contracts-bedrock</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/packages/fault-detector" target="_blank" rel="noopener noreferrer"><code>fault-detector</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/packages/sdk" target="_blank" rel="noopener noreferrer"><code>sdk</code></a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/packages/chain-mon" target="_blank" rel="noopener noreferrer"><code>chain-mon</code></a></li>
+</ul>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">常见安全问题</title>
+    <id>https://stack.optimism.io/docs/security/faq/</id>
+    <link href="https://stack.optimism.io/docs/security/faq/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 施工中</p>
+<p>OP Stack正在施工中。不断推动OP Stack的整体安全性和去中心化是我们的首要任务。</p>
+</div>
+<h2 id="去中心化环境下的安全性"> 去中心化环境下的安全性</h2>
+<p>OP Stack是一种去中心化的开发堆栈，为Optimism提供支持。OP Stack的组件可能由Optimism Collective内的不同团队维护。通常更容易讨论基于OP Stack构建的特定链的安全模型，而不是堆栈本身的安全模型。<strong>OP Stack的安全基线是创建安全的默认设置，同时给开发人员提供修改和扩展堆栈的灵活性。</strong></p>
+<h2 id="常见问题"> 常见问题</h2>
+<h3 id="每个op-stack链都安全吗"> 每个OP Stack链都安全吗？</h3>
+<p>基于OP Stack的区块链的安全模型取决于其组件使用的模块。由于OP Stack提供的灵活性，始终有可能使用OP Stack组件设置一个不安全的区块链。<strong>OP Stack的目标是提供安全的默认设置。</strong></p>
+<p>还请记住，就像任何其他系统一样，<strong>OP Stack可能包含未知的错误</strong>，这可能导致OP Stack基于系统中的某些或全部资产的损失。<a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/technical-documents/security-reviews" target="_blank" rel="noopener noreferrer">OP Stack代码库的许多组件已经经过审计</a>，但审计并不意味着批准，完成审计也不意味着经过审计的代码库没有错误。重要的是要理解，使用OP Stack本质上会使您面临OP Stack代码库中的错误风险。</p>
+<h3 id="修改op-stack是否安全"> 修改OP Stack是否安全？</h3>
+<p>与任何事物一样，修改OP Stack需自担风险。无法保证对堆栈的修改是安全的。如果您对自己的操作不太确定，请坚持使用OP Stack提供的更安全的默认设置。目前，OP Stack对于超出堆栈标准Rollup配置的修改不太适应，<strong>不应期望对这些修改提供任何技术支持</strong>。</p>
+<h3 id="我可以使用故障证明吗"> 我可以使用故障证明吗？</h3>
+<p><strong>目前还不行。</strong> OP Stack目前没有故障证明系统。<strong>请注意，如果系统可以在7天的挑战窗口内升级（“快速升级密钥”），故障证明对系统的安全性没有实质性改进</strong>。具有快速升级密钥的系统完全依赖于升级密钥来保证安全。</p>
+<p>故障证明是OP Stack的一个重要里程碑和首要任务。与此同时，在故障证明在生产环境中可用之前，OP Stack可以提供其他几种出色的安全选项，以改进系统的安全性。</p>
+<h3 id="如何帮助提高op-stack的安全性"> 如何帮助提高OP Stack的安全性？</h3>
+<p>帮助确保OP Stack安全的最简单方法之一是寻找错误和漏洞。<a href="https://immunefi.com/bounty/optimism/" target="_blank" rel="noopener noreferrer">Optimism Mainnet作为OP Stack的用户，拥有最大的漏洞赏金</a>。通过在Optimism Mainnet代码库（以及OP Stack）中发现关键漏洞，您可以获得高达200万美元的奖金。</p>
+<p>不要忘记，OP Stack是一个去中心化的开发堆栈。任何人都可以通过构建遵循<a href="./../understand/design-principles.html">堆栈设计原则</a>的软件来开始为OP Stack做出贡献。您始终可以通过构建组件（如替代客户端或证明实现）来帮助提高OP Stack的安全性，以供OP Stack的用户使用。</p>
+<h3 id="如何报告错误"> 如何报告错误？</h3>
+<p><a href="./policy.html">查看安全策略以了解有关报告漏洞和可用漏洞赏金计划的详细信息</a></p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">Bedrock Explainer</title>
+    <id>https://stack.optimism.io/docs/releases/bedrock/explainer/</id>
+    <link href="https://stack.optimism.io/docs/releases/bedrock/explainer/"/>
+    <updated>2023-12-03T12:14:48.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="https://dev.optimism.io/content/images/size/w2000/2022/12/bedrock-BLUE.jpg" alt="Bedrock" /></p>
+<div><p>保持更新</p>
+<p><a href="https://optimism.us6.list-manage.com/subscribe/post?u=9727fa8bec4011400e57cafcb&amp;id=ca91042234&amp;f_id=002a19e3f0" target="_blank" rel="noopener noreferrer">通过订阅Optimism通讯了解Superchain和OP Stack的最新动态</a>。</p>
+</div>
+<p>Bedrock是OP Stack代码库的首个正式发布版本，它是一组自由开源的模块化组件，共同驱动着Optimism。</p>
+<ul>
+<li>要了解Bedrock发布版本中的内容，请继续阅读。</li>
+<li>要在Optimism Mainnet上进行开发（该网络将升级为Bedrock版本），请阅读文档。</li>
+<li>要为OP Stack做出贡献，请参阅ethereum-optimism monorepo上的贡献指南。</li>
+</ul>
+<h2 id="改进摘要"> 改进摘要</h2>
+<p>Bedrock通过使用优化的批量和以太坊作为数据可用性层来降低交易费用，缩短将L1交易包含在Rollup中的延迟，通过代码重用实现模块化的证明系统，并通过消除技术债务来提高节点性能，改进了其前身。</p>
+<h3 id="降低手续费"> 降低手续费</h3>
+<p>此外，Bedrock实现了一种优化的数据策略，以最小化数据成本。我们目前正在对此更改的影响进行基准测试，但我们预计它将显著降低手续费。</p>
+<p>Bedrock还在将数据提交到L1时消除了与EVM执行相关的所有燃气成本。这使得手续费比协议的先前版本再降低10%。</p>
+<h3 id="缩短存款时间"> 缩短存款时间</h3>
+<p>Bedrock在节点软件中引入了对L1重组的支持，这显著减少了用户等待存款的时间。协议的早期版本可能需要长达10分钟才能确认存款。使用Bedrock，我们预计存款将在3分钟内确认。</p>
+<h3 id="改进的证明模块化"> 改进的证明模块化</h3>
+<p>Bedrock将证明系统从OP Stack中抽象出来，以便Rollup可以使用故障证明或有效性证明（例如zk-SNARK）来证明在Rollup上对输入的正确执行。这种抽象使得像<a href="https://github.com/ethereum-optimism/cannon" target="_blank" rel="noopener noreferrer">Cannon</a>这样的系统可以用于证明系统中的故障。</p>
+<h3 id="改进的节点性能"> 改进的节点性能</h3>
+<p>通过允许在单个Rollup“块”中执行多个交易，节点软件的性能得到了显着改进，而不是先前版本中的“每个块一个交易”的模型。这样可以将默克尔树更新的成本分摊到多个交易中。在当前的交易量下，这将使状态增长每年减少约15GB。</p>
+<p>通过消除先前版本协议中的技术债务，进一步提高了节点性能。这包括消除了需要一个单独的“数据传输层”节点来索引L1的需求，并更新了节点软件以有效地从L1查询交易数据。</p>
+<h3 id="改进的以太坊等效性"> 改进的以太坊等效性</h3>
+<p>Bedrock从一开始就被设计得尽可能接近以太坊。已经消除了先前版本协议中与以太坊的多个偏差，包括：</p>
+<ol>
+<li>每个块一个交易的模型。</li>
+<li>获取L1块信息的自定义操作码。</li>
+<li>JSON-RPC API中单独的L1/L2费用字段。</li>
+<li>ETH余额的自定义ERC20表示。</li>
+</ol>
+<p>Bedrock还增加了对EIP-1559、链重组和其他在L1上存在的以太坊功能的支持。</p>
+<h2 id="设计原则"> 设计原则</h2>
+<p>Bedrock的设计目标是模块化和可升级，重用以太坊的现有代码，并尽可能与以太坊保持100%的等效性。</p>
+<h3 id="模块化"> 模块化</h3>
+<p>Bedrock通过使用明确定义的接口和版本控制方案，使得在OP Stack代码库中交换不同组件和添加新功能变得容易。这样可以实现灵活的架构，以适应以太坊生态系统未来的发展。</p>
+<p>示例：</p>
+<ul>
+<li>和执行客户端的分离</li>
+<li>模块化的故障证明设计</li>
+</ul>
+<h3 id="代码重用"> 代码重用</h3>
+<p>Bedrock尽可能使用现有的以太坊架构和基础设施。这种方法使得OP Stack能够继承在以太坊主网上使用的经过实战验证的代码库的安全性和&quot;lindy&quot;效益。在设计中可以找到这方面的示例，包括：</p>
+<p>示例：</p>
+<ul>
+<li><a href="https://op-geth.optimism.io/" target="_blank" rel="noopener noreferrer">最小修改的执行客户端</a></li>
+<li>使用EVM合约而不是预编译客户端代码</li>
+</ul>
+<h3 id="与以太坊等效性"> 与以太坊等效性</h3>
+<p>Bedrock的设计目标是与现有的以太坊开发者体验最大程度兼容。由于L1和Rollup之间存在基本差异（如改变的费用模型、更快的区块时间（2秒对比12秒）以及用于包含L1 交易的特殊交易类型），因此存在一些例外情况。</p>
+<p>示例：</p>
+<ul>
+<li>故障证明设计用于证明最小修改的以太坊的故障</li>
+<li>使用以太坊的代码重用，供L2网络中的节点和序列器使用</li>
+</ul>
+<h2 id="协议"> 协议</h2>
+<p>Rollup是从数据可用性源（通常是像以太坊这样的L1区块链）派生出来的。在最常见的配置中，Rollup协议从两个主要信息源派生出一个**“规范的L2链”**：</p>
+<ol>
+<li>由序列器发布到L1的交易数据；</li>
+<li>由账户和合约发布到L1上的交易。</li>
+</ol>
+<p>以下是协议的基本组成部分：</p>
+<ul>
+<li>是通过直接与L1上的智能合约进行交互，将数据写入规范的L2链。</li>
+<li>是将数据写入规范的L2链，隐式触发与L1上的合约和账户进行交互。</li>
+<li>批次是对应于Rollup上批次的数据写入。</li>
+<li>区块派生是解释L1上的数据读取，以理解规范的L2链。</li>
+<li>证明系统定义了在L1上发布的输出根的<strong>确定性</strong>，以便可以对其进行<strong>执行</strong>（例如执行提款）。</li>
+</ul>
+<h3 id="存款"> 存款</h3>
+<p><strong>存款</strong>是在L1上的交易，将被包含在Rollup中。根据定义，是<strong>保证</strong>被包含在中，以防止对L2的审查或控制。</p>
+<h4 id="从l1进行任意消息传递"> 从L1进行任意消息传递</h4>
+<p><strong>存款交易</strong>是作为的一部分在Rollup上进行的交易。在Bedrock中，是完全通用的以太坊交易。例如，以太坊上的账户或合约可以“存款”一个合约创建。</p>
+<p>Bedrock定义了一个在L1上可用的<strong>存款合约</strong>：这是一个智能合约，L1上的账户和合约可以与之交互，将数据写入L2。在L2上，是根据该合约发出的事件中的值派生的，其中包括预期的参数，如from、to和data。</p>
+<p>有关详细信息，请参阅协议规范中的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/deposits.md#deposit-contract" target="_blank" rel="noopener noreferrer">存款合约</a>部分。</p>
+<h4 id="purchasing-guaranteed-l2-gas-on-l1"> Purchasing guaranteed L2 gas on L1</h4>
+<p>Bedrock also specifies a gas burn mechanism and a fee market for . The gas that  spend on an L2 is bought on L1 via a gas burn. This gas is purchased on a fee market and there is a hard cap on the amount of gas provided to all  in a single L1 block. This mechanism is used to prevent denial of service attacks that could occur by writing transactions to L2 from L1 that are extremely gas-intensive on L2, but cheap on L1.</p>
+<p>The gas provided to  is sometimes called &quot;guaranteed gas.&quot; Guaranteed gas is unique in that it is paid for by burning gas on L1 and is therefore not refundable. The total amount of L1 gas that must be burned per unit of guaranteed L2 gas requested depends on the price of L2 gas reported by a EIP-1559 style fee mechanism. Furthermore, users receive a dynamic gas stipend based on the amount of L1 gas spent to compute updates to the fee mechanism.</p>
+<p>For a deeper explanation, read the <a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/deposits.md#deposits" target="_blank" rel="noopener noreferrer">deposits section</a> of the protocol specifications.</p>
+<h3 id="提现"> 提现</h3>
+<p><strong>提现</strong>是在L2上发起并通过在L1上执行的交易来完成的跨域交易。值得注意的是，提现可以由L2账户调用L1合约，或者将ETH从L2账户转移到L1账户。</p>
+<p>提现是通过调用<strong>Message Passer</strong>预部署合约在L2上发起的，该合约将消息的重要属性记录在其存储中。提现是通过调用<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md#the-optimism-portal-contract" target="_blank" rel="noopener noreferrer">OptimismPortal</a>合约在L1上完成的，该合约证明了该提现消息的包含。因此，提现与不同。提现交易不依赖于，而是必须使用L1上的智能合约进行最终化。</p>
+<h4 id="两步提现"> 两步提现</h4>
+<p>提现证明验证漏洞是过去几年中许多最大桥梁黑客攻击的根本原因。Bedrock版本引入了提现过程的额外步骤，旨在为这些类型的漏洞提供额外的防御层。在两步提现过程中，必须在提现之前提交与提现相对应的Merkle证明，而这个过程需要7天的时间才能完成。这个新的安全机制给了监控工具整整7天的时间来发现和检测无效的提现证明。如果证明被发现无效，可以在资金丢失之前部署合约修复。这大大降低了桥梁被攻击的风险。</p>
+<p>有关详细信息，请参阅协议规范的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/withdrawals.md" target="_blank" rel="noopener noreferrer">提现</a>部分。</p>
+<h3 id="批次"> 批次</h3>
+<p>在Bedrock中，定义了L1和L2之间进行消息传递的一种线路格式（即L2从L1派生块和L2向L1写入交易）。这种线路格式旨在最大限度地减少向L1写入的成本和软件复杂性。</p>
+<h4 id="优化的数据压缩"> 优化的数据压缩</h4>
+<p>为了优化数据压缩，将L2交易的列表称为<strong>序列器批次</strong>，并将其组织成称为<strong>通道</strong>的对象组的形式，每个通道都有一个最大大小，该大小在<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#channel-format" target="_blank" rel="noopener noreferrer">可配置参数</a>中定义，初始设置为约9.5MB。这些预计将使用压缩函数进行压缩，并提交到L1。</p>
+<h4 id="并行批次提交"> 并行批次提交</h4>
+<p>为了并行化从序列器发送的数据到L1的消息，将进一步分解为称为<strong>通道帧</strong>的块，这些块是可以适应单个L1交易中的的数据的块。由于是相互独立的且顺序已知，序列器发送到L1的以太坊交易可以并行发送，从而最大限度地减少序列器软件的复杂性，并允许填充L1上的所有可用数据空间。</p>
+<h4 id="最小化以太坊燃气的使用"> 最小化以太坊燃气的使用</h4>
+<p>Bedrock从将使用的所有执行燃气从提交数据到L1的交易中移除。之前在L1上发生的所有验证逻辑都被移入到逻辑中。相反，被发送到以太坊上的单个EOA，称为<strong>批次收件箱地址</strong>。</p>
+<p>批次仍然需要进行有效性检查（即它们必须正确编码），因此批次中的单个交易（例如签名必须有效）也需要进行有效性检查。无效的和在否则有效的批次中的无效的单个交易被视为被丢弃和与系统无关。</p>
+<blockquote>
+<p>注意：以太坊将很快升级以包括<a href="https://eip4844.com/" target="_blank" rel="noopener noreferrer">EIP-4844</a>，该协议引入了一个用于写入数据的单独费用市场，并增加了以太坊协议愿意存储的数据量的上限。这个变化预计进一步降低将数据发布到L1的成本。</p>
+</blockquote>
+<p>有关更详细的解释，请阅读<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#overview" target="_blank" rel="noopener noreferrer">线路格式规范</a>。</p>
+<h3 id="块派生"> 块派生</h3>
+<p>在Bedrock中，协议旨在确保L1上的的时间与的相一致。这是通过序列器写入L1的数据、和L1块属性的纯函数来实现的。为了实现这一点，协议定义了保证存款包含、处理L1和L2时间戳以及在流水线中处理排序窗口的策略，以确保正确的排序。</p>
+<h4 id="存款的保证包含"> 存款的保证包含</h4>
+<p> 协议的目标是定义每隔“L2块时间”秒必须有一个L2块，并且L2块的时间戳与L1的时间戳保持同步（即确保按照逻辑时间顺序包含在内）。</p>
+<p>在Bedrock中，引入了<strong>序列化时期</strong>的概念：它是从一系列L1块派生的一系列L2块。每个由一个<strong>时期号</strong>标识，该号码等于序列化窗口中第一个L1块的块号。时期的大小可以有所不同，但受到一些约束。</p>
+<p>批次派生流水线将与相关联的L1块的时间戳视为确定L2上交易顺序的锚点。协议保证的第一个L2块永远不会落后于与匹配的L1块的时间戳。的第一个块必须包含L1上的存款，以确保存款将被处理。</p>
+<p>请注意，Bedrock版本中L2的目标配置块时间为2秒。</p>
+<h4 id="处理l1和l2的时间戳"> 处理L1和L2的时间戳</h4>
+<p>Bedrock试图解决在L2上与中的L1时间戳相一致的问题。它通过允许在之间的短时间窗口内自由地应用L2交易的时间戳来实现这一点。</p>
+<p>一个<strong>序列化窗口</strong>是一系列L1块，可以从中派生一个。一个的第一个L1块的编号为<code>N</code>，其中包含了 <code>N</code> 的。</p>
+<p>包含块<code>[N, N + SWS)</code>，其中<code>SWS</code>是<strong>序列化窗口大小</strong>：一个固定的Rollup级别配置参数。该参数必须至少为2。增加它可以为序列器提供更多机会来根据对L2交易进行排序，而降低它则会引入更严格的时间窗口，以便序列器提交批次交易。这是在创建MEV机会和增加软件复杂性之间的权衡。</p>
+<p>一个名为<strong>最大序列器漂移</strong>的协议常量控制了块在其时期内可以具有的最大时间戳。有了这个漂移，序列器可以在连接到L1时出现临时问题时保持活动状态。每个L2块的时间戳都在以下范围内：</p>
+<h4 id="块派生流水线"> 块派生流水线</h4>
+<p>可以通过从L2创世状态开始，将L2链的起始设置为第一个时期，然后按顺序处理所有序列化窗口来处理。根据以下简化的流水线确定和的正确顺序：</p>
+<table>
+<thead>
+<tr>
+<th><strong>阶段</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从L1读取</td>
+<td>时期由L1块定义。L2块中包含有关或的数据，这些数据必须包含在中。</td>
+</tr>
+<tr>
+<td>缓冲区和解码为</td>
+<td>来自L1块的数据包含无序的，在将它们重构为通道之前，必须收集所有的通道帧。</td>
+</tr>
+<tr>
+<td>将解压缩为</td>
+<td>由于在L1上进行了以最小化数据费用，因此它们必须进行解压缩。</td>
+</tr>
+<tr>
+<td>将排队为顺序</td>
+<td>根据来自L1的最新信息，可以验证和顺序处理。关于正确顺序与和L2时间戳的关系的一些细微差别，请参阅完整规范<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#batch-queue" target="_blank" rel="noopener noreferrer">此处</a>。</td>
+</tr>
+<tr>
+<td>解释为L2块</td>
+<td>此时，可以确定的正确顺序。<br><br>随后，可以将它们解释为L2块。有关与相关的实现细节，请参阅协议规范的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/derivation.md#engine-queue" target="_blank" rel="noopener noreferrer">引擎队列</a>部分。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="故障证明"> 故障证明</h3>
+<p>在序列器处理一个或多个L2块之后，执行这些块中的交易所计算出的输出需要与L1一起写入，以实现L2到L1的可信执行，例如。</p>
+<p>在Bedrock中，输出以树形结构的形式进行哈希处理，以最小化证明输出中任何数据的成本。提议者定期提交整个的Merkle根，称为<strong>输出根</strong>，到L1上。</p>
+<p>OP Stack代码库的未来升级应包括一种带有绑定的故障证明变体的规范，以激励提议者提出正确的输出根。</p>
+<p>有关详细信息，请阅读协议规范中的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/proposals.md#l2-output-root-proposals-specification" target="_blank" rel="noopener noreferrer">L2输出根提议部分</a>。</p>
+<h2 id="实现"> 实现</h2>
+<p>在Bedrock中，OP Stack代码库严格遵循以太坊规范中指定的技术分离原则，通过模拟以太坊执行层和共识层之间的分离来实现。Bedrock以同样的方式引入了执行客户端和Rollup节点的分离。</p>
+<h3 id="执行客户端"> 执行客户端</h3>
+<p><strong>执行客户端</strong>是顺序器和其他类型的节点运营者用来确定状态的系统。它还执行其他功能，如处理传入的交易并进行点对点通信，以及处理系统状态以进行查询。</p>
+<p>在Bedrock中，OP Stack旨在重用<a href="https://github.com/ethereum/execution-specs" target="_blank" rel="noopener noreferrer">Ethereum自己的执行客户端规范</a>及其众多实现。在此版本中，Bedrock对go-ethereum进行了极少量的修改，这是使用Go编写的最流行的以太坊客户端，<a href="https://op-geth.optimism.io/" target="_blank" rel="noopener noreferrer">代码差异不到2000行</a>。</p>
+<p>存在任何差异的根本原因有两个：处理存款交易和收取交易费用。</p>
+<h4 id="处理存款交易"> 处理存款交易</h4>
+<p>为了在Rollup中表示，引入了一种额外的交易类型。根据<a href="https://eips.ethereum.org/EIPS/eip-2718" target="_blank" rel="noopener noreferrer">EIP-2718类型化交易</a>标准实现了这种<a href="https://github.com/ethereum-optimism/optimism/blob/7f5b9ea7bf6dce12dbf709c27c25ee1681df7f7e/specs/deposits.md#the-deposited-transaction-type" target="_blank" rel="noopener noreferrer">新的交易类型</a>。</p>
+<h4 id="收取交易费用"> 收取交易费用</h4>
+<p>Rollup中的交易基本上有两种与之相关的费用：</p>
+<p><strong>序列器费用</strong></p>
+<p>运营序列器的成本使用与以太坊相同的gas表和<a href="https://eips.ethereum.org/EIPS/eip-1559" target="_blank" rel="noopener noreferrer">EIP-1559</a>算法计算。这些费用归协议所有，根据网络的拥堵程度而波动。</p>
+<p><strong>数据可用性费用</strong></p>
+<p>数据可用性费用与将写入L1相关。这些费用旨在覆盖序列器需要支付的将提交到L1的成本。</p>
+<p>在Bedrock中，数据可用性费用的部分是根据Rollup上的系统合约中的信息确定的，该合约称为<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/predeploys.md#gaspriceoracle" target="_blank" rel="noopener noreferrer">GasPriceOracle</a>。该合约在期间从L1块属性中检索的燃气定价信息进行更新，这些信息在每个开始时插入。</p>
+<p>Bedrock规定，当使用JSON-RPC时，这两种费用将累加到一个名为<code>gasPrice</code>的字段中。</p>
+<h3 id="rollup-node"> Rollup Node</h3>
+<p>Unlike Ethereum, Bedrock does not have proof-of-stake consensus. Instead, the consensus of the  is defined by . An  of the OP Stack communicates to a new component that implements  called a <strong>rollup node</strong>. This node communicates to the  using the exact same <a href="https://github.com/ethereum/execution-apis/tree/main/src/engine" target="_blank" rel="noopener noreferrer">Engine API</a> that Ethereum uses.</p>
+<p>是一个无状态的组件，负责通过读取L1上的数据和来推导系统的状态。在Bedrock中，可以用于对来自用户或其他的传入交易进行排序，也可以通过仅依赖L1来验证在L1上发布的已确认交易。</p>
+<p>下面概述了Rollup节点的多种用途。</p>
+<h4 id="验证规范的l2链"> 验证规范的L2链</h4>
+<p>运行的最简单模式是仅跟随。在此模式下，没有对等节点，且严格用于从L1读取数据并根据协议规则进行解释。</p>
+<p>此类节点的一个目的是验证其他节点共享的任何输出根或在L1上发布的输出根是否符合协议定义。此外，打算自己将输出根提交到L1的提议者可以使用节点的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/rollup-node.md#l2-output-rpc-method" target="_blank" rel="noopener noreferrer">optimism_outputAtBlock</a>生成所需的输出根，该方法返回对应于L2输出根的32字节哈希值。</p>
+<p>为此，节点只需跟随已最终确定的头部。术语“最终确定”指的是以太坊的权益证明共识（即规范且几乎不可逆转）-最终确定的L2头部是仅从已最终确定的L1块派生的的头部。</p>
+<h4 id="参与l2网络"> 参与L2网络</h4>
+<p>使用的最常见方式是参与其他的网络，跟踪L2的进展和状态。在此模式下，既从L1读取数据和，将其解释为块，并接受来自用户和其他的传入交易。</p>
+<p>参与网络的节点可以使用L2的安全头部和不安全头部。</p>
+<ul>
+<li><strong>安全的L2头部</strong>表示可以构建的Rollup，其中包括从参考L1链派生的每个块，而L1尚未最终确定（即L1仍可能发生重组）。</li>
+<li><strong>不安全的L2头部</strong>包括尚未从L1派生的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-l2-block" target="_blank" rel="noopener noreferrer">不安全块</a>。这些块可以来自将作为序列器运行，或者来自与序列器的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#unsafe-sync" target="_blank" rel="noopener noreferrer">不安全同步</a>。这也被称为“最新”头部。在发生冲突时，将始终选择安全L2头部。当发生冲突时，链的不安全部分将重新组织。</li>
+</ul>
+<p>对于大多数情况，L2网络中的节点将参考不安全的L2头部用于面向最终用户的应用程序。</p>
+<h4 id="交易排序"> 交易排序</h4>
+<p>使用的第三种方式是进行交易排序。在此模式下，将在不安全的L2头部之上创建新的区块。目前，每个OP Stack网络只有一个序列器。</p>
+<p>序列器还负责将批次发布到L1，以供网络中的其他节点进行同步。</p>
+<h3 id="批处理器"> 批处理器</h3>
+<p>序列器的角色是生成。为此，序列器可以运行，并具有单独的进程，通过从其运行的可信读取数据来执行。这需要OP Stack的另一个组件，称为<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/glossary.md#batcher" target="_blank" rel="noopener noreferrer">批处理器</a>，它从读取事务数据，并将其解释为要写入L1的。批处理器组件负责读取由序列器运行的的不安全L2头部，创建批处理器事务，并将其写入L1。</p>
+<h3 id="标准桥接合约"> 标准桥接合约</h3>
+<p>Bedrock还包括一对用于最常见类型的的桥接合约，称为<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges" target="_blank" rel="noopener noreferrer">标准桥接</a>。这些合约包装了和合约，以提供简单的接口用于和ETH和ERC-20代币。</p>
+<p>这些桥接合约旨在涉及桥接的一侧是本地代币，而另一侧是可以管理铸造和销毁的包装代币。桥接本地代币涉及将本地代币锁定在合约中，然后在桥接的另一侧铸造相等数量的可铸造代币。</p>
+<p>有关详细信息，请参阅协议规范的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/bridges.md#standard-bridges" target="_blank" rel="noopener noreferrer">标准桥接</a>部分。</p>
+<h3 id="cannon"> Cannon</h3>
+<p>尽管<a href="https://github.com/ethereum-optimism/cannon" target="_blank" rel="noopener noreferrer">Cannon</a>项目中实现了故障证明的构建和验证，但故障证明游戏规范和将输出根挑战者集成到Rollup节点中是后续规范里程碑的一部分。</p>
+<h2 id="进一步阅读"> 进一步阅读</h2>
+<h3 id="协议规范"> 协议规范</h3>
+<p>协议规范定义了OP Stack代码库的技术细节。它是协议内部工作原理的最新真实来源。协议规范位于ethereum-optimism的<a href="https://github.com/ethereum-optimism/optimism/blob/d69cb12f6dcbe3d5355beca8997fbac611b7fe37/specs/README.md" target="_blank" rel="noopener noreferrer">monorepo</a>中。</p>
+<h3 id="bedrock的差异"> Bedrock的差异</h3>
+<p>要深入了解Bedrock与协议之前版本之间的差异，请参阅<a href="https://community.optimism.io/docs/developers/bedrock/differences/" target="_blank" rel="noopener noreferrer">Bedrock有何不同？</a>页面。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">从 OP Stack 区块链中强制提取资产</title>
+    <id>https://stack.optimism.io/docs/security/forced-withdrawal/</id>
+    <link href="https://stack.optimism.io/docs/security/forced-withdrawal/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="这是什么"> 这是什么？</h2>
+<p>你在 OP Stack 区块链上拥有的任何资产都是由底层 L1 上的等值资产支持的，锁定在一个桥梁中。
+在本文中，您将学习如何直接从 L1 提取这些资产。</p>
+<p>请注意，这里的步骤需要访问 L2 端点。
+但是，该 L2 端点可以是只读副本。</p>
+<h2 id="设置"> 设置</h2>
+<p>与本文一起使用的代码可在<a href="https://github.com/ethereum-optimism/optimism-tutorial/tree/main/op-stack/forced-withdrawal" target="_blank" rel="noopener noreferrer">我们的教程存储库</a>中找到。</p>
+<ol>
+<li>
+<p>克隆存储库，进入正确的目录并安装所需的依赖项。</p>
+<div><pre><code><span>git</span> clone https://github.com/ethereum-optimism/optimism-tutorial.git
+<span>cd</span> optimism-tutorial/op-stack/forced-withdrawal
+<span>npm</span> <span>install</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+<li>
+<p>复制环境设置变量。</p>
+<div><pre><code><span>cp</span> .env.example .env
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>编辑 <code>.env</code> 文件以设置这些变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1URL</td>
+<td>L1 的 URL（如果您按照本网站上的说明进行操作，则为 Goerli）</td>
+</tr>
+<tr>
+<td>L2URL</td>
+<td>正在提取资产的 L2 的 URL</td>
+</tr>
+<tr>
+<td>PRIV_KEY</td>
+<td>拥有 L2 上 ETH 的账户的私钥。它还需要在 L1 上拥有 ETH 以提交交易</td>
+</tr>
+<tr>
+<td>OPTIMISM_PORTAL_ADDR</td>
+<td>L1 上 <code>OptimismPortalProxy</code> 的地址。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="提款"> 提款</h2>
+<h3 id="eth-提款"> ETH 提款</h3>
+<p>将 ETH 提款到 L2 最简单的方法是将其发送到桥接器或跨域信使。</p>
+<ol>
+<li>
+<p>进入 Hardhat 控制台。</p>
+<div><pre><code>npx hardhat console --network l1
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>指定要转移的 ETH 数量。
+以下代码将转移 0.01 个 ETH。</p>
+<div><pre><code>transferAmt <span>=</span> <span>BigInt</span><span>(</span><span>0.01</span> <span>*</span> <span>1e18</span><span>)</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>为 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol" target="_blank" rel="noopener noreferrer"><code>OptimismPortal</code></a> 合约创建一个合约对象。</p>
+<div><pre><code>optimismContracts <span>=</span> <span>require</span><span>(</span><span>"@eth-optimism/contracts-bedrock"</span><span>)</span>
+optimismPortalData <span>=</span> optimismContracts<span>.</span><span>getContractDefinition</span><span>(</span><span>"OptimismPortal"</span><span>)</span>
+optimismPortal <span>=</span> <span>new</span> <span>ethers<span>.</span>Contract</span><span>(</span>process<span>.</span>env<span>.</span><span>OPTIMISM_PORTAL_ADDR</span><span>,</span> optimismPortalData<span>.</span>abi<span>,</span> <span>await</span> ethers<span>.</span><span>getSigner</span><span>(</span><span>)</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></li>
+<li>
+<p>发送交易。</p>
+<div><pre><code>txn <span>=</span> <span>await</span> optimismPortal<span>.</span><span>depositTransaction</span><span>(</span>
+   optimismContracts<span>.</span>predeploys<span>.</span>L2StandardBridge<span>,</span>
+   transferAmt<span>,</span>
+   <span>1e6</span><span>,</span> <span>false</span><span>,</span> <span>[</span><span>]</span>
+<span>)</span>
+rcpt <span>=</span> <span>await</span> txn<span>.</span><span>wait</span><span>(</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div></li>
+<li>
+<p>要<a href="https://sdk.optimism.io/classes/crosschainmessenger#proveMessage-2" target="_blank" rel="noopener noreferrer">证明</a>和<a href="https://sdk.optimism.io/classes/crosschainmessenger#finalizeMessage-2" target="_blank" rel="noopener noreferrer">完成</a>消息，我们需要哈希值。
+Optimism 的<a href="https://www.npmjs.com/package/@eth-optimism/core-utils" target="_blank" rel="noopener noreferrer">core-utils 包</a>中有必要的函数。</p>
+<div><pre><code>optimismCoreUtils <span>=</span> <span>require</span><span>(</span><span>"@eth-optimism/core-utils"</span><span>)</span>
+withdrawalData <span>=</span> <span>new</span> <span>optimismCoreUtils<span>.</span>DepositTx</span><span>(</span><span>{</span>
+   from<span>:</span> <span>(</span><span>await</span> ethers<span>.</span><span>getSigner</span><span>(</span><span>)</span><span>)</span><span>.</span>address<span>,</span>
+   to<span>:</span> optimismContracts<span>.</span>predeploys<span>.</span>L2StandardBridge<span>,</span>
+   mint<span>:</span> <span>0</span><span>,</span>
+   value<span>:</span> ethers<span>.</span>BigNumber<span>.</span><span>from</span><span>(</span>transferAmt<span>)</span><span>,</span>
+   gas<span>:</span> <span>1e6</span><span>,</span>
+   isSystemTransaction<span>:</span> <span>false</span><span>,</span>
+   data<span>:</span> <span>""</span><span>,</span>
+   domain<span>:</span> optimismCoreUtils<span>.</span>SourceHashDomain<span>.</span>UserDeposit<span>,</span>
+   l1BlockHash<span>:</span> rcpt<span>.</span>blockHash<span>,</span>
+   logIndex<span>:</span> rcpt<span>.</span>logs<span>[</span><span>0</span><span>]</span><span>.</span>logIndex<span>,</span>
+<span>}</span><span>)</span>
+withdrawalHash <span>=</span> withdrawalData<span>.</span><span>hash</span><span>(</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div></li>
+<li>
+<p>根据<a href="./../build/sdk.html">文档</a>创建 L1 合约对象。
+创建一个类似下面的对象：</p>
+<div><pre><code>L1Contracts <span>=</span> <span>{</span>
+   StateCommitmentChain<span>:</span> <span>'0x0000000000000000000000000000000000000000'</span><span>,</span>
+   CanonicalTransactionChain<span>:</span> <span>'0x0000000000000000000000000000000000000000'</span><span>,</span>
+   BondManager<span>:</span> <span>'0x0000000000000000000000000000000000000000'</span><span>,</span>
+   AddressManager<span>:</span> <span>'0x432d810484AdD7454ddb3b5311f0Ac2E95CeceA8'</span><span>,</span>
+   L1CrossDomainMessenger<span>:</span> <span>'0x27E8cBC25C0Aa2C831a356bbCcc91f4e7c48EeeE'</span><span>,</span>
+   L1StandardBridge<span>:</span> <span>'0x154EaA56f8cB658bcD5d4b9701e1483A414A14Df'</span><span>,</span>
+   OptimismPortal<span>:</span> <span>'0x4AD19e14C1FD57986dae669BE4ee9C904431572C'</span><span>,</span>
+   L2OutputOracle<span>:</span> <span>'0xE6Dfba0953616Bacab0c9A8ecb3a9BBa77FC15c0'</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br></div></div></li>
+<li>
+<p>创建标准桥接器的数据结构。</p>
+<div><pre><code> bridges <span>=</span> <span>{</span> 
+   Standard<span>:</span> <span>{</span> 
+      l1Bridge<span>:</span> l1Contracts<span>.</span>L1StandardBridge<span>,</span> 
+      l2Bridge<span>:</span> <span>"0x4200000000000000000000000000000000000010"</span><span>,</span> 
+      Adapter<span>:</span> optimismSDK<span>.</span>StandardBridgeAdapter
+   <span>}</span><span>,</span>
+   <span>ETH</span><span>:</span> <span>{</span>
+      l1Bridge<span>:</span> l1Contracts<span>.</span>L1StandardBridge<span>,</span> 
+      l2Bridge<span>:</span> <span>"0x4200000000000000000000000000000000000010"</span><span>,</span> 
+      Adapter<span>:</span> optimismSDK<span>.</span>ETHBridgeAdapter
+   <span>}</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br></div></div></li>
+<li>
+<p>创建<a href="https://sdk.optimism.io/classes/crosschainmessenger" target="_blank" rel="noopener noreferrer">跨域信使</a>。
+这一步以及后续的 ETH 提款步骤在<a href="https://github.com/ethereum-optimism/optimism-tutorial/tree/main/cross-dom-bridge-eth" target="_blank" rel="noopener noreferrer">此教程</a>中有详细说明。</p>
+<div><pre><code>optimismSDK <span>=</span> <span>require</span><span>(</span><span>"@eth-optimism/sdk"</span><span>)</span>
+l2Provider <span>=</span> <span>new</span> <span>ethers<span>.</span>providers<span>.</span>JsonRpcProvider</span><span>(</span>process<span>.</span>env<span>.</span><span>L2URL</span><span>)</span>
+<span>await</span> l2Provider<span>.</span>_networkPromise
+crossChainMessenger <span>=</span> <span>new</span> <span>optimismSDK<span>.</span>CrossChainMessenger</span><span>(</span><span>{</span>
+   l1ChainId<span>:</span> ethers<span>.</span>provider<span>.</span>network<span>.</span>chainId<span>,</span>
+   l2ChainId<span>:</span> l2Provider<span>.</span>network<span>.</span>chainId<span>,</span>
+   l1SignerOrProvider<span>:</span> <span>await</span> ethers<span>.</span><span>getSigner</span><span>(</span><span>)</span><span>,</span>
+   l2SignerOrProvider<span>:</span> l2Provider<span>,</span>
+   bedrock<span>:</span> <span>true</span><span>,</span>
+   contracts<span>:</span> <span>{</span>
+      l1<span>:</span> l1Contracts
+   <span>}</span><span>,</span>
+   bridges<span>:</span> bridges
+<span>}</span><span>)</span>   
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div></li>
+<li>
+<p>等待提款消息的状态变为 <code>READY_TO_PROVE</code>。
+默认情况下，状态根每四分钟写入一次，所以你可能需要等待。</p>
+<div><pre><code><span>await</span> crossChainMessenger<span>.</span><span>waitForMessageStatus</span><span>(</span>withdrawalHash<span>,</span> 
+    optimismSDK<span>.</span>MessageStatus<span>.</span><span>READY_TO_PROVE</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>提交提款证明。</p>
+<div><pre><code><span>await</span> crossChainMessenger<span>.</span><span>proveMessage</span><span>(</span>withdrawalHash<span>)</span>
+</code></pre>
+<div><span>1</span><br></div></div></li>
+<li>
+<p>等待提款消息的状态变为 <code>READY_FOR_RELAY</code>。
+这等待挑战期（在生产环境中为 7 天，在测试网络中较短）。</p>
+<div><pre><code><span>await</span> crossChainMessenger<span>.</span><span>waitForMessageStatus</span><span>(</span>withdrawalHash<span>,</span> 
+   optimismSDK<span>.</span>MessageStatus<span>.</span><span>READY_FOR_RELAY</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br></div></div></li>
+<li>
+<p>完成提款。
+查看你的余额是否减少了提款金额。</p>
+<div><pre><code>myAddr <span>=</span> <span>(</span><span>await</span> ethers<span>.</span><span>getSigner</span><span>(</span><span>)</span><span>)</span><span>.</span>address
+balance0 <span>=</span> <span>await</span> ethers<span>.</span>provider<span>.</span><span>getBalance</span><span>(</span>myAddr<span>)</span>
+finalTxn <span>=</span> <span>await</span> crossChainMessenger<span>.</span><span>finalizeMessage</span><span>(</span>withdrawalHash<span>)</span>
+finalRcpt <span>=</span> <span>await</span> finalTxn<span>.</span><span>wait</span><span>(</span><span>)</span>
+balance1 <span>=</span> <span>await</span> ethers<span>.</span>provider<span>.</span><span>getBalance</span><span>(</span>myAddr<span>)</span>
+withdrawnAmt <span>=</span> <span>BigInt</span><span>(</span>balance1<span>)</span><span>-</span><span>BigInt</span><span>(</span>balance0<span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div></li>
+</ol>
+<div><p>transferAmt > withdrawnAmt</p>
+<p>由于 <code>crossChainMessenger.finalizeMessage</code> 的成本（提交交易），你的 L1 余额不会增加整个 <code>transferAmt</code>。</p>
+</div>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">常见的安全问题</title>
+    <id>https://stack.optimism.io/docs/security/</id>
+    <link href="https://stack.optimism.io/docs/security/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<div><p>🚧 施工中</p>
+<p>OP Stack正在施工中。不断推动OP Stack的整体安全性和去中心化是首要任务。</p>
+</div>
+<h2 id="去中心化环境中的安全性"> 去中心化环境中的安全性</h2>
+<p>OP Stack是一种去中心化的开发堆栈，为Optimism提供动力。OP Stack的组件可能由Optimism Collective内的不同团队维护。通常更容易讨论基于OP Stack构建的特定链的安全模型，而不是堆栈本身的安全模型。<strong>OP Stack的安全基线是创建安全的默认设置，同时给开发人员提供修改和扩展堆栈的灵活性。</strong></p>
+<h2 id="常见问题"> 常见问题</h2>
+<h3 id="每个op-stack链都安全吗"> 每个OP Stack链都安全吗？</h3>
+<p>基于OP Stack的区块链的安全模型取决于其组件使用的模块。由于OP Stack提供的灵活性，始终有可能使用OP Stack组件设置一个不安全的区块链。<strong>OP Stack的目标是提供安全的默认设置。</strong></p>
+<p>还请记住，就像任何其他系统一样，<strong>OP Stack可能包含未知的错误</strong>，这可能导致OP Stack基于系统中的某些或全部资产的损失。<a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/technical-documents/security-reviews" target="_blank" rel="noopener noreferrer">OP Stack代码库的许多组件已经过审计</a>，但审计并不意味着批准，<strong>完成的审计并不意味着经过审计的代码库没有错误</strong>。重要的是要理解，使用OP Stack本质上会使您面临OP Stack代码库中的错误风险。</p>
+<h3 id="可以修改op-stack吗"> 可以修改OP Stack吗？</h3>
+<p>与任何事物一样，自行修改OP Stack存在风险。无法保证对堆栈的修改是安全的。如果您对自己的操作不太确定，请坚持使用OP Stack提供的更安全的默认设置。目前，OP Stack对修改不太适应，<strong>不应期望对堆栈标准Rollup配置之外的修改提供任何技术支持</strong>。</p>
+<h3 id="可以使用错误证明吗"> 可以使用错误证明吗？</h3>
+<p><strong>目前还不行。</strong> OP Stack目前没有错误证明系统。<strong>请注意，如果系统可以在7天挑战窗口内升级（“快速升级密钥”），那么错误证明对系统的安全性没有实质性改进</strong>。具有快速升级密钥的系统完全依赖于升级密钥来确保安全。</p>
+<p>错误证明是OP Stack的一个重要里程碑和首要任务。与此同时，在错误证明在生产环境中可用之前，OP Stack可以提供其他几种出色的安全选项，以改善系统的安全性。</p>
+<h3 id="如何帮助提高op-stack的安全性"> 如何帮助提高OP Stack的安全性？</h3>
+<p>帮助确保OP Stack安全的最简单方法之一是寻找错误和漏洞。<a href="https://immunefi.com/bounty/optimism/" target="_blank" rel="noopener noreferrer">Optimism Mainnet作为OP Stack的用户，拥有最大的漏洞赏金</a>。通过在Optimism Mainnet代码库（以及OP Stack）中发现关键漏洞，您可以获得高达2,000,042美元的奖金。</p>
+<p>不要忘记，OP Stack是一个去中心化的开发堆栈。任何人都可以通过构建遵循<a href="./../understand/design-principles.html">堆栈设计原则</a>的软件来开始为OP Stack做出贡献。您始终可以通过构建组件（如替代客户端或证明实现）来帮助提高OP Stack的安全性，以供OP Stack的用户使用。</p>
+<h3 id="如何报告错误"> 如何报告错误？</h3>
+<p><a href="./policy.html">查看安全策略以获取有关报告漏洞和可用漏洞赏金计划的详细信息</a></p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">暂停和恢复桥接</title>
+    <id>https://stack.optimism.io/docs/security/pause/</id>
+    <link href="https://stack.optimism.io/docs/security/pause/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="为什么要这样做"> 为什么要这样做？</h2>
+<p><code>OptimismPortal</code> 是一个桥接合约，它使得在你的L1和L2 OP Stack链之间发送消息成为可能。
+<code>OptimismPortal</code> 可以被暂停，作为一种备用的安全机制，允许特定的 <code>GUARDIAN</code> 地址在必要时暂时停止存款和提款，以减轻安全问题。
+如果一个OP Stack链不想使 <code>OptimismPortal</code> 合约可暂停，它可以指定一个诸如零的地址，而不必指定一个可用的 <code>GUARDIAN</code> 地址。</p>
+<h2 id="谁可以这样做"> 谁可以这样做？</h2>
+<p><a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol" target="_blank" rel="noopener noreferrer"><code>OptimismPortal</code></a> 有一个不可变的 <code>GUARDIAN</code> 地址。
+该地址可以调用 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol#L171-L178" target="_blank" rel="noopener noreferrer"><code>pause</code></a> 和 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol#L180-L187" target="_blank" rel="noopener noreferrer"><code>unpause</code></a> 方法。</p>
+<h3 id="更改-guardian"> 更改 guardian</h3>
+<p>由设置脚本创建的 guardian 是管理员账户。
+这对于测试来说已经足够了，但对于生产系统，您希望 guardian 是一个具有受信任的安全委员会的多签名账户。</p>
+<p><code>GUARDIAN</code> 变量是不可变的，但 <code>OptimismPortal</code> 合约位于一个代理后面，因此可以通过将 <code>OptimismPortal</code> 代理指向一个新的实现合约来修改 <code>GUARDIAN</code>。
+您可以使用L1 <a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/universal/ProxyAdmin.sol" target="_blank" rel="noopener noreferrer"><code>ProxyAdmin</code></a> 合约来完成这个操作。</p>
+
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">安全策略、漏洞报告和赏金计划</title>
+    <id>https://stack.optimism.io/docs/security/policy/</id>
+    <link href="https://stack.optimism.io/docs/security/policy/"/>
+    <updated>2023-11-28T13:36:50.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="在去中心化环境中进行报告"> 在去中心化环境中进行报告</h2>
+<p>请记住，OP Stack 是由 Optimism Collective 构建的去中心化软件开发堆栈。OP Stack 的不同组件可能由不同的团队维护，这些团队可能有不同的报告流程。<strong>本页面描述了报告漏洞的一般最佳实践，并提供了针对 <a href="https://github.com/ethereum-optimism" target="_blank" rel="noopener noreferrer">ethereum-optimism</a> GitHub 组织中的 OP Stack 代码的具体报告准则</strong>。</p>
+<h2 id="报告漏洞和漏洞"> 报告漏洞和漏洞</h2>
+<div><p>🚫 不要公开披露漏洞</p>
+<p>请不要公开披露漏洞，也不要在生产网络上执行漏洞。如果这样做，不仅会使用户面临风险，还将失去获得奖励的权利。请始终按照下面描述的适当报告途径进行操作。</p>
+<ul>
+<li>请不要公开披露漏洞，例如提交公开工单。</li>
+<li>请不要在公开可用的网络上测试漏洞，无论是测试网还是主网。</li>
+</ul>
+</div>
+<h3 id="op-stack-赏金计划"> OP Stack 赏金计划</h3>
+<p>OP Stack 智能合约和区块链基础设施的安全至关重要。以下是各种 OP Stack 相关的赏金计划，以及如果您的漏洞不在现有赏金计划范围内，如何联系我们。</p>
+<h4 id="optimism-mainnet-赏金计划"> Optimism Mainnet 赏金计划</h4>
+<p>Optimism Mainnet 在 Immunefi 上有一个全面的<a href="https://immunefi.com/bounty/optimism/" target="_blank" rel="noopener noreferrer">赏金计划</a>，这已经导致了<a href="https://medium.com/ethereum-optimism/disclosure-fixing-a-critical-bug-in-optimisms-geth-fork-a836ebdf7c94" target="_blank" rel="noopener noreferrer">有史以来最大的赏金支付之一</a>。在列表中，您可以找到与范围、报告和支付流程相关的所有信息。由于 Optimism Mainnet 目前是 OP Stack 的主要用户，通常可以通过 Optimism Mainnet 赏金计划报告 OP Stack 软件中的漏洞。</p>
+<h4 id="未涵盖的漏洞"> 未涵盖的漏洞</h4>
+<p>如果您认为在 OP Stack 智能合约、基础设施等方面发现了重大漏洞或漏洞，即使该组件不在现有的赏金计划范围内，请通过 <a href="https://immunefi.com/bounty/optimism/" target="_blank" rel="noopener noreferrer">Optimism Mainnet Immunefi 赏金计划</a>进行报告。我们将考虑所有报告问题的影响，并且该计划以前已经奖励安全研究人员发现的不在其规定范围内的漏洞。</p>
+<h3 id="其他漏洞"> 其他漏洞</h3>
+<p>对于 OP Stack 中任何网站、电子邮件服务器或其他非关键基础设施的漏洞，请发送电子邮件至 <a href="https://www.oplabs.co/" target="_blank" rel="noopener noreferrer">OP Labs</a>，并提供详细的确认和重现漏洞的说明。</p>
+<h2 id="漏洞披露"> 漏洞披露</h2>
+<p>每个 OP Stack 组件的维护者可能会确定自己的漏洞披露流程。然而，以下是 <a href="https://www.oplabs.co/" target="_blank" rel="noopener noreferrer">OP Labs</a> 目前使用的推荐披露流程：</p>
+<ol>
+<li>
+<p>静默修复漏洞，并将修复内容包含在发布 X 中。</p>
+</li>
+<li>
+<p>经过 4-8 周后，披露发布 X 包含了一个安全修复。</p>
+</li>
+<li>
+<p>在额外的 4-8 周后，发布漏洞的详细信息，同时给予报告者的认可（在报告者的明确许可下）。</p>
+</li>
+</ol>
+<p>除此策略外，维护者还保留以下权利：</p>
+<ul>
+<li>跳过此策略，并在更短的时间内发布详细信息。</li>
+<li>在公开公告之前，直接通知一部分下游用户。</li>
+</ul>
+<p>此策略基于 <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreferrer">Geth</a> 团队的<a href="https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities#why-silent-patches" target="_blank" rel="noopener noreferrer">静默修补策略</a>。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">Bedrock与L1以太坊之间的差异</title>
+    <id>https://stack.optimism.io/docs/releases/bedrock/differences/</id>
+    <link href="https://stack.optimism.io/docs/releases/bedrock/differences/"/>
+    <updated>2023-11-28T14:10:32.000Z</updated>
+    <content type="html"><![CDATA[<p>需要注意的是，在Optimism和以太坊之间存在一些细微差异。
+在构建基于Optimism或OP Stack代码库的应用程序时，您应该了解这些差异。</p>
+<h2 id="操作码差异"> 操作码差异</h2>
+<table>
+<thead>
+<tr>
+<th>操作码</th>
+<th>Solidity等效操作</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COINBASE</code></td>
+<td><code>block.coinbase</code></td>
+<td>未定义</td>
+</tr>
+<tr>
+<td><code>DIFFICULTY</code></td>
+<td><code>block.difficulty</code></td>
+<td>随机值。由于该值由序列器设置，因此其随机性不如L1等效操作码可靠。</td>
+</tr>
+<tr>
+<td><code>NUMBER</code></td>
+<td><code>block.number</code></td>
+<td>L2块编号</td>
+</tr>
+<tr>
+<td><code>TIMESTAMP</code></td>
+<td><code>block.timestamp</code></td>
+<td>L2块的时间戳</td>
+</tr>
+<tr>
+<td><code>ORIGIN</code></td>
+<td><code>tx.origin</code></td>
+<td>如果交易是L1⇒L2交易，则<code>tx.origin</code>设置为触发L1⇒L2交易的地址的。否则，此操作码的行为与正常情况下相同。</td>
+</tr>
+<tr>
+<td><code>CALLER</code></td>
+<td><code>msg.sender</code></td>
+<td>如果交易是L1⇒L2交易，并且这是初始调用（而不是一个合约之间的内部交易），则同样适用行为。</td>
+</tr>
+</tbody>
+</table>
+<div><p>`tx.origin == msg.sender`</p>
+<p>在L1以太坊上，只有当智能合约直接从外部拥有的账户（EOA）调用时，<code>tx.origin</code>等于<code>msg.sender</code>。
+然而，在Optimism上，<code>tx.origin</code>是在Optimism上的原始地址。
+它可以是一个EOA。
+然而，在来自L1的消息的情况下，一个来自L1上的智能合约的消息可能在L2上出现，其中<code>tx.origin == msg.origin</code>。
+这不太可能产生重大影响，因为L1智能合约不能直接操作L2状态。
+然而，可能存在我们没有考虑到的边界情况，这可能会有所影响。</p>
+</div>
+<h3 id="访问l1信息"> 访问L1信息</h3>
+<p>如果您需要从最新的L1区块获取等效信息，可以从<a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts/L2/L1Block.sol" target="_blank" rel="noopener noreferrer">L1Block合约</a>中获取。
+该合约是一个预部署合约，地址为<a href="https://goerli-optimism.etherscan.io/address/0x4200000000000000000000000000000000000015" target="_blank" rel="noopener noreferrer"><code>0x4200000000000000000000000000000000000015</code></a>。
+您可以使用<a href="https://docs.soliditylang.org/en/v0.8.12/contracts.html#getter-functions" target="_blank" rel="noopener noreferrer">getter函数</a>获取这些参数：</p>
+<ul>
+<li><code>number</code>：L2已知的最新L1区块号</li>
+<li><code>timestamp</code>：最新L1区块的时间戳</li>
+<li><code>basefee</code>：最新L1区块的基础费用</li>
+<li><code>hash</code>：最新L1区块的哈希值</li>
+<li><code>sequenceNumber</code>：L2区块在时期内的编号（当有新的L1区块时，时期会更改）</li>
+</ul>
+<h3 id="地址别名"> 地址别名</h3>
+<details>
+<p>由于<code>CREATE</code>操作码的行为，用户可以在L1和L2上创建具有相同地址但具有不同字节码的合约。
+这可能会破坏信任假设，因为一个合约可能被信任，而另一个合约可能不被信任（见下文）。
+为了防止这个问题，在L1和L2之间，<code>ORIGIN</code>和<code>CALLER</code>操作码（<code>tx.origin</code>和<code>msg.sender</code>）的行为略有不同。</p>
+<p><code>tx.origin</code>的值如下确定：</p>
+<table>
+<thead>
+<tr>
+<th>调用来源</th>
+<th><code>tx.origin</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L2用户（外部拥有的账户）</td>
+<td>用户的地址（与以太坊相同）</td>
+</tr>
+<tr>
+<td>L1用户（外部拥有的账户）</td>
+<td>用户的地址（与以太坊相同）</td>
+</tr>
+<tr>
+<td>L1合约（使用<code>CanonicalTransactionChain.enqueue</code>）</td>
+<td><code>L1_contract_address + 0x1111000000000000000000000000000000001111</code></td>
+</tr>
+</tbody>
+</table>
+<p>在顶层（即第一个被调用的合约）的<code>msg.sender</code>的值始终等于<code>tx.origin</code>。
+因此，如果<code>tx.origin</code>的值受到上述规则的影响，顶层的<code>msg.sender</code>值也会受到影响。</p>
+<p>请注意，通常情况下，<a href="https://docs.soliditylang.org/en/latest/security-considerations.html#tx-origin" target="_blank" rel="noopener noreferrer"><code>tx.origin</code>不应用于授权</a>。
+然而，这与地址别名是一个独立的问题，因为地址别名也会影响<code>msg.sender</code>。</p>
+<h4 id="为什么地址别名是一个问题"> 为什么地址别名是一个问题？</h4>
+<p>两个相同的源地址（L1合约和L2合约）的问题在于我们基于地址来扩展信任。
+我们可能希望信任其中一个合约，但不信任另一个合约。</p>
+<ol>
+<li>
+<p>Helena Hacker分叉<a href="https://uniswap.org/" target="_blank" rel="noopener noreferrer">Uniswap</a>创建了自己的交易所（在L2上），名为Hackswap。</p>
+<p>**注意：**实际上Uniswap中有多个合约，所以这个解释有点简化。
+<a href="https://ethereum.org/en/developers/tutorials/uniswap-v2-annotated-code/" target="_blank" rel="noopener noreferrer">如果您想要更多详细信息，请参阅此处</a>。</p>
+</li>
+<li>
+<p>Helena Hacker为Hackswap提供了流动性，看起来可以进行有利可图的套利机会。
+例如，她可以使您可以花费1个<a href="https://www.coindesk.com/price/dai/" target="_blank" rel="noopener noreferrer">DAI</a>购买1.1个<a href="https://www.coindesk.com/price/tether/" target="_blank" rel="noopener noreferrer">USDT</a>。
+这两种代币都应该价值正好1美元。</p>
+</li>
+<li>
+<p>Nimrod Naive知道如果某事看起来太好了，那可能就是假的。
+然而，他检查了Hackswap合约的字节码，并验证它与Uniswap完全相同。
+他决定这意味着该合约可以被信任，行为与Uniswap完全相同。</p>
+</li>
+<li>
+<p>Nimrod为Hackswap合约批准了1000个DAI的津贴。
+Nimrod期望调用Hackswap的交换函数，并收到近1100个USDT。</p>
+</li>
+<li>
+<p>在Nimrod的交换交易发送到区块链之前，Helena Hacker从与Hackswap在L2上相同地址的L1合约发送了一笔交易。
+该交易将1000个DAI从Nimrod的地址转移到Helena Hacker的地址。
+如果这笔交易来自与之前步骤中Nimrod必须给Hackswap授权的相同地址，它将能够转移这1000个DAI。</p>
+<p>尽管Nimrod很天真，但他受到了Optimism修改的交易的保护，其中的<code>tx.origin</code>（也是初始的<code>msg.sender</code>）被修改了。
+该交易来自一个<em>不同的</em>地址，该地址没有这个津贴。</p>
+</li>
+</ol>
+<p>**注意：**在不同的链上创建两个不同的合约很简单。
+但是几乎不可能创建两个相差指定数量的不同合约，所以Helena Hacker无法做到这一点。</p>
+</details>
+<h2 id="区块"> 区块</h2>
+<p>在L1以太坊和Optimism Bedrock之间，区块的生成方式有几个不同之处。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>L1以太坊</th>
+<th>Optimism Bedrock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>区块之间的时间间隔</td>
+<td>12秒(1)</td>
+<td>2秒</td>
+</tr>
+<tr>
+<td>区块目标大小</td>
+<td>15,000,000 gas</td>
+<td>待确定</td>
+</tr>
+<tr>
+<td>区块最大大小</td>
+<td>30,000,000 gas</td>
+<td>待确定</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 这是理想情况。
+如果有任何区块被错过，可能是12秒的整数倍，如24秒、36秒等。</p>
+<p>**注意：**L1以太坊的参数值取自<a href="https://ethereum.org/en/developers/docs/blocks/#block-time" target="_blank" rel="noopener noreferrer">ethereum.org</a>。
+Optimism Bedrock的参数值取自<a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/guaranteed-gas-market.md#limiting-guaranteed-gas" target="_blank" rel="noopener noreferrer">Optimism规范</a>。</p>
+<h2 id="网络规范"> 网络规范</h2>
+<h3 id="json-rpc差异"> JSON-RPC差异</h3>
+<p>OP Stack代码库使用与以太坊相同的<a href="https://eth.wiki/json-rpc/API" target="_blank" rel="noopener noreferrer">JSON-RPC API</a>。
+还引入了一些OP Stack特定的方法。
+有关更多信息，请参阅<a href="https://community.optimism.io/docs/developers/build/json-rpc/" target="_blank" rel="noopener noreferrer">自定义JSON-RPC方法的完整列表</a>。</p>
+<h3 id="pre-eip-155支持"> Pre-EIP-155支持</h3>
+<p><a href="https://eips.ethereum.org/EIPS/eip-155" target="_blank" rel="noopener noreferrer">Pre-EIP-155</a>交易没有链ID，这意味着在一个以太坊区块链上的交易可以在其他区块链上重放。
+这是一个安全风险，因此默认情况下OP Stack不支持Pre-EIP-155交易。</p>
+<h2 id="交易成本"> 交易成本</h2>
+<p><a href="https://community.optimism.io/docs/developers/build/transaction-fees/" target="_blank" rel="noopener noreferrer">默认情况下，OP Stack链上的交易成本</a>包括<a href="https://community.optimism.io/docs/developers/build/transaction-fees#the-l2-execution-fee" target="_blank" rel="noopener noreferrer">L2执行费用</a>和<a href="https://community.optimism.io/docs/developers/build/transaction-fees#the-l1-data-fee" target="_blank" rel="noopener noreferrer">L1数据费用</a>。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">为有用软件而设计的原则</title>
+    <id>https://stack.optimism.io/docs/understand/design-principles/</id>
+    <link href="https://stack.optimism.io/docs/understand/design-principles/"/>
+    <updated>2023-11-25T09:17:08.000Z</updated>
+    <content type="html"><![CDATA[<div><p>OP Stack是有用软件(Useful Software)</p>
+<p>OP Stack是由Optimism Collective创建的用于构建L2区块链生态系统的一组软件组件，用于支持Optimism。
+添加到OP Stack中的组件应根据三个关键设计原则构建：</p>
+<ul>
+<li><strong>U</strong>tility（实用性）</li>
+<li><strong>S</strong>implicity（简单性）</li>
+<li><strong>E</strong>xtensibility（可扩展性）。</li>
+</ul>
+<p>遵循这些原则设计的软件是Optimism Collective认可的有用软件！</p>
+</div>
+<h2 id="实用性"> 实用性</h2>
+<p>要成为OP Stack的一部分，它应该有助于支持Optimism Collective。
+这个条件有助于指导可以包含在堆栈中的软件类型。
+例如，一个功能强大的开源区块浏览器，可以更轻松地检查<a href="https://app.optimism.io/superchain/" target="_blank" rel="noopener noreferrer">Superchain</a>，将是OP Stack的一个很好的补充。</p>
+<p>尽管实用性对于包含在OP Stack中很重要，但你不应该害怕尝试。</p>
+<p>做一些疯狂的事情！构建以前从未构建过的东西，即使它没有明显的实用性。制作一个表情符号的区块链，或者其他什么。玩得开心！</p>
+<h2 id="简单性"> 简单性</h2>
+<p>复杂的代码无法扩展。
+进入OP Stack的代码应该是简单的。</p>
+<p>简单性减少了工程开销，这意味着Collective可以将时间花在开发新功能上，而不是重新创建现有功能。
+OP Stack更喜欢在可能的情况下使用经过实战验证的现有代码和基础设施。
+在处理关键基础设施时，简单性也意味着安全性和可维护性。
+每一行编写的代码都是引入错误和漏洞的机会。
+简单的协议意味着需要编写的代码更少，因此潜在错误的表面积也更小。
+干净和简约的代码库对于外部贡献者和审计人员来说也更易于理解。
+所有这些都有助于最大化OP Stack的安全性和正确性。</p>
+<h2 id="可扩展性"> 可扩展性</h2>
+<p>优秀的OP Stack代码本质上是开放的、协作的和可扩展的。
+协作使我们能够摆脱孤立的开发。
+协作使我们能够花更多时间在彼此的工作基础上构建，而不是一遍又一遍地重建相同的组件。
+协作是我们共同取胜的方式。</p>
+<p>可扩展的代码应该以其他人希望使用和构建在该代码之上的心态来设计。
+实际上，这意味着代码应该是开源的（采用宽松的许可证），公开干净的API，并且通常应该是模块化的，以便其他开发人员可以相对容易地扩展代码的功能。
+可扩展性是解锁Optimism Collective生态系统内协作的关键设计原则。</p>
+<h2 id="贡献给op-stack"> 贡献给OP Stack</h2>
+<p>OP Stack是一个任何人都可以贡献的去中心化软件堆栈。
+如果您有兴趣为OP Stack做出贡献，请查看<a href="./../contribute.html">这些文档的贡献部分</a>。
+当然，对Optimism Collective有影响的软件可以获得<a href="https://app.optimism.io/retropgf" target="_blank" rel="noopener noreferrer">回溯性公共物品资助</a>。
+为OP Stack构建-为编写优秀的开源软件而获得奖励。有什么不喜欢的呢？</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">OP Stack 全貌</title>
+    <id>https://stack.optimism.io/docs/understand/landscape/</id>
+    <link href="https://stack.optimism.io/docs/understand/landscape/"/>
+    <updated>2023-11-25T11:54:57.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>OP Stack 是一个用于构建 L2 区块链生态系统的常见开发堆栈，由 Optimism Collective 构建以支持 Optimism。</strong></p>
+<p>OP Stack 最好被视为 Optimism Collective 维护的一组软件组件，这些组件要么帮助定义堆栈的新层次，要么作为堆栈内的模块适应其中。</p>
+<p>由于 OP Stack 是一个正在进行中的工作，不同层次和模块的景观仍在不断演变。本页面概述了堆栈的不同概念层次，介绍了一些适应这些层次的模块。这并不包括未来可能存在的所有模块或层次，但可以很好地概述 OP Stack 当前的景观。</p>
+<p>如果您对了解 OP Stack 的最新“生产”版本感兴趣，即经过高度测试并准备好进行实际操作的堆栈组件，请查看关于 <a href="./../releases/bedrock.html">Bedrock Release</a> 的页面。</p>
+<div><p>Note</p>
+<p>请注意，本页面描述的并非所有模块都已经处于生产状态 - 这些模块明确标记为“<strong>正在开发</strong>”或“<strong>提议</strong>”</p>
+</div>
+<h2 id="现有景观"> 现有景观</h2>
+<p><img src="./../../assets/docs/understand/landscape.png" alt="OP Stack 层次结构" /></p>
+<h2 id="层次结构"> 层次结构</h2>
+<h3 id="数据可用性"> 数据可用性</h3>
+<p>数据可用性层定义了 OP Stack 基于链的原始输入数据发布的位置。OP Stack 链可以使用一个或多个数据可用性模块来获取其输入数据。因为 OP Stack 链是从数据可用性层派生的，所以所使用的数据可用性模块对系统的安全模型有重要影响。例如，如果某个数据无法从数据可用性层检索，可能无法同步链。</p>
+<h4 id="以太坊-da"> 以太坊 DA</h4>
+<p>以太坊 DA 目前是 OP Stack 最广泛使用的数据可用性模块。使用以太坊 DA 模块时，源数据可以从以太坊区块链上的任何可访问信息派生。这包括以太坊 calldata、事件和 4844 数据块。</p>
+<ul>
+<li><a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#batch-submission-wire-format" target="_blank" rel="noopener noreferrer">规范</a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-batcher" target="_blank" rel="noopener noreferrer">源代码</a></li>
+</ul>
+<h3 id="排序"> 排序</h3>
+<p>排序层确定了 OP Stack 链上的用户交易如何被收集并发布到正在使用的数据可用性层模块。在 OP Stack 的默认 Rollup 配置中，排序通常由单个专用的排序器处理。派生层中定义的规则通常限制了排序器在特定时间段内保留交易的能力。在未来的提案中，排序将是模块化的，这样链可以轻松选择和更改控制其当前排序器的机制。</p>
+<h4 id="单一排序器"> 单一排序器</h4>
+<p>OP Stack 的默认排序器模块是单一排序器模块，其中一个专用的参与者被赋予了充当排序器的能力。单一排序器模块允许治理机制决定在任何给定时间谁可以充当排序器。</p>
+<h4 id="多个排序器-提议"> 多个排序器（提议）</h4>
+<p>对单一排序器模块的简单修改是多个排序器模块，其中排序器在任何给定时间从预定义的一组可能的参与者中选择。基于 OP Stack 的各个链将能够确定定义可能排序器集合的确切机制以及从集合中选择排序器的机制。</p>
+<h3 id="派生"> 派生</h3>
+<p>派生层定义了数据可用性层中的原始数据如何被处理以形成发送到执行层的经过处理的输入，通过标准的 <a href="https://github.com/ethereum/execution-apis/blob/94164851c1630ff0a9c31d8d7d3d4fb886e196c0/src/engine/README.md" target="_blank" rel="noopener noreferrer">Ethereum Engine API</a>。派生层还可以使用执行层定义的当前系统状态来解析原始输入数据。派生层可以根据许多不同的数据源派生 Engine API 输入。派生层通常与数据可用性层密切相关，因为它必须了解如何解析任何原始输入数据。</p>
+<h4 id="rollup"> Rollup</h4>
+<p>Rollup 模块从以太坊区块数据、排序器交易批次、存款交易事件等中派生 Engine API 输入。</p>
+<ul>
+<li><a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/derivation.md#l2-chain-derivation-pipeline" target="_blank" rel="noopener noreferrer">规范</a></li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/op-node" target="_blank" rel="noopener noreferrer">源代码</a></li>
+</ul>
+<h4 id="索引器-提议"> 索引器（提议）</h4>
+<p>索引器模块是一个提议的派生层模块，它将在特定智能合约发送交易、发出事件或修改存储时派生 Engine API 输入，这些智能合约位于类似以太坊 DA 的数据可用性层模块上。</p>
+<h3 id="执行"> 执行</h3>
+<p>执行层定义了 OP Stack 系统中的状态结构，并定义了改变该状态的状态转换函数。当从派生层通过 Engine API 接收到输入时，将触发状态转换。执行层的抽象打开了对 EVM 修改或完全不同底层 VM 的可能性。</p>
+<h4 id="evm"> EVM</h4>
+<p>EVM 是一个执行层模块，它使用与以太坊虚拟机相同的状态表示和状态转换函数。OP Stack 的以太坊 Rollup 配置中的 EVM 模块是一个轻微修改的 EVM 版本，它增加了对在以太坊上发起的 L2 交易的支持，并为每个交易添加了额外的 L1 数据费用，以应对将交易发布到以太坊的成本。</p>
+<ul>
+<li><a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/exec-engine.md" target="_blank" rel="noopener noreferrer">规范</a>（与 <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreferrer">geth</a> 的区别）</li>
+<li><a href="https://github.com/ethereum-optimism/op-geth/tree/09ade3df6d1d3a4f8f308553825348be132bc960" target="_blank" rel="noopener noreferrer">源代码</a></li>
+</ul>
+<h3 id="结算层"> 结算层</h3>
+<p>结算层是外部区块链上的机制，用于在这些外部链上（包括其他 OP Stack 链）建立对 OP Stack 链状态的“视图”。对于每个 OP Stack 链，可能存在一个或多个结算机制在一个或多个外部链上。结算层机制是“只读”的，允许区块链外的参与方根据 OP Stack 链的状态做出决策。</p>
+<p>“结算层”一词源于结算层机制通常用于处理从区块链中提取资产。这种提取系统首先需要向某个第三方链证明目标链的状态，然后根据该状态进行提取。然而，结算层并不严格（或甚至主要）用于金融目的，它在本质上只是允许第三方链了解目标链的状态。</p>
+<p>一旦交易在相应的数据可用性层上发布并最终确定，该交易也在 OP Stack 链上最终确定。除非破坏底层数据可用性层，否则无法修改或删除该交易。尽管结算层可能尚未接受该交易，因为结算层需要能够验证交易的“结果”，但交易本身已经是不可变的。</p>
+<h4 id="基于证明的容错机制"> 基于证明的容错机制</h4>
+<p>基于证明的容错机制使用乐观协议建立对 OP Stack 链的视图。在一般的乐观结算机制中，<strong>提议者</strong>实体可以提出他们认为是当前有效状态的 OP Stack 链的提议。如果这些提议在一定时间内（“挑战期”）没有被否定，那么机制会假设这些提议是正确的。在特定的 Attestation Proof 机制中，如果一些预定义的参与方提供了与提议中状态不同的有效状态的证明，那么提议可以被否定。这对至少一定数量的预定义参与者的诚实性提出了信任假设。</p>
+<ul>
+<li><a href="https://github.com/ethereum-optimism/optimism/blob/129032f15b76b0d2a940443a39433de931a97a44/specs/withdrawals.md" target="_blank" rel="noopener noreferrer">规范</a>（称为<a href="https://community.optimism.io/docs/developers/bridge/messaging/#" target="_blank" rel="noopener noreferrer">提款交易</a>）</li>
+<li><a href="https://github.com/ethereum-optimism/optimism/tree/129032f15b76b0d2a940443a39433de931a97a44/packages/contracts-bedrock/contracts" target="_blank" rel="noopener noreferrer">源代码</a></li>
+</ul>
+<h4 id="容错乐观结算-提议"> 容错乐观结算（提议）</h4>
+<p>容错乐观结算机制与当前使用的基于证明的容错机制基本相同，但它用一个无需许可的容错证明过程替代了多签名挑战者。一个正确构建的容错证明应该能够在分配的挑战期内使任何不正确的提议无效。这对容错证明构建的正确性提出了信任假设。目前，容错乐观结算机制的开发工作正在进行中。</p>
+<h4 id="有效性证明结算-提议"> 有效性证明结算（提议）</h4>
+<p>有效性证明结算机制使用数学证明来证明提议视图的正确性。如果没有有效的证明，提议状态将不被接受。这对有效性证明构建的正确性提出了信任假设。</p>
+<h3 id="治理"> 治理</h3>
+<p>治理层是指用于管理系统配置、升级和设计决策的一般工具和流程。这是一个相对抽象的层，可以包含目标 OP Stack 链上和对其他层产生影响的第三方链上的各种机制。</p>
+<h4 id="多签合约"> 多签合约</h4>
+<p>多签合约是智能合约，当它们从一些预定义的参与者集合中收到阈值签名时执行操作。这通常用于管理基于 OP Stack 的系统组件的升级。目前，这是在 Optimism Mainnet 上管理桥接合约升级的机制。多签合约系统的安全性取决于许多不同因素，包括参与者的数量、阈值和每个参与者的安全程序。</p>
+<h4 id="治理代币"> 治理代币</h4>
+<p>治理代币被广泛用于去中心化的决策制定。尽管治理代币的确切功能因情况而异，但最常见的机制允许代币持有者对项目必须做出的一些决策进行投票。投票可以直接进行或通过委托进行。</p>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+  <entry>
+    <title type="html">Superchain解释器</title>
+    <id>https://stack.optimism.io/docs/understand/explainer/</id>
+    <link href="https://stack.optimism.io/docs/understand/explainer/"/>
+    <updated>2023-11-25T11:54:57.000Z</updated>
+    <content type="html"><![CDATA[<div><p>保持更新</p>
+<p><a href="https://optimism.us6.list-manage.com/subscribe/post?u=9727fa8bec4011400e57cafcb&amp;id=ca91042234&amp;f_id=002a19e3f0" target="_blank" rel="noopener noreferrer">通过订阅 Optimism 通讯，及时了解 Superchain 和 OP Stack 的最新动态</a>。</p>
+</div>
+<p>在 <a href="./../releases/bedrock/">Bedrock</a> 之后，OP Stack 的下一个重大可扩展性改进是引入“超级链”的概念：一组共享桥接、去中心化治理、升级、通信层等功能的链网络，所有这些功能都是基于 OP Stack 构建的。</p>
+<p>超级链的推出将把 Optimism Mainnet 和其他链合并为 OP Chains（即超级链内的链）的单一统一网络，并标志着可扩展和去中心化计算将带给世界重大进展。本文档的目标是描述可扩展性愿景、超级链概念以及使这一愿景成为现实所需的 OP Stack 的一些变化。</p>
+<p>这是详细的解释。<a href="https://app.optimism.io/superchain/" target="_blank" rel="noopener noreferrer">点击此处查看更简介的介绍</a>。</p>
+<div><p>注意</p>
+<p>目前，超级链是一个概念和正在进行中的项目，并不是一个具体的现实。本文档代表我们目前对超级链的组成部分、特性和路线图的最佳猜测。最终的实现将取决于（并随着）整个 Optimism Collective 的贡献而发生变化。我们迫不及待地想看到它的发展。</p>
+</div>
+<h2 id="可扩展性愿景"> 可扩展性愿景</h2>
+<h3 id="当前的区块链技术无法满足去中心化网络的需求"> 当前的区块链技术无法满足去中心化网络的需求</h3>
+<p>不幸的是，区块链生态系统尚未实现创建去中心化网络的潜力，即通过无需许可的协议取代可信实体。这主要是因为大多数网络应用由于当前区块链技术的可扩展性限制而无法在链上运行，这个问题从区块链技术诞生以来就一直困扰着该行业。</p>
+<p>事实上，在比特币白皮书的第一个回应中，就有人以非凡的远见写道：</p>
+<blockquote>
+<p><strong>我们非常非常需要这样一个系统，但是根据我对你的提议的理解，它似乎无法扩展到所需的规模。</strong></p>
+</blockquote>
+<p>十多年过去了，情况并没有改变。</p>
+<h3 id="可扩展的去中心化计算的价值巨大"> 可扩展的去中心化计算的价值巨大...</h3>
+<p>想象一下，如果我们解决了区块链可扩展性问题，如果在链上交易与与集中式后端交互一样便宜，那么在这个世界上，我们将能做到什么？</p>
+<ul>
+<li>开发人员不需要担心应用所依赖的后端基础设施，因为链保证了应用的正确执行、可用性和<a href="https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)" target="_blank" rel="noopener noreferrer">水平扩展性</a>。</li>
+<li>由于共享的智能合约执行环境，可组合性将远远超出传统 REST API 的能力。</li>
+<li>通过标准化的燃料市场，开发人员不需要为用户的所有基础设施成本买单。对于应用开发者来说，支付一个病毒式应用程序不再是进入门槛，而且可以开启更多的货币化策略。</li>
+</ul>
+<p>这些特性的结合将使得能够编写高度可扩展的 Web 应用程序，而无需涉及传统的后端软件堆栈。消除对后端的担忧是一个价值主张，不仅适用于去中心化爱好者，也适用于普通的应用程序开发人员，他们只想发布一个产品。通过可扩展性，区块链可以从一个小众兴趣变成每个开发人员工具包中的核心组件。</p>
+<p>此外，在这个大部分应用都上链的世界中，更多的数据变得具有密码学验证性。这种密码学验证性使用户能够建立跨所有应用程序的声誉。然后，这个声誉可以用于投票、贷款和抵押，从而在互联网上促进信任。此外，用户不会失去访问权，因为他们保留了对自己的数据、应用程序和声誉的所有权。</p>
+<p>毫无疑问，区块链的承诺可以改变我们所知的互联网。</p>
+<h3 id="去中心化网络仍然可以实现"> ...去中心化网络仍然可以实现</h3>
+<p>这个假设并不是一个梦想，而是一个有形的未来愿景，这个愿景激励着许多人，包括 Optimism，致力于追求它。由于这些集体的贡献，每年我们都会对区块链技术栈有更多的了解，并且离实现这个愿景越来越近。</p>
+<p>在行业的支持下，我们认为如何构建一个真正可扩展的区块链的清晰图景开始显现出来。我们称之为“Superchain”。本文介绍了Superchain架构的核心技术原则，以及一系列具体的项目，我们相信当这些项目完成时，将最终实现区块链的可扩展性愿景。这将是一个多年甚至几十年的旅程。然而，如果我们大致知道我们要去哪里，我们会更快地到达那里。</p>
+<h2 id="基础superchain概念"> 基础Superchain概念</h2>
+<h3 id="水平可扩展性需要多个链"> 水平可扩展性需要多个链...</h3>
+<p>水平区块链可扩展性基本上需要多个链。这是因为同步链的硬件要求与链执行的计算量成线性增长。因此，为了实现水平可扩展性，我们必须并行运行多个链。</p>
+<details><summary>Chains</summary>
+<p>一个状态<a href="https://en.wikipedia.org/wiki/Transition_system" target="_blank" rel="noopener noreferrer">转换系统</a>，由初始状态、状态转换函数和输入列表（交易）组成，通过密码学方式进行承诺，并可以使用普通计算机硬件和互联网连接进行独立复制。</p>
+</details>
+<h3 id="但传统的多链架构不足以满足需求"> ...但传统的多链架构不足以满足需求</h3>
+<p>传统的“多链”架构方法存在两个根本问题：</p>
+<ol>
+<li>每个链引入了一个新的安全模型，导致随着新链的引入，系统性风险不断累积。（相关<a href="https://twitter.com/VitalikButerin/status/1479501366192132099?s=20" target="_blank" rel="noopener noreferrer">链接</a>）</li>
+<li>启动新链的成本很高，因为它们需要新的验证者集和区块生产者。</li>
+</ol>
+<p>这些问题源于缺乏一个共享的区块链（“L1”链），它作为多链系统中所有链（“L2”链）的共享真实性来源。通过使用共享的真实性来源，可以实现以下目标：</p>
+<p>a）在所有链上强制执行标准的安全模型；</p>
+<p>b）消除链部署需要新的验证者集的要求，因为每个L2链都使用L1共识。</p>
+<h3 id="不是多链-也不是单链-超级链"> 不是多链，也不是单链... 超级链</h3>
+<p>通过使用L2链来构建多链生态系统，可以将链视为可互换的计算资源，从而实现链的商品化。这种链的商品化使开发人员能够构建跨链应用程序，而无需引入系统性风险，并且在部署新链时不会产生大量的开销。链本身的概念可以被抽象化，到达这一点时，可以将这个互操作链网络视为一个单一的单位：Superchain(下文中部分翻译将采用超级链进行表述，以更贴合语境)。</p>
+<details><summary>Superchain</summary>
+<p>一个去中心化的区块链平台，由许多共享安全性和技术堆栈（OP Stack）的链组成。互操作性和标准化使得工具和钱包可以将各个链视为相同的实体。</p>
+</details>
+<h2 id="超级链概述"> 超级链概述</h2>
+<h3 id="超级链一览"> 超级链一览</h3>
+<p>超级链是一个由L2链组成的网络，这些链被称为OP Chains，它们共享安全性、通信层和开源技术堆栈。然而，与多链设计不同的是，这些链是标准化的，并且旨在作为可互换的资源使用。这使得开发人员可以构建针对整个超级链的应用程序，并将底层链抽象化。</p>
+<details><summary>OP Chain</summary>
+<p>Optimism Superchain中的一个单独的链。无论其具体属性如何，只要它由Optimism Collective正式管理，就被视为OP chains，因此是超级链的一部分。</p>
+</details>
+<p><img src="./../../assets/docs/understand/superchain-diag.png" alt="Superchain Explainer Diagram.png" /></p>
+<h3 id="超级链的特性"> 超级链的特性</h3>
+<p>为了使Optimism升级为超级链，它必须具备以下特性：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>共享的L1区块链</td>
+<td>提供跨所有OP Chains的交易的完全排序。</td>
+</tr>
+<tr>
+<td>共享的桥接器用于所有OP Chains</td>
+<td>使OP Chains具有标准化的安全特性。</td>
+</tr>
+<tr>
+<td>低成本的OP链部署</td>
+<td>使得在OP Chains上部署和交易不需要高昂的L1交易费用。</td>
+</tr>
+<tr>
+<td>OP Chains的配置选项</td>
+<td>使OP Chains能够配置其数据可用性提供者、序列器地址等。</td>
+</tr>
+<tr>
+<td>安全的交易和跨链消息</td>
+<td>使用户能够安全地在OP链之间迁移资产。</td>
+</tr>
+</tbody>
+</table>
+<p>一旦Optimism满足了这些特性，它就可以被认为是一个超级链。</p>
+<h2 id="将optimism升级为超级链"> 将Optimism升级为超级链</h2>
+<p>我们相信在Bedrock发布之后，需要进行以下更改，以创建一个初始的超级链，使得可以使用相同的桥接器部署和升级多个链：</p>
+<h3 id="将bedrock桥接器升级为链工厂"> 将Bedrock桥接器升级为链工厂</h3>
+<p>Bedrock引入了<a href="https://github.com/ethereum-optimism/optimism/blob/74a63c94d881442b4edd4df6492513e0113eb064/packages/contracts-bedrock/contracts/L1/SystemConfig.sol" target="_blank" rel="noopener noreferrer">SystemConfig合约</a>，它开始直接使用L1智能合约来定义L2链。可以通过扩展该合约，将定义L2链的<em>所有信息</em>都存储在链上。包括生成唯一的链ID、关键配置值（如区块的燃料限制）等。</p>
+<p>一旦链的数据完全存储在链上，我们可以创建一个工厂，用于为每个链部署配置和所有其他所需的合约。通过使用CREATE2使合约地址具备确定性，可以根据链的配置确定与该链相关的所有桥接器地址。这还使得可以在不部署桥接器合约的情况下与链进行交互，使（虚拟的）链部署几乎免费，并允许链继承标准的安全属性。</p>
+<h3 id="使用链工厂派生op-chain数据"> 使用链工厂派生OP Chain数据</h3>
+<p><a href="./../releases/bedrock/explainer/#block-derivation">Bedrock引入了从L1链派生L2链的功能</a>，其中所有链数据可以基于L1块进行同步。通过L1链工厂将所有配置放在链上，Optimism节点应该能够在给定单个L1地址和与L1的连接的情况下确定性地同步<em>任何</em>OP Chain。</p>
+<div><p>📌</p>
+<p>当OP链同步时，链的状态是通过本地计算得出的。这意味着确定OP链的状态是完全无需权限且安全的。在节点执行的本地计算过程中，所有无效的交易都会被简单地忽略，因此不需要使用证明系统进行链派生。然而，仍然需要使用证明系统来实现超级链的提现功能。</p>
+</div>
+<h3 id="无需许可的证明系统以实现提现功能"> 无需许可的证明系统以实现提现功能</h3>
+<p>在Bedrock中，有一个需要许可的实体（提议者），用户需要通过该实体提交提现请求。此外，提议者必须按照一定的时间间隔向L1提交提案。随着超级链中链的数量增加，这引入了线性开销，并且由于有限的L1资源，甚至对链的数量有上限。</p>
+<p>为了解决这些问题，我们可以引入两个功能：</p>
+<ol>
+<li>提现声明（也称为无需许可的提案）- 允许任何人提交提现请求（也称为提案），而不仅仅是指定的提议者。这消除了系统中的许可实体，使用户能够提交自己的提现消息。</li>
+<li>移除提案提交间隔 - 仅在用户需要提现时才允许进行提现声明。这消除了部署新的OP链时产生的开销。</li>
+</ol>
+<details><summary>提现声明（Withdrawal claims）</summary>
+<p>在一条链上对另一条链的状态进行声明。例如，我可以声明在OP Mainnet上我已经销毁了我的代币，并打算将这些代币提现回L1。</p>
+</details>
+<p>我们可以通过在Optimism桥接合约中引入无需许可的证明系统来实现这两个功能。在Bedrock中引入的模块化证明设计中，证明可以采用故障证明或有效性证明（例如零知识证明）的形式。然而，在有效性证明投入生产使用之前，我们假设提现将使用故障证明系统。</p>
+<p>在设想的故障证明系统中，任何人都可以提交提现声明，并且这些提现声明可以随时提交。当声明附带有绑定时，提交提现声明可以是无需许可的，因为这些绑定充当了如果声明被证明无效时的抵押品。如果挑战者成功挑战了声明，绑定将支付给挑战者作为他们参与保护系统的报酬，从而在这个无需许可的系统中防止垃圾信息的产生。此外，无需定期提交它们，因为故障证明游戏可以高效地证明自创世以来链的整个历史。</p>
+<p>故障证明的实现可能最初依赖于一组可信的链证明者来作为争议的最终仲裁者。挑战者必须向大量的链证明者请求证明，并将这些证明合并为一个称为证明的挑战证明。然后，挑战证明用于挑战无效的声明。</p>
+<p>基于证明的故障证明应该优先考虑安全性而不是活性。这意味着如果这些链证明者是恶意的，他们不能单独破坏提现的安全性。他们可能造成的最严重故障是阻止提现被处理，直到下一次升级-一种活性故障。</p>
+<p>将来，证明将逐步被不依赖信任的证明（如<a href="https://github.com/ethereum-optimism/cannon" target="_blank" rel="noopener noreferrer">Cannon证明系统</a>）取代。</p>
+<h3 id="可配置的op-chain序列器"> 可配置的OP Chain序列器</h3>
+<p>Bedrock引入了在SystemConfig合约中设置序列器地址的功能。随着我们引入具有自己的SystemConfig合约的多个链，我们可以使序列器地址能够由OP Chain的部署者进行配置。我们将这种可配置的序列器设计称为模块化序列化。这使得OP Chain可以由不同的实体进行序列化，同时保留标准的[超级链桥接器]安全模型，这是实现序列化去中心化的关键一步。</p>
+<details><summary>模块化序列化</summary>
+<p>在OP Chain部署期间配置序列器地址的能力。这个值可以由OP Chain的部署者进行配置。</p>
+</details>
+<details><summary>超级链桥接器</summary>
+<p>管理超级链中所有OP Chain的L1桥接器合约。这个桥接器可以由Optimism Collective进行升级。</p>
+</details>
+<p>在超级链桥接器的安全模型中，链的安全性（即有效性）和链的活性（即抗审查性）是得到保证的。安全性由证明系统保证，活性由能够直接向L1提交<a href="./../releases/bedrock/explainer/#deposits">交易</a>保证。安全性和活性的结合意味着如果一个OP Chain的序列器出现问题，用户始终可以提交交易到L1，将他们的使用迁移到一个具有正常运行序列器的新的OP链。</p>
+<p>模块化序列化还可以实现无需许可的对不同序列化模型进行实验。开发者可以设想实现序列化协议，如轮询序列化、序列器共识协议、PGA排序或FIFO排序。我们可以预期，随着不同序列化协议之间的竞争，用户友好的序列化标准将逐渐出现。</p>
+<h3 id="为所有op-chains提供一个共享的升级路径"> 为所有OP Chains提供一个共享的升级路径</h3>
+<p>为了以高度的安全性和去中心化性交付初始的超级链，应引入一个去中心化的安全委员会来管理升级。安全委员会应能够更新链证明者的集合，启动带有延迟的合约升级，并按下紧急桥接暂停按钮，该按钮还会取消待处理的升级。</p>
+<p>在紧急情况下暂停桥接的能力意味着在最坏的情况下，如果安全委员会参与者的私钥泄露，提现将无限期暂停，桥接升级将永远被取消。换句话说，L1的资金将被冻结。这遵循了安全性优先于活性的设计原则，即无论如何都应该防止资金的损失（即强制安全性），即使这意味着资金被锁定（即牺牲活性）。</p>
+<h4 id="通过l1软分叉解冻桥接"> 通过L1软分叉解冻桥接</h4>
+<p>为了解决被冻结的资金问题，L2社区讨论了一个潜在的最终恢复机制，我们称之为“L1软分叉升级恢复”机制。该机制使得L1能够通过软分叉启动桥接升级，绕过超级链桥接合约中的所有其他权限。这种方法可能会对以太坊引入系统性风险，并且在实施之前需要进行研究和社区认可。这不是实现超级链所必需的，只是为了研究的完整性而记录下来。在进一步研究其影响和安全性之前，团队目前不支持这种方法。</p>
+<p>该机制的步骤如下：</p>
+<p><em>任何人</em>都可以通过向特殊的桥接合约提交一笔交易，以及一个非常大的保证金来提出升级建议。这将开始一个为期两周的挑战期。在此挑战期间，任何人都可以提交挑战，立即取消升级并领取保证金。在正常情况下，由于任何人都有巨大的激励来取消升级，升级不可能在所需的两周内未被取消。然而，如果升级伴随着对以太坊L1验证器软件（即L1软分叉）的修改，该软分叉忽略包含取消交易的区块，那么升级可能会成功。</p>
+<p>虽然这种类型的成功升级将代表以太坊L1的软分叉，但它不会给以太坊代码库带来长期的技术债务，因为一旦升级完成，软分叉逻辑可以被移除。</p>
+<p>我们预计这个应急措施将永远不会被使用，但它的存在可能会阻止恶意行为。</p>
+<h3 id="这些功能的结合满足了超级链的核心属性"> 这些功能的结合满足了超级链的核心属性</h3>
+<p>我们相信这些升级可以为所有OP Chains提供共享的桥接，廉价的OP Chain部署，OP Chain的重要配置选项，以及安全的交易和跨链消息。由于Bedrock版本已经提供了共享L1区块链的属性，在这些变化之后，我们将实现超级链所需的所有核心属性。</p>
+<h2 id="扩展超级链-实现愿景的增强功能"> 扩展超级链-实现愿景的增强功能</h2>
+<p>我们预计，如果成功，Bedrock版本之后的超级链发布将标志着Optimism可扩展性和去中心化的重要里程碑。然而，在实现完全可扩展的区块链愿景之前，仍然存在一些需要解决的重要问题。预计的问题包括：</p>
+<ol>
+<li>提现声明依赖于一组可信的链证明者。</li>
+<li>跨链交易速度慢，因为需要等待挑战期。</li>
+<li>跨链交易是异步的，破坏了执行原子跨链交易（如闪电贷）的能力。</li>
+<li>将交易提交到超级链不可扩展，因为交易数据必须提交到容量有限的L1。</li>
+<li>没有易于构建可扩展dApp的框架，可以利用多个OP Chains。</li>
+<li>没有易于管理多个OP Chains上的资产和dApp的钱包。</li>
+</ol>
+<p>如果解决了这些问题中的每一个，就有可能构建去中心化的替代方案，甚至可以替代最复杂的Web2应用程序。</p>
+<p>以下是潜在的未来增强功能的概述，当结合在一起时，可以解决每一个问题。</p>
+<h3 id="多重证明的安全性"> 多重证明的安全性</h3>
+<h4 id="痛点"> 痛点：</h4>
+<ol>
+<li>提现声明依赖于一组可信的链证明者。</li>
+</ol>
+<h4 id="提议的解决方案"> 提议的解决方案：</h4>
+<p>可以通过引入无需许可的证明（例如Cannon），完全在链上解决争议，从而替代可信的链证明者。然而，完全在链上的证明存在一个问题，即如果它们出现问题，就没有备用机制。为了确保它们永远不会失败，可以引入多重证明系统，通过冗余提供安全性。有关多重证明设计的更多信息，请点击<a href="https://medium.com/ethereum-optimism/our-pragmatic-path-to-decentralization-cb5805ca43c1" target="_blank" rel="noopener noreferrer">这里</a>。</p>
+<h3 id="低延迟的l2到l2消息传递"> 低延迟的L2到L2消息传递</h3>
+<h4 id="痛点-2"> 痛点：</h4>
+<ol start="2">
+<li>跨链交易速度慢，因为需要等待挑战期。</li>
+</ol>
+<h4 id="提议的解决方案-2"> 提议的解决方案：</h4>
+<p>故障证明引入了用户体验的负担，因为它们需要等待挑战期才能安全地完成。这意味着，根据挑战期的长度，用户需要在资产从一个OP链迁移到下一个OP链之前等待很长时间。</p>
+<p>另一方面，有效性证明没有这个问题。有效性证明没有挑战期，因此可以立即从一个OP Chain提取资产到下一个OP Chain。如果用户预计频繁在链之间迁移，甚至在正常的dApp执行过程中，这一点非常重要。然而，有效性证明通常使用零知识证明（ZKP）来实现，这是昂贵且容易出错的。可能需要几年时间才能真正将ZKP投入生产，以使其成为主要的跨链通信协议。</p>
+<p>然而，在ZKP投入生产的同时，使用OP Stack的模块化证明系统可以实现低延迟的L2到L2消息传递。通过模块化证明，可以在同一链上使用两个证明系统。这打开了提供低延迟桥接的可能性，同时在提供高安全性高延迟桥接的同时进行安全性的权衡。</p>
+<p>这种异构桥接系统意味着开发人员可以使用多种桥接类型来构建他们的应用程序，例如：</p>
+<ol>
+<li>高安全性、高延迟的故障证明（标准高安全性桥接）</li>
+<li>低安全性、低延迟的故障证明（通过缩短挑战期来实现低延迟）</li>
+<li>低安全性、低延迟的有效性证明（使用可信链证明者代替ZKP）</li>
+<li>高安全性、低延迟的有效性证明（一旦ZKP准备就绪）</li>
+</ol>
+<p>混合多个证明系统使开发人员能够为低价值资产提供低延迟桥接，为高价值资产提供高延迟。甚至可以通过使用高安全性高延迟的故障证明回退来证明资产的有效性，将低安全性资产转变为高安全性资产。这个构建模块使开发人员能够进行有趣的安全性权衡，例如使用高阈值证明与高安全性高延迟的故障证明回退。</p>
+<h3 id="同步跨链交易"> 同步跨链交易</h3>
+<h4 id="痛点-3"> 痛点：</h4>
+<ol start="3">
+<li>跨链交易是异步的，破坏了执行原子跨链交易（如闪电贷）的能力。</li>
+</ol>
+<h4 id="提议的解决方案-3"> 提议的解决方案：</h4>
+<p>传统的跨链消息传递是异步的，这意味着跨链交易不是原子的。例如，如果用户想要执行一个跨链套利交易——在链A上购买代币A，在链B上卖出代币B——不能保证他们的交易会完整执行。用户可能会在没有卖出代币B的情况下购买了代币A。</p>
+<p>通过在OP Chains上使用共享的排序协议，可以引入同步的跨链消息传递，并实现原子的跨链交互。在我们的例子中，链A和链B上的排序器将分别接收到套利交易，并就何时包含它们达成共识，然后将每个交易原子地包含在链接块中。只有当交易确实在每个链上被包含时，才需要支付手续费，这意味着排序器承担了同步风险，而不是用户在我们的初始例子中。这些共享的排序协议可以在基于后Bedrock超级链的模块化排序层之上无需许可地实施。</p>
+<p>通过低延迟的L2到L2消息传递以及共享的排序，可以执行复杂的交易，如跨链闪电贷。甚至可以进一步创建一个EVM抽象，其中个别的智能合约（甚至是个别的存储槽）存在于不同的链上。</p>
+<h3 id="alt-data-availability-layer-plasma-protocol"> Alt-Data Availability Layer — Plasma Protocol</h3>
+<h4 id="痛点-4"> 痛点：</h4>
+<ol start="4">
+<li>将交易提交到超级链不可扩展，因为交易数据必须提交到容量有限的L1。</li>
+</ol>
+<h4 id="提议的解决方案-4"> 提议的解决方案：</h4>
+<p>目前，L1数据可用性（DA）的扩展性还远远不足以支持互联网级别的规模。然而，通过使用Plasma协议，可以扩展OP链可访问的数据可用性，从而使替代的DA提供者补充L1 DA的有限性。</p>
+<p>通用的Plasma协议能够比L1更好地扩展，因为只有对交易数据感兴趣的用户才会下载Plasma数据，而在L1上，每个以太坊节点都会下载L1上的所有交易数据。这意味着Plasma数据非常廉价。然而，Plasma的安全模型比L1差一些——Plasma链的数据可能暂时不可用，这意味着用户必须从链上提取资产。请注意，这个安全模型仍然保证了Plasma链的安全性，只是无法保证连续性。</p>
+<details><summary>Plasma Chain</summary>
+<p>一种将交易数据提交到L1但不直接提供给L1的链，具有数据可用性挑战的备用方案。</p>
+</details>
+<p><strong>Plasma协议概述：</strong></p>
+<ul>
+<li>数据可用性（DA）提供者从用户那里接收交易数据。</li>
+<li>DA提供者对交易数据进行哈希处理，并将哈希提交给Plasma合约。</li>
+<li>一旦哈希被提交，DA提供者向用户发送一个证明，证明他们的交易数据包含在哈希中。如果DA提供者行为不端，他们将不会发送证明给用户。</li>
+<li>如果DA提供者没有向用户发送证明，用户可以提交DA挑战。这将强制DA提供者将交易数据上链。如果DA提供者没有将证明提交到链上，哈希将被删除。这确保了用户始终可以（在挑战期结束后）同步Plasma链。
+<ul>
+<li>在L1拥堵的情况下，DA挑战期可以延长。</li>
+</ul>
+</li>
+<li>用户还可以提交一个L1交易，从Plasma链中提取资产，以切换他们的DA提供者。</li>
+<li>Plasma链的结算使用与Rollup链几乎相同的故障证明系统，唯一的区别是使用在Plasma合约中最终确定的哈希从链中派生出额外的数据。</li>
+</ul>
+<p>由于哈希能够将任意大小的数据减少为恒定大小的承诺，并且能够并行处理交易数据的哈希，使用Plasma DA可以实现几乎完美的水平可扩展性。这意味着可以将大规模可扩展的应用程序（如游戏或社交媒体）放在Plasma链上。</p>
+<h3 id="多链dapp框架"> 多链dApp框架</h3>
+<h4 id="痛点-5"> 痛点：</h4>
+<ol start="5">
+<li>
+<p>没有易于构建可利用多个OP Chains的可扩展dApp的框架。</p>
+</li>
+<li>
+<p>没有易于管理多个OP Chains上的资产和dApp的钱包。</p>
+</li>
+</ol>
+<h4 id="提议的解决方案-草图"> 提议的解决方案（草图）：</h4>
+<p>这不是一个核心协议的改变，而是可以构建在核心Superchain协议之上的工具。这里的建议旨在提供如何构建改进部署到Superchain的工具的粗略直觉。</p>
+<p>以下是一些可以使在Superchain上开发变得更好的工具：</p>
+<ol>
+<li>内容可寻址的智能合约 - 这使得合约在所有链上具有相同的地址。这样，开发人员可以编写智能合约，这些合约在所有OP Chains上都以相同的地址进行事实上的部署。如果OP Chains上的用户想要使用尚未在其链上可用的智能合约，他们可以独立部署该代码。</li>
+<li>跨链合约状态管理标准 - 创建智能合约状态如何从一条链迁移到下一条链的标准，使开发人员能够在许多链上分片其应用程序。此外，这种逻辑可以在钱包中使用，以显示用户状态，就好像它们都在同一条链上。例如，如果用户的代币分布在许多链上，钱包可以使用跨链状态管理逻辑，知道应将用户余额显示为所有链上代币余额的总和。</li>
+</ol>
+<div><p>📌</p>
+<p>对于以太坊可扩展性爱好者：这些框架可以通过使用户状态从臃肿的链迁移到新的链上变得容易来解决状态增长问题。旧的臃肿链可以以较低的gas限制维护，或者完全废弃。</p>
+</div>
+<ol start="3">
+<li>Superchain RPC端点 - 创建一个单一的RPC端点，用户可以将其Superchain交易发送到，而不管它们打算用于哪个OP链，以使用户避免不断切换网络。</li>
+</ol>
+<p>通过强大的多链dApp框架，部署跨链dApp可能会变得与部署针对单个链的dApp一样容易。</p>
+<h2 id="参与其中"> 参与其中</h2>
+<p>我们相信扩展区块链将彻底去中心化互联网，并使创建水平可扩展、安全和去中心化的 Web 应用程序变得容易。我们认为 OP Stack 的 Superchain 发布可能是实现这一愿景的重要一步。然而，在发布之后，仍需要大量的工作来实现可扩展性愿景。</p>
+<p>然而，伴随巨大的挑战也带来了巨大的机遇！为了实现这一目标，我们需要像您这样的开发者通过开源贡献来支持我们。在 OP Stack 的初始发布以及随之而来的生态系统中，将会有大量的低悬挂果实的贡献机会等待开发者们去发掘。我们无法独自完成这个任务！唯有通过像您这样的开源贡献者的支持，我们才有希望实现这一目标！而且，通过<a href="https://medium.com/ethereum-optimism/retroactive-public-goods-funding-33c9b7d00f0c" target="_blank" rel="noopener noreferrer">追溯性公共物品资助</a>，您的开源贡献可能会得到回报！</p>
+<p>前方充满了激动人心的时刻。</p>
+<p>保持乐观 🔴✨</p>
+<h2 id="术语表"> 术语表</h2>
+<ul>
+<li>
+<p><strong>Attestation-Based Fault Proof</strong>：一种错误证明，可以通过提供与原始提款声明不一致的证明来成功发起挑战。</p>
+</li>
+<li>
+<p><strong>Attestation-Based Validity Proof</strong>: 一种可以通过提供与提款声明一致的证明来验证的有效性证明。</p>
+</li>
+<li>
+<p><strong>Attestation Proof</strong>: 由预先约定的一组链证明者的一些签名组成的证明。</p>
+</li>
+<li>
+<p><strong>Cannon Fault Proof</strong>: 使用一个在链上进行的游戏来评估挑战，该游戏保证在经济合理性假设下得出真实的结果的错误证明。</p>
+</li>
+<li>
+<p><strong>Chain</strong>: 一个状态<a href="https://en.wikipedia.org/wiki/Transition_system" target="_blank" rel="noopener noreferrer">转换系统</a>，包括初始状态、状态转换函数和输入（交易）列表，可以通过计算机硬件和互联网连接进行独立复制，并进行密码学承诺。</p>
+</li>
+<li>
+<p><strong>Chain Proof</strong>: 对特定提款声明的有效性的难以伪造的证据。证明通常用于使链之间能够进行通信。</p>
+</li>
+<li>
+<p><strong>Challenge Period</strong>: 可以对错误证明提出挑战以证明其错误的时间窗口。</p>
+</li>
+<li>
+<p><strong>Fault Proof</strong>: 一种依赖于缺乏反证据来证明正确性的证明。</p>
+</li>
+<li>
+<p><strong>Modular Proof</strong>: 可以使用多个证明系统来证明相同的OP Chains的能力。例如，可以使用错误证明或有效性证明来证明OP链。</p>
+</li>
+<li>
+<p><strong>Modular Sequencing</strong>: 在OP链部署期间配置顺序器地址的能力。该值可以由OP链部署者配置。</p>
+</li>
+<li>
+<p><strong>OP Chain</strong>: Optimism Superchain中的一个单独的链。所有链，无论其特定属性如何，只要它们受Optimism Collective的官方治理，就被视为OP Chains，因此是Superchain的一部分。</p>
+</li>
+<li>
+<p><strong>Plasma Chain</strong>: 交易数据提交到L1，但不直接提供给L1的链，具有数据可用性挑战的备用方案。</p>
+</li>
+<li>
+<p><strong>Rollup Chain</strong>: 所有交易数据都提交到L1的链。</p>
+</li>
+<li>
+<p><strong>Sequencer</strong>: 在向OP链提交交易时具有优先权的特定实体或智能合约。</p>
+</li>
+<li>
+<p><strong>Superchain</strong>: 一个去中心化的区块链平台，由许多共享安全性和技术堆栈（OP Stack）的链组成。互操作性和标准化使得可以将各个链视为工具和钱包中的相同实体。</p>
+</li>
+<li>
+<p><strong>Superchain Bridge</strong>: 管理Superchain中所有OP Chains的L1桥接合约。该桥接合约可以由Optimism Collective进行升级。</p>
+</li>
+<li>
+<p><strong>Validity Proof</strong>: 对提款声明的证明，可以立即验证，无需挑战期。</p>
+</li>
+<li>
+<p><strong>Withdrawal Claim</strong>: 在另一条链上对一条链的状态的声明。例如，我可以声称在OP Mainnet上烧毁了我的代币，并打算将这些代币提取回L1。</p>
+</li>
+<li>
+<p><strong>Zero Knowledge Proof</strong>: 一种依赖于密码学属性和低错误率的有效性证明。</p>
+</li>
+</ul>
+]]></content>
+    <contributor>
+      <name/>
+    </contributor>
+    <published>2023-11-25T02:45:15.000Z</published>
+  </entry>
+</feed>
